@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="MBCrmSys:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="MBCrmSys.war">
+      <element id="artifact" artifact-name="MBCrmSys:war exploded" />
+    </root>
+  </artifact>
+</component>
