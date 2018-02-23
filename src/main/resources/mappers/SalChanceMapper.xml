@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mbcrmsys.dao.SalChanceMapper" >
+  <resultMap id="BaseResultMap" type="com.mbcrmsys.pojo.SalChance" >
+    <id column="chc_id" property="chcId" jdbcType="BIGINT" />
+    <result column="chc_source" property="chcSource" jdbcType="VARCHAR" />
+    <result column="chc_cust_name" property="chcCustName" jdbcType="VARCHAR" />
+    <result column="chc_title" property="chcTitle" jdbcType="VARCHAR" />
+    <result column="chc_rate" property="chcRate" jdbcType="INTEGER" />
+    <result column="chc_linkman" property="chcLinkman" jdbcType="VARCHAR" />
+    <result column="chc_tel" property="chcTel" jdbcType="VARCHAR" />
+    <result column="chc_desc" property="chcDesc" jdbcType="VARCHAR" />
+    <result column="chc_create_id" property="chcCreateId" jdbcType="INTEGER" />
+    <result column="chc_create_name" property="chcCreateName" jdbcType="VARCHAR" />
+    <result column="chc_create_date" property="chcCreateDate" jdbcType="TIMESTAMP" />
+    <result column="chc_due_id" property="chcDueId" jdbcType="INTEGER" />
+    <result column="chc_due_name" property="chcDueName" jdbcType="VARCHAR" />
+    <result column="chc_due_date" property="chcDueDate" jdbcType="TIMESTAMP" />
+    <result column="chc_status" property="chcStatus" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    chc_id, chc_source, chc_cust_name, chc_title, chc_rate, chc_linkman, chc_tel, chc_desc, 
+    chc_create_id, chc_create_name, chc_create_date, chc_due_id, chc_due_name, chc_due_date, 
+    chc_status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sal_chance
+    where chc_id = #{chcId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sal_chance
+    where chc_id = #{chcId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.mbcrmsys.pojo.SalChance" >
+    insert into sal_chance (chc_id, chc_source, chc_cust_name, 
+      chc_title, chc_rate, chc_linkman, 
+      chc_tel, chc_desc, chc_create_id, 
+      chc_create_name, chc_create_date, chc_due_id, 
+      chc_due_name, chc_due_date, chc_status
+      )
+    values (#{chcId,jdbcType=BIGINT}, #{chcSource,jdbcType=VARCHAR}, #{chcCustName,jdbcType=VARCHAR}, 
+      #{chcTitle,jdbcType=VARCHAR}, #{chcRate,jdbcType=INTEGER}, #{chcLinkman,jdbcType=VARCHAR}, 
+      #{chcTel,jdbcType=VARCHAR}, #{chcDesc,jdbcType=VARCHAR}, #{chcCreateId,jdbcType=INTEGER}, 
+      #{chcCreateName,jdbcType=VARCHAR}, #{chcCreateDate,jdbcType=TIMESTAMP}, #{chcDueId,jdbcType=INTEGER}, 
+      #{chcDueName,jdbcType=VARCHAR}, #{chcDueDate,jdbcType=TIMESTAMP}, #{chcStatus,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mbcrmsys.pojo.SalChance" >
+    insert into sal_chance
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="chcId != null" >
+        chc_id,
+      </if>
+      <if test="chcSource != null" >
+        chc_source,
+      </if>
+      <if test="chcCustName != null" >
+        chc_cust_name,
+      </if>
+      <if test="chcTitle != null" >
+        chc_title,
+      </if>
+      <if test="chcRate != null" >
+        chc_rate,
+      </if>
+      <if test="chcLinkman != null" >
+        chc_linkman,
+      </if>
+      <if test="chcTel != null" >
+        chc_tel,
+      </if>
+      <if test="chcDesc != null" >
+        chc_desc,
+      </if>
+      <if test="chcCreateId != null" >
+        chc_create_id,
+      </if>
+      <if test="chcCreateName != null" >
+        chc_create_name,
+      </if>
+      <if test="chcCreateDate != null" >
+        chc_create_date,
+      </if>
+      <if test="chcDueId != null" >
+        chc_due_id,
+      </if>
+      <if test="chcDueName != null" >
+        chc_due_name,
+      </if>
+      <if test="chcDueDate != null" >
+        chc_due_date,
+      </if>
+      <if test="chcStatus != null" >
+        chc_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="chcId != null" >
+        #{chcId,jdbcType=BIGINT},
+      </if>
+      <if test="chcSource != null" >
+        #{chcSource,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCustName != null" >
+        #{chcCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="chcTitle != null" >
+        #{chcTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="chcRate != null" >
+        #{chcRate,jdbcType=INTEGER},
+      </if>
+      <if test="chcLinkman != null" >
+        #{chcLinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="chcTel != null" >
+        #{chcTel,jdbcType=VARCHAR},
+      </if>
+      <if test="chcDesc != null" >
+        #{chcDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCreateId != null" >
+        #{chcCreateId,jdbcType=INTEGER},
+      </if>
+      <if test="chcCreateName != null" >
+        #{chcCreateName,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCreateDate != null" >
+        #{chcCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chcDueId != null" >
+        #{chcDueId,jdbcType=INTEGER},
+      </if>
+      <if test="chcDueName != null" >
+        #{chcDueName,jdbcType=VARCHAR},
+      </if>
+      <if test="chcDueDate != null" >
+        #{chcDueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chcStatus != null" >
+        #{chcStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mbcrmsys.pojo.SalChance" >
+    update sal_chance
+    <set >
+      <if test="chcSource != null" >
+        chc_source = #{chcSource,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCustName != null" >
+        chc_cust_name = #{chcCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="chcTitle != null" >
+        chc_title = #{chcTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="chcRate != null" >
+        chc_rate = #{chcRate,jdbcType=INTEGER},
+      </if>
+      <if test="chcLinkman != null" >
+        chc_linkman = #{chcLinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="chcTel != null" >
+        chc_tel = #{chcTel,jdbcType=VARCHAR},
+      </if>
+      <if test="chcDesc != null" >
+        chc_desc = #{chcDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCreateId != null" >
+        chc_create_id = #{chcCreateId,jdbcType=INTEGER},
+      </if>
+      <if test="chcCreateName != null" >
+        chc_create_name = #{chcCreateName,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCreateDate != null" >
+        chc_create_date = #{chcCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chcDueId != null" >
+        chc_due_id = #{chcDueId,jdbcType=INTEGER},
+      </if>
+      <if test="chcDueName != null" >
+        chc_due_name = #{chcDueName,jdbcType=VARCHAR},
+      </if>
+      <if test="chcDueDate != null" >
+        chc_due_date = #{chcDueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chcStatus != null" >
+        chc_status = #{chcStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where chc_id = #{chcId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mbcrmsys.pojo.SalChance" >
+    update sal_chance
+    set chc_source = #{chcSource,jdbcType=VARCHAR},
+      chc_cust_name = #{chcCustName,jdbcType=VARCHAR},
+      chc_title = #{chcTitle,jdbcType=VARCHAR},
+      chc_rate = #{chcRate,jdbcType=INTEGER},
+      chc_linkman = #{chcLinkman,jdbcType=VARCHAR},
+      chc_tel = #{chcTel,jdbcType=VARCHAR},
+      chc_desc = #{chcDesc,jdbcType=VARCHAR},
+      chc_create_id = #{chcCreateId,jdbcType=INTEGER},
+      chc_create_name = #{chcCreateName,jdbcType=VARCHAR},
+      chc_create_date = #{chcCreateDate,jdbcType=TIMESTAMP},
+      chc_due_id = #{chcDueId,jdbcType=INTEGER},
+      chc_due_name = #{chcDueName,jdbcType=VARCHAR},
+      chc_due_date = #{chcDueDate,jdbcType=TIMESTAMP},
+      chc_status = #{chcStatus,jdbcType=VARCHAR}
+    where chc_id = #{chcId,jdbcType=BIGINT}
+  </update>
+</mapper>

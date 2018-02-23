@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mbcrmsys.dao.LinkmanMapper" >
+  <resultMap id="BaseResultMap" type="com.mbcrmsys.pojo.Linkman" >
+    <id column="LIN_ID" property="linId" jdbcType="INTEGER" />
+    <result column="LIN_CUS_ID" property="linCusId" jdbcType="INTEGER" />
+    <result column="LIN_NAME" property="linName" jdbcType="VARCHAR" />
+    <result column="LIN_SEX" property="linSex" jdbcType="VARCHAR" />
+    <result column="LIN_TELEPHONE" property="linTelephone" jdbcType="VARCHAR" />
+    <result column="LIN_POST" property="linPost" jdbcType="VARCHAR" />
+    <result column="LIN_MOBILE" property="linMobile" jdbcType="VARCHAR" />
+    <result column="LIN_MEMO" property="linMemo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    LIN_ID, LIN_CUS_ID, LIN_NAME, LIN_SEX, LIN_TELEPHONE, LIN_POST, LIN_MOBILE, LIN_MEMO
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from linkman
+    where LIN_ID = #{linId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from linkman
+    where LIN_ID = #{linId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mbcrmsys.pojo.Linkman" >
+    insert into linkman (LIN_ID, LIN_CUS_ID, LIN_NAME, 
+      LIN_SEX, LIN_TELEPHONE, LIN_POST, 
+      LIN_MOBILE, LIN_MEMO)
+    values (#{linId,jdbcType=INTEGER}, #{linCusId,jdbcType=INTEGER}, #{linName,jdbcType=VARCHAR}, 
+      #{linSex,jdbcType=VARCHAR}, #{linTelephone,jdbcType=VARCHAR}, #{linPost,jdbcType=VARCHAR}, 
+      #{linMobile,jdbcType=VARCHAR}, #{linMemo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mbcrmsys.pojo.Linkman" >
+    insert into linkman
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="linId != null" >
+        LIN_ID,
+      </if>
+      <if test="linCusId != null" >
+        LIN_CUS_ID,
+      </if>
+      <if test="linName != null" >
+        LIN_NAME,
+      </if>
+      <if test="linSex != null" >
+        LIN_SEX,
+      </if>
+      <if test="linTelephone != null" >
+        LIN_TELEPHONE,
+      </if>
+      <if test="linPost != null" >
+        LIN_POST,
+      </if>
+      <if test="linMobile != null" >
+        LIN_MOBILE,
+      </if>
+      <if test="linMemo != null" >
+        LIN_MEMO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="linId != null" >
+        #{linId,jdbcType=INTEGER},
+      </if>
+      <if test="linCusId != null" >
+        #{linCusId,jdbcType=INTEGER},
+      </if>
+      <if test="linName != null" >
+        #{linName,jdbcType=VARCHAR},
+      </if>
+      <if test="linSex != null" >
+        #{linSex,jdbcType=VARCHAR},
+      </if>
+      <if test="linTelephone != null" >
+        #{linTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="linPost != null" >
+        #{linPost,jdbcType=VARCHAR},
+      </if>
+      <if test="linMobile != null" >
+        #{linMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="linMemo != null" >
+        #{linMemo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mbcrmsys.pojo.Linkman" >
+    update linkman
+    <set >
+      <if test="linCusId != null" >
+        LIN_CUS_ID = #{linCusId,jdbcType=INTEGER},
+      </if>
+      <if test="linName != null" >
+        LIN_NAME = #{linName,jdbcType=VARCHAR},
+      </if>
+      <if test="linSex != null" >
+        LIN_SEX = #{linSex,jdbcType=VARCHAR},
+      </if>
+      <if test="linTelephone != null" >
+        LIN_TELEPHONE = #{linTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="linPost != null" >
+        LIN_POST = #{linPost,jdbcType=VARCHAR},
+      </if>
+      <if test="linMobile != null" >
+        LIN_MOBILE = #{linMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="linMemo != null" >
+        LIN_MEMO = #{linMemo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where LIN_ID = #{linId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mbcrmsys.pojo.Linkman" >
+    update linkman
+    set LIN_CUS_ID = #{linCusId,jdbcType=INTEGER},
+      LIN_NAME = #{linName,jdbcType=VARCHAR},
+      LIN_SEX = #{linSex,jdbcType=VARCHAR},
+      LIN_TELEPHONE = #{linTelephone,jdbcType=VARCHAR},
+      LIN_POST = #{linPost,jdbcType=VARCHAR},
+      LIN_MOBILE = #{linMobile,jdbcType=VARCHAR},
+      LIN_MEMO = #{linMemo,jdbcType=VARCHAR}
+    where LIN_ID = #{linId,jdbcType=INTEGER}
+  </update>
+</mapper>

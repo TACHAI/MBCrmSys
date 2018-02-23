@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mbcrmsys.dao.RoleRightMapper" >
+  <resultMap id="BaseResultMap" type="com.mbcrmsys.pojo.RoleRight" >
+    <id column="RT_ID" property="rtId" jdbcType="INTEGER" />
+    <result column="RT_ROL_ID" property="rtRolId" jdbcType="INTEGER" />
+    <result column="RT_RIG_CODE" property="rtRigCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    RT_ID, RT_ROL_ID, RT_RIG_CODE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from role_right
+    where RT_ID = #{rtId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from role_right
+    where RT_ID = #{rtId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mbcrmsys.pojo.RoleRight" >
+    insert into role_right (RT_ID, RT_ROL_ID, RT_RIG_CODE
+      )
+    values (#{rtId,jdbcType=INTEGER}, #{rtRolId,jdbcType=INTEGER}, #{rtRigCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mbcrmsys.pojo.RoleRight" >
+    insert into role_right
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rtId != null" >
+        RT_ID,
+      </if>
+      <if test="rtRolId != null" >
+        RT_ROL_ID,
+      </if>
+      <if test="rtRigCode != null" >
+        RT_RIG_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rtId != null" >
+        #{rtId,jdbcType=INTEGER},
+      </if>
+      <if test="rtRolId != null" >
+        #{rtRolId,jdbcType=INTEGER},
+      </if>
+      <if test="rtRigCode != null" >
+        #{rtRigCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mbcrmsys.pojo.RoleRight" >
+    update role_right
+    <set >
+      <if test="rtRolId != null" >
+        RT_ROL_ID = #{rtRolId,jdbcType=INTEGER},
+      </if>
+      <if test="rtRigCode != null" >
+        RT_RIG_CODE = #{rtRigCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where RT_ID = #{rtId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mbcrmsys.pojo.RoleRight" >
+    update role_right
+    set RT_ROL_ID = #{rtRolId,jdbcType=INTEGER},
+      RT_RIG_CODE = #{rtRigCode,jdbcType=VARCHAR}
+    where RT_ID = #{rtId,jdbcType=INTEGER}
+  </update>
+</mapper>

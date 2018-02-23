@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mbcrmsys.dao.ServeMapper" >
+  <resultMap id="BaseResultMap" type="com.mbcrmsys.pojo.Serve" >
+    <id column="SER_ID" property="serId" jdbcType="BIGINT" />
+    <result column="SER_SE_ID" property="serSeId" jdbcType="INTEGER" />
+    <result column="SER_CUS_ID" property="serCusId" jdbcType="INTEGER" />
+    <result column="SER_CREATER_NAME" property="serCreaterName" jdbcType="VARCHAR" />
+    <result column="SER_CREATER_DATE" property="serCreaterDate" jdbcType="TIMESTAMP" />
+    <result column="SER_REQUEST" property="serRequest" jdbcType="VARCHAR" />
+    <result column="SER_ALLOT_NAME" property="serAllotName" jdbcType="VARCHAR" />
+    <result column="SER_ALLOT_DATE" property="serAllotDate" jdbcType="TIMESTAMP" />
+    <result column="SER_HANDLE" property="serHandle" jdbcType="VARCHAR" />
+    <result column="SER_HANDLE_NAME" property="serHandleName" jdbcType="VARCHAR" />
+    <result column="SER_RESULT" property="serResult" jdbcType="VARCHAR" />
+    <result column="SER_SATISFCING" property="serSatisfcing" jdbcType="INTEGER" />
+    <result column="SER_RESUME" property="serResume" jdbcType="VARCHAR" />
+    <result column="SER_STATE" property="serState" jdbcType="INTEGER" />
+    <result column="SER_CREATER_ID" property="serCreaterId" jdbcType="BIGINT" />
+    <result column="SER_ALLOT_ID" property="serAllotId" jdbcType="BIGINT" />
+    <result column="SER_HANDLE_ID" property="serHandleId" jdbcType="BIGINT" />
+    <result column="SER_HANDLE_DATE" property="serHandleDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    SER_ID, SER_SE_ID, SER_CUS_ID, SER_CREATER_NAME, SER_CREATER_DATE, SER_REQUEST, SER_ALLOT_NAME, 
+    SER_ALLOT_DATE, SER_HANDLE, SER_HANDLE_NAME, SER_RESULT, SER_SATISFCING, SER_RESUME, 
+    SER_STATE, SER_CREATER_ID, SER_ALLOT_ID, SER_HANDLE_ID, SER_HANDLE_DATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from serve
+    where SER_ID = #{serId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from serve
+    where SER_ID = #{serId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.mbcrmsys.pojo.Serve" >
+    insert into serve (SER_ID, SER_SE_ID, SER_CUS_ID, 
+      SER_CREATER_NAME, SER_CREATER_DATE, SER_REQUEST, 
+      SER_ALLOT_NAME, SER_ALLOT_DATE, SER_HANDLE, 
+      SER_HANDLE_NAME, SER_RESULT, SER_SATISFCING, 
+      SER_RESUME, SER_STATE, SER_CREATER_ID, 
+      SER_ALLOT_ID, SER_HANDLE_ID, SER_HANDLE_DATE
+      )
+    values (#{serId,jdbcType=BIGINT}, #{serSeId,jdbcType=INTEGER}, #{serCusId,jdbcType=INTEGER}, 
+      #{serCreaterName,jdbcType=VARCHAR}, #{serCreaterDate,jdbcType=TIMESTAMP}, #{serRequest,jdbcType=VARCHAR}, 
+      #{serAllotName,jdbcType=VARCHAR}, #{serAllotDate,jdbcType=TIMESTAMP}, #{serHandle,jdbcType=VARCHAR}, 
+      #{serHandleName,jdbcType=VARCHAR}, #{serResult,jdbcType=VARCHAR}, #{serSatisfcing,jdbcType=INTEGER}, 
+      #{serResume,jdbcType=VARCHAR}, #{serState,jdbcType=INTEGER}, #{serCreaterId,jdbcType=BIGINT}, 
+      #{serAllotId,jdbcType=BIGINT}, #{serHandleId,jdbcType=BIGINT}, #{serHandleDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mbcrmsys.pojo.Serve" >
+    insert into serve
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="serId != null" >
+        SER_ID,
+      </if>
+      <if test="serSeId != null" >
+        SER_SE_ID,
+      </if>
+      <if test="serCusId != null" >
+        SER_CUS_ID,
+      </if>
+      <if test="serCreaterName != null" >
+        SER_CREATER_NAME,
+      </if>
+      <if test="serCreaterDate != null" >
+        SER_CREATER_DATE,
+      </if>
+      <if test="serRequest != null" >
+        SER_REQUEST,
+      </if>
+      <if test="serAllotName != null" >
+        SER_ALLOT_NAME,
+      </if>
+      <if test="serAllotDate != null" >
+        SER_ALLOT_DATE,
+      </if>
+      <if test="serHandle != null" >
+        SER_HANDLE,
+      </if>
+      <if test="serHandleName != null" >
+        SER_HANDLE_NAME,
+      </if>
+      <if test="serResult != null" >
+        SER_RESULT,
+      </if>
+      <if test="serSatisfcing != null" >
+        SER_SATISFCING,
+      </if>
+      <if test="serResume != null" >
+        SER_RESUME,
+      </if>
+      <if test="serState != null" >
+        SER_STATE,
+      </if>
+      <if test="serCreaterId != null" >
+        SER_CREATER_ID,
+      </if>
+      <if test="serAllotId != null" >
+        SER_ALLOT_ID,
+      </if>
+      <if test="serHandleId != null" >
+        SER_HANDLE_ID,
+      </if>
+      <if test="serHandleDate != null" >
+        SER_HANDLE_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="serId != null" >
+        #{serId,jdbcType=BIGINT},
+      </if>
+      <if test="serSeId != null" >
+        #{serSeId,jdbcType=INTEGER},
+      </if>
+      <if test="serCusId != null" >
+        #{serCusId,jdbcType=INTEGER},
+      </if>
+      <if test="serCreaterName != null" >
+        #{serCreaterName,jdbcType=VARCHAR},
+      </if>
+      <if test="serCreaterDate != null" >
+        #{serCreaterDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serRequest != null" >
+        #{serRequest,jdbcType=VARCHAR},
+      </if>
+      <if test="serAllotName != null" >
+        #{serAllotName,jdbcType=VARCHAR},
+      </if>
+      <if test="serAllotDate != null" >
+        #{serAllotDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serHandle != null" >
+        #{serHandle,jdbcType=VARCHAR},
+      </if>
+      <if test="serHandleName != null" >
+        #{serHandleName,jdbcType=VARCHAR},
+      </if>
+      <if test="serResult != null" >
+        #{serResult,jdbcType=VARCHAR},
+      </if>
+      <if test="serSatisfcing != null" >
+        #{serSatisfcing,jdbcType=INTEGER},
+      </if>
+      <if test="serResume != null" >
+        #{serResume,jdbcType=VARCHAR},
+      </if>
+      <if test="serState != null" >
+        #{serState,jdbcType=INTEGER},
+      </if>
+      <if test="serCreaterId != null" >
+        #{serCreaterId,jdbcType=BIGINT},
+      </if>
+      <if test="serAllotId != null" >
+        #{serAllotId,jdbcType=BIGINT},
+      </if>
+      <if test="serHandleId != null" >
+        #{serHandleId,jdbcType=BIGINT},
+      </if>
+      <if test="serHandleDate != null" >
+        #{serHandleDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mbcrmsys.pojo.Serve" >
+    update serve
+    <set >
+      <if test="serSeId != null" >
+        SER_SE_ID = #{serSeId,jdbcType=INTEGER},
+      </if>
+      <if test="serCusId != null" >
+        SER_CUS_ID = #{serCusId,jdbcType=INTEGER},
+      </if>
+      <if test="serCreaterName != null" >
+        SER_CREATER_NAME = #{serCreaterName,jdbcType=VARCHAR},
+      </if>
+      <if test="serCreaterDate != null" >
+        SER_CREATER_DATE = #{serCreaterDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serRequest != null" >
+        SER_REQUEST = #{serRequest,jdbcType=VARCHAR},
+      </if>
+      <if test="serAllotName != null" >
+        SER_ALLOT_NAME = #{serAllotName,jdbcType=VARCHAR},
+      </if>
+      <if test="serAllotDate != null" >
+        SER_ALLOT_DATE = #{serAllotDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serHandle != null" >
+        SER_HANDLE = #{serHandle,jdbcType=VARCHAR},
+      </if>
+      <if test="serHandleName != null" >
+        SER_HANDLE_NAME = #{serHandleName,jdbcType=VARCHAR},
+      </if>
+      <if test="serResult != null" >
+        SER_RESULT = #{serResult,jdbcType=VARCHAR},
+      </if>
+      <if test="serSatisfcing != null" >
+        SER_SATISFCING = #{serSatisfcing,jdbcType=INTEGER},
+      </if>
+      <if test="serResume != null" >
+        SER_RESUME = #{serResume,jdbcType=VARCHAR},
+      </if>
+      <if test="serState != null" >
+        SER_STATE = #{serState,jdbcType=INTEGER},
+      </if>
+      <if test="serCreaterId != null" >
+        SER_CREATER_ID = #{serCreaterId,jdbcType=BIGINT},
+      </if>
+      <if test="serAllotId != null" >
+        SER_ALLOT_ID = #{serAllotId,jdbcType=BIGINT},
+      </if>
+      <if test="serHandleId != null" >
+        SER_HANDLE_ID = #{serHandleId,jdbcType=BIGINT},
+      </if>
+      <if test="serHandleDate != null" >
+        SER_HANDLE_DATE = #{serHandleDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where SER_ID = #{serId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mbcrmsys.pojo.Serve" >
+    update serve
+    set SER_SE_ID = #{serSeId,jdbcType=INTEGER},
+      SER_CUS_ID = #{serCusId,jdbcType=INTEGER},
+      SER_CREATER_NAME = #{serCreaterName,jdbcType=VARCHAR},
+      SER_CREATER_DATE = #{serCreaterDate,jdbcType=TIMESTAMP},
+      SER_REQUEST = #{serRequest,jdbcType=VARCHAR},
+      SER_ALLOT_NAME = #{serAllotName,jdbcType=VARCHAR},
+      SER_ALLOT_DATE = #{serAllotDate,jdbcType=TIMESTAMP},
+      SER_HANDLE = #{serHandle,jdbcType=VARCHAR},
+      SER_HANDLE_NAME = #{serHandleName,jdbcType=VARCHAR},
+      SER_RESULT = #{serResult,jdbcType=VARCHAR},
+      SER_SATISFCING = #{serSatisfcing,jdbcType=INTEGER},
+      SER_RESUME = #{serResume,jdbcType=VARCHAR},
+      SER_STATE = #{serState,jdbcType=INTEGER},
+      SER_CREATER_ID = #{serCreaterId,jdbcType=BIGINT},
+      SER_ALLOT_ID = #{serAllotId,jdbcType=BIGINT},
+      SER_HANDLE_ID = #{serHandleId,jdbcType=BIGINT},
+      SER_HANDLE_DATE = #{serHandleDate,jdbcType=TIMESTAMP}
+    where SER_ID = #{serId,jdbcType=BIGINT}
+  </update>
+</mapper>

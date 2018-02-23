@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mbcrmsys.dao.OrdersMapper" >
+  <resultMap id="BaseResultMap" type="com.mbcrmsys.pojo.Orders" >
+    <id column="ORD_ID" property="ordId" jdbcType="INTEGER" />
+    <result column="ORD_CUST_ID" property="ordCustId" jdbcType="INTEGER" />
+    <result column="ORD_DATE" property="ordDate" jdbcType="TIMESTAMP" />
+    <result column="ORD_STATE" property="ordState" jdbcType="DECIMAL" />
+    <result column="ORD_ADDRESS" property="ordAddress" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ORD_ID, ORD_CUST_ID, ORD_DATE, ORD_STATE, ORD_ADDRESS
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from orders
+    where ORD_ID = #{ordId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from orders
+    where ORD_ID = #{ordId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mbcrmsys.pojo.Orders" >
+    insert into orders (ORD_ID, ORD_CUST_ID, ORD_DATE, 
+      ORD_STATE, ORD_ADDRESS)
+    values (#{ordId,jdbcType=INTEGER}, #{ordCustId,jdbcType=INTEGER}, #{ordDate,jdbcType=TIMESTAMP}, 
+      #{ordState,jdbcType=DECIMAL}, #{ordAddress,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mbcrmsys.pojo.Orders" >
+    insert into orders
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ordId != null" >
+        ORD_ID,
+      </if>
+      <if test="ordCustId != null" >
+        ORD_CUST_ID,
+      </if>
+      <if test="ordDate != null" >
+        ORD_DATE,
+      </if>
+      <if test="ordState != null" >
+        ORD_STATE,
+      </if>
+      <if test="ordAddress != null" >
+        ORD_ADDRESS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ordId != null" >
+        #{ordId,jdbcType=INTEGER},
+      </if>
+      <if test="ordCustId != null" >
+        #{ordCustId,jdbcType=INTEGER},
+      </if>
+      <if test="ordDate != null" >
+        #{ordDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ordState != null" >
+        #{ordState,jdbcType=DECIMAL},
+      </if>
+      <if test="ordAddress != null" >
+        #{ordAddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mbcrmsys.pojo.Orders" >
+    update orders
+    <set >
+      <if test="ordCustId != null" >
+        ORD_CUST_ID = #{ordCustId,jdbcType=INTEGER},
+      </if>
+      <if test="ordDate != null" >
+        ORD_DATE = #{ordDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ordState != null" >
+        ORD_STATE = #{ordState,jdbcType=DECIMAL},
+      </if>
+      <if test="ordAddress != null" >
+        ORD_ADDRESS = #{ordAddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ORD_ID = #{ordId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mbcrmsys.pojo.Orders" >
+    update orders
+    set ORD_CUST_ID = #{ordCustId,jdbcType=INTEGER},
+      ORD_DATE = #{ordDate,jdbcType=TIMESTAMP},
+      ORD_STATE = #{ordState,jdbcType=DECIMAL},
+      ORD_ADDRESS = #{ordAddress,jdbcType=VARCHAR}
+    where ORD_ID = #{ordId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mbcrmsys.dao.WaresMapper" >
+  <resultMap id="BaseResultMap" type="com.mbcrmsys.pojo.Wares" >
+    <id column="WAR_ID" property="warId" jdbcType="INTEGER" />
+    <result column="WAR_NAME" property="warName" jdbcType="VARCHAR" />
+    <result column="WAR_PRICE" property="warPrice" jdbcType="DECIMAL" />
+    <result column="WAR_UNIT" property="warUnit" jdbcType="VARCHAR" />
+    <result column="WAR_TYPE" property="warType" jdbcType="VARCHAR" />
+    <result column="WAR_BATCH" property="warBatch" jdbcType="VARCHAR" />
+    <result column="WAR_MEMO" property="warMemo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    WAR_ID, WAR_NAME, WAR_PRICE, WAR_UNIT, WAR_TYPE, WAR_BATCH, WAR_MEMO
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wares
+    where WAR_ID = #{warId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wares
+    where WAR_ID = #{warId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mbcrmsys.pojo.Wares" >
+    insert into wares (WAR_ID, WAR_NAME, WAR_PRICE, 
+      WAR_UNIT, WAR_TYPE, WAR_BATCH, 
+      WAR_MEMO)
+    values (#{warId,jdbcType=INTEGER}, #{warName,jdbcType=VARCHAR}, #{warPrice,jdbcType=DECIMAL}, 
+      #{warUnit,jdbcType=VARCHAR}, #{warType,jdbcType=VARCHAR}, #{warBatch,jdbcType=VARCHAR}, 
+      #{warMemo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mbcrmsys.pojo.Wares" >
+    insert into wares
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="warId != null" >
+        WAR_ID,
+      </if>
+      <if test="warName != null" >
+        WAR_NAME,
+      </if>
+      <if test="warPrice != null" >
+        WAR_PRICE,
+      </if>
+      <if test="warUnit != null" >
+        WAR_UNIT,
+      </if>
+      <if test="warType != null" >
+        WAR_TYPE,
+      </if>
+      <if test="warBatch != null" >
+        WAR_BATCH,
+      </if>
+      <if test="warMemo != null" >
+        WAR_MEMO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="warId != null" >
+        #{warId,jdbcType=INTEGER},
+      </if>
+      <if test="warName != null" >
+        #{warName,jdbcType=VARCHAR},
+      </if>
+      <if test="warPrice != null" >
+        #{warPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="warUnit != null" >
+        #{warUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="warType != null" >
+        #{warType,jdbcType=VARCHAR},
+      </if>
+      <if test="warBatch != null" >
+        #{warBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="warMemo != null" >
+        #{warMemo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mbcrmsys.pojo.Wares" >
+    update wares
+    <set >
+      <if test="warName != null" >
+        WAR_NAME = #{warName,jdbcType=VARCHAR},
+      </if>
+      <if test="warPrice != null" >
+        WAR_PRICE = #{warPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="warUnit != null" >
+        WAR_UNIT = #{warUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="warType != null" >
+        WAR_TYPE = #{warType,jdbcType=VARCHAR},
+      </if>
+      <if test="warBatch != null" >
+        WAR_BATCH = #{warBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="warMemo != null" >
+        WAR_MEMO = #{warMemo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where WAR_ID = #{warId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mbcrmsys.pojo.Wares" >
+    update wares
+    set WAR_NAME = #{warName,jdbcType=VARCHAR},
+      WAR_PRICE = #{warPrice,jdbcType=DECIMAL},
+      WAR_UNIT = #{warUnit,jdbcType=VARCHAR},
+      WAR_TYPE = #{warType,jdbcType=VARCHAR},
+      WAR_BATCH = #{warBatch,jdbcType=VARCHAR},
+      WAR_MEMO = #{warMemo,jdbcType=VARCHAR}
+    where WAR_ID = #{warId,jdbcType=INTEGER}
+  </update>
+</mapper>

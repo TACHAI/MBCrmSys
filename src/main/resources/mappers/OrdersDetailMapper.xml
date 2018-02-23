@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mbcrmsys.dao.OrdersDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.mbcrmsys.pojo.OrdersDetail" >
+    <id column="OL_ID" property="olId" jdbcType="INTEGER" />
+    <result column="OL_ORD_ID" property="olOrdId" jdbcType="INTEGER" />
+    <result column="OL_WAR_ID" property="olWarId" jdbcType="INTEGER" />
+    <result column="OL_PRICE" property="olPrice" jdbcType="DECIMAL" />
+    <result column="OL_COUNT" property="olCount" jdbcType="DECIMAL" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.mbcrmsys.pojo.OrdersDetail" extends="BaseResultMap" >
+    <result column="OL_UNIT" property="olUnit" jdbcType="VARBINARY" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    OL_ID, OL_ORD_ID, OL_WAR_ID, OL_PRICE, OL_COUNT
+  </sql>
+  <sql id="Blob_Column_List" >
+    OL_UNIT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from orders_detail
+    where OL_ID = #{olId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from orders_detail
+    where OL_ID = #{olId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mbcrmsys.pojo.OrdersDetail" >
+    insert into orders_detail (OL_ID, OL_ORD_ID, OL_WAR_ID, 
+      OL_PRICE, OL_COUNT, OL_UNIT
+      )
+    values (#{olId,jdbcType=INTEGER}, #{olOrdId,jdbcType=INTEGER}, #{olWarId,jdbcType=INTEGER}, 
+      #{olPrice,jdbcType=DECIMAL}, #{olCount,jdbcType=DECIMAL}, #{olUnit,jdbcType=VARBINARY}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mbcrmsys.pojo.OrdersDetail" >
+    insert into orders_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="olId != null" >
+        OL_ID,
+      </if>
+      <if test="olOrdId != null" >
+        OL_ORD_ID,
+      </if>
+      <if test="olWarId != null" >
+        OL_WAR_ID,
+      </if>
+      <if test="olPrice != null" >
+        OL_PRICE,
+      </if>
+      <if test="olCount != null" >
+        OL_COUNT,
+      </if>
+      <if test="olUnit != null" >
+        OL_UNIT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="olId != null" >
+        #{olId,jdbcType=INTEGER},
+      </if>
+      <if test="olOrdId != null" >
+        #{olOrdId,jdbcType=INTEGER},
+      </if>
+      <if test="olWarId != null" >
+        #{olWarId,jdbcType=INTEGER},
+      </if>
+      <if test="olPrice != null" >
+        #{olPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="olCount != null" >
+        #{olCount,jdbcType=DECIMAL},
+      </if>
+      <if test="olUnit != null" >
+        #{olUnit,jdbcType=VARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mbcrmsys.pojo.OrdersDetail" >
+    update orders_detail
+    <set >
+      <if test="olOrdId != null" >
+        OL_ORD_ID = #{olOrdId,jdbcType=INTEGER},
+      </if>
+      <if test="olWarId != null" >
+        OL_WAR_ID = #{olWarId,jdbcType=INTEGER},
+      </if>
+      <if test="olPrice != null" >
+        OL_PRICE = #{olPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="olCount != null" >
+        OL_COUNT = #{olCount,jdbcType=DECIMAL},
+      </if>
+      <if test="olUnit != null" >
+        OL_UNIT = #{olUnit,jdbcType=VARBINARY},
+      </if>
+    </set>
+    where OL_ID = #{olId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mbcrmsys.pojo.OrdersDetail" >
+    update orders_detail
+    set OL_ORD_ID = #{olOrdId,jdbcType=INTEGER},
+      OL_WAR_ID = #{olWarId,jdbcType=INTEGER},
+      OL_PRICE = #{olPrice,jdbcType=DECIMAL},
+      OL_COUNT = #{olCount,jdbcType=DECIMAL},
+      OL_UNIT = #{olUnit,jdbcType=VARBINARY}
+    where OL_ID = #{olId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mbcrmsys.pojo.OrdersDetail" >
+    update orders_detail
+    set OL_ORD_ID = #{olOrdId,jdbcType=INTEGER},
+      OL_WAR_ID = #{olWarId,jdbcType=INTEGER},
+      OL_PRICE = #{olPrice,jdbcType=DECIMAL},
+      OL_COUNT = #{olCount,jdbcType=DECIMAL}
+    where OL_ID = #{olId,jdbcType=INTEGER}
+  </update>
+</mapper>

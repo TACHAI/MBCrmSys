@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mbcrmsys.dao.ConsumerMapper" >
+  <resultMap id="BaseResultMap" type="com.mbcrmsys.pojo.Consumer" >
+    <id column="CON_ID" property="conId" jdbcType="INTEGER" />
+    <result column="CON_ROL_ID" property="conRolId" jdbcType="INTEGER" />
+    <result column="CON_NAME" property="conName" jdbcType="VARCHAR" />
+    <result column="CON_PASSWORD" property="conPassword" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CON_ID, CON_ROL_ID, CON_NAME, CON_PASSWORD
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from consumer
+    where CON_ID = #{conId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from consumer
+    where CON_ID = #{conId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mbcrmsys.pojo.Consumer" >
+    insert into consumer (CON_ID, CON_ROL_ID, CON_NAME, 
+      CON_PASSWORD)
+    values (#{conId,jdbcType=INTEGER}, #{conRolId,jdbcType=INTEGER}, #{conName,jdbcType=VARCHAR}, 
+      #{conPassword,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mbcrmsys.pojo.Consumer" >
+    insert into consumer
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="conId != null" >
+        CON_ID,
+      </if>
+      <if test="conRolId != null" >
+        CON_ROL_ID,
+      </if>
+      <if test="conName != null" >
+        CON_NAME,
+      </if>
+      <if test="conPassword != null" >
+        CON_PASSWORD,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="conId != null" >
+        #{conId,jdbcType=INTEGER},
+      </if>
+      <if test="conRolId != null" >
+        #{conRolId,jdbcType=INTEGER},
+      </if>
+      <if test="conName != null" >
+        #{conName,jdbcType=VARCHAR},
+      </if>
+      <if test="conPassword != null" >
+        #{conPassword,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mbcrmsys.pojo.Consumer" >
+    update consumer
+    <set >
+      <if test="conRolId != null" >
+        CON_ROL_ID = #{conRolId,jdbcType=INTEGER},
+      </if>
+      <if test="conName != null" >
+        CON_NAME = #{conName,jdbcType=VARCHAR},
+      </if>
+      <if test="conPassword != null" >
+        CON_PASSWORD = #{conPassword,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CON_ID = #{conId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mbcrmsys.pojo.Consumer" >
+    update consumer
+    set CON_ROL_ID = #{conRolId,jdbcType=INTEGER},
+      CON_NAME = #{conName,jdbcType=VARCHAR},
+      CON_PASSWORD = #{conPassword,jdbcType=VARCHAR}
+    where CON_ID = #{conId,jdbcType=INTEGER}
+  </update>
+</mapper>

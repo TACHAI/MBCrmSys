@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mbcrmsys.dao.CustomerRankMapper" >
+  <resultMap id="BaseResultMap" type="com.mbcrmsys.pojo.CustomerRank" >
+    <id column="CK_ID" property="ckId" jdbcType="INTEGER" />
+    <result column="CK_NAME" property="ckName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CK_ID, CK_NAME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from customer_rank
+    where CK_ID = #{ckId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from customer_rank
+    where CK_ID = #{ckId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mbcrmsys.pojo.CustomerRank" >
+    insert into customer_rank (CK_ID, CK_NAME)
+    values (#{ckId,jdbcType=INTEGER}, #{ckName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mbcrmsys.pojo.CustomerRank" >
+    insert into customer_rank
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ckId != null" >
+        CK_ID,
+      </if>
+      <if test="ckName != null" >
+        CK_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ckId != null" >
+        #{ckId,jdbcType=INTEGER},
+      </if>
+      <if test="ckName != null" >
+        #{ckName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mbcrmsys.pojo.CustomerRank" >
+    update customer_rank
+    <set >
+      <if test="ckName != null" >
+        CK_NAME = #{ckName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CK_ID = #{ckId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mbcrmsys.pojo.CustomerRank" >
+    update customer_rank
+    set CK_NAME = #{ckName,jdbcType=VARCHAR}
+    where CK_ID = #{ckId,jdbcType=INTEGER}
+  </update>
+</mapper>

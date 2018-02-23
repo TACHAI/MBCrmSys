@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mbcrmsys.dao.CustomerMapper" >
+  <resultMap id="BaseResultMap" type="com.mbcrmsys.pojo.Customer" >
+    <id column="CUS_ID" property="cusId" jdbcType="INTEGER" />
+    <result column="CUS_ARE_ID" property="cusAreId" jdbcType="INTEGER" />
+    <result column="CUS_CK_ID" property="cusCkId" jdbcType="INTEGER" />
+    <result column="CUS_NAME" property="cusName" jdbcType="VARCHAR" />
+    <result column="CUS_NUMBER" property="cusNumber" jdbcType="VARCHAR" />
+    <result column="CUS_ADDRESS" property="cusAddress" jdbcType="VARCHAR" />
+    <result column="CUS_CHANGE_ORIGIN" property="cusChangeOrigin" jdbcType="VARCHAR" />
+    <result column="CUS_CHANGE_DESCRIBE" property="cusChangeDescribe" jdbcType="VARCHAR" />
+    <result column="CUS_SUCCESS_PROBABILITY" property="cusSuccessProbability" jdbcType="VARCHAR" />
+    <result column="CUS_MANAGER" property="cusManager" jdbcType="VARCHAR" />
+    <result column="CUS_ALLOT_NAME" property="cusAllotName" jdbcType="VARCHAR" />
+    <result column="CUS_ALLOT_DATE" property="cusAllotDate" jdbcType="TIMESTAMP" />
+    <result column="CUS_POSTAL_CODE" property="cusPostalCode" jdbcType="VARCHAR" />
+    <result column="CUS_TELEPHONE" property="cusTelephone" jdbcType="VARCHAR" />
+    <result column="CUS_FASIMILE" property="cusFasimile" jdbcType="VARCHAR" />
+    <result column="CUS_URL" property="cusUrl" jdbcType="VARCHAR" />
+    <result column="CUS_REGISTER_NUMBER" property="cusRegisterNumber" jdbcType="VARCHAR" />
+    <result column="CUS_LEGAL_PERSON" property="cusLegalPerson" jdbcType="VARCHAR" />
+    <result column="CUS_REGISTER_MONEY" property="cusRegisterMoney" jdbcType="DECIMAL" />
+    <result column="CUS_RMB" property="cusRmb" jdbcType="DECIMAL" />
+    <result column="CUS_OPENING_BANK" property="cusOpeningBank" jdbcType="VARCHAR" />
+    <result column="CUS_BANK_ACCOUNT" property="cusBankAccount" jdbcType="VARCHAR" />
+    <result column="CUS_CROWN_RENT" property="cusCrownRent" jdbcType="VARCHAR" />
+    <result column="CUS_STATE_TAXES" property="cusStateTaxes" jdbcType="VARCHAR" />
+    <result column="CUS_RESUME" property="cusResume" jdbcType="VARCHAR" />
+    <result column="CUS_CREDITWORTHINESS" property="cusCreditworthiness" jdbcType="DECIMAL" />
+    <result column="CUS_STATISFCING" property="cusStatisfcing" jdbcType="DECIMAL" />
+    <result column="CUS_STATE" property="cusState" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CUS_ID, CUS_ARE_ID, CUS_CK_ID, CUS_NAME, CUS_NUMBER, CUS_ADDRESS, CUS_CHANGE_ORIGIN, 
+    CUS_CHANGE_DESCRIBE, CUS_SUCCESS_PROBABILITY, CUS_MANAGER, CUS_ALLOT_NAME, CUS_ALLOT_DATE, 
+    CUS_POSTAL_CODE, CUS_TELEPHONE, CUS_FASIMILE, CUS_URL, CUS_REGISTER_NUMBER, CUS_LEGAL_PERSON, 
+    CUS_REGISTER_MONEY, CUS_RMB, CUS_OPENING_BANK, CUS_BANK_ACCOUNT, CUS_CROWN_RENT, 
+    CUS_STATE_TAXES, CUS_RESUME, CUS_CREDITWORTHINESS, CUS_STATISFCING, CUS_STATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from customer
+    where CUS_ID = #{cusId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from customer
+    where CUS_ID = #{cusId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mbcrmsys.pojo.Customer" >
+    insert into customer (CUS_ID, CUS_ARE_ID, CUS_CK_ID, 
+      CUS_NAME, CUS_NUMBER, CUS_ADDRESS, 
+      CUS_CHANGE_ORIGIN, CUS_CHANGE_DESCRIBE, CUS_SUCCESS_PROBABILITY, 
+      CUS_MANAGER, CUS_ALLOT_NAME, CUS_ALLOT_DATE, 
+      CUS_POSTAL_CODE, CUS_TELEPHONE, CUS_FASIMILE, 
+      CUS_URL, CUS_REGISTER_NUMBER, CUS_LEGAL_PERSON, 
+      CUS_REGISTER_MONEY, CUS_RMB, CUS_OPENING_BANK, 
+      CUS_BANK_ACCOUNT, CUS_CROWN_RENT, CUS_STATE_TAXES, 
+      CUS_RESUME, CUS_CREDITWORTHINESS, CUS_STATISFCING, 
+      CUS_STATE)
+    values (#{cusId,jdbcType=INTEGER}, #{cusAreId,jdbcType=INTEGER}, #{cusCkId,jdbcType=INTEGER}, 
+      #{cusName,jdbcType=VARCHAR}, #{cusNumber,jdbcType=VARCHAR}, #{cusAddress,jdbcType=VARCHAR}, 
+      #{cusChangeOrigin,jdbcType=VARCHAR}, #{cusChangeDescribe,jdbcType=VARCHAR}, #{cusSuccessProbability,jdbcType=VARCHAR}, 
+      #{cusManager,jdbcType=VARCHAR}, #{cusAllotName,jdbcType=VARCHAR}, #{cusAllotDate,jdbcType=TIMESTAMP}, 
+      #{cusPostalCode,jdbcType=VARCHAR}, #{cusTelephone,jdbcType=VARCHAR}, #{cusFasimile,jdbcType=VARCHAR}, 
+      #{cusUrl,jdbcType=VARCHAR}, #{cusRegisterNumber,jdbcType=VARCHAR}, #{cusLegalPerson,jdbcType=VARCHAR}, 
+      #{cusRegisterMoney,jdbcType=DECIMAL}, #{cusRmb,jdbcType=DECIMAL}, #{cusOpeningBank,jdbcType=VARCHAR}, 
+      #{cusBankAccount,jdbcType=VARCHAR}, #{cusCrownRent,jdbcType=VARCHAR}, #{cusStateTaxes,jdbcType=VARCHAR}, 
+      #{cusResume,jdbcType=VARCHAR}, #{cusCreditworthiness,jdbcType=DECIMAL}, #{cusStatisfcing,jdbcType=DECIMAL}, 
+      #{cusState,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mbcrmsys.pojo.Customer" >
+    insert into customer
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cusId != null" >
+        CUS_ID,
+      </if>
+      <if test="cusAreId != null" >
+        CUS_ARE_ID,
+      </if>
+      <if test="cusCkId != null" >
+        CUS_CK_ID,
+      </if>
+      <if test="cusName != null" >
+        CUS_NAME,
+      </if>
+      <if test="cusNumber != null" >
+        CUS_NUMBER,
+      </if>
+      <if test="cusAddress != null" >
+        CUS_ADDRESS,
+      </if>
+      <if test="cusChangeOrigin != null" >
+        CUS_CHANGE_ORIGIN,
+      </if>
+      <if test="cusChangeDescribe != null" >
+        CUS_CHANGE_DESCRIBE,
+      </if>
+      <if test="cusSuccessProbability != null" >
+        CUS_SUCCESS_PROBABILITY,
+      </if>
+      <if test="cusManager != null" >
+        CUS_MANAGER,
+      </if>
+      <if test="cusAllotName != null" >
+        CUS_ALLOT_NAME,
+      </if>
+      <if test="cusAllotDate != null" >
+        CUS_ALLOT_DATE,
+      </if>
+      <if test="cusPostalCode != null" >
+        CUS_POSTAL_CODE,
+      </if>
+      <if test="cusTelephone != null" >
+        CUS_TELEPHONE,
+      </if>
+      <if test="cusFasimile != null" >
+        CUS_FASIMILE,
+      </if>
+      <if test="cusUrl != null" >
+        CUS_URL,
+      </if>
+      <if test="cusRegisterNumber != null" >
+        CUS_REGISTER_NUMBER,
+      </if>
+      <if test="cusLegalPerson != null" >
+        CUS_LEGAL_PERSON,
+      </if>
+      <if test="cusRegisterMoney != null" >
+        CUS_REGISTER_MONEY,
+      </if>
+      <if test="cusRmb != null" >
+        CUS_RMB,
+      </if>
+      <if test="cusOpeningBank != null" >
+        CUS_OPENING_BANK,
+      </if>
+      <if test="cusBankAccount != null" >
+        CUS_BANK_ACCOUNT,
+      </if>
+      <if test="cusCrownRent != null" >
+        CUS_CROWN_RENT,
+      </if>
+      <if test="cusStateTaxes != null" >
+        CUS_STATE_TAXES,
+      </if>
+      <if test="cusResume != null" >
+        CUS_RESUME,
+      </if>
+      <if test="cusCreditworthiness != null" >
+        CUS_CREDITWORTHINESS,
+      </if>
+      <if test="cusStatisfcing != null" >
+        CUS_STATISFCING,
+      </if>
+      <if test="cusState != null" >
+        CUS_STATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cusId != null" >
+        #{cusId,jdbcType=INTEGER},
+      </if>
+      <if test="cusAreId != null" >
+        #{cusAreId,jdbcType=INTEGER},
+      </if>
+      <if test="cusCkId != null" >
+        #{cusCkId,jdbcType=INTEGER},
+      </if>
+      <if test="cusName != null" >
+        #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="cusNumber != null" >
+        #{cusNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cusAddress != null" >
+        #{cusAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="cusChangeOrigin != null" >
+        #{cusChangeOrigin,jdbcType=VARCHAR},
+      </if>
+      <if test="cusChangeDescribe != null" >
+        #{cusChangeDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="cusSuccessProbability != null" >
+        #{cusSuccessProbability,jdbcType=VARCHAR},
+      </if>
+      <if test="cusManager != null" >
+        #{cusManager,jdbcType=VARCHAR},
+      </if>
+      <if test="cusAllotName != null" >
+        #{cusAllotName,jdbcType=VARCHAR},
+      </if>
+      <if test="cusAllotDate != null" >
+        #{cusAllotDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cusPostalCode != null" >
+        #{cusPostalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cusTelephone != null" >
+        #{cusTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="cusFasimile != null" >
+        #{cusFasimile,jdbcType=VARCHAR},
+      </if>
+      <if test="cusUrl != null" >
+        #{cusUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="cusRegisterNumber != null" >
+        #{cusRegisterNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cusLegalPerson != null" >
+        #{cusLegalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="cusRegisterMoney != null" >
+        #{cusRegisterMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="cusRmb != null" >
+        #{cusRmb,jdbcType=DECIMAL},
+      </if>
+      <if test="cusOpeningBank != null" >
+        #{cusOpeningBank,jdbcType=VARCHAR},
+      </if>
+      <if test="cusBankAccount != null" >
+        #{cusBankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="cusCrownRent != null" >
+        #{cusCrownRent,jdbcType=VARCHAR},
+      </if>
+      <if test="cusStateTaxes != null" >
+        #{cusStateTaxes,jdbcType=VARCHAR},
+      </if>
+      <if test="cusResume != null" >
+        #{cusResume,jdbcType=VARCHAR},
+      </if>
+      <if test="cusCreditworthiness != null" >
+        #{cusCreditworthiness,jdbcType=DECIMAL},
+      </if>
+      <if test="cusStatisfcing != null" >
+        #{cusStatisfcing,jdbcType=DECIMAL},
+      </if>
+      <if test="cusState != null" >
+        #{cusState,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mbcrmsys.pojo.Customer" >
+    update customer
+    <set >
+      <if test="cusAreId != null" >
+        CUS_ARE_ID = #{cusAreId,jdbcType=INTEGER},
+      </if>
+      <if test="cusCkId != null" >
+        CUS_CK_ID = #{cusCkId,jdbcType=INTEGER},
+      </if>
+      <if test="cusName != null" >
+        CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      </if>
+      <if test="cusNumber != null" >
+        CUS_NUMBER = #{cusNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cusAddress != null" >
+        CUS_ADDRESS = #{cusAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="cusChangeOrigin != null" >
+        CUS_CHANGE_ORIGIN = #{cusChangeOrigin,jdbcType=VARCHAR},
+      </if>
+      <if test="cusChangeDescribe != null" >
+        CUS_CHANGE_DESCRIBE = #{cusChangeDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="cusSuccessProbability != null" >
+        CUS_SUCCESS_PROBABILITY = #{cusSuccessProbability,jdbcType=VARCHAR},
+      </if>
+      <if test="cusManager != null" >
+        CUS_MANAGER = #{cusManager,jdbcType=VARCHAR},
+      </if>
+      <if test="cusAllotName != null" >
+        CUS_ALLOT_NAME = #{cusAllotName,jdbcType=VARCHAR},
+      </if>
+      <if test="cusAllotDate != null" >
+        CUS_ALLOT_DATE = #{cusAllotDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cusPostalCode != null" >
+        CUS_POSTAL_CODE = #{cusPostalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cusTelephone != null" >
+        CUS_TELEPHONE = #{cusTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="cusFasimile != null" >
+        CUS_FASIMILE = #{cusFasimile,jdbcType=VARCHAR},
+      </if>
+      <if test="cusUrl != null" >
+        CUS_URL = #{cusUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="cusRegisterNumber != null" >
+        CUS_REGISTER_NUMBER = #{cusRegisterNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cusLegalPerson != null" >
+        CUS_LEGAL_PERSON = #{cusLegalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="cusRegisterMoney != null" >
+        CUS_REGISTER_MONEY = #{cusRegisterMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="cusRmb != null" >
+        CUS_RMB = #{cusRmb,jdbcType=DECIMAL},
+      </if>
+      <if test="cusOpeningBank != null" >
+        CUS_OPENING_BANK = #{cusOpeningBank,jdbcType=VARCHAR},
+      </if>
+      <if test="cusBankAccount != null" >
+        CUS_BANK_ACCOUNT = #{cusBankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="cusCrownRent != null" >
+        CUS_CROWN_RENT = #{cusCrownRent,jdbcType=VARCHAR},
+      </if>
+      <if test="cusStateTaxes != null" >
+        CUS_STATE_TAXES = #{cusStateTaxes,jdbcType=VARCHAR},
+      </if>
+      <if test="cusResume != null" >
+        CUS_RESUME = #{cusResume,jdbcType=VARCHAR},
+      </if>
+      <if test="cusCreditworthiness != null" >
+        CUS_CREDITWORTHINESS = #{cusCreditworthiness,jdbcType=DECIMAL},
+      </if>
+      <if test="cusStatisfcing != null" >
+        CUS_STATISFCING = #{cusStatisfcing,jdbcType=DECIMAL},
+      </if>
+      <if test="cusState != null" >
+        CUS_STATE = #{cusState,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where CUS_ID = #{cusId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mbcrmsys.pojo.Customer" >
+    update customer
+    set CUS_ARE_ID = #{cusAreId,jdbcType=INTEGER},
+      CUS_CK_ID = #{cusCkId,jdbcType=INTEGER},
+      CUS_NAME = #{cusName,jdbcType=VARCHAR},
+      CUS_NUMBER = #{cusNumber,jdbcType=VARCHAR},
+      CUS_ADDRESS = #{cusAddress,jdbcType=VARCHAR},
+      CUS_CHANGE_ORIGIN = #{cusChangeOrigin,jdbcType=VARCHAR},
+      CUS_CHANGE_DESCRIBE = #{cusChangeDescribe,jdbcType=VARCHAR},
+      CUS_SUCCESS_PROBABILITY = #{cusSuccessProbability,jdbcType=VARCHAR},
+      CUS_MANAGER = #{cusManager,jdbcType=VARCHAR},
+      CUS_ALLOT_NAME = #{cusAllotName,jdbcType=VARCHAR},
+      CUS_ALLOT_DATE = #{cusAllotDate,jdbcType=TIMESTAMP},
+      CUS_POSTAL_CODE = #{cusPostalCode,jdbcType=VARCHAR},
+      CUS_TELEPHONE = #{cusTelephone,jdbcType=VARCHAR},
+      CUS_FASIMILE = #{cusFasimile,jdbcType=VARCHAR},
+      CUS_URL = #{cusUrl,jdbcType=VARCHAR},
+      CUS_REGISTER_NUMBER = #{cusRegisterNumber,jdbcType=VARCHAR},
+      CUS_LEGAL_PERSON = #{cusLegalPerson,jdbcType=VARCHAR},
+      CUS_REGISTER_MONEY = #{cusRegisterMoney,jdbcType=DECIMAL},
+      CUS_RMB = #{cusRmb,jdbcType=DECIMAL},
+      CUS_OPENING_BANK = #{cusOpeningBank,jdbcType=VARCHAR},
+      CUS_BANK_ACCOUNT = #{cusBankAccount,jdbcType=VARCHAR},
+      CUS_CROWN_RENT = #{cusCrownRent,jdbcType=VARCHAR},
+      CUS_STATE_TAXES = #{cusStateTaxes,jdbcType=VARCHAR},
+      CUS_RESUME = #{cusResume,jdbcType=VARCHAR},
+      CUS_CREDITWORTHINESS = #{cusCreditworthiness,jdbcType=DECIMAL},
+      CUS_STATISFCING = #{cusStatisfcing,jdbcType=DECIMAL},
+      CUS_STATE = #{cusState,jdbcType=DECIMAL}
+    where CUS_ID = #{cusId,jdbcType=INTEGER}
+  </update>
+</mapper>

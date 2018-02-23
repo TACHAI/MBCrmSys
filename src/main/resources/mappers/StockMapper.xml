@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mbcrmsys.dao.StockMapper" >
+  <resultMap id="BaseResultMap" type="com.mbcrmsys.pojo.Stock" >
+    <id column="STO_ID" property="stoId" jdbcType="INTEGER" />
+    <result column="STO_WAR_ID" property="stoWarId" jdbcType="INTEGER" />
+    <result column="STO_COUNT" property="stoCount" jdbcType="INTEGER" />
+    <result column="STO_DEPOT" property="stoDepot" jdbcType="VARCHAR" />
+    <result column="STO_STAND" property="stoStand" jdbcType="VARCHAR" />
+    <result column="STO_MEMO" property="stoMemo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    STO_ID, STO_WAR_ID, STO_COUNT, STO_DEPOT, STO_STAND, STO_MEMO
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from stock
+    where STO_ID = #{stoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from stock
+    where STO_ID = #{stoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mbcrmsys.pojo.Stock" >
+    insert into stock (STO_ID, STO_WAR_ID, STO_COUNT, 
+      STO_DEPOT, STO_STAND, STO_MEMO
+      )
+    values (#{stoId,jdbcType=INTEGER}, #{stoWarId,jdbcType=INTEGER}, #{stoCount,jdbcType=INTEGER}, 
+      #{stoDepot,jdbcType=VARCHAR}, #{stoStand,jdbcType=VARCHAR}, #{stoMemo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mbcrmsys.pojo.Stock" >
+    insert into stock
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="stoId != null" >
+        STO_ID,
+      </if>
+      <if test="stoWarId != null" >
+        STO_WAR_ID,
+      </if>
+      <if test="stoCount != null" >
+        STO_COUNT,
+      </if>
+      <if test="stoDepot != null" >
+        STO_DEPOT,
+      </if>
+      <if test="stoStand != null" >
+        STO_STAND,
+      </if>
+      <if test="stoMemo != null" >
+        STO_MEMO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="stoId != null" >
+        #{stoId,jdbcType=INTEGER},
+      </if>
+      <if test="stoWarId != null" >
+        #{stoWarId,jdbcType=INTEGER},
+      </if>
+      <if test="stoCount != null" >
+        #{stoCount,jdbcType=INTEGER},
+      </if>
+      <if test="stoDepot != null" >
+        #{stoDepot,jdbcType=VARCHAR},
+      </if>
+      <if test="stoStand != null" >
+        #{stoStand,jdbcType=VARCHAR},
+      </if>
+      <if test="stoMemo != null" >
+        #{stoMemo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mbcrmsys.pojo.Stock" >
+    update stock
+    <set >
+      <if test="stoWarId != null" >
+        STO_WAR_ID = #{stoWarId,jdbcType=INTEGER},
+      </if>
+      <if test="stoCount != null" >
+        STO_COUNT = #{stoCount,jdbcType=INTEGER},
+      </if>
+      <if test="stoDepot != null" >
+        STO_DEPOT = #{stoDepot,jdbcType=VARCHAR},
+      </if>
+      <if test="stoStand != null" >
+        STO_STAND = #{stoStand,jdbcType=VARCHAR},
+      </if>
+      <if test="stoMemo != null" >
+        STO_MEMO = #{stoMemo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where STO_ID = #{stoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mbcrmsys.pojo.Stock" >
+    update stock
+    set STO_WAR_ID = #{stoWarId,jdbcType=INTEGER},
+      STO_COUNT = #{stoCount,jdbcType=INTEGER},
+      STO_DEPOT = #{stoDepot,jdbcType=VARCHAR},
+      STO_STAND = #{stoStand,jdbcType=VARCHAR},
+      STO_MEMO = #{stoMemo,jdbcType=VARCHAR}
+    where STO_ID = #{stoId,jdbcType=INTEGER}
+  </update>
+</mapper>

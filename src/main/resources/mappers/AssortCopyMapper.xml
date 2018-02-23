@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mbcrmsys.dao.AssortCopyMapper" >
+  <resultMap id="BaseResultMap" type="com.mbcrmsys.pojo.AssortCopy" >
+    <id column="ASS_ID" property="assId" jdbcType="INTEGER" />
+    <result column="ASS_CUS_ID" property="assCusId" jdbcType="INTEGER" />
+    <result column="ASS_DATE" property="assDate" jdbcType="TIMESTAMP" />
+    <result column="ASS_PALCE" property="assPalce" jdbcType="VARCHAR" />
+    <result column="ASS_RESUME" property="assResume" jdbcType="VARCHAR" />
+    <result column="ASS_DETAIL" property="assDetail" jdbcType="VARCHAR" />
+    <result column="ASS_MEMO" property="assMemo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ASS_ID, ASS_CUS_ID, ASS_DATE, ASS_PALCE, ASS_RESUME, ASS_DETAIL, ASS_MEMO
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from assort_copy
+    where ASS_ID = #{assId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from assort_copy
+    where ASS_ID = #{assId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mbcrmsys.pojo.AssortCopy" >
+    insert into assort_copy (ASS_ID, ASS_CUS_ID, ASS_DATE, 
+      ASS_PALCE, ASS_RESUME, ASS_DETAIL, 
+      ASS_MEMO)
+    values (#{assId,jdbcType=INTEGER}, #{assCusId,jdbcType=INTEGER}, #{assDate,jdbcType=TIMESTAMP}, 
+      #{assPalce,jdbcType=VARCHAR}, #{assResume,jdbcType=VARCHAR}, #{assDetail,jdbcType=VARCHAR}, 
+      #{assMemo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mbcrmsys.pojo.AssortCopy" >
+    insert into assort_copy
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="assId != null" >
+        ASS_ID,
+      </if>
+      <if test="assCusId != null" >
+        ASS_CUS_ID,
+      </if>
+      <if test="assDate != null" >
+        ASS_DATE,
+      </if>
+      <if test="assPalce != null" >
+        ASS_PALCE,
+      </if>
+      <if test="assResume != null" >
+        ASS_RESUME,
+      </if>
+      <if test="assDetail != null" >
+        ASS_DETAIL,
+      </if>
+      <if test="assMemo != null" >
+        ASS_MEMO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="assId != null" >
+        #{assId,jdbcType=INTEGER},
+      </if>
+      <if test="assCusId != null" >
+        #{assCusId,jdbcType=INTEGER},
+      </if>
+      <if test="assDate != null" >
+        #{assDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="assPalce != null" >
+        #{assPalce,jdbcType=VARCHAR},
+      </if>
+      <if test="assResume != null" >
+        #{assResume,jdbcType=VARCHAR},
+      </if>
+      <if test="assDetail != null" >
+        #{assDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="assMemo != null" >
+        #{assMemo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mbcrmsys.pojo.AssortCopy" >
+    update assort_copy
+    <set >
+      <if test="assCusId != null" >
+        ASS_CUS_ID = #{assCusId,jdbcType=INTEGER},
+      </if>
+      <if test="assDate != null" >
+        ASS_DATE = #{assDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="assPalce != null" >
+        ASS_PALCE = #{assPalce,jdbcType=VARCHAR},
+      </if>
+      <if test="assResume != null" >
+        ASS_RESUME = #{assResume,jdbcType=VARCHAR},
+      </if>
+      <if test="assDetail != null" >
+        ASS_DETAIL = #{assDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="assMemo != null" >
+        ASS_MEMO = #{assMemo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ASS_ID = #{assId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mbcrmsys.pojo.AssortCopy" >
+    update assort_copy
+    set ASS_CUS_ID = #{assCusId,jdbcType=INTEGER},
+      ASS_DATE = #{assDate,jdbcType=TIMESTAMP},
+      ASS_PALCE = #{assPalce,jdbcType=VARCHAR},
+      ASS_RESUME = #{assResume,jdbcType=VARCHAR},
+      ASS_DETAIL = #{assDetail,jdbcType=VARCHAR},
+      ASS_MEMO = #{assMemo,jdbcType=VARCHAR}
+    where ASS_ID = #{assId,jdbcType=INTEGER}
+  </update>
+</mapper>

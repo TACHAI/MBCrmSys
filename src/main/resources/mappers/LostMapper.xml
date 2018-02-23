@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mbcrmsys.dao.LostMapper" >
+  <resultMap id="BaseResultMap" type="com.mbcrmsys.pojo.Lost" >
+    <id column="LOS_ID" property="losId" jdbcType="INTEGER" />
+    <result column="LOS_CUSTOMER" property="losCustomer" jdbcType="VARCHAR" />
+    <result column="LOS_MANAGER" property="losManager" jdbcType="VARCHAR" />
+    <result column="LOS_LAST_ORDER" property="losLastOrder" jdbcType="TIMESTAMP" />
+    <result column="LOS_RESPITE" property="losRespite" jdbcType="VARCHAR" />
+    <result column="LOS_DATE" property="losDate" jdbcType="TIMESTAMP" />
+    <result column="LOS_REASON" property="losReason" jdbcType="VARCHAR" />
+    <result column="LOS_STATE" property="losState" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    LOS_ID, LOS_CUSTOMER, LOS_MANAGER, LOS_LAST_ORDER, LOS_RESPITE, LOS_DATE, LOS_REASON, 
+    LOS_STATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from lost
+    where LOS_ID = #{losId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from lost
+    where LOS_ID = #{losId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mbcrmsys.pojo.Lost" >
+    insert into lost (LOS_ID, LOS_CUSTOMER, LOS_MANAGER, 
+      LOS_LAST_ORDER, LOS_RESPITE, LOS_DATE, 
+      LOS_REASON, LOS_STATE)
+    values (#{losId,jdbcType=INTEGER}, #{losCustomer,jdbcType=VARCHAR}, #{losManager,jdbcType=VARCHAR}, 
+      #{losLastOrder,jdbcType=TIMESTAMP}, #{losRespite,jdbcType=VARCHAR}, #{losDate,jdbcType=TIMESTAMP}, 
+      #{losReason,jdbcType=VARCHAR}, #{losState,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mbcrmsys.pojo.Lost" >
+    insert into lost
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="losId != null" >
+        LOS_ID,
+      </if>
+      <if test="losCustomer != null" >
+        LOS_CUSTOMER,
+      </if>
+      <if test="losManager != null" >
+        LOS_MANAGER,
+      </if>
+      <if test="losLastOrder != null" >
+        LOS_LAST_ORDER,
+      </if>
+      <if test="losRespite != null" >
+        LOS_RESPITE,
+      </if>
+      <if test="losDate != null" >
+        LOS_DATE,
+      </if>
+      <if test="losReason != null" >
+        LOS_REASON,
+      </if>
+      <if test="losState != null" >
+        LOS_STATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="losId != null" >
+        #{losId,jdbcType=INTEGER},
+      </if>
+      <if test="losCustomer != null" >
+        #{losCustomer,jdbcType=VARCHAR},
+      </if>
+      <if test="losManager != null" >
+        #{losManager,jdbcType=VARCHAR},
+      </if>
+      <if test="losLastOrder != null" >
+        #{losLastOrder,jdbcType=TIMESTAMP},
+      </if>
+      <if test="losRespite != null" >
+        #{losRespite,jdbcType=VARCHAR},
+      </if>
+      <if test="losDate != null" >
+        #{losDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="losReason != null" >
+        #{losReason,jdbcType=VARCHAR},
+      </if>
+      <if test="losState != null" >
+        #{losState,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mbcrmsys.pojo.Lost" >
+    update lost
+    <set >
+      <if test="losCustomer != null" >
+        LOS_CUSTOMER = #{losCustomer,jdbcType=VARCHAR},
+      </if>
+      <if test="losManager != null" >
+        LOS_MANAGER = #{losManager,jdbcType=VARCHAR},
+      </if>
+      <if test="losLastOrder != null" >
+        LOS_LAST_ORDER = #{losLastOrder,jdbcType=TIMESTAMP},
+      </if>
+      <if test="losRespite != null" >
+        LOS_RESPITE = #{losRespite,jdbcType=VARCHAR},
+      </if>
+      <if test="losDate != null" >
+        LOS_DATE = #{losDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="losReason != null" >
+        LOS_REASON = #{losReason,jdbcType=VARCHAR},
+      </if>
+      <if test="losState != null" >
+        LOS_STATE = #{losState,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where LOS_ID = #{losId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mbcrmsys.pojo.Lost" >
+    update lost
+    set LOS_CUSTOMER = #{losCustomer,jdbcType=VARCHAR},
+      LOS_MANAGER = #{losManager,jdbcType=VARCHAR},
+      LOS_LAST_ORDER = #{losLastOrder,jdbcType=TIMESTAMP},
+      LOS_RESPITE = #{losRespite,jdbcType=VARCHAR},
+      LOS_DATE = #{losDate,jdbcType=TIMESTAMP},
+      LOS_REASON = #{losReason,jdbcType=VARCHAR},
+      LOS_STATE = #{losState,jdbcType=DECIMAL}
+    where LOS_ID = #{losId,jdbcType=INTEGER}
+  </update>
+</mapper>

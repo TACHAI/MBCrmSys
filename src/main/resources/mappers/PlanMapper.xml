@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mbcrmsys.dao.PlanMapper" >
+  <resultMap id="BaseResultMap" type="com.mbcrmsys.pojo.Plan" >
+    <id column="PLA_ID" property="plaId" jdbcType="INTEGER" />
+    <result column="PLA_CHC_ID" property="plaChcId" jdbcType="INTEGER" />
+    <result column="PLA_PLAN" property="plaPlan" jdbcType="VARCHAR" />
+    <result column="PLA_DATE" property="plaDate" jdbcType="TIMESTAMP" />
+    <result column="PLA_RESULT" property="plaResult" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    PLA_ID, PLA_CHC_ID, PLA_PLAN, PLA_DATE, PLA_RESULT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from plan
+    where PLA_ID = #{plaId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from plan
+    where PLA_ID = #{plaId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mbcrmsys.pojo.Plan" >
+    insert into plan (PLA_ID, PLA_CHC_ID, PLA_PLAN, 
+      PLA_DATE, PLA_RESULT)
+    values (#{plaId,jdbcType=INTEGER}, #{plaChcId,jdbcType=INTEGER}, #{plaPlan,jdbcType=VARCHAR}, 
+      #{plaDate,jdbcType=TIMESTAMP}, #{plaResult,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mbcrmsys.pojo.Plan" >
+    insert into plan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="plaId != null" >
+        PLA_ID,
+      </if>
+      <if test="plaChcId != null" >
+        PLA_CHC_ID,
+      </if>
+      <if test="plaPlan != null" >
+        PLA_PLAN,
+      </if>
+      <if test="plaDate != null" >
+        PLA_DATE,
+      </if>
+      <if test="plaResult != null" >
+        PLA_RESULT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="plaId != null" >
+        #{plaId,jdbcType=INTEGER},
+      </if>
+      <if test="plaChcId != null" >
+        #{plaChcId,jdbcType=INTEGER},
+      </if>
+      <if test="plaPlan != null" >
+        #{plaPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="plaDate != null" >
+        #{plaDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plaResult != null" >
+        #{plaResult,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mbcrmsys.pojo.Plan" >
+    update plan
+    <set >
+      <if test="plaChcId != null" >
+        PLA_CHC_ID = #{plaChcId,jdbcType=INTEGER},
+      </if>
+      <if test="plaPlan != null" >
+        PLA_PLAN = #{plaPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="plaDate != null" >
+        PLA_DATE = #{plaDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plaResult != null" >
+        PLA_RESULT = #{plaResult,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PLA_ID = #{plaId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mbcrmsys.pojo.Plan" >
+    update plan
+    set PLA_CHC_ID = #{plaChcId,jdbcType=INTEGER},
+      PLA_PLAN = #{plaPlan,jdbcType=VARCHAR},
+      PLA_DATE = #{plaDate,jdbcType=TIMESTAMP},
+      PLA_RESULT = #{plaResult,jdbcType=VARCHAR}
+    where PLA_ID = #{plaId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mbcrmsys.dao.AreaMapper" >
+  <resultMap id="BaseResultMap" type="com.mbcrmsys.pojo.Area" >
+    <id column="ARE_ID" property="areId" jdbcType="INTEGER" />
+    <result column="ARE_NAME" property="areName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ARE_ID, ARE_NAME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from area
+    where ARE_ID = #{areId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from area
+    where ARE_ID = #{areId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mbcrmsys.pojo.Area" >
+    insert into area (ARE_ID, ARE_NAME)
+    values (#{areId,jdbcType=INTEGER}, #{areName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mbcrmsys.pojo.Area" >
+    insert into area
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="areId != null" >
+        ARE_ID,
+      </if>
+      <if test="areName != null" >
+        ARE_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="areId != null" >
+        #{areId,jdbcType=INTEGER},
+      </if>
+      <if test="areName != null" >
+        #{areName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mbcrmsys.pojo.Area" >
+    update area
+    <set >
+      <if test="areName != null" >
+        ARE_NAME = #{areName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ARE_ID = #{areId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mbcrmsys.pojo.Area" >
+    update area
+    set ARE_NAME = #{areName,jdbcType=VARCHAR}
+    where ARE_ID = #{areId,jdbcType=INTEGER}
+  </update>
+</mapper>
