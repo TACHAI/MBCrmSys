@@ -26,8 +26,9 @@ public class ConsumerController {
 
     @PostMapping("login.do")
     @ResponseBody
-    public ServerResponse<Consumer> login(String name, String password, HttpSession session){
-        ServerResponse<Consumer> response=iConsumerService.login(name,password);
+    public ServerResponse<Consumer> login(String username, String userpassword, HttpSession session){
+        System.out.println("name"+username+"  password"+userpassword);
+        ServerResponse<Consumer> response=iConsumerService.login(username,userpassword);
         if(response.isSuccess()){
             session.setAttribute(Const.CURRENT_USER,response.getData());
         }

@@ -1,6 +1,7 @@
 package com.mbcrmsys.dao;
 
 import com.mbcrmsys.pojo.Consumer;
+import org.apache.ibatis.annotations.Param;
 
 public interface ConsumerMapper {
     int deleteByPrimaryKey(Integer conId);
@@ -15,6 +16,6 @@ public interface ConsumerMapper {
 
     int updateByPrimaryKey(Consumer record);
 
-    Consumer selectByUser(String name, String password);
+    Consumer selectByUser(@Param("name") String name, @Param("password") String password);
     int selectByUserName(String name);
 }

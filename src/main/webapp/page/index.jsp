@@ -1,6 +1,9 @@
-<%--<%@page import="com.rlg.crm.domain.Consumer"%>--%>
-<%--<%@page import="com.rlg.crm.domain.Customer"%>--%>
-<%--<%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>--%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
 <!DOCTYPE html>
 <html>
 
@@ -13,11 +16,10 @@
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html" />
     <![endif]-->
-
-    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico"> <link href="/assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="/assets/css/animate.css" rel="stylesheet">
+    <link href="/assets/css/style.css?v=4.1.0" rel="stylesheet">
 </head>
 
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
@@ -135,7 +137,7 @@
         <div id="page-wrapper" class="gray-bg dashbard-1">
             <div class="row border-bottom">
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-                    <h1 style="margin-left: 4%">客户关系管理系统</h1>
+                    <h1 style="margin-left: 4%">中药采购商管理系统</h1>
                 </nav>
             </div>
          
@@ -169,18 +171,18 @@
     </div>
 
     <!-- 全局js -->
-    <script src="js/jquery.min.js?v=2.1.4"></script>
-    <script src="js/bootstrap.min.js?v=3.3.6"></script>
-    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="js/plugins/layer/layer.min.js"></script>
+    <script src="/assets/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="/assets/js/plugins/layer/layer.min.js"></script>
 
     <!-- 自定义js -->
-    <script src="js/hplus.js?v=4.1.0"></script>
-    <script type="text/javascript" src="js/contabs.js"></script>
+    <script src="/assets/js/hplus.js?v=4.1.0"></script>
+    <script type="/assets/text/javascript" src="js/contabs.js"></script>
 
     <!-- 第三方插件 -->
-    <script src="js/plugins/pace/pace.min.js"></script>
+    <script src="/assets/js/plugins/pace/pace.min.js"></script>
 
 </body>
 

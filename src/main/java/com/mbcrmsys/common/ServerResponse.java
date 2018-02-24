@@ -1,7 +1,10 @@
 package com.mbcrmsys.common;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+
+
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.io.Serializable;
 
@@ -37,15 +40,19 @@ public class ServerResponse<T> implements Serializable {
         this.msg=msg;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public String getMsg(){ return msg;}
+    
+    public T getData(){ return data;}
+
     @JsonIgnore
     //使之不在序列化之中
     public boolean isSuccess() {
         return this.status == ResponseCode.SUCCESS.getCode();
     }
-    
-    public String getMsg(){ return msg;}
-    
-    public T getData(){ return data;}
     
     public static <T> ServerResponse<T> createBySuccess(){
         return new ServerResponse<T>(ResponseCode.SUCCESS.getCode());

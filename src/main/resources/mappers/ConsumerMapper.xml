@@ -83,11 +83,11 @@
     SELECT
     <include refid="Base_Column_List"/>
     FROM consumer
-    WHERE CON_NAME = #{conName,jdbcType=VARCHAR}
+    WHERE CON_NAME = #{name,jdbcType=VARCHAR}
     and
-    CON_PASSWORD = #{conPassword,jdbcType=VARCHAR}
+    CON_PASSWORD = #{password,jdbcType=VARCHAR}
   </select>
-  <select id="selectByUserName" resultType="int" parameterType="map">
+  <select id="selectByUserName" resultType="java.lang.Integer" parameterType="map">
     SELECT COUNT(1) FROM consumer WHERE con_name=#{name}
   </select>
 </mapper>
