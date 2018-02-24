@@ -14,4 +14,7 @@ public interface ConsumerMapper {
     int updateByPrimaryKeySelective(Consumer record);
 
     int updateByPrimaryKey(Consumer record);
+
+    Consumer selectByUser(String name, String password);
+    int selectByUserName(String name);
 }

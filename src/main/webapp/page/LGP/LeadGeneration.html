@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>客户开发计划</title>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="../css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="../css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="../css/style.css?v=4.1.0" rel="stylesheet">
+</head>
+<body class="gray-bg top-navigation">
+
+    <div id="wrapper">
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom white-bg">
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <div class="navbar-header">
+                        <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                            <i class="fa fa-reorder"></i>
+                        </button>
+                        <a href="LeadGeneration.html" class="navbar-brand">客户开发计划</a>
+                    </div>
+                    <div class="navbar-collapse collapse" id="navbar">
+                        <ul class="nav navbar-top-links navbar-right">
+                            <li>
+                                <a href="help.html">
+                                    <i class="fa fa-question"></i> 帮助
+                                </a>
+                            </li>
+                            <li>
+                                <a href="login.html">
+                                    <i class="fa fa-sign-out"></i> 退出
+                                </a>
+                            </li>                            
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="wrapper wrapper-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>客户信息表</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                            	<span class="input-group-addon">客户名称</span>
+                                                <input type="text" placeholder="客户名称" class="input-sm form-control" name="chc_cust_name" id="chc_cust_name">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                            	<span class="input-group-addon">概要</span>
+                                                <input type="text" placeholder="概要" class="input-sm form-control" name="chc_title" id="chc_title">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                            	<span class="input-group-addon">联系人</span>
+                                                <input type="text" placeholder="联系人" class="input-sm form-control" name="chc_linkman" id="chc_linkman">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                        	<button id="button" class="btn btn-sm btn-primary">查询</button>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                    <!-- 方法一中table里不能加data-url否则函数无法修改 -->
+                                        <table
+                                        id="chcCustNameTable" 
+                                        data-toggle="table"
+                                        data-query-params="queryParams" 
+                                        data-mobile-responsive="true"
+                                        data-pagination="true" 
+                                        data-icon-size="outline" 
+                                        data-search="false"
+                                        data-striped="true"
+                                        data-page-size="10"
+                                        data-page-number="1"
+                                        data-page-list="[1, 5, 10, 15, 20, 25]"
+                                        data-url="../ServletLG?chc_cust_name=&chc_title=&chc_linkman=">
+		                                	<thead>
+		                                        <tr>
+		                                            <th data-field="state" data-checkbox="true"></th>
+		                                            <th data-field="chcId">ID</th>
+		                                            <th data-field="chcCustName">客户名称</th>
+		                                            <th data-field="chcTitle">概要</th>
+		                                            <th data-field="chcLinkman">联系人</th>
+		                                            <th data-field="chcTel">电话</th>
+		                                            <th data-field="chcCreateDate">创建时间</th>
+		                                            <th id="edit" data-field="operate">操作</th>
+		                                        </tr>
+		                                    </thead>
+		                                </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="footer">
+                <div class="pull-right">
+                    By：<a href="http://www.zi-han.net" target="_blank">zihan's blog</a>
+                </div>
+                <div>
+                    <strong>Copyright</strong> H+ &copy; 2014
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 全局js -->
+    <script src="../js/jquery.min.js?v=2.1.4"></script>
+    <script src="../js/bootstrap.min.js?v=3.3.6"></script>
+
+    <!-- 自定义js -->
+    <script src="../js/content.js?v=1.0.0"></script>
+
+
+    <!-- Bootstrap table -->
+    <script src="../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="../js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+    <!-- Peity -->
+    <script src="../js/demo/bootstrap-table-demo.js"></script>
+
+<script type="text/javascript">
+$("#button").click(function(){
+	var chc_cust_name = document.getElementById("chc_cust_name").value;
+	var chc_title = document.getElementById("chc_title").value;
+	var chc_linkman = document.getElementById("chc_linkman").value;
+	var url = "../ServletLG?chc_cust_name="+chc_cust_name+"&chc_title="+chc_title+"&chc_linkman="+chc_linkman;
+	url=encodeURI(url);//对URL的地址进行encodeURI编码，实际上只有中文的部分被修改编码
+	$("#chcCustNameTable").bootstrapTable('refresh',{'url':url});
+});
+</script>
+
+</body>
+</html>

@@ -79,4 +79,15 @@
       CON_PASSWORD = #{conPassword,jdbcType=VARCHAR}
     where CON_ID = #{conId,jdbcType=INTEGER}
   </update>
+  <select id="selectByUser" resultMap="BaseResultMap" parameterType="map">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM consumer
+    WHERE CON_NAME = #{conName,jdbcType=VARCHAR}
+    and
+    CON_PASSWORD = #{conPassword,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByUserName" resultType="int" parameterType="map">
+    SELECT COUNT(1) FROM consumer WHERE con_name=#{name}
+  </select>
 </mapper>
