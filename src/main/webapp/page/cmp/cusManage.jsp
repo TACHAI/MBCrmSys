@@ -1,5 +1,5 @@
 <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@page import=" com.rlg.crm.domain.Customer"%>
+<%--<%@page import=" com.rlg.crm.domain.Customer"%>--%>
 <%@page import="java.util.List,
 				java.util.ArrayList"%>
 <!DOCTYPE html>
@@ -15,23 +15,23 @@
     <![endif]-->
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link href="<%=request.getContextPath() %>/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/animate.css" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/assets/css/animate.css" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/assets/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/assets/css/style.css?v=4.1.0" rel="stylesheet">
 </head>
 <body class="gray-bg top-navigation">
 
-    <div id="wrapper">
+    <div id="wrapper" >
         <div id="page-wrapper" class="gray-bg">
             <div class="row border-bottom white-bg">
                 <nav class="navbar navbar-static-top" role="navigation">
                     <div class="navbar-header">
-                        <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
-                            <i class="fa fa-reorder"></i>
-                        </button>
-                        <a href="#" class="navbar-brand">客户管理</a>
+                        <%--<button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed " type="button">--%>
+                            <%--<i class="fa fa-reorder"></i>--%>
+                        <%--</button>  --%>
+                        <a class="navbar-minimalize navbar-brand  "  href="#">客户管理</a>
                     </div>
                     <div class="navbar-collapse collapse" id="navbar">
                         <ul class="nav navbar-top-links navbar-right">
@@ -102,41 +102,40 @@
 		                                        </tr>
 		                                        </thead>
 		                                        <tbody>
-		                                        <% List<Customer> list=(List<Customer>) request.getAttribute("cusList");
-													if(list!=null){
-														for(int i=0;i<list.size();i++){
-														Customer cus=list.get(i);
-												%>
-		                                        <tr>
-		                                        	<td><%=cus.getCusId()%></td>
-		                                        	<td><%=cus.getCusName()%></td>
-		                                        	<td><%=cus.getCusAddress()%></td>
-		                                        	<td><%=cus.getCusTelephone()%></td>
-		                                        	<td><%=cus.getCusState()%></td>
-		                                        	<td><a href="customerlist?flag=update&cus_id=<%=cus.getCusId() %>" >编辑</a></td>			
-		                                        </tr>
-		                                       <% }
-												   } %>
+		                                        <%--<% List<Customer> list=(List<Customer>) request.getAttribute("cusList");--%>
+													<%--if(list!=null){--%>
+														<%--for(int i=0;i<list.size();i++){--%>
+														<%--Customer cus=list.get(i);--%>
+												<%--%>--%>
+		                                        <%--<tr>--%>
+		                                        	<%--<td><%=cus.getCusId()%></td>--%>
+		                                        	<%--<td><%=cus.getCusName()%></td>--%>
+		                                        	<%--<td><%=cus.getCusAddress()%></td>--%>
+		                                        	<%--<td><%=cus.getCusTelephone()%></td>--%>
+		                                        	<%--<td><%=cus.getCusState()%></td>--%>
+		                                        	<%--<td><a href="customerlist?flag=update&cus_id=<%=cus.getCusId() %>" >编辑</a></td>			--%>
+		                                        <%--</tr>--%>
+		                                       <%--<% }--%>
+												   <%--} %>--%>
 		                                        </tbody>
 		                                </table>
-		                                <%
-							int showPage = ((Integer) (request.getAttribute("showPage")))
-									.intValue();
-							int pageCount = ((Integer) (request.getAttribute("pageCount")))
-									.intValue();
-							int page1 = showPage - 1;
-							int page2 = showPage + 1;
-							int lastPage = pageCount;
-						%>
-
-						<div style="text-align: right;">
-							<ul class="pager">
-								<li><a href="javascript:page(1,<%=pageCount%>)">&laquo;</a></li>
-								<li><a href="javascript:page(<%=page1%>,<%=pageCount%>)">上一页</a></li>
-								<li><a href="javascript:page(<%=page2%>,<%=pageCount%>)">下一页</a></li>
-								<li><a href="javascript:page(<%=lastPage%>,<%=pageCount%>)">&raquo;</a></li>
-							</ul>
-						</div>
+		                                <%--<%--%>
+							<%--int showPage = ((Integer) (request.getAttribute("showPage")))--%>
+									<%--.intValue();--%>
+							<%--int pageCount = ((Integer) (request.getAttribute("pageCount")))--%>
+									<%--.intValue();--%>
+							<%--int page1 = showPage - 1;--%>
+							<%--int page2 = showPage + 1;--%>
+							<%--int lastPage = pageCount;--%>
+						<%--%>--%>
+                                        <%--<div style="text-align: right;">--%>
+							<%--<ul class="pager">--%>
+								<%--<li><a href="javascript:page(1 ,<%=pageCount%>)">&laquo;</a></li>--%>
+								<%--<li><a href="javascript:page(<%=page1%>,<%=pageCount%>)">上一页</a></li>--%>
+								<%--<li><a href="javascript:page(<%=page2%>,<%=pageCount%>)">下一页</a></li>--%>
+								<%--<li><a href="javascript:page(<%=lastPage%>,<%=pageCount%>)">&raquo;</a></li>--%>
+							<%--</ul>--%>
+						<%--</div>--%>
                                     </div>
 
                                 </div>
@@ -148,35 +147,28 @@
                 </div>
 
             </div>
-            <div class="footer">
-                <div class="pull-right">
-                    By：<a href="http://www.zi-han.net" target="_blank">zihan's blog</a>
-                </div>
-                <div>
-                    <strong>Copyright</strong> H+ &copy; 2014
-                </div>
-            </div>
-
         </div>
     </div>
 
     <!-- 全局js -->
-    <script src="<%=request.getContextPath() %>/js/jquery.min.js?v=2.1.4"></script>
-    <script src="<%=request.getContextPath() %>/js/bootstrap.min.js?v=3.3.6"></script>
-
+    <script src="<%=request.getContextPath() %>/assets/js/jquery.min.js?v=2.1.4"></script>
+    <script src="<%=request.getContextPath() %>/assets/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="<%=request.getContextPath() %>/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="<%=request.getContextPath() %>/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="<%=request.getContextPath() %>/assets/js/plugins/layer/layer.min.js"></script>
     <!-- 自定义js -->
-    <script src="<%=request.getContextPath() %>/js/content.js?v=1.0.0"></script>
-
-
+    <script src="<%=request.getContextPath() %>/assets/js/content.js?v=1.0.0"></script>
+    <script src="/assets/js/hplus.js?v=4.1.0"></script>
     <!-- Bootstrap table -->
-    <script src="<%=request.getContextPath() %>/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
-    <script src="<%=request.getContextPath() %>/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
-    <script src="<%=request.getContextPath() %>/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="<%=request.getContextPath() %>/assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="<%=request.getContextPath() %>/assets/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="<%=request.getContextPath() %>/assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
 
     <!-- Peity -->
-    <script src="<%=request.getContextPath() %>/js/demo/bootstrap-table-demo.js"></script>
+    <script src="<%=request.getContextPath() %>/assets/js/demo/bootstrap-table-demo.js"></script>
 
-    <script type="<%=request.getContextPath() %>/text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+    <script type="<%=request.getContextPath() %>/assets/text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
     <!--统计代码，可删除-->
 
 </body>

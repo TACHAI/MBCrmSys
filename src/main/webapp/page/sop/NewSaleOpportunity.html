@@ -11,11 +11,11 @@
     <![endif]-->
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link href="../css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="../css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
-    <link href="../css/animate.css" rel="stylesheet">
-    <link href="../css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
-    <link href="../css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="/assets/css/animate.css" rel="stylesheet">
+    <link href="/assets/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="/assets/css/style.css?v=4.1.0" rel="stylesheet">
 </head>
 <body class="gray-bg top-navigation">
 
@@ -27,8 +27,8 @@
                         <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
                             <i class="fa fa-reorder"></i>
                         </button>
-                        <a href="SaleOpportunity.html" class="navbar-brand">营销机会管理</a>
-                        <a href="NewSaleOpportunity.html" class="navbar-brand">//新建营销机会</a>
+                        <!--<a href="SaleOpportunity.html" class="navbar-brand">营销机会管理</a>-->
+                        <a href="#" class="navbar-brand">/新建营销机会</a>
                     </div>
                     <div class="navbar-collapse collapse" id="navbar">
                         <ul class="nav navbar-top-links navbar-right">
@@ -67,74 +67,74 @@
                                     <div class="table-responsive">
                                         <form role="form" id="userform" class="form-horizontal" action="../ServletNSO" method="post">
                                         <div class="form-group">
-	                                        <label for="firstname" class="col-sm-2 control-label">编号</label>
-	                                        <div class="col-sm-3">
-	                                            <input type="text" class="form-control" placeholder="请输入名字" readonly="readonly">
-	                                        </div>
-	                                        <label for="firstname" class="col-sm-1 control-label">*</label>
+	                                        <!--<label for="firstname" class="col-sm-2 control-label">编号</label>-->
+	                                        <!--<div class="col-sm-3">-->
+	                                            <!--<input type="text" class="form-control" placeholder="请输入名字" readonly="readonly">-->
+	                                        <!--</div>-->
+	                                        <!--<label for="firstname" class="col-sm-1 control-label">*</label>-->
 										<!-- </div>
                                         <div class="form-group"> -->
-	                                        <label for="firstname" class="col-sm-2 control-label">机会来源</label>
+	                                        <label for="chc_source" class="col-sm-2 control-label">机会来源</label>
 	                                        <div class="col-sm-3">
 	                                            <input type="text" class="form-control" id="chc_source" placeholder="请输入名字">
 	                                        </div>
-	                                        <label for="firstname" class="col-sm-1 control-label">*</label>
+	                                        <label for="chc_source" class="col-sm-1 control-label">*</label>
 										</div>
                                         <div class="form-group">
-	                                        <label for="firstname" class="col-sm-2 control-label">客户名称</label>
+	                                        <label for="chc_cust_name" class="col-sm-2 control-label">客户名称</label>
 	                                        <div class="col-sm-3">
 	                                            <input type="text" class="form-control" id="chc_cust_name" placeholder="请输入名字">
 	                                        </div>
-	                                        <label for="firstname" class="col-sm-1 control-label">*</label>
+	                                        <label for="chc_cust_name" class="col-sm-1 control-label">*</label>
                                         <!-- </div>
                                        	<div class="form-group"> -->
-	                                        <label for="firstname" class="col-sm-2 control-label">成功机率</label>
+	                                        <label for="chc_rate" class="col-sm-2 control-label">成功机率</label>
 	                                        <div class="col-sm-3">
 	                                            <input type="text" class="form-control" id="chc_rate" placeholder="请输入名字">
 	                                        </div>
-	                                        <label for="firstname" class="col-sm-1 control-label">*</label>
+	                                        <label for="chc_rate" class="col-sm-1 control-label">*</label>
                                         </div>
                                         <div class="form-group">
-					                        <label for="firstname" class="col-sm-2 control-label">概要</label>
+					                        <label for="chc_title" class="col-sm-2 control-label">概要</label>
 					                        <div class="col-sm-9">
 					                            <input type="text" class="form-control" id="chc_title" placeholder="请输入名字">
 					                        </div>
-					                        <label for="firstname" class="col-sm-1 control-label">*</label>
+					                        <label for="chc_title" class="col-sm-1 control-label">*</label>
                                         </div>
                                     	<div class="form-group">
-	                                        <label for="firstname" class="col-sm-2 control-label">联系人</label>
+	                                        <label for="chc_linkman" class="col-sm-2 control-label">联系人</label>
 	                                        <div class="col-sm-3">
 	                                            <input type="text" class="form-control" id="chc_linkman" placeholder="请输入名字">
 	                                        </div>
-	                                        <label for="firstname" class="col-sm-1 control-label">*</label>
+	                                        <label for="chc_linkman" class="col-sm-1 control-label">*</label>
                                         <!-- </div>
                                         <div class="form-group"> -->
-	                                        <label for="firstname" class="col-sm-2 control-label">联系人电话</label>
+	                                        <label for="chc_tel" class="col-sm-2 control-label">联系人电话</label>
 	                                        <div class="col-sm-3">
 	                                        	<input type="text" class="form-control" id="chc_tel" placeholder="请输入名字">
 	                                        </div>
-	                                        <label for="firstname" class="col-sm-1 control-label">*</label>
+	                                        <label for="chc_tel" class="col-sm-1 control-label">*</label>
                                         </div>
                                         <div class="form-group">
-	                                        <label for="firstname" class="col-sm-2 control-label">机会描述</label>
+	                                        <label for="chc_desc" class="col-sm-2 control-label">机会描述</label>
 	                                        <div class="col-sm-9">
 	                                            <textarea type="text" class="form-control" id="chc_desc" placeholder="请输入名字"></textarea>
 	                                        </div>
-	                                        <label for="firstname" class="col-sm-1 control-label">*</label>
+	                                        <label for="chc_desc" class="col-sm-1 control-label">*</label>
                                         </div>
                                         <div class="form-group">
-											<label for="firstname" class="col-sm-2 control-label">创建人</label>
+											<label for="chc_create_name" class="col-sm-2 control-label">创建人</label>
 											<div class="col-sm-3">
 											    <input type="text" class="form-control" id="chc_create_name" placeholder="请输入名字">
 											</div>
-											<label for="firstname" class="col-sm-1 control-label">*</label>
+											<label for="chc_create_name" class="col-sm-1 control-label">*</label>
                                         <!-- </div>
                                        	<div class="form-group"> -->
-                                        <label for="firstname" class="col-sm-2 control-label">创建时间</label>
+                                        <label for="chc_create_date" class="col-sm-2 control-label">创建时间</label>
                                         <div class="col-sm-3">
                                         	<input type="text" class="form-control" id="chc_create_date" placeholder="请输入名字">
                                         </div>
-                                      	<label for="firstname" class="col-sm-1 control-label">*</label>
+                                      	<label for="chc_create_date" class="col-sm-1 control-label">*</label>
                                        	</div>
 										</form>
                                         <table class="table table-bordered">
@@ -142,20 +142,20 @@
                                                 <tr>
                                                     <td>
                                                         <!--<div class="form-group">-->
-                                                        <label for="firstname" class="col-sm-3 control-label">指派给</label>
+                                                        <label for="chc_due_name" class="col-sm-3 control-label">指派给</label>
                                                         <div class="col-sm-8">
                                                             <input type="text" class="form-control" id="chc_due_name" placeholder="请输入名字"  readonly="readonly">
                                                         </div>
-                                                        <label for="firstname" class="col-sm-1 control-label">*</label>
+                                                        <label for="chc_due_name" class="col-sm-1 control-label">*</label>
                                                         <!--</div>-->
                                                     </td>
                                                     <td>
                                                         <!--<div class="form-group">-->
-                                                        <label for="firstname" class="col-sm-3 control-label">指派时间</label>
+                                                        <label for="chc_due_date" class="col-sm-3 control-label">指派时间</label>
                                                         <div class="col-sm-8">
                                                             <input type="text" class="form-control" id="chc_due_date" placeholder="请输入名字"  readonly="readonly">
                                                         </div>
-                                                        <label for="firstname" class="col-sm-1 control-label">*</label>
+                                                        <label for="chc_due_date" class="col-sm-1 control-label">*</label>
                                                         <!--</div>-->
                                                     </td>
                                                 </tr>
@@ -168,33 +168,33 @@
                     </div>
                 </div>
             </div>
-            <div class="footer">
-                <div class="pull-right">
-                    By：<a href="http://www.zi-han.net" target="_blank">zihan's blog</a>
-                </div>
-                <div>
-                    <strong>Copyright</strong> H+ &copy; 2014
-                </div>
-            </div>
+            <!--<div class="footer">-->
+                <!--<div class="pull-right">-->
+                    <!--By：<a href="http://www.zi-han.net" target="_blank">zihan's blog</a>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<strong>Copyright</strong> H+ &copy; 2014-->
+                <!--</div>-->
+            <!--</div>-->
 
         </div>
     </div>
 
     <!-- 全局js -->
-    <script src="../js/jquery.min.js?v=2.1.4"></script>
-    <script src="../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="/assets/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
 
     <!-- 自定义js -->
-    <script src="../js/content.js?v=1.0.0"></script>
+    <script src="/assets/js/content.js?v=1.0.0"></script>
 
 
     <!-- Bootstrap table -->
-    <script src="../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
-    <script src="../js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
-    <script src="../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="/assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="/assets/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="/assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
 
     <!-- Peity -->
-    <script src="../js/demo/bootstrap-table-demo.js"></script>
+    <script src="/assets/js/demo/bootstrap-table-demo.js"></script>
 
     <script type="text/javascript">
     function save(){

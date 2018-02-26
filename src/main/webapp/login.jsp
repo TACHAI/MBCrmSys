@@ -74,9 +74,14 @@
             success:function (data) {
                 console.info("成功返回值:",data);
                 console.info("返回的第一个值",data.msg)
+                console.info("name",data.data.conName)
                 alert(data.msg)
                 if(data.status==0){
-                    window.location.href = "${pageContext.request.contextPath}/page/index.jsp";
+//                    Object.each(data,function(item,key){
+//                        var link = '&' + key + "=" + item;
+//                        myURL.link += link;
+//                    })
+                    window.location.href = "${pageContext.request.contextPath}/page/index.jsp"+'?'+'id'+'='+data.data.conId+'&name='+data.data.conName;
                 }
             },
             error:function (data) {

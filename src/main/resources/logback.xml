@@ -11,11 +11,11 @@
         </filter>
     </appender>
 
-    <appender name="hmall" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="mbcrmsys" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--<File>d:/hmalllog/hmall.log</File>-->
-        <File>F:/JAVA/apache-tomcat-7.0.78/logs/hmall.log</File>
+        <File>F:/JAVA/apache-tomcat-7.0.78/logs/MBCrmSys.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>F:/JAVA/apache-tomcat-7.0.78/logs/hmall.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <fileNamePattern>F:/JAVA/apache-tomcat-7.0.78/logs/MBCrmSys.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
             <append>true</append>
             <maxHistory>10</maxHistory>
         </rollingPolicy>
@@ -30,7 +30,7 @@
         <File>F:/JAVA/apache-tomcat-7.0.78/logs/error.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>F:/JAVA/apache-tomcat-7.0.78/logs/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
-            <!--<fileNamePattern>d:/hmalllog/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>-->
+            <!--<fileNamePattern>d:/mbcrmsys/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>-->
             <append>true</append>
             <maxHistory>10</maxHistory>
         </rollingPolicy>
@@ -44,8 +44,8 @@
         </filter>
     </appender>
 
-    <logger name="com.hmall" additivity="false" level="INFO" >
-        <appender-ref ref="hmall" />
+    <logger name="com.mbcrmsys" additivity="false" level="INFO" >
+        <appender-ref ref="mbcrmsys" />
         <appender-ref ref="console"/>
     </logger>
 
@@ -53,7 +53,7 @@
 
     <!-- geelynote mybatis log 日志 -->
 
-    <logger name="com.hmall.dao" level="DEBUG"/>
+    <logger name="com.mbcrmsys.dao" level="DEBUG"/>
 
     <!--<logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="DEBUG" >-->
         <!--<appender-ref ref="console"/>-->

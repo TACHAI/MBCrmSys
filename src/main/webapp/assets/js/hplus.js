@@ -65,7 +65,7 @@ $(document).ready(function () {
     }
     fix_height();
 
-    $(window).bind("load resize click scroll", function () {
+    $(window).bind("  resize click scroll", function () {
         if (!$("body").hasClass('body-small')) {
             fix_height();
         }
@@ -106,7 +106,7 @@ $(document).ready(function () {
 
 $(window).bind("load resize", function () {
     if ($(this).width() < 769) {
-        $('body').addClass('mini-navbar');
+        // $('body').addClass('mini-navbar');
         $('.navbar-static-side').fadeIn();
     }
 });
