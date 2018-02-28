@@ -30,4 +30,14 @@ public class SalChanceServiceImpl implements ISalChanceService {
            return ServerResponse.createByErrorMessage(ResponseCode.ERROR.getDesc());
         }
     }
+
+    @Override
+    public ServerResponse<String> deleteById(Long id) {
+        int result=salChanceMapper.deleteByPrimaryKey(id);
+        if(result>0){
+            return ServerResponse.createBySuccessMessage("删除成功");
+        }else {
+            return ServerResponse.createByErrorMessage("删除失败");
+        }
+    }
 }

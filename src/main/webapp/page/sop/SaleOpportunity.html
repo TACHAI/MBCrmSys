@@ -51,7 +51,7 @@
                     </div>
                 </nav>
             </div>
-            <div class="wrapper wrapper-content" onload="buttons()">
+            <div class="wrapper wrapper-content" >
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
@@ -86,28 +86,28 @@
                                     <div class="table-responsive">
                                     <!-- 方法一中table里不能加data-url否则函数无法修改 -->
                                         <table
-                                        id="chcCustNameTable" 
+                                        id="chcCustNameTable"
                                         data-toggle="table"
-                                        data-query-params="queryParams" 
+                                        data-query-params="queryParams"
                                         data-mobile-responsive="true"
-                                        data-pagination="true" 
-                                        data-icon-size="outline" 
+                                        data-pagination="true"
+                                        data-icon-size="outline"
                                         data-search="false"
                                         data-striped="true"
                                         data-page-size="10"
                                         data-page-number="1"
-                                        data-page-list="[1, 5, 10, 15, 20, 25]"
-                                        data-url="../ServletSO?chc_cust_name=&chc_title=&chc_linkman=">
+                                        data-page-list="[1, 5, 10, 15, 20, 25]">
+                                        <!--data-url="../ServletSO?chc_cust_name=&chc_title=&chc_linkman=">-->
 		                                	<thead>
 		                                        <tr>
-		                                            <th data-field="state" data-checkbox="true"></th>
-		                                            <th data-field="chcId">ID</th>
+		                                            <!--<th data-field="state" data-checkbox="true"></th>-->
+		                                            <th data-field="chcId" data-visible="false">ID</th>
 		                                            <th data-field="chcCustName">客户名称</th>
 		                                            <th data-field="chcTitle">概要</th>
 		                                            <th data-field="chcLinkman">联系人</th>
 		                                            <th data-field="chcTel">电话</th>
 		                                            <th data-field="chcCreateDate">创建时间</th>
-		                                            <th id="edit" data-field="operate">操作</th>
+		                                            <th data-field="operate" data-formatter="edit">操作</th>
 		                                        </tr>
 		                                    </thead>
 		                                </table>
@@ -116,13 +116,9 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-            <!--<input type="button" id="button1" onclick="Ajax1()" value="Ajax提交"/><div id="disp"></div>-->
         </div>
     </div>
 
@@ -150,13 +146,13 @@ function initTable() {
 var chc_cust_name = document.getElementById("chc_cust_name").value;
 var chc_title = document.getElementById("chc_title").value;
 var chc_linkman = document.getElementById("chc_linkman").value;
-var url = "../ServletSO?chc_cust_name="+chc_cust_name+"&chc_title="+chc_title+"&chc_linkman="+chc_linkman;
+var url = "http://localhost:8080/saleopp/getall.do?chc_cust_name="+chc_cust_name+"&chc_title="+chc_title+"&chc_linkman="+chc_linkman;
 url=encodeURI(url);//对URL的地址进行encodeURI编码，实际上只有中文的部分被修改编码
 	//先销毁表格  
 	$('#chcCustNameTable').bootstrapTable('destroy');
 	//初始化表格,动态从服务器加载数据  
 	$("#chcCustNameTable").bootstrapTable({
-		method: "get",  //使用get请求到服务器获取数据  
+		method: "get",  //使用get请求到服务器获取数据
 		url: url,//sevlet地址
 	});  
 }//应为使用方法二所以一下函数被注释，使用方法一需要取消注释
@@ -169,67 +165,59 @@ url=encodeURI(url);//对URL的地址进行encodeURI编码，实际上只有中�
 }); */
 //方法二
 $("#button").click(function(){
-	var chc_cust_name = document.getElementById("chc_cust_name").value;
-	var chc_title = document.getElementById("chc_title").value;
-	var chc_linkman = document.getElementById("chc_linkman").value;
-	var url = "../ServletSO?chc_cust_name="+chc_cust_name+"&chc_title="+chc_title+"&chc_linkman="+chc_linkman;
-	url=encodeURI(url);//对URL的地址进行encodeURI编码，实际上只有中文的部分被修改编码
-	$("#chcCustNameTable").bootstrapTable('refresh',{'url':url});
+    initTable();
+//	var chc_cust_name = document.getElementById("chc_cust_name").value;
+//	var chc_title = document.getElementById("chc_title").value;
+//	var chc_linkman = document.getElementById("chc_linkman").value;
+//	var url = "http://localhost:8080/saleopp/getall.do?chc_cust_name="+chc_cust_name+"&chc_title="+chc_title+"&chc_linkman="+chc_linkman;
+//	url=encodeURI(encodeURI(url));//对URL的地址进行encodeURI编码，实际上只有中文的部分被修改编码
+//	$("#chcCustNameTable").bootstrapTable('refresh',{'url':url});
 });
 //....以上两种方法都可以按钮刷新url实现点击修改.............
 
 
-function Ajax1()
-{
-	var xmlhttp;
-	var chc_cust_name = document.getElementById("chc_cust_name").value;
-	var chc_title = document.getElementById("chc_title").value;
-	var chc_linkman = document.getElementById("chc_linkman").value;
-	if (window.XMLHttpRequest)
-	{
-		//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-		xmlhttp=new XMLHttpRequest();
-	}
-	else
-	{
-		// IE6, IE5 浏览器执行代码
-		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange=function()
-	{
-		if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-			//两种方法都可以将json转js对象
-			//var myObj = eval("("+xmlhttp.responseText+")");//转换并且执行，计算某个字符串，并执行其中的的 JavaScript 代码，不建议使用
-			//var myObj = JSON.parse(xmlhttp.responseText);//转换js对象
-			var str = xmlhttp.responseText;
-			document.getElementById("disp").innerHTML = str;
-			myObj = JSON.parse(str);
-			return myObj;
-		}
-	}
-	xmlhttp.open("GET","../ServletSO?chc_cust_name="+chc_cust_name+"&chc_title="+chc_title+"&chc_linkman="+chc_linkman,true);
-	//xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-	xmlhttp.setRequestHeader("Content-Type", "text/html;charset=UTF-8");//send传参是必须要有的
-	xmlhttp.send();//send内加参数需要在使用post的前提下
+
+//function buttons(){
+//	var table1 = document.getElementById("chcCustNameTable");
+//	for (var i = 1; i < table1.rows.length; i++) {
+//	    console.info(table1.rows.length)
+//        var clength=table1.rows[0].cells.length-1;
+//        console.info("列的长度"+clength);
+//		table1.rows[i].cells[clength].innerHTML = "<input type='button' onclick='edit()' value='编辑'/>"+"<input type='button' onclick='edit()' value='删除'/>"+"<input type='button' onclick='edit()' value='分配'/>";
+//	}
+//}
+ function edit (value, row, index) {
+    var a = '<button type="button" class="RoleOfD btn btn-primary  btn-sm" style="margin-right:15px;" onclick="layer_show(\'' + "修改信息" + '\',\'' + "Update_GuideManagement.html" + '\',\'' + "" + '\',\'' + "510" + '\',\'' + row.chcId + '\')">编辑</button>';
+    var b = '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="return deleteSaleOpp(\'' + row.chcId + '\')">删除</a> ';
+//    var c=  '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="deletedata(\'' + row.ID + '\')">分配</a> ';
+    return a + b ;
 }
 
-$(document).ready(function(){
-	$("#button").click(function(){
-		$.ajax({url:"demo_test.txt",success:function(result){
-			$("#div1").html(result);}});
-	});
-});
+function deleteSaleOpp(chcId){
+    if(confirm('确定要执行此操作吗?'))
+    {
+        console.info('id:'+chcId)
+        $.ajax({
+            type:"post",
+            url:"http://localhost:8080/saleopp/deletebyid.do",
+            data:{id:chcId}, //要发送的是ajaxFrm表单中的数据
+            dataType:'json',
+            success:function (data) {
+                if(data.status==0){
+                    initTable()
+                }
+            },
+            error:function (data) {
+                console.info("代码出现了错误请联系开发者：",data);
+                alter("代码出现了错误请联系开发者")
+            }
+        });
+        return true;
+    }
+    return false;
 
-function buttons(){
-	var table = document.getElementById("exampleTablePagination");
-	for (var i = 1; i < table.rows.length; i++) {
-		table.rows[i].cells[table.rows[0].cells.length-1].innerHTML="<input type='button' onclick='edit()' value='编辑'/>"
-		+"<input type='button' onclick='edit()' value='删除'/>"+"<input type='button' onclick='edit()' value='分配'/>";
-	}
 }
 </script>
-
 </body>
 </html>
 

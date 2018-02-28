@@ -5,12 +5,17 @@ import com.mbcrmsys.common.ServerResponse;
 import com.mbcrmsys.pojo.Consumer;
 import com.mbcrmsys.pojo.SalChance;
 import com.mbcrmsys.service.ISalChanceService;
+import com.mbcrmsys.util.CheckLogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.List;
 
 /**
@@ -25,14 +30,27 @@ public class SalChanceController {
     @Autowired
     private ISalChanceService iSalChanceService;
 
-    @PostMapping("getall/")
-    public ServerResponse<List<SalChance>> selectByCondition(HttpSession session,String chc_cust_name, String chc_title, String chc_linkman ){
-        Consumer user=(Consumer) session.getAttribute(Const.CURRENT_USER);
-        if(user==null){
-            return ServerResponse.createByErrorMessage("用户未登录");
+    @GetMapping("getall.do")
+    @ResponseBody
+    public ServerResponse<List<SalChance>> selectByCondition(String chc_cust_name, String chc_title, String chc_linkman, HttpSession session){
+        //检查是否登录
+        CheckLogin.check(session);
+        try {
+            chc_cust_name =URLDecoder.decode(chc_cust_name,"utf-8");
+            chc_title =URLDecoder.decode(chc_title,"utf-8");
+            chc_linkman =URLDecoder.decode(chc_linkman,"utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
         ServerResponse<List<SalChance>> serverResponse=iSalChanceService.selectByCondition(chc_cust_name,chc_title,chc_linkman);
-
         return serverResponse;
+    }
+
+    @PostMapping("deletebyid.do")
+    @ResponseBody
+    public ServerResponse<String> deleteById(HttpSession session,String id){
+        CheckLogin.check(session);
+        Long salId=Long.parseLong(id);
+        return iSalChanceService.deleteById(salId);
     }
 }

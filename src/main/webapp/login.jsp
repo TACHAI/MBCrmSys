@@ -36,12 +36,12 @@
 
             <form class="m-t" id="form01">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="用户名" required=""  name="username" value="">
+                    <input type="text" class="form-control" placeholder="用户名" required=""  name="ConName" value="">
                 </div>
 
                 <div class="form-group" id="show"></div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="密码" required="" name="userpassword" value="">
+                    <input type="password" class="form-control" placeholder="密码" required="" name="ConPassword" value="">
                 </div>
 
                 <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
@@ -74,8 +74,8 @@
             success:function (data) {
                 console.info("成功返回值:",data);
                 console.info("返回的第一个值",data.msg)
-                console.info("name",data.data.conName)
                 alert(data.msg)
+                console.info("name",data.data.conName)
                 if(data.status==0){
 //                    Object.each(data,function(item,key){
 //                        var link = '&' + key + "=" + item;
