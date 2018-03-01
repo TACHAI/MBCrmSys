@@ -2,6 +2,7 @@ package com.mbcrmsys.service.impl;
 
 import com.mbcrmsys.common.ResponseCode;
 import com.mbcrmsys.common.ServerResponse;
+import com.mbcrmsys.dao.ConsumerMapper;
 import com.mbcrmsys.dao.SalChanceMapper;
 import com.mbcrmsys.pojo.SalChance;
 import com.mbcrmsys.service.ISalChanceService;
@@ -20,6 +21,8 @@ import java.util.List;
 public class SalChanceServiceImpl implements ISalChanceService {
     @Autowired
     private SalChanceMapper salChanceMapper;
+    @Autowired
+    private ConsumerMapper consumerMapper;
     @Override
     public ServerResponse<List<SalChance>> selectByCondition(String chc_cust_name, String chc_title, String chc_linkman) {
         List<SalChance> list=salChanceMapper.selectByCondition(chc_cust_name,chc_title,chc_linkman);
@@ -38,6 +41,41 @@ public class SalChanceServiceImpl implements ISalChanceService {
             return ServerResponse.createBySuccessMessage("删除成功");
         }else {
             return ServerResponse.createByErrorMessage("删除失败");
+        }
+    }
+
+    @Override
+    public ServerResponse<String> saveSalChance(SalChance salChance) {
+        int resultcount = salChanceMapper.insert(salChance);
+        if (resultcount>0){
+            System.out.println("salChancename"+salChance.getChcCustName());
+            return ServerResponse.createBySuccessMessage("保存成功");
+        }else {
+            return ServerResponse.createByErrorMessage("保存失败");
+        }
+    }
+
+    @Override
+    public ServerResponse<String> updateSalChance(SalChance salChance) {
+        int resultcount = salChanceMapper.insert(salChance);
+        if (resultcount>0){
+            return ServerResponse.createBySuccessMessage("保存成功");
+        }else {
+            return ServerResponse.createByErrorMessage("保存失败");
+        }
+    }
+
+    @Override
+    public ServerResponse<String> assignSaleOpp(Integer dueId,String chcId) {
+        Long id=Long.valueOf(chcId);
+        SalChance salChance=salChanceMapper.selectByPrimaryKey(id);
+        salChance.setChcDueId(dueId);
+        salChance.setChcDueName(consumerMapper.selectByPrimaryKey(dueId).getConName());
+        int resultcount = salChanceMapper.updateByPrimaryKeySelective(salChance);
+        if (resultcount>0){
+            return ServerResponse.createBySuccessMessage("指派成功");
+        }else {
+            return ServerResponse.createByErrorMessage("指派失败");
         }
     }
 }

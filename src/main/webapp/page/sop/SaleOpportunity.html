@@ -123,6 +123,31 @@
     </div>
 
 
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>
+                <!--<div class="form-group">-->
+                <label for="firstname" class="col-sm-3 control-label">指派给</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="firstname" placeholder="请输入名字">
+                </div>
+                <label for="firstname" class="col-sm-1 control-label">*</label>
+                <!--</div>-->
+            </td>
+            <td>
+                <!--<div class="form-group">-->
+                <label for="firstname" class="col-sm-3 control-label">指派时间</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="firstname" placeholder="请输入名字">
+                </div>
+                <label for="firstname" class="col-sm-1 control-label">*</label>
+                <!--</div>-->
+            </td>
+        </tr>
+        </thead>
+    </table>
+
     <!-- 全局js -->
     <script src="/assets/js/jquery.min.js?v=2.1.4"></script>
     <script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
@@ -166,16 +191,7 @@ url=encodeURI(url);//对URL的地址进行encodeURI编码，实际上只有中�
 //方法二
 $("#button").click(function(){
     initTable();
-//	var chc_cust_name = document.getElementById("chc_cust_name").value;
-//	var chc_title = document.getElementById("chc_title").value;
-//	var chc_linkman = document.getElementById("chc_linkman").value;
-//	var url = "http://localhost:8080/saleopp/getall.do?chc_cust_name="+chc_cust_name+"&chc_title="+chc_title+"&chc_linkman="+chc_linkman;
-//	url=encodeURI(encodeURI(url));//对URL的地址进行encodeURI编码，实际上只有中文的部分被修改编码
-//	$("#chcCustNameTable").bootstrapTable('refresh',{'url':url});
 });
-//....以上两种方法都可以按钮刷新url实现点击修改.............
-
-
 
 //function buttons(){
 //	var table1 = document.getElementById("chcCustNameTable");
@@ -187,10 +203,13 @@ $("#button").click(function(){
 //	}
 //}
  function edit (value, row, index) {
-    var a = '<button type="button" class="RoleOfD btn btn-primary  btn-sm" style="margin-right:15px;" onclick="layer_show(\'' + "修改信息" + '\',\'' + "Update_GuideManagement.html" + '\',\'' + "" + '\',\'' + "510" + '\',\'' + row.chcId + '\')">编辑</button>';
+    var a = '<button type="button" class="RoleOfD btn btn-primary  btn-sm" style="margin-right:15px;" onclick="editSaleOpp(\'' + "EditSaleOpportunity.html" + '\',\'' + row.chcId + '\')">编辑</button>';
     var b = '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="return deleteSaleOpp(\'' + row.chcId + '\')">删除</a> ';
 //    var c=  '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="deletedata(\'' + row.ID + '\')">分配</a> ';
     return a + b ;
+}
+function editSaleOpp(url,chcId){
+    window.location.href = "http://localhost:8080/page/"+url+'?'+"chcId="+chcId;
 }
 
 function deleteSaleOpp(chcId){

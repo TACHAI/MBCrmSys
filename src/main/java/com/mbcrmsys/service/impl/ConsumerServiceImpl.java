@@ -24,7 +24,6 @@ public class ConsumerServiceImpl implements IConsumerService {
         if(resultCount==0){
             return ServerResponse.createByErrorMessage("用户名不存在");
         }
-        System.out.println("这里出问题了吗");
         Consumer consumer=consumerMapper.selectByUser(name,password);
         if(consumer==null){
             return ServerResponse.createByErrorMessage("密码错误");

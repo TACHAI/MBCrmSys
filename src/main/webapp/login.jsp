@@ -36,12 +36,12 @@
 
             <form class="m-t" id="form01">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="用户名" required=""  name="ConName" value="">
+                    <input type="text" class="form-control" placeholder="用户名" required=""  name="conName" value="">
                 </div>
 
                 <div class="form-group" id="show"></div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="密码" required="" name="ConPassword" value="">
+                    <input type="password" class="form-control" placeholder="密码" required="" name="conPassword" value="">
                 </div>
 
                 <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>

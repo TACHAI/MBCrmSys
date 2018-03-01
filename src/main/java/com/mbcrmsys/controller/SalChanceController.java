@@ -30,6 +30,9 @@ public class SalChanceController {
     @Autowired
     private ISalChanceService iSalChanceService;
 
+    /**
+     * 销售机会查询列表
+     */
     @GetMapping("getall.do")
     @ResponseBody
     public ServerResponse<List<SalChance>> selectByCondition(String chc_cust_name, String chc_title, String chc_linkman, HttpSession session){
@@ -46,11 +49,65 @@ public class SalChanceController {
         return serverResponse;
     }
 
+    /**
+     * 根据id删除销售机会
+     * @param session
+     * @param id
+     * @return
+     */
     @PostMapping("deletebyid.do")
     @ResponseBody
     public ServerResponse<String> deleteById(HttpSession session,String id){
         CheckLogin.check(session);
         Long salId=Long.parseLong(id);
         return iSalChanceService.deleteById(salId);
+    }
+
+    /**
+     * 保存
+     * @param session
+     * @param salChance
+     * @return
+     */
+    @PostMapping("savesaleopp.do")
+    @ResponseBody
+    public ServerResponse<String> saveSaleOpp(SalChance salChance,HttpSession session){
+        CheckLogin.check(session);
+        System.out.println(salChance.getChcCreateName()+"controllerNAme");
+        return iSalChanceService.saveSalChance(salChance);
+    }
+
+    /**
+     * 编辑销售机会
+     * @param session
+     * @param salChance
+     * @return
+     */
+    @PostMapping("editsaleopp.do")
+    @ResponseBody
+    public  ServerResponse<String> update(HttpSession session,SalChance salChance){
+        CheckLogin.check(session);
+        if(salChance==null){
+            return ServerResponse.createByErrorMessage("表单为空");
+        }
+        return iSalChanceService.updateSalChance(salChance);
+    }
+
+    /**
+     * 指派人员
+     * @param session
+     * @param chcDueId
+     * @param chcId
+     * @return
+     */
+    @PostMapping("assignSaleOpp.do")
+    @ResponseBody
+    public ServerResponse<String> assignSaleOpp(HttpSession session,String chcDueId,String chcId){
+        CheckLogin.check(session);
+        if (chcDueId==null){
+            return ServerResponse.createByErrorMessage("选择失败");
+        }
+        Integer dueId= Integer.parseInt(chcDueId);
+        return  iSalChanceService.assignSaleOpp(dueId,chcId);
     }
 }

@@ -1,5 +1,9 @@
 package com.mbcrmsys.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class SalChance {
@@ -22,13 +26,14 @@ public class SalChance {
     private Integer chcCreateId;
 
     private String chcCreateName;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    //@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date chcCreateDate;
 
     private Integer chcDueId;
 
     private String chcDueName;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date chcDueDate;
 
     private String chcStatus;

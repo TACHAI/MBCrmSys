@@ -14,4 +14,7 @@ import java.util.List;
 public interface ISalChanceService {
     ServerResponse<List<SalChance>> selectByCondition(String chc_cust_name,String chc_title,String chc_linkman);
     ServerResponse<String> deleteById(Long id);
+    ServerResponse<String> saveSalChance(SalChance salChance);
+    ServerResponse<String> updateSalChance(SalChance salChance);
+    ServerResponse<String> assignSaleOpp(Integer dueId,String chcId );
 }
