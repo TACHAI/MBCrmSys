@@ -62,6 +62,13 @@ public class SalChanceController {
         Long salId=Long.parseLong(id);
         return iSalChanceService.deleteById(salId);
     }
+    @PostMapping("selecone.do")
+    @ResponseBody
+    public ServerResponse<SalChance> selectById(HttpSession session,String id){
+        CheckLogin.check(session);
+        Long salId=Long.parseLong(id);
+        return iSalChanceService.selectById(salId);
+    }
 
     /**
      * 保存
@@ -83,7 +90,7 @@ public class SalChanceController {
      * @param salChance
      * @return
      */
-    @PostMapping("editsaleopp.do")
+    @PostMapping("updatesaleopp.do")
     @ResponseBody
     public  ServerResponse<String> update(HttpSession session,SalChance salChance){
         CheckLogin.check(session);

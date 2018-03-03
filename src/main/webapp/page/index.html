@@ -1,12 +1,12 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
+    <!--<%&#45;&#45;<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>&#45;&#45;%>-->
+    <!--<%&#45;&#45;<%&#45;&#45;%>-->
+    <!--<%&#45;&#45;String path = request.getContextPath();&#45;&#45;%>-->
+    <!--<%&#45;&#45;String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";&#45;&#45;%>-->
+    <!--<%&#45;&#45;%>&#45;&#45;%>-->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
@@ -31,22 +31,21 @@
                 <ul class="nav" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                        <%--<% Consumer user=(Consumer)request.getAttribute("user"); %>--%>
-                            <%--<span><img alt="image" class="img-circle" src="img/profile_small.jpg" /></span>--%>
+                            <!--<span><img alt="image" class="img-circle" src="img/profile_small.jpg" /></span>-->
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
-                               <%--<span class="block m-t-xs"><strong class="font-bold"><%=user.getConName() %></strong></span>--%>
-                                    <% String name = new String(request.getParameter("name").getBytes("iso-8859-1"), "utf-8"); %>
-                                <span class="text-muted text-xs block"><%=name%><b class="caret"></b></span>
+                               <!--<span class="block m-t-xs"><strong class="font-bold"><%=user.getConName() %></strong></span>-->
+                                    <!--<% String name = new String(request.getParameter("name").getBytes("iso-8859-1"), "utf-8"); %>-->
+                                <span class="text-muted text-xs block" id="chcname"><b class="caret"></b></span>
                                 </span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <%--<li><a class="J_menuItem" href="form_avatar.html">修改头像</a>--%>
-                                <%--</li>--%>
-                                <li><a class="J_menuItem" href="profile.html?"+<%=request.getParameter("id")%>>个人资料</a>
+                                <!--<li><a class="J_menuItem" href="form_avatar.html">修改头像</a>-->
+                                <!--</li>-->
+                                <li><a class="J_menuItem" href="#" onclick="goOneSelf()">个人资料</a>
                                 </li>
                                 <li class="divider"></li>
-                                <li><a href="<%=request.getContextPath() %>/login.jsp">安全退出</a>
+                                <li><a href="http://localhost:8080/login.html">安全退出</a>
                                 </li>
                             </ul>
                         </div>
@@ -137,13 +136,13 @@
         <div id="page-wrapper" class="gray-bg dashbard-1">
             <div class="row border-bottom">
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-                    <%--<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>--%>
+                    <!--<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>-->
                     <h1 style="margin-left: 4%">中药采购商管理系统</h1>
                 </nav>
             </div>
          
             <div class="row J_mainContent" id="content-main">
-                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="${pageContext.request.contextPath}/page/cmp/cusManage.jsp" frameborder="0" data-id="index_v1.html" seamless></iframe>
+                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="/page/cmp/cusManage.jsp" frameborder="0" data-id="index_v1.html" seamless></iframe>
             </div>
             <div class="footer">
                 <div class="pull-right">&copy; 2018-2025 <a href="" target="_blank">zihan's blog</a>
@@ -183,10 +182,37 @@
     <!-- 自定义js -->
     <script src="/assets/js/hplus.js?v=4.1.0"></script>
     <script type="text/javascript" src="/assets/js/contabs.js"></script>
-    <script src="<%=request.getContextPath() %>/assets/js/hplus.js?v=4.1.0"></script>
+    <script src="/assets/js/hplus.js?v=4.1.0"></script>
 
     <!-- 第三方插件 -->
     <script src="/assets/js/plugins/pace/pace.min.js"></script>
+<script >
+    //页面渲染完的时候给id为chcname的给一个值
+    $(document).ready(function () {
+       var str = getParam();
+       console.info(str['id'])
+       $("#chcname").text(str['name'])
+    })
+    //跳转到个人资料页面
+    function goOneSelf() {
+        var str=getParam();
+        window.location.href="/page/user/profile.html?chcId="+str['id']
+    }
+    //获取url里面的参数
+    function getParam() {
+        var url=window.location.search;//获取当前url ?后面的值
+        var theRequest = new Object();
+        if(url.indexOf("?")!=-1){
+            var str=url.substr(1);
+            var strs=str.split("&");
+            for(var i=0;i<str.length;i++){
+                str=strs[i].split("=");
+                theRequest[str[0]]=decodeURI(str[1]);
+            }
+        }
+        return theRequest;
+    }
+</script>
 
 </body>
 

@@ -43,7 +43,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/login.jsp">
+                                <a href="/login.html">
                                     <i class="fa fa-sign-out"></i> 退出
                                 </a>
                             </li>
@@ -128,20 +128,20 @@
         <tr>
             <td>
                 <!--<div class="form-group">-->
-                <label for="firstname" class="col-sm-3 control-label">指派给</label>
+                <label for="chcDueName" class="col-sm-3 control-label">指派给</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="firstname" placeholder="请输入名字">
+                    <input type="text" class="form-control" id="chcDueName" placeholder="请输入名字">
                 </div>
-                <label for="firstname" class="col-sm-1 control-label">*</label>
+                <label for="chcDueName" class="col-sm-1 control-label">*</label>
                 <!--</div>-->
             </td>
             <td>
                 <!--<div class="form-group">-->
-                <label for="firstname" class="col-sm-3 control-label">指派时间</label>
+                <label for="chcDueDate" class="col-sm-3 control-label">指派时间</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="firstname" placeholder="请输入名字">
+                    <input type="text" class="form-control" id="chcDueDate" placeholder="请输入名字">
                 </div>
-                <label for="firstname" class="col-sm-1 control-label">*</label>
+                <label for="chcDueDate" class="col-sm-1 control-label">*</label>
                 <!--</div>-->
             </td>
         </tr>
@@ -166,7 +166,28 @@
 
 
 <script type="text/javascript">
-//方法一
+
+    //date输入框样式
+    $("#chcDueDate").datetimepicker({
+        format:'yyyy-mm-dd hh:ii:ss',  //格式  如果只有yyyy-mm-dd那就是0000-00-00
+        autoclose:true,//选择后是否自动关闭
+        minView:0,//最精准的时间选择为日期  0-分 1-时 2-日 3-月
+        language:  'zh-CN', //中文
+        weekStart: 1, //一周从星期几开始
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        // daysOfWeekDisabled:"1,2,3", //一周的周几不能选 格式为"1,2,3"  数组格式也行
+        todayBtn : true,  //在底部是否显示今天
+        todayHighlight :false, //今天是否高亮显示
+        keyboardNavigation:true, //方向图标改变日期  必须要有img文件夹 里面存放图标
+        showMeridian:false,  //是否出现 上下午
+        initialDate:new Date()
+        //startDate: "2017-01-01" //日期开始时间 也可以是new Date()只能选择以后的时间
+    })
+//传参数到后台
 function initTable() {
 var chc_cust_name = document.getElementById("chc_cust_name").value;
 var chc_title = document.getElementById("chc_title").value;
@@ -180,28 +201,13 @@ url=encodeURI(url);//对URL的地址进行encodeURI编码，实际上只有中�
 		method: "get",  //使用get请求到服务器获取数据
 		url: url,//sevlet地址
 	});  
-}//应为使用方法二所以一下函数被注释，使用方法一需要取消注释
-/* $(document).ready(function () {          
-    //调用函数，初始化表格  
-    initTable();
-    //当点击查询按钮的时候执行
-	$("#button").bind("click", initTable);
-	
-}); */
-//方法二
+}
+//查询按钮点击事件
 $("#button").click(function(){
     initTable();
 });
 
-//function buttons(){
-//	var table1 = document.getElementById("chcCustNameTable");
-//	for (var i = 1; i < table1.rows.length; i++) {
-//	    console.info(table1.rows.length)
-//        var clength=table1.rows[0].cells.length-1;
-//        console.info("列的长度"+clength);
-//		table1.rows[i].cells[clength].innerHTML = "<input type='button' onclick='edit()' value='编辑'/>"+"<input type='button' onclick='edit()' value='删除'/>"+"<input type='button' onclick='edit()' value='分配'/>";
-//	}
-//}
+//table初始化的时候把按钮插入
  function edit (value, row, index) {
     var a = '<button type="button" class="RoleOfD btn btn-primary  btn-sm" style="margin-right:15px;" onclick="editSaleOpp(\'' + "EditSaleOpportunity.html" + '\',\'' + row.chcId + '\')">编辑</button>';
     var b = '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="return deleteSaleOpp(\'' + row.chcId + '\')">删除</a> ';

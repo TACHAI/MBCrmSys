@@ -45,6 +45,16 @@ public class SalChanceServiceImpl implements ISalChanceService {
     }
 
     @Override
+    public ServerResponse<SalChance> selectById(Long id) {
+        SalChance  salChance=salChanceMapper.selectByPrimaryKey(id);
+        if(salChance!=null){
+            return ServerResponse.createBySuccess(salChance,"查询成功");
+        }else {
+            return ServerResponse.createByErrorMessage("删除失败");
+        }
+    }
+
+    @Override
     public ServerResponse<String> saveSalChance(SalChance salChance) {
         int resultcount = salChanceMapper.insert(salChance);
         if (resultcount>0){
