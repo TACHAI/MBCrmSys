@@ -11,11 +11,12 @@
     <![endif]-->
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link href="../css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="../css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
-    <link href="../css/animate.css" rel="stylesheet">
-    <link href="../css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
-    <link href="../css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="/assets/css/animate.css" rel="stylesheet">
+    <link href="/assets/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="/assets/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/assets/css/bootstrap-datetimepicker.css" rel="stylesheet">
 </head>
 <body class="gray-bg top-navigation">
 
@@ -27,14 +28,14 @@
                         <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
                             <i class="fa fa-reorder"></i>
                         </button>
-                        <a href="SaleOpportunity.html" class="navbar-brand">营销机会管理</a>
-                        <a href="EditSaleOpportunity.html" class="navbar-brand">//编辑营销机会</a>
+                        <!--<a href="SaleOpportunity.html" class="navbar-brand">营销机会管理</a>-->
+                        <a href="EditSaleOpportunity.html" class="navbar-brand">编辑营销机会</a>
                     </div>
                     <div class="navbar-collapse collapse" id="navbar">
                         <ul class="nav navbar-top-links navbar-right">
                             <li>
-                                <a href="#">
-                                    <i class="fa fa-save"></i> 保存
+                                <a  id="save">
+                                    <i class="fa fa-save" ></i> 保存
                                 </a>
                             </li>
                         </ul>
@@ -97,14 +98,14 @@
                                             <div class="form-group">
                                                 <label for="chc_title" class="col-sm-2 control-label">概要</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="chc_title" name="chcTitle" placeholder="请输入概要" required>
+                                                    <input type="text" class="form-control" id="chc_title" name="chcTitle" placeholder="概要" required>
                                                 </div>
                                                 <label for="chc_title" class="col-sm-1 control-label">*</label>
                                             </div>
                                             <div class="form-group">
                                                 <label for="chc_linkman" class="col-sm-2 control-label">联系人</label>
                                                 <div class="col-sm-3">
-                                                    <input type="text" class="form-control" id="chc_linkman" name="chcLinkman" placeholder="请输入联系人" required>
+                                                    <input type="text" class="form-control" id="chc_linkman" name="chcLinkman" placeholder="联系人" required>
                                                 </div>
                                                 <label for="chc_linkman" class="col-sm-1 control-label">*</label>
                                                 <!-- </div>
@@ -118,7 +119,7 @@
                                             <div class="form-group">
                                                 <label for="chc_desc" class="col-sm-2 control-label">机会描述</label>
                                                 <div class="col-sm-9">
-                                                    <textarea type="text" class="form-control" id="chc_desc" name="chcDesc" placeholder="请输入机会描述" required></textarea>
+                                                    <textarea type="text" class="form-control" id="chc_desc" name="chcDesc" placeholder="机会描述" required></textarea>
                                                 </div>
                                                 <label for="chc_desc" class="col-sm-1 control-label">*</label>
                                             </div>
@@ -148,81 +149,63 @@
                     </div>
                 </div>
             </div>
-            <div class="footer">
-                <div class="pull-right">
-                    By：<a href="http://www.zi-han.net" target="_blank">zihan's blog</a>
-                </div>
-                <div>
-                    <strong>Copyright</strong> H+ &copy; 2014
-                </div>
-            </div>
-
         </div>
     </div>
 
     <!-- 全局js -->
-    <script src="../js/jquery.min.js?v=2.1.4"></script>
-    <script src="../js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="/assets/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
 
     <!-- 自定义js -->
-    <script src="../js/content.js?v=1.0.0"></script>
+    <script src="/assets/js/content.js?v=1.0.0"></script>
+    <script type="text/javascript" src="/assets/js/jquery.serializejson.js"></script>
 
 
     <!-- Bootstrap table -->
-    <script src="../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
-    <script src="../js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
-    <script src="../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="/assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="/assets/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="/assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
 
     <!-- Peity -->
-    <script src="../js/demo/bootstrap-table-demo.js"></script>
+    <script src="/assets/js/demo/bootstrap-table-demo.js"></script>
 
-    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
     <!--统计代码，可删除-->
-    <script type="text/javascript">
-        //获取url里面的参数
-        function getParam() {
-            var url=window.location.search;//获取当前url ?后面的值
-            var theRequest = new Object();
-            if(url.indexOf("?")!=-1){
-                var str=url.substr(1);
-                var strs=str.split("&");
-                for(var i=0;i<str.length;i++){
-                    str=strs[i].split("=");
-                    theRequest[str[0]]=decodeURI(str[1]);
-                }
-            }
-            return theRequest;
-        }
+<script >
 
-        $(document).ready(function () {
-            var chcId=getParam()[chcId]
-            $ajax({
-                type:'post',
-                url:'http://localhost:8080/saleopp/selecone.do',
-                data:{id:chcId},
-                datatype: 'json',
-                success:function (data) {
-                    alert(data.msg)
-                    if(data.status==0){
-                        for(var p in data.data){
-                            $("form").find(":input[name='"+p+"']").val(data.data.[p])
-                        }
+//页面完成时将ajax的返回值渲染到页面
+$(document).ready(function () {
+        var url=window.location.search;
+        var str= url.substr(1);
+        var chcId=str.split("=");
+        $.ajax({
+            type:'post',
+            url:'http://localhost:8080/saleopp/selecone.do',
+            data:{id:chcId[1]},
+            datatype: 'json',
+            success:function (data) {
+                alert(data.msg)
+                if(data.status==0){
+                    for(var p in data.data){
+                        console.info(p)
+                        $("form").find(":input[name='"+p+"']").val(data.data[p])
                     }
-                },
-                error:function (data) {
-                    console.info("保存失败：",data);
                 }
-            })
-        })
-
-        function checkchcRate(v) {
-            var chcRateValue=v.value;
-            var reg=/^\d{2}$/
-            if(!chcRateValue.match()){
-                v.value='';
+            },
+            error:function (data) {
+                console.info("保存失败：",data);
             }
-        }
-        function checkTel(v) {
+        });
+    })
+//验证成功机会是两位数
+function checkchcRate(v) {
+    var chcRateValue=v.value;
+    var reg=/^\d{2}$/
+    if(!chcRateValue.match()){
+        v.value='';
+    }
+}
+function checkTel(v) {
             var tel=v.value;
             console.info("tel的值"+tel);
             var parm=/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/
@@ -230,18 +213,18 @@
                 v.value=''
             }
         }
-        $("#save").click(function(){
+$("#save").click(function(){
             $("#btn1").click();
         })
-        //传值给后台
-        $('form').on('submit',function(e){
+//传值给后台
+$('form').on('submit',function(e){
             e.preventDefault();
             var SalChance = $('#saleOppform').serializeJSON();
             console.info("序列化的值"+SalChance.chcCustName)
             console.info("序列化的值"+SalChance.chcCreateDate);
             $.ajax({
                 type:"post",
-                url:"http://localhost:8080/saleopp/savesaleopp.do",
+                url:"http://localhost:8080/saleopp/updatesaleopp.do",
                 contentType:"application/x-www-form-urlencoded",
                 data:SalChance,
                 dataType:"json",
@@ -256,27 +239,27 @@
                 }
             });
         })
-        //date输入框样式
-        $("#chc_create_date").datetimepicker({
-            format:'yyyy-mm-dd hh:ii:ss',  //格式  如果只有yyyy-mm-dd那就是0000-00-00
-            autoclose:true,//选择后是否自动关闭
-            minView:0,//最精准的时间选择为日期  0-分 1-时 2-日 3-月
-            language:  'zh-CN', //中文
-            weekStart: 1, //一周从星期几开始
-            todayBtn:  1,
-            autoclose: 1,
-            todayHighlight: 1,
-            startView: 2,
-            forceParse: 0,
-            // daysOfWeekDisabled:"1,2,3", //一周的周几不能选 格式为"1,2,3"  数组格式也行
-            todayBtn : true,  //在底部是否显示今天
-            todayHighlight :false, //今天是否高亮显示
-            keyboardNavigation:true, //方向图标改变日期  必须要有img文件夹 里面存放图标
-            showMeridian:false,  //是否出现 上下午
-            initialDate:new Date()
-            //startDate: "2017-01-01" //日期开始时间 也可以是new Date()只能选择以后的时间
-        })
-    </script>
+//date输入框样式
+$("#chc_create_date").datetimepicker({
+    format:'yyyy-mm-dd hh:ii:ss',  //格式  如果只有yyyy-mm-dd那就是0000-00-00
+    autoclose:true,//选择后是否自动关闭
+    minView:0,//最精准的时间选择为日期  0-分 1-时 2-日 3-月
+    language:  'zh-CN', //中文
+    weekStart: 1, //一周从星期几开始
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    forceParse: 0,
+    // daysOfWeekDisabled:"1,2,3", //一周的周几不能选 格式为"1,2,3"  数组格式也行
+    todayBtn : true,  //在底部是否显示今天
+    todayHighlight :false, //今天是否高亮显示
+    keyboardNavigation:true, //方向图标改变日期  必须要有img文件夹 里面存放图标
+    showMeridian:false,  //是否出现 上下午
+    initialDate:new Date()
+    //startDate: "2017-01-01" //日期开始时间 也可以是new Date()只能选择以后的时间
+})
+ </script>
 
 </body>
 </html>

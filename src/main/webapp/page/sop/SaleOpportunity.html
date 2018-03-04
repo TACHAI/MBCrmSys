@@ -15,6 +15,7 @@
     <link href="/assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <link href="/assets/css/animate.css" rel="stylesheet">
     <link href="/assets/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap-datetimepicker.css" rel="stylesheet">
     <link href="/assets/css/style.css?v=4.1.0" rel="stylesheet">
     
 </head>
@@ -94,7 +95,7 @@
                                         data-icon-size="outline"
                                         data-search="false"
                                         data-striped="true"
-                                        data-page-size="10"
+                                        data-page-size="5"
                                         data-page-number="1"
                                         data-page-list="[1, 5, 10, 15, 20, 25]">
                                         <!--data-url="../ServletSO?chc_cust_name=&chc_title=&chc_linkman=">-->
@@ -122,31 +123,58 @@
         </div>
     </div>
 
+    <!-- 按钮触发模态框 -->
 
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <td>
-                <!--<div class="form-group">-->
-                <label for="chcDueName" class="col-sm-3 control-label">指派给</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="chcDueName" placeholder="请输入名字">
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <input type="hidden"  id="chcid" value="">
+                    <h4 class="modal-title" id="myModalLabel">
+                        分配机会
+                    </h4>
                 </div>
-                <label for="chcDueName" class="col-sm-1 control-label">*</label>
-                <!--</div>-->
-            </td>
-            <td>
-                <!--<div class="form-group">-->
-                <label for="chcDueDate" class="col-sm-3 control-label">指派时间</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="chcDueDate" placeholder="请输入名字">
+                <div class="modal-body">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <td>
+                                <!--<div class="form-group">-->
+                                <label for="chcDueName" class="col-sm-3 control-label">指派给</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="chcDueName" placeholder="请输入名字">
+                                </div>
+                                <label for="chcDueName" class="col-sm-1 control-label">*</label>
+                                <!--</div>-->
+                            </td>
+                            <td>
+                                <!--<div class="form-group">-->
+                                <label for="chcDueDate" class="col-sm-3 control-label">指派时间</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="chcDueDate" placeholder="指派时间">
+                                </div>
+                                <label for="chcDueDate" class="col-sm-1 control-label">*</label>
+                                <!--</div>-->
+                            </td>
+                        </tr>
+                        </thead>
+                    </table>
+
                 </div>
-                <label for="chcDueDate" class="col-sm-1 control-label">*</label>
-                <!--</div>-->
-            </td>
-        </tr>
-        </thead>
-    </table>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="distributionSal()">
+                        提交更改
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
 
     <!-- 全局js -->
     <script src="/assets/js/jquery.min.js?v=2.1.4"></script>
@@ -163,6 +191,7 @@
 
     <!-- Peity -->
     <script src="/assets/js/demo/bootstrap-table-demo.js"></script>
+    <script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
 
 
 <script type="text/javascript">
@@ -211,11 +240,28 @@ $("#button").click(function(){
  function edit (value, row, index) {
     var a = '<button type="button" class="RoleOfD btn btn-primary  btn-sm" style="margin-right:15px;" onclick="editSaleOpp(\'' + "EditSaleOpportunity.html" + '\',\'' + row.chcId + '\')">编辑</button>';
     var b = '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="return deleteSaleOpp(\'' + row.chcId + '\')">删除</a> ';
-//    var c=  '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="deletedata(\'' + row.ID + '\')">分配</a> ';
-    return a + b ;
+    var c=  '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm" data-toggle="modal" data-target="#myModal" style="margin-right:15px;" onclick="distribution(\'' + row.ID + '\')">分配</a> ';
+    return a + b + c;
+}
+function distribution(id) {
+    $("#chcid").val(id);
+}
+function distributionSal() {
+    $.ajax({
+        type:'post',
+        url:'',
+        data:'',
+        dataType:'',
+        success:function(data){
+
+        },
+        error:function(data){
+
+        }
+    })
 }
 function editSaleOpp(url,chcId){
-    window.location.href = "http://localhost:8080/page/"+url+'?'+"chcId="+chcId;
+    window.location.href = "http://localhost:8080/page/sop/"+url+'?'+"chcId="+chcId;
 }
 
 function deleteSaleOpp(chcId){
