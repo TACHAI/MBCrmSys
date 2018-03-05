@@ -17,5 +17,5 @@ public interface ISalChanceService {
     ServerResponse<SalChance> selectById(Long id);
     ServerResponse<String> saveSalChance(SalChance salChance);
     ServerResponse<String> updateSalChance(SalChance salChance);
-    ServerResponse<String> assignSaleOpp(Integer dueId,String chcId );
+    ServerResponse<String> assignSaleOpp(Integer chcDueId,Long chcId ,String chcDueName);
 }

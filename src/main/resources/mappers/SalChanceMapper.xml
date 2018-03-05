@@ -214,14 +214,14 @@
     SELECT <include refid="Base_Column_List"/>
     FROM sal_chance
     <where>
-      <if test="chc_cust_name !=null">
-        AND chc_cust_name LIKE "%"#{chc_cust_name}"%"
+      <if test="chc_cust_name != null and chc_cust_name !='' ">
+        chc_cust_name LIKE "%"#{chc_cust_name,jdbcType=VARCHAR}"%"
       </if>
-      <if test="chc_title !=null">
-        AND chc_title LIKE "%"#{chc_title}"%"
+      <if test="chc_title != null and chc_title !='' ">
+        AND chc_title LIKE "%"#{chc_title,jdbcType=VARCHAR}"%"
       </if>
-      <if test="chc_linkman !=null">
-        AND chc_linkman LIKE "%"#{chc_linkman}"%"
+      <if test="chc_linkman != null and chc_linkman !='' ">
+        AND chc_linkman LIKE "%"#{chc_linkman,jdbcType=VARCHAR}"%"
       </if>
     </where>
   </select>

@@ -67,7 +67,7 @@ public class SalChanceServiceImpl implements ISalChanceService {
 
     @Override
     public ServerResponse<String> updateSalChance(SalChance salChance) {
-        int resultcount = salChanceMapper.insert(salChance);
+        int resultcount = salChanceMapper.updateByPrimaryKeySelective(salChance);
         if (resultcount>0){
             return ServerResponse.createBySuccessMessage("保存成功");
         }else {
@@ -76,11 +76,11 @@ public class SalChanceServiceImpl implements ISalChanceService {
     }
 
     @Override
-    public ServerResponse<String> assignSaleOpp(Integer dueId,String chcId) {
-        Long id=Long.valueOf(chcId);
-        SalChance salChance=salChanceMapper.selectByPrimaryKey(id);
-        salChance.setChcDueId(dueId);
-        salChance.setChcDueName(consumerMapper.selectByPrimaryKey(dueId).getConName());
+    public ServerResponse<String> assignSaleOpp(Integer chcDueId,Long chcId,String chcDueName) {
+        SalChance salChance=salChanceMapper.selectByPrimaryKey(chcId);
+        salChance.setChcDueId(chcDueId);
+//        salChance.setChcDueName(consumerMapper.selectByPrimaryKey(chcDueId).getConName());
+        salChance.setChcDueName(chcDueName);
         int resultcount = salChanceMapper.updateByPrimaryKeySelective(salChance);
         if (resultcount>0){
             return ServerResponse.createBySuccessMessage("指派成功");
