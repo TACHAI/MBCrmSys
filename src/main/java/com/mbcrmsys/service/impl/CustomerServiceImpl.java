@@ -5,6 +5,7 @@ import com.mbcrmsys.common.ServerResponse;
 import com.mbcrmsys.dao.CustomerMapper;
 import com.mbcrmsys.pojo.Customer;
 import com.mbcrmsys.service.ICustomerService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ public class CustomerServiceImpl implements ICustomerService {
     @Override
     public ServerResponse<List<Customer>> selectByCondition(String cusName, String cusManage, String cusState) {
         Long state;
-        if(cusState!=null && cusState!=""){
+        if(!StringUtils.isBlank(cusState)){
              state=Long.valueOf(cusState);
         }else {
              state=null;

@@ -29,8 +29,8 @@
                     <div class="navbar-collapse collapse" id="navbar">
                         <ul class="nav navbar-top-links navbar-right">
                             <li>
-                                <a id="chaxun">
-                                    <i class="fa fa-sign-out"></i> 查询
+                                <a id="newCus">
+                                    <i class="fa fa-sign-out"></i> 新建
                                 </a>
                             </li>
                         </ul>
@@ -50,36 +50,33 @@
                         <div class="col-lg-12">
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
-                                    <h5>客户表</h5>
+                                    <h5>客户信息表</h5>
                                 </div>
 
                                 <div class="ibox-content">
-                                    <form  class="form-horizontal"   name="form1" >
-                                        <div class="row">
-                                            <div class="form-group col-sm-4">
-                                                <label for="CusName" class="col-sm-4 control-label">客户：</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="CusName" name="CusName"/>
-                                                </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">客户名称</span>
+                                                <input type="text" placeholder="客户名称" class="input-sm form-control" name="CusName" id="CusName">
                                             </div>
-                                            <div class="form-group col-sm-4">
-                                                <label for="CusManager" class="col-sm-3 control-label">客户经理：</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control"  id="CusManager" name="CusManager" >
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-sm-4">
-                                                <label for="CusState" class="col-sm-3 control-label">状态：</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control"  id="CusState" name="CusState" >
-                                                    <input type="submit" style="display: none;" id="btn1">
-                                                </div>
-                                            </div>
-												
                                         </div>
-                                    </form>
-                                    <br>
-
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">客户经理</span>
+                                                <input type="text" placeholder="客户经理" class="input-sm form-control" name="CusManager" id="CusManager">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">状态</span>
+                                                <input type="text" placeholder="状态" class="input-sm form-control" name="CusState" id="CusState">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <button id="button" class="btn btn-sm btn-primary">查询</button>
+                                        </div>
+                                    </div>
                                     <div class="table-responsive">
                                         <table
                                                id="cusMangeTable"
@@ -141,7 +138,7 @@
 </body>
 <script type="text/javascript">
 //查询按钮点击事件
-$("#chaxun").click(function () {
+$("#button").click(function () {
     initTable();
     //$("#btn1").click();
 })
@@ -166,12 +163,31 @@ function initTable() {
 //table初始化的时候把按钮插入
 function edit (value, row, index) {
     var a = '<button type="button" class="RoleOfD btn btn-primary  btn-sm" style="margin-right:15px;" onclick="editCusManage(\'' + "cusManageUpdate.html" + '\',\'' + row.cusId + '\')">编辑</button>';
-    var b = '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="return deleteSaleOpp(\'' + row.chcId + '\')">删除</a> ';
+    var b = '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="return deleteSaleOpp(\'' + row.cusId + '\')">删除</a> ';
     return a + b;
 }
 //跳转到编辑页面
 function editCusManage(url,id) {
-    window.location.href="http://localhost:8080//page/cmp/"+url+"?cusId="+id;
+    window.location.href="http://localhost:8080/page/cmp/"+url+"?cusId="+id;
+}
+//删除数据
+function deleteSaleOpp(id) {
+    $.ajax({
+        type:'post',
+        url:'http://localhost:8080/cmp/deletebyid.do',
+        data:{'cusId':id},
+        dataType:'json',
+        success:function (data) {
+            if(data.status==0){
+                initTable();
+            }else{
+                alert(data.msg);
+            }
+        },
+        error:function (data) {
+            console.info("服务器失败",data);
+        }
+    })
 }
 
 </script>

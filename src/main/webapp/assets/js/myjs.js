@@ -11,3 +11,17 @@ function TimestampToDate(Timestamp) {
     s = date.getSeconds();
     return Y+M+D+h+m+s;
 }
+//从当前url中获得参数
+function getParam() {
+    var url=window.location.search;//获取当前url ?后面的值
+    var theRequest = new Object();
+    if(url.indexOf("?")!=-1){
+        var str=url.substr(1);
+        var strs=str.split("&");
+        for(var i=0;i<str.length;i++){
+            str=strs[i].split("=");
+            theRequest[str[0]]=decodeURI(str[1]);
+        }
+    }
+    return theRequest;
+}

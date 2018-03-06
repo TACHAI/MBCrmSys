@@ -54,13 +54,20 @@ public class CustomerController {
      * @param session
      * @return
      */
-    @PostMapping("slectbyid.do")
+    @PostMapping("selectbyid.do")
     @ResponseBody
     public ServerResponse<Customer> selectById(String cusId,HttpSession session){
         CheckLogin.check(session);
         Integer id=Integer.valueOf(cusId);
         return iCustomerService.selectById(id);
     }
+
+    /**
+     * 更新
+     * @param customer
+     * @param session
+     * @return
+     */
     @PostMapping("updatecus")
     @ResponseBody
     public ServerResponse<String> updateCustomer(Customer customer,HttpSession session){

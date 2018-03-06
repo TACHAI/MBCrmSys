@@ -62,7 +62,7 @@
                         <div class="col-lg-12">
                             <div class="ibox float-e-margins">
                                 <div class="ibox-title">
-                                    <h5>客户信息表</h5>
+                                    <h5>编辑营销表</h5>
                                 </div>
                                 <div class="ibox-content">
                                     <div class="table-responsive">
@@ -79,62 +79,62 @@
                                                 <div class="col-sm-3">
                                                     <input type="text" class="form-control" id="chc_source" name="chcSource" placeholder="请输入名字" required>
                                                 </div>
-                                                <label for="chc_source" class="col-sm-1 control-label">*</label>
+                                                <!--<label for="chc_source" class="col-sm-1 control-label">*</label>-->
                                             </div>
                                             <div class="form-group">
                                                 <label for="chc_cust_name" class="col-sm-2 control-label">客户名称</label>
                                                 <div class="col-sm-3">
                                                     <input type="text" class="form-control" id="chc_cust_name"  name="chcCustName" placeholder="请输入客户名称" required>
                                                 </div>
-                                                <label for="chc_cust_name" class="col-sm-1 control-label">*</label>
+                                                <!--<label for="chc_cust_name" class="col-sm-1 control-label">*</label>-->
                                                 <!-- </div>
                                                    <div class="form-group"> -->
                                                 <label for="chc_rate" class="col-sm-2 control-label">成功机率</label>
                                                 <div class="col-sm-3">
                                                     <input type="text" class="form-control" onchange="checkchcRate(this)" id="chc_rate" name="chcRate" placeholder="两位数字" required>
                                                 </div>
-                                                <label for="chc_rate" class="col-sm-1 control-label">*</label>
+                                                <!--<label for="chc_rate" class="col-sm-1 control-label">*</label>-->
                                             </div>
                                             <div class="form-group">
                                                 <label for="chc_title" class="col-sm-2 control-label">概要</label>
                                                 <div class="col-sm-9">
                                                     <input type="text" class="form-control" id="chc_title" name="chcTitle" placeholder="概要" required>
                                                 </div>
-                                                <label for="chc_title" class="col-sm-1 control-label">*</label>
+                                                <!--<label for="chc_title" class="col-sm-1 control-label">*</label>-->
                                             </div>
                                             <div class="form-group">
                                                 <label for="chc_linkman" class="col-sm-2 control-label">联系人</label>
                                                 <div class="col-sm-3">
                                                     <input type="text" class="form-control" id="chc_linkman" name="chcLinkman" placeholder="联系人" required>
                                                 </div>
-                                                <label for="chc_linkman" class="col-sm-1 control-label">*</label>
+                                                <!--<label for="chc_linkman" class="col-sm-1 control-label">*</label>-->
                                                 <!-- </div>
                                                 <div class="form-group"> -->
                                                 <label for="chc_tel" class="col-sm-2 control-label" >联系人电话</label>
                                                 <div class="col-sm-3">
                                                     <input type="text" class="form-control" id="chc_tel" name="chcTel"  onchange="checkTel(this)" placeholder="手机号码" required>
                                                 </div>
-                                                <label for="chc_tel" class="col-sm-1 control-label">*</label>
+                                                <!--<label for="chc_tel" class="col-sm-1 control-label">*</label>-->
                                             </div>
                                             <div class="form-group">
                                                 <label for="chc_desc" class="col-sm-2 control-label">机会描述</label>
                                                 <div class="col-sm-9">
                                                     <textarea type="text" class="form-control" id="chc_desc" name="chcDesc" placeholder="机会描述" required></textarea>
                                                 </div>
-                                                <label for="chc_desc" class="col-sm-1 control-label">*</label>
+                                                <!--<label for="chc_desc" class="col-sm-1 control-label">*</label>-->
                                             </div>
                                             <div class="form-group">
                                                 <label for="chc_create_name" class="col-sm-2 control-label">创建人</label>
                                                 <div class="col-sm-3">
                                                     <input type="text" class="form-control" id="chc_create_name" name="chcCreateName" placeholder="请输入创建人" required>
                                                 </div>
-                                                <label for="chc_create_name" class="col-sm-1 control-label">*</label>
+                                                <!--<label for="chc_create_name" class="col-sm-1 control-label">*</label>-->
                                                 <!-- </div>
                                                    <div class="form-group"> -->
                                                 <label for="chc_create_date" class="col-sm-2 control-label">创建时间</label>
                                                 <div class="col-sm-3">
                                                     <input type="text" class="form-control" id="chc_create_date" name ="chcCreateDate"  required>
-                                                    <label for="chc_create_date" class="col-sm-1 control-label">*</label>
+                                                    <!--<label for="chc_create_date" class="col-sm-1 control-label">*</label>-->
                                                 </div>
                                                 <div class="form-group">
                                                     <input type="submit" style="display: none;" id="btn1">
@@ -184,13 +184,11 @@ $(document).ready(function () {
         data:{id:chcId[1]},
         datatype: 'json',
         success:function (data) {
-            alert(data.msg)
             if(data.status==0){
                 for(var p in data.data){
                     console.info(p)
                     $("form").find(":input[name='"+p+"']").val(data.data[p])
                 }
-
             }
         },
         error:function (data) {

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- 全局js -->
+    <script src="/assets/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
+
+    <!-- 自定义js -->
+    <script src="/assets/js/content.js?v=1.0.0"></script>
+	<script type="text/javascript" src="/assets/js/jquery.serializejson.js"></script>
+
+
+    <!-- Bootstrap table -->
+    <script src="/assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="/assets/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="/assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+    <!-- Peity -->
+    <script src="/assets/js/demo/bootstrap-table-demo.js"></script>
+	<!--统计代码，可删除-->
+<title>客户信息管理</title>
+<link rel="shortcut icon" href="favicon.ico">
+    <link href="/assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="/assets/css/animate.css" rel="stylesheet">
+    <link href="/assets/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="/assets/css/style.css?v=4.1.0" rel="stylesheet">
+</head>
+<body class="gray-bg top-navigation" >
+	<div id="wrapper">
+		<div id="page-wrapper" class="gray-bg">
+			<div class="row border-bottom white-bg">
+				<nav class="navbar navbar-static-top" role="navigation">
+					<!--<div class="navbar-header">-->
+					<!--</div>-->
+					<div class="navbar-collapse collapse" id="navbar">
+						<ul class="nav navbar-top-links navbar-left">
+							<li>
+								<button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+									<i class="fa fa-reorder"></i>
+								</button><a href="#" class="navbar-brand">客户信息管理管理</a></li>
+						</ul>
+						<ul class="nav navbar-top-links navbar-right">
+							<li><a id="save"> <i class="fa fa-save"></i> 保存
+							</a></li>
+						</ul>
+						<ul class="nav navbar-top-links navbar-right">
+							<li><a id="back"> <i class="fa fa-reply"></i> 返回
+							</a></li>
+						</ul>
+						<ul class="nav navbar-top-links navbar-right">
+							<li><a id="orderlist">
+									<i class="fa fa-sign-out"></i> 历史订单
+							</a></li>
+						</ul>
+						<ul class="nav navbar-top-links navbar-right">
+							<li><a id="assortlist">
+									<i class="fa fa-sign-out"></i> 交往记录
+							</a></li>
+						</ul>
+						<ul class="nav navbar-top-links navbar-right">
+							<li><a id="linkmanlist">
+									<i class="fa fa-line-chart"></i> 联系人
+							</a></li>
+						</ul>
+						<ul class="nav navbar-top-links navbar-right">
+							<li><a href="login.html"> <i class="fa fa-question"></i>
+									帮助
+							</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+			<div class="wrapper wrapper-content">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="ibox float-e-margins">
+								<div class="ibox-title">
+									<h5>编辑客户信息表</h5>
+								</div>
+								<div class="ibox-content">
+									<div class="table-responsive">
+			                           <form role="form" class="form-horizontal" id="customer" >
+											<div class="ibox-content">
+												<div class="form-group col-sm-6">
+													<label for="custNo" class="col-sm-4 control-label">客户编号：</label>
+													<div class="col-sm-8">
+														<input type="text" class="form-control" value="" id="custNo" name="custNo" readonly/>
+													</div>
+												</div>
+												<div class="form-group col-sm-6">
+													<label for="cusName" class="col-sm-4 control-label">名称：</label>
+													<div class="col-sm-8 row">
+														<input type="text" class="form-control" value="" id="cusName" name="cusName" />
+													</div>
+												</div>
+
+												<div class="form-group col-sm-6">
+													<label for="cust_region" class="col-sm-4 control-label">地区：</label>
+													<div class="col-sm-8">
+														<select id="cust_region" name="custArea" class="form-control m-b">
+															<option value=""></option>
+														</select>
+													</div>
+												</div>
+												<div class="form-group col-sm-6">
+													<label for="custLevel" class="col-sm-4 control-label">客户等级：</label>
+													<div class="col-sm-8">
+														<select id="custLevel" name="custLevel" class="form-control m-b">
+															<option value=""></option>
+														</select>
+													</div>
+												</div>
+
+												<!--<div class="form-group col-sm-6">-->
+													<!--<label  class="col-sm-4"></label>-->
+													<!--<div class="col-sm-8">-->
+													<!--</div>-->
+												<!--</div>-->
+												<div class="form-group col-sm-6">
+													<label for="custSatisfy" class="col-sm-4 control-label">客户满意度：</label>
+													<div class="col-sm-8">
+														<select id="custSatisfy" name="custSatisfy"
+															class="form-control m-b">
+															<option value="1">☆</option>
+															<option value="2">☆☆</option>
+															<option value="3">☆☆☆</option>
+															<option value="4">☆☆☆☆</option>
+															<option value="5">☆☆☆☆☆</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-group col-sm-6">
+													<label for="custCredit" class="col-sm-4 control-label">客户信用度：</label>
+													<div class="col-sm-8">
+														<select id="custCredit" name="custCredit" class="form-control m-b">
+															<option value="1">☆</option>
+															<option value="2" >☆☆</option>
+															<option value="3">☆☆☆</option>
+															<option value="4">☆☆☆☆</option>
+															<option value="5">☆☆☆☆☆</option>
+														</select>
+													</div>
+												</div>
+
+												<div class="form-group col-sm-6">
+													<label for="custManager" class="col-sm-4 control-label">客户经理：</label>
+													<div class="col-sm-8">
+														<input type="text" class="form-control" value="" id="custManager" name="custManager" />
+													</div>
+												</div>
+												<div class="form-group col-sm-6">
+													<label for="cusAddress" class="col-sm-4 control-label">地址：</label>
+													<div class="col-sm-8">
+														<input type="text" value="" class="form-control" id="cusAddress" name="cusAddress" />
+													</div>
+												</div>
+
+												<div class="form-group col-sm-6">
+													<label for="cusPostalCode" class="col-sm-4 control-label">邮编：</label>
+													<div class="col-sm-8">
+														<input type="text" value="" class="form-control" id="cusPostalCode" name="cusPostalCode" />
+													</div>
+												</div>
+												<div class="form-group col-sm-6">
+													<label for="cusTelephone" class="col-sm-4 control-label">电话：</label>
+													<div class="col-sm-8">
+														<input type="text" value="" class="form-control" id="cusTelephone"
+															name="cusTelephone" />
+													</div>
+												</div>
+
+												<div class="form-group col-sm-6">
+													<label for="cusFasimile" class="col-sm-4 control-label">传真：</label>
+													<div class="col-sm-8">
+														<input type="text" class="form-control" value="" id="cusFasimile" name="cusFasimile" />
+													</div>
+												</div>
+												<div class="form-group col-sm-6">
+													<label for="cusUrl" class="col-sm-4 control-label">网址：</label>
+													<div class="col-sm-8">
+														<input type="text" class="form-control" value="" id="cusUrl" name="cusUrl" />
+													</div>
+												</div>
+												<!--<div class="form-group col-sm-6">-->
+													<!--<label class="col-sm-4 control-label"></label>-->
+													<!--<div class="col-sm-8">-->
+														<!--&lt;!&ndash;填充位置&ndash;&gt;-->
+													<!--</div>-->
+												<!--</div>-->
+
+												<div class="form-group col-sm-6">
+													<label for="cusRegisterNumber" class="col-sm-4 control-label">营业执照注册号：</label>
+													<div class="col-sm-8">
+														<input type="text" class="form-control" value="" id="cusRegisterNumber" name="cusRegisterNumber" />
+													</div>
+												</div>
+												<div class="form-group col-sm-6">
+													<label for="cusLegalPerson" class="col-sm-4 control-label">法人：</label>
+													<div class="col-sm-8">
+														<input type="text" class="form-control" value="" id="cusLegalPerson" name="cusLegalPerson" />
+													</div>
+												</div>
+
+												<div class="form-group col-sm-6">
+													<label for="cusRegisterMoney" class="col-sm-4 control-label">注册资金（万元）：</label>
+													<div class="col-sm-8">
+														<input type="text" class="form-control" value="" id="cusRegisterMoney" name="cusRegisterMoney" />
+													</div>
+												</div>
+												<div class="form-group col-sm-6">
+													<label for="cusRmb" class="col-sm-4 control-label">年营业额：</label>
+													<div class="col-sm-8">
+														<input type="text" class="form-control" value="" id="cusRmb"
+															name="cusRmb" />
+													</div>
+												</div>
+
+												<div class="form-group col-sm-6">
+													<label for="cusOpeningBank" class="col-sm-4 control-label">开户银行：</label>
+													<div class="col-sm-8">
+														<input type="text" class="form-control" value="" id="cusOpeningBank" name="cusOpeningBank" />
+													</div>
+												</div>
+												<div class="form-group col-sm-6">
+													<label for="cusBankAccount" class="col-sm-4 control-label">银行账号：</label>
+													<div class="col-sm-8">
+														<input type="text" class="form-control" value="" id="cusBankAccount" name="custBankAccount" />
+													</div>
+												</div>
+
+												<div class="form-group col-sm-6">
+													<label for="cusCrownRent" class="col-sm-4 control-label">地税登记号：</label>
+													<div class="col-sm-8">
+														<input type="text" class="form-control" id="cusCrownRent" name="cusCrownRent" />
+													</div>
+												</div>
+												<div class="form-group col-sm-6">
+													<label for="cusStateTaxes" class="col-sm-4 control-label">国税登记号：</label>
+													<div class="col-sm-8">
+														<input type="text" class="form-control"  id="cusStateTaxes" name="cusStateTaxes" />
+													</div>
+												</div>
+
+												<div class="form-group"></div>
+													<input type="submit" id="btn1" style="display: none;">
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+//将ajax返回的值在页面加载完成后赋值到控件中
+$(document).ready(function () {
+    var url=window.location.search;//得到?后面的值包括问号
+    var str= url.substr(1);
+    var cusId=str.split("=");
+    $.ajax({
+        type:'post',
+        url:'http://localhost:8080/cmp/selectbyid.do',
+        data:{'cusId':cusId[1]},
+        dataType:'json',
+        success:function (data) {
+            if(data.status==0){
+                for(var p in data.data){
+                    $("form").find(":input[name='"+p+"']").val(data.data[p]);
+                }
+                $("#cust_credit").find("option[value='"+data.data[custCredit]+"']").attr("selected",true);
+                $("#cust_satisfy").find("option[value='"+data.data[custSatisfy]+"']").attr("selected",true);
+            } else {
+                alert(data.msg)
+            }
+        },
+        error:function (data) {
+            console.info("服务端错误",data)
+        }
+    })
+})
+$("#cust_credit").find("option[value='<%=customer.getCusChangeDescribe()%>']").attr("selected",true);
+$("#cust_satisfy").find("option[value='<%=customer.getCusSuccessProbability()%>']").attr("selected",true);
+$("#cust_level").find("option[value='<%=customer.getCustomerRank().getCkId()%>']").attr("selected",true);
+$("#cust_region").find("option[value='<%=customer.getArea().getAreId()%>']").attr("selected",true);
+$("#back").click(function(){
+    window.history.go(-1);
+})
+$("#save").click(function(){
+    $("#btn1").click();
+});
+$("form").on('submit',function (e) {
+    e.preventDefault();
+    var parm= $("#customer").serializeJSON();
+    $.ajax({
+        type:'post',
+        url:'',
+        data:parm,
+        dataType:'json',
+        success:function (data) {
+            if(data.status==0){
+                alert(data.msg)
+                window.history.go(-1);
+            }
+        },
+		error:function (data) {
+			console("发生了错误",data)
+        }
+    })
+})
+//var obj = $("#cust_satisfy");
+//for (var i = 0; i < obj.length; i++) {
+//	if (obj.options[i].value == <%=customer.getCusSuccessProbability()%> ) {
+//		obj.options[i].selected = true;
+//		break;
+//	}
+//}
+</script>
+
+
+</body>
+</html>
