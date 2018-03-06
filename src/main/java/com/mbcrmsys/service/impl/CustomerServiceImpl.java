@@ -3,9 +3,13 @@ package com.mbcrmsys.service.impl;
 import com.mbcrmsys.common.ResponseCode;
 import com.mbcrmsys.common.ServerResponse;
 import com.mbcrmsys.dao.CustomerMapper;
+import com.mbcrmsys.pojo.Area;
 import com.mbcrmsys.pojo.Customer;
+import com.mbcrmsys.pojo.CustomerRank;
 import com.mbcrmsys.service.ICustomerService;
+import com.mbcrmsys.vo.CustomerVo;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +25,10 @@ import java.util.List;
 public class CustomerServiceImpl implements ICustomerService {
     @Autowired
     private CustomerMapper customerMapper;
+    @Autowired
+    private AreaServiceImpl areaService;
+    @Autowired
+    private  CustomerRankServiceImpl customerRankService;
     @Override
     public ServerResponse<List<Customer>> selectByCondition(String cusName, String cusManage, String cusState) {
         Long state;
@@ -38,10 +46,21 @@ public class CustomerServiceImpl implements ICustomerService {
     }
 
     @Override
-    public ServerResponse<Customer> selectById(Integer cusId) {
+    public ServerResponse<CustomerVo> selectById(Integer cusId) {
         Customer customer=customerMapper.selectByPrimaryKey(cusId);
-        if(customer != null ){
-            return ServerResponse.createBySuccess(customer,ResponseCode.SUCCESS.getDesc());
+        CustomerVo customerVo= new CustomerVo();
+
+        if(customer.getCusAreId()!=null){
+            Area area=areaService.selectById(customer.getCusAreId());
+            customerVo.setArea(area);
+        }
+        if(customer.getCusCkId()!=null){
+            CustomerRank customerRank=customerRankService.selectById(customer.getCusCkId());
+            customerVo.setCustomerRank(customerRank);
+        }
+        if(customerVo != null ){
+            BeanUtils.copyProperties(customer,customerVo);
+            return ServerResponse.createBySuccess(customerVo,ResponseCode.SUCCESS.getDesc());
         }else {
             return ServerResponse.createByErrorMessage(ResponseCode.ERROR.getDesc());
         }
@@ -54,6 +73,16 @@ public class CustomerServiceImpl implements ICustomerService {
             return ServerResponse.createBySuccessMessage("更新成功");
         }else {
             return ServerResponse.createByErrorMessage("更新失败");
+        }
+    }
+
+    @Override
+    public ServerResponse<String> saveCustomer(Customer customer) {
+        int result=customerMapper.insert(customer);
+        if(result>0){
+            return ServerResponse.createBySuccessMessage("保存成功");
+        }else {
+            return ServerResponse.createByErrorMessage("保存失败");
         }
     }
 }

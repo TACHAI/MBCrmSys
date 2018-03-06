@@ -5,6 +5,7 @@ import com.mbcrmsys.pojo.Customer;
 import com.mbcrmsys.service.ICustomerService;
 import com.mbcrmsys.util.CheckLogin;
 import com.mbcrmsys.util.DecoderSelectByCondition;
+import com.mbcrmsys.vo.CustomerVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,7 +57,7 @@ public class CustomerController {
      */
     @PostMapping("selectbyid.do")
     @ResponseBody
-    public ServerResponse<Customer> selectById(String cusId,HttpSession session){
+    public ServerResponse<CustomerVo> selectById(String cusId, HttpSession session){
         CheckLogin.check(session);
         Integer id=Integer.valueOf(cusId);
         return iCustomerService.selectById(id);
@@ -68,10 +69,16 @@ public class CustomerController {
      * @param session
      * @return
      */
-    @PostMapping("updatecus")
+    @PostMapping("updatecus.do")
     @ResponseBody
     public ServerResponse<String> updateCustomer(Customer customer,HttpSession session){
         CheckLogin.check(session);
         return iCustomerService.updateCustomer(customer);
+    }
+    @PostMapping("savecustomer.do")
+    @ResponseBody
+    public ServerResponse<String> saveCustomer(Customer customer,HttpSession session){
+        CheckLogin.check(session);
+        return  iCustomerService.saveCustomer(customer);
     }
 }

@@ -55,4 +55,5 @@
     set CK_NAME = #{ckName,jdbcType=VARCHAR}
     where CK_ID = #{ckId,jdbcType=INTEGER}
   </update>
+
 </mapper>

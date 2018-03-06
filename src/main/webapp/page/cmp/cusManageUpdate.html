@@ -125,7 +125,7 @@
 												<div class="form-group col-sm-6">
 													<label for="custSatisfy" class="col-sm-4 control-label">客户满意度：</label>
 													<div class="col-sm-8">
-														<select id="custSatisfy" name="custSatisfy"
+														<select id="custSatisfy" name="cusStatisfcing"
 															class="form-control m-b">
 															<option value="1">☆</option>
 															<option value="2">☆☆</option>
@@ -138,7 +138,7 @@
 												<div class="form-group col-sm-6">
 													<label for="custCredit" class="col-sm-4 control-label">客户信用度：</label>
 													<div class="col-sm-8">
-														<select id="custCredit" name="custCredit" class="form-control m-b">
+														<select id="custCredit" name="cusCreditworthiness" class="form-control m-b">
 															<option value="1">☆</option>
 															<option value="2" >☆☆</option>
 															<option value="3">☆☆☆</option>
@@ -149,9 +149,9 @@
 												</div>
 
 												<div class="form-group col-sm-6">
-													<label for="custManager" class="col-sm-4 control-label">客户经理：</label>
+													<label for="cusManager" class="col-sm-4 control-label">客户经理：</label>
 													<div class="col-sm-8">
-														<input type="text" class="form-control" value="" id="custManager" name="custManager" />
+														<input type="text" class="form-control" value="" id="cusManager" name="cusManager" />
 													</div>
 												</div>
 												<div class="form-group col-sm-6">
@@ -230,7 +230,7 @@
 												<div class="form-group col-sm-6">
 													<label for="cusBankAccount" class="col-sm-4 control-label">银行账号：</label>
 													<div class="col-sm-8">
-														<input type="text" class="form-control" value="" id="cusBankAccount" name="custBankAccount" />
+														<input type="text" class="form-control" value="" id="cusBankAccount" name="cusBankAccount" />
 													</div>
 												</div>
 
@@ -276,8 +276,10 @@ $(document).ready(function () {
                 for(var p in data.data){
                     $("form").find(":input[name='"+p+"']").val(data.data[p]);
                 }
-                $("#cust_credit").find("option[value='"+data.data[custCredit]+"']").attr("selected",true);
-                $("#cust_satisfy").find("option[value='"+data.data[custSatisfy]+"']").attr("selected",true);
+                console.info(data.data['cusCredit']+"cusCredit")
+                console.info(data+"data")
+                $("#cust_credit").find("option[value='"+data.data['cusCreditworthiness']+"']").attr("selected",true);
+                $("#cust_satisfy").find("option[value='"+data.data['cusStatisfcing']+"']").attr("selected",true);
             } else {
                 alert(data.msg)
             }
@@ -287,8 +289,6 @@ $(document).ready(function () {
         }
     })
 })
-$("#cust_credit").find("option[value='<%=customer.getCusChangeDescribe()%>']").attr("selected",true);
-$("#cust_satisfy").find("option[value='<%=customer.getCusSuccessProbability()%>']").attr("selected",true);
 $("#cust_level").find("option[value='<%=customer.getCustomerRank().getCkId()%>']").attr("selected",true);
 $("#cust_region").find("option[value='<%=customer.getArea().getAreId()%>']").attr("selected",true);
 $("#back").click(function(){
@@ -302,7 +302,7 @@ $("form").on('submit',function (e) {
     var parm= $("#customer").serializeJSON();
     $.ajax({
         type:'post',
-        url:'',
+        url:'http://localhost:8080/cmp/updatecus.do',
         data:parm,
         dataType:'json',
         success:function (data) {

@@ -2,6 +2,7 @@ package com.mbcrmsys.service;
 
 import com.mbcrmsys.common.ServerResponse;
 import com.mbcrmsys.pojo.Customer;
+import com.mbcrmsys.vo.CustomerVo;
 
 import java.util.List;
 
@@ -13,6 +14,8 @@ import java.util.List;
  */
 public interface ICustomerService {
     ServerResponse<List<Customer>> selectByCondition(String cusName, String cusManage, String cusState);
-    ServerResponse<Customer> selectById(Integer cusId);
+    ServerResponse<CustomerVo> selectById(Integer cusId);
     ServerResponse<String> updateCustomer(Customer customer);
+    ServerResponse<String> saveCustomer(Customer customer);
+
 }

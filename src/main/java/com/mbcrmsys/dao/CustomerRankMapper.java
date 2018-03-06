@@ -2,6 +2,8 @@ package com.mbcrmsys.dao;
 
 import com.mbcrmsys.pojo.CustomerRank;
 
+import java.util.List;
+
 public interface CustomerRankMapper {
     int deleteByPrimaryKey(Integer ckId);
 
@@ -14,4 +16,5 @@ public interface CustomerRankMapper {
     int updateByPrimaryKeySelective(CustomerRank record);
 
     int updateByPrimaryKey(CustomerRank record);
+//    List<CustomerRank> selectByCusId(Integer cusId);
 }
