@@ -34,7 +34,7 @@
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
                         <a id="back">
-                            <i class="fa fa-search"></i>返回
+                            <i class="fa fa-reply"></i>返回
                         </a>
                     </li>
                 </ul>

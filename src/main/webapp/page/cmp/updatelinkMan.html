@@ -1,8 +1,3 @@
-<%@page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<%@page import=" com.rlg.crm.domain.Linkman"%>
-<%@page import="java.util.List,
-				java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,9 +26,6 @@
 	rel="stylesheet">
 </head>
 <body class="gray-bg top-navigation">
-	<%
-		Linkman linkman = (Linkman) request.getAttribute("linkman");
-	%>>
 	<div id="wrapper">
 		<div id="page-wrapper" class="gray-bg">
 			<div class="row border-bottom white-bg">
@@ -48,15 +40,15 @@
 					</div>
 					<div class="navbar-collapse collapse" id="navbar">
 						<ul class="nav navbar-top-links navbar-right">
-							<li><a id="save"> <i class="fa fa-sign-out"></i> 保存
+							<li><a id="save"> <i class="fa fa-file-text"></i> 保存
 							</a></li>
 						</ul>
 						<ul class="nav navbar-top-links navbar-right">
-							<li><a id="back"> <i class="fa fa-sign-out"></i> 返回
+							<li><a id="back"> <i class="fa fa-reply"></i> 返回
 							</a></li>
 						</ul>
 						<ul class="nav navbar-top-links navbar-right">
-							<li><a href="login.html"> <i class="fa fa-sign-out"></i>
+							<li><a href="login.html"> <i class="fa fa-question"></i>
 									帮助
 							</a></li>
 						</ul>
@@ -195,8 +187,7 @@
 				i = 1;
 			}%>
      $("input[name = 'sex']").get(<%=i%>).checked=true;
-<%-- 	 $(":radio[name='sex'][value='" + <%=linkman.getLinSex()%> + "']").prop("checked", "checked"); --%>
-                                                    
+$(":radio[name='sex'][value='" + <%=linkman.getLinSex()%> + "']").prop("checked", "checked");
 </script>
 
 </html>

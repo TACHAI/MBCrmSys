@@ -52,11 +52,11 @@
 							<li><a id="back"> <i class="fa fa-reply"></i> 返回
 							</a></li>
 						</ul>
-						<ul class="nav navbar-top-links navbar-right">
-							<li><a id="orderlist">
-									<i class="fa fa-sign-out"></i> 历史订单
-							</a></li>
-						</ul>
+						<!--<ul class="nav navbar-top-links navbar-right">-->
+							<!--<li><a id="orderlist">-->
+									<!--<i class="fa fa-sign-out"></i> 历史订单-->
+							<!--</a></li>-->
+						<!--</ul>-->
 						<ul class="nav navbar-top-links navbar-right">
 							<li><a id="assortlist">
 									<i class="fa fa-sign-out"></i> 交往记录
@@ -328,19 +328,13 @@ $("#assortlist").click(function () {
     var url=window.location.search;
     var str=url.substr(1);
     var cusId=str.split("=");
-    window.location.href="http://localhost:8080/cmp/linkMan.html?"+cusId[0]+"="+cusId[1];
+    window.location.href="http://localhost:8080/cmp/assort.html?"+cusId[0]+"="+cusId[1];
 })
 $("#orderlist").click(function () {
     var url=window.location.search;
     var str=url.substr(1);
     var cusId=str.split("=");
     window.location.href="http://localhost:8080/cmp/orders.html?"+cusId[0]+"="+cusId[1];
-})
-$("#assortlist").click(function () {
-    var url=window.location.search;
-    var str=url.substr(1);
-    var cusId=str.split("=");
-    window.location.href="http://localhost:8080/cmp/assort.html?"+cusId[0]+"="+cusId[1];
 })
 </script>
 

@@ -37,28 +37,28 @@
                         <ul class="nav navbar-top-links navbar-right">
                             <li>
                                 <a id="save">
-                                    <i class="fa fa-sign-out"></i> 保存
+                                    <i class="fa fa-file-text"></i> 保存
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav navbar-top-links navbar-right">
                             <li>
                                 <a href="lostlist?flag=sure&lostId=<%=lost.getLosId()%>">
-                                    <i class="fa fa-sign-out"></i>确认流失
+                                    <i class="fa fa-lock"></i>确认流失
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav navbar-top-links navbar-right">
                             <li>
                                 <a id="back">
-                                    <i class="fa fa-sign-out"></i> 返回
+                                    <i class="fa fa-reply"></i> 返回
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav navbar-top-links navbar-right">
                             <li>
                                 <a href="login.html">
-                                    <i class="fa fa-sign-out"></i> 帮助
+                                    <i class="fa fa-question"></i> 帮助
                                 </a>
                             </li>
                         </ul>

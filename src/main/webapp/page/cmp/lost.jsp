@@ -38,12 +38,12 @@
 					</div>
 					<div class="navbar-collapse collapse" id="navbar">
 						<ul class="nav navbar-top-links navbar-right">
-							<li><a id="query"> <i class="fa fa-sign-out"></i>
+							<li><a id="query"> <i class="fa fa-search"></i>
 									查询
 							</a></li>
 						</ul>
 						<ul class="nav navbar-top-links navbar-right">
-							<li><a href="login.html"> <i class="fa fa-sign-out"></i>
+							<li><a href="login.html"> <i class="fa fa-question"></i>
 									帮助
 							</a></li>
 						</ul>

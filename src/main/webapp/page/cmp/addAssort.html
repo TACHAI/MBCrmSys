@@ -1,8 +1,3 @@
-<%@page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<%@page import=" com.rlg.crm.domain.Assort"%>
-<%@page import="java.util.List,
-				java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,11 +11,11 @@
     <![endif]-->
 
    <link rel="shortcut icon" href="favicon.ico">
-    <link href="<%=request.getContextPath() %>/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/animate.css" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="/assets/css/animate.css" rel="stylesheet">
+    <link href="/assets/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="/assets/css/style.css?v=4.1.0" rel="stylesheet">
 </head>
 <body class="gray-bg top-navigation">
 
@@ -38,21 +33,21 @@
                         <ul class="nav navbar-top-links navbar-right">
                             <li>
                                 <a id="save">
-                                    <i class="fa fa-sign-out"></i> 保存
+                                    <i class="fa fa-file-text"></i> 保存
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav navbar-top-links navbar-right">
                             <li>
                                 <a id="back">
-                                    <i class="fa fa-sign-out"></i> 返回
+                                    <i class="fa fa-reply"></i> 返回
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav navbar-top-links navbar-right">
                             <li>
                                 <a href="login.html">
-                                    <i class="fa fa-sign-out"></i> 帮助
+                                    <i class="fa fa-question"></i> 帮助
                                 </a>
                             </li>
                         </ul>
@@ -69,44 +64,42 @@
                                 </div>
 
                                 <div class="ibox-content">
-                                    <form role="form" class="form-horizontal" action="<%=request.getContextPath() %>/assortlist?flag=add&cusId=<%=request.getParameter("cusId") %>" method="post">
+                                    <form role="form" class="form-horizontal" id="assortform">
                                         <div class="ibox-content">
-
+                                            <input type="text" id="cusId" name="cusId" style="display: none"/>
                                             <div class="form-group col-sm-6">
-                                                <label for="atv_date" class="col-sm-4 control-label">时间：</label>
+                                                <label for="assDate" class="col-sm-4 control-label">时间：</label>
                                                 <div class="col-sm-8">
-                                                    <input type="date" class="form-control" id="atv_date" name="atvDate"/>
+                                                    <input type="date" class="form-control" id="assDate" name="assDate"/>
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-6">
-                                                <label  class="col-sm-4 control-label" FOR="atv_place">地点：</label>
+                                                <label  class="col-sm-4 control-label" for="assPalce">地点：</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="atv_place" name="atvPlace"/>
-
+                                                    <input type="text" class="form-control" id="assPalce" name="assPalce"/>
                                                 </div>
                                             </div>
 
                                             <div class="form-group col-sm-6">
-                                                <label for="atv_title" class="col-sm-4 control-label">概要：</label>
+                                                <label for="assResume" class="col-sm-4 control-label">概要：</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="atv_title" name="resume"/>
+                                                    <input type="text" class="form-control" id="assResume" name="assResume"/>
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-6">
-                                                <label for="lkm_tel" class="col-sm-4 control-label">备注：</label>
+                                                <label for="assMemo" class="col-sm-4 control-label">备注：</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="lkm_tel" name="memo"/>
+                                                    <input type="text" class="form-control" id="assMemo" name="assMemo"/>
                                                 </div>
                                             </div>
 
 
                                             <div class="form-group ">
-                                                <label for="atv_desc" class="col-sm-2 control-label">详细信息：</label>
+                                                <label for="assDetail" class="col-sm-2 control-label">详细信息：</label>
                                                 <div class="col-sm-6">
-                                                    <textarea rows="5" class="form-control"id="atv_desc" name="detil" ></textarea>
+                                                    <textarea rows="5" class="form-control"id="assDetail" name="assDetail" ></textarea>
                                                 </div>
                                             </div>
-
                                             <div class="form-group">
 												<input type="submit" id="btn1" style="display: none">
                                             </div>
@@ -116,50 +109,64 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-                </div>
-
-            </div>
-            <div class="footer">
-                <div class="pull-right">
-                    By：<a href="http://www.zi-han.net" target="_blank">zihan's blog</a>
-                </div>
-                <div>
-                    <strong>Copyright</strong> H+ &copy; 2014
                 </div>
             </div>
-
         </div>
     </div>
 
 
   <!-- 全局js -->
-    <script src="<%=request.getContextPath() %>/js/jquery.min.js?v=2.1.4"></script>
-    <script src="<%=request.getContextPath() %>/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="/assets/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
 
     <!-- 自定义js -->
-    <script src="<%=request.getContextPath() %>/js/content.js?v=1.0.0"></script>
+    <script src="/assets/js/content.js?v=1.0.0"></script>
 
-
-    <!-- Bootstrap table -->
-    <script src="<%=request.getContextPath() %>/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
-    <script src="<%=request.getContextPath() %>/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
-    <script src="<%=request.getContextPath() %>/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <!-- Bootstra-->
+    <script src="/assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="/assets/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="/assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="/assets/js/jquery.serializejson.js"></script>
 
     <!-- Peity -->
-    <script src="<%=request.getContextPath() %>/js/demo/bootstrap-table-demo.js"></script>
+    <script src="/assets/js/demo/bootstrap-table-demo.js"></script>
 
-    <script type="<%=request.getContextPath() %>/text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
-    <!--统计代码，可删除-->
+
 </body>
 <script type="text/javascript">
-	$("#save").click(function() {
-		$("#btn1").click();
-	})
-	$("#back").click(function() {
-		window.history.go(-1);
-	})
+$("document").ready(function () {
+    var url=window.location.search;
+    var str=url.substr(1);
+    var strs=str.split("=");
+    $("#cusId").val(strs[1]);
+})
+$("#save").click(function() {
+	$("#btn1").click();
+})
+$("form").on('submit',function (e) {
+    e.preventDefault();
+    var params=$("#assortform").serializeJSON();
+    $.ajax({
+        type:'post',
+        url:'http://localhost:8080/assort/addassort.do',
+        data:params,
+        dataType:'json',
+        success:function (data) {
+            if(data.status==0){
+                alert("插入成功");
+                window.history.go(-1);
+            }
+        },
+        error:function (data) {
+            console.info("发生了错误",data);
+        }
+    })
+})
+
+$("#back").click(function() {
+	window.history.go(-1);
+})
+
 </script>
 </html>
