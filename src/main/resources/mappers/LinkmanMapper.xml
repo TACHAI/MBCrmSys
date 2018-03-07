@@ -125,4 +125,9 @@
       LIN_MEMO = #{linMemo,jdbcType=VARCHAR}
     where LIN_ID = #{linId,jdbcType=INTEGER}
   </update>
+  <select id="selectList" parameterType="map" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List"/>
+    FROM linkman
+    WHERE LIN_CUS_ID = #{cudId,jdbcType=INTEGER}
+  </select>
 </mapper>

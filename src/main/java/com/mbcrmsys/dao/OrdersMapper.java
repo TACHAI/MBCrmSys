@@ -2,6 +2,8 @@ package com.mbcrmsys.dao;
 
 import com.mbcrmsys.pojo.Orders;
 
+import java.util.List;
+
 public interface OrdersMapper {
     int deleteByPrimaryKey(Integer ordId);
 
@@ -14,4 +16,5 @@ public interface OrdersMapper {
     int updateByPrimaryKeySelective(Orders record);
 
     int updateByPrimaryKey(Orders record);
+    List<Orders> selectList(Integer cusId);
 }

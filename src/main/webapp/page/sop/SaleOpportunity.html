@@ -254,13 +254,14 @@ function distribution(id) {
     $("#chcid").val(id);
     $.ajax({
         type:'post',
-        url:'http://localhost:8080/saleopp/slectbyid.do',
+        url:'http://localhost:8080/saleopp/selectbyid.do',
         data:{'chcId':id},
         dataType:'json',
         success:function (data) {
             if(data.status==0){
                 $("#chcDueName").val(data.data['chcDueName']);
-                $("#chcDueDate").val(data.data['chcDueDate']);
+                var date=TimestampToDate(data.data['chcDueDate']);
+                $("#chcDueDate").val(date);
             }
         },
         error:function (data) {
@@ -315,7 +316,6 @@ function deleteSaleOpp(chcId){
         return true;
     }
     return false;
-
 }
 </script>
 </body>

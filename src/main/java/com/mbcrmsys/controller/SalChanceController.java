@@ -57,11 +57,11 @@ public class SalChanceController {
         Long salId=Long.parseLong(id);
         return iSalChanceService.deleteById(salId);
     }
-    @PostMapping("slectbyid.do")
+    @PostMapping("selectbyid.do")
     @ResponseBody
-    public ServerResponse<SalChance> selectById(HttpSession session,String id){
+    public ServerResponse<SalChance> selectById(HttpSession session,String chcId){
         CheckLogin.check(session);
-        Long salId=Long.parseLong(id);
+        Long salId=Long.parseLong(chcId);
         return iSalChanceService.selectById(salId);
     }
 

@@ -2,6 +2,8 @@ package com.mbcrmsys.dao;
 
 import com.mbcrmsys.pojo.Linkman;
 
+import java.util.List;
+
 public interface LinkmanMapper {
     int deleteByPrimaryKey(Integer linId);
 
@@ -14,4 +16,5 @@ public interface LinkmanMapper {
     int updateByPrimaryKeySelective(Linkman record);
 
     int updateByPrimaryKey(Linkman record);
+    List<Linkman> selectList(Integer cudId);
 }

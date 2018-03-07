@@ -3,13 +3,13 @@
 <mapper namespace="com.mbcrmsys.dao.OrdersMapper" >
   <resultMap id="BaseResultMap" type="com.mbcrmsys.pojo.Orders" >
     <id column="ORD_ID" property="ordId" jdbcType="INTEGER" />
-    <result column="ORD_CUST_ID" property="ordCustId" jdbcType="INTEGER" />
+    <result column="ORD_CUS_ID" property="ordCusId" jdbcType="INTEGER" />
     <result column="ORD_DATE" property="ordDate" jdbcType="TIMESTAMP" />
     <result column="ORD_STATE" property="ordState" jdbcType="DECIMAL" />
     <result column="ORD_ADDRESS" property="ordAddress" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    ORD_ID, ORD_CUST_ID, ORD_DATE, ORD_STATE, ORD_ADDRESS
+    ORD_ID, ORD_CUS_ID, ORD_DATE, ORD_STATE, ORD_ADDRESS
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -22,7 +22,7 @@
     where ORD_ID = #{ordId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.mbcrmsys.pojo.Orders" >
-    insert into orders (ORD_ID, ORD_CUST_ID, ORD_DATE, 
+    insert into orders (ORD_ID, ORD_CUS_ID, ORD_DATE,
       ORD_STATE, ORD_ADDRESS)
     values (#{ordId,jdbcType=INTEGER}, #{ordCustId,jdbcType=INTEGER}, #{ordDate,jdbcType=TIMESTAMP}, 
       #{ordState,jdbcType=DECIMAL}, #{ordAddress,jdbcType=VARCHAR})
@@ -34,7 +34,7 @@
         ORD_ID,
       </if>
       <if test="ordCustId != null" >
-        ORD_CUST_ID,
+        ORD_CUS_ID,
       </if>
       <if test="ordDate != null" >
         ORD_DATE,
@@ -68,7 +68,7 @@
     update orders
     <set >
       <if test="ordCustId != null" >
-        ORD_CUST_ID = #{ordCustId,jdbcType=INTEGER},
+        ORD_CUS_ID = #{ordCustId,jdbcType=INTEGER},
       </if>
       <if test="ordDate != null" >
         ORD_DATE = #{ordDate,jdbcType=TIMESTAMP},
@@ -84,10 +84,15 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.mbcrmsys.pojo.Orders" >
     update orders
-    set ORD_CUST_ID = #{ordCustId,jdbcType=INTEGER},
+    set ORD_CUS_ID = #{ordCustId,jdbcType=INTEGER},
       ORD_DATE = #{ordDate,jdbcType=TIMESTAMP},
       ORD_STATE = #{ordState,jdbcType=DECIMAL},
       ORD_ADDRESS = #{ordAddress,jdbcType=VARCHAR}
     where ORD_ID = #{ordId,jdbcType=INTEGER}
   </update>
+  <select id="selectList" resultMap="BaseResultMap" parameterType="map">
+    SELECT <include refid="Base_Column_List"/>
+    FROM orders
+    WHERE ORD_CUS_ID = #{cusId,jdbcType=INTEGER}
+  </select>
 </mapper>

@@ -86,11 +86,12 @@
 								<div class="ibox-content">
 									<div class="table-responsive">
 			                           <form role="form" class="form-horizontal" id="customer" >
+										   <input name="cusId"  style="display:none" type="text">
 											<div class="ibox-content">
 												<div class="form-group col-sm-6">
-													<label for="custNo" class="col-sm-4 control-label">客户编号：</label>
+													<label for="cusNumber" class="col-sm-4 control-label">客户编号：</label>
 													<div class="col-sm-8">
-														<input type="text" class="form-control" value="" id="custNo" name="custNo" readonly/>
+														<input type="text" class="form-control" value="" id="cusNumber" name="cusNumber" readonly/>
 													</div>
 												</div>
 												<div class="form-group col-sm-6">
@@ -201,18 +202,19 @@
 													</div>
 												</div>
 												<div class="form-group col-sm-6">
+													<label for="cusRegisterMoney" class="col-sm-4 control-label">注册资金（万元）：</label>
+													<div class="col-sm-8">
+														<input type="text" class="form-control" value="" id="cusRegisterMoney" name="cusRegisterMoney" />
+													</div>
+												</div>
+												<div class="form-group col-sm-6">
 													<label for="cusLegalPerson" class="col-sm-4 control-label">法人：</label>
 													<div class="col-sm-8">
 														<input type="text" class="form-control" value="" id="cusLegalPerson" name="cusLegalPerson" />
 													</div>
 												</div>
 
-												<div class="form-group col-sm-6">
-													<label for="cusRegisterMoney" class="col-sm-4 control-label">注册资金（万元）：</label>
-													<div class="col-sm-8">
-														<input type="text" class="form-control" value="" id="cusRegisterMoney" name="cusRegisterMoney" />
-													</div>
-												</div>
+
 												<div class="form-group col-sm-6">
 													<label for="cusRmb" class="col-sm-4 control-label">年营业额：</label>
 													<div class="col-sm-8">
@@ -316,15 +318,31 @@ $("form").on('submit',function (e) {
         }
     })
 })
-//var obj = $("#cust_satisfy");
-//for (var i = 0; i < obj.length; i++) {
-//	if (obj.options[i].value == <%=customer.getCusSuccessProbability()%> ) {
-//		obj.options[i].selected = true;
-//		break;
-//	}
-//}
+$("#linkmanlist").click(function () {
+    var url=window.location.search;
+    var str=url.indexOf(1);
+    var cusId=str.split("=");
+    window.location.href="http://localhost:8080/cmp/linkMan.html?"+cusId[0]+"="+cusId[1];
+})
+$("#assortlist").click(function () {
+    var url=window.location.search;
+    var str=url.substr(1);
+    var cusId=str.split("=");
+    window.location.href="http://localhost:8080/cmp/linkMan.html?"+cusId[0]+"="+cusId[1];
+})
+$("#orderlist").click(function () {
+    var url=window.location.search;
+    var str=url.substr(1);
+    var cusId=str.split("=");
+    window.location.href="http://localhost:8080/cmp/orders.html?"+cusId[0]+"="+cusId[1];
+})
+$("#assortlist").click(function () {
+    var url=window.location.search;
+    var str=url.substr(1);
+    var cusId=str.split("=");
+    window.location.href="http://localhost:8080/cmp/assort.html?"+cusId[0]+"="+cusId[1];
+})
 </script>
-
 
 </body>
 </html>

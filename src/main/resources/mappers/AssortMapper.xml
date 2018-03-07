@@ -114,4 +114,9 @@
       ASS_MEMO = #{assMemo,jdbcType=VARCHAR}
     where ASS_ID = #{assId,jdbcType=INTEGER}
   </update>
+  <select id="selectBycusId" resultMap="BaseResultMap" parameterType="map">
+    SELECT <include refid="Base_Column_List"/>
+    FROM assort
+    WHERE ASS_CUS_ID = #{cusId,jdbcType=INTEGER}
+  </select>
 </mapper>

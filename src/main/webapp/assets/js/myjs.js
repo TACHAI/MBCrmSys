@@ -17,11 +17,17 @@ function getParam() {
     var theRequest = new Object();
     if(url.indexOf("?")!=-1){
         var str=url.substr(1);
-        var strs=str.split("&");
-        for(var i=0;i<str.length;i++){
-            str=strs[i].split("=");
-            theRequest[str[0]]=decodeURI(str[1]);
+        if(str.indexOf("&"!=-1)){
+            var strs=str.split("&");
+            for(var i=0;i<str.length;i++){
+                str=strs[i].split("=");
+                theRequest[str[0]]=decodeURI(str[1]);
+            }
+        }else {
+            var strs=str.split("=");
+            theRequest[strs[0]]=decodeURI(strs[1])
         }
+
     }
     return theRequest;
 }

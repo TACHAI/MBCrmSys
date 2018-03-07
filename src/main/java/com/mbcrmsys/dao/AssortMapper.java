@@ -2,6 +2,8 @@ package com.mbcrmsys.dao;
 
 import com.mbcrmsys.pojo.Assort;
 
+import java.util.List;
+
 public interface AssortMapper {
     int deleteByPrimaryKey(Integer assId);
 
@@ -14,4 +16,5 @@ public interface AssortMapper {
     int updateByPrimaryKeySelective(Assort record);
 
     int updateByPrimaryKey(Assort record);
+    List<Assort> selectBycusId(Integer cusId);
 }

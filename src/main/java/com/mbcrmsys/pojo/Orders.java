@@ -5,7 +5,7 @@ import java.util.Date;
 public class Orders {
     private Integer ordId;
 
-    private Integer ordCustId;
+    private Integer ordCusId;
 
     private Date ordDate;
 
@@ -21,12 +21,12 @@ public class Orders {
         this.ordId = ordId;
     }
 
-    public Integer getOrdCustId() {
-        return ordCustId;
+    public Integer getOrdCusId() {
+        return ordCusId;
     }
 
-    public void setOrdCustId(Integer ordCustId) {
-        this.ordCustId = ordCustId;
+    public void setOrdCusId(Integer ordCusId) {
+        this.ordCusId = ordCusId;
     }
 
     public Date getOrdDate() {
