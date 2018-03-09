@@ -1,5 +1,7 @@
 package com.mbcrmsys.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Assort {
@@ -7,6 +9,7 @@ public class Assort {
 
     private Integer assCusId;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date assDate;
 
     private String assPalce;

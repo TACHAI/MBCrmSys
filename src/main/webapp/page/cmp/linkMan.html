@@ -119,7 +119,7 @@
 </body>
 <script type="text/javascript">
 $("#back").click(function(){
-	window.history(-1);
+	window.history.go(-1);
 })
 $("document").ready(function () {
     initTable();
@@ -128,9 +128,9 @@ $("document").ready(function () {
 //传参数到后台
 function initTable() {
     var url=window.location.search;
-    var str=url.substr(1);
-    var strs=str.split("=");
-    url = "http://localhost:8080/cmp/getall.do?cusId"+strs[1];
+//    var str=url.substr(1);
+//    var strs=str.split("=");
+    url = "http://localhost:8080/linkman/selectlist.do"+url;
     url=encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
     console.info(url+"编码后的url")
     //先销毁表格
@@ -148,15 +148,15 @@ function edit (value, row, index) {
     var b = '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="return deleteLinkMan(\'' + row.linId + '\')">删除</a> ';
     return a + b;
 }
-$("#addlinkMan").onclick(function () {
+$("#addlinkMan").click(function () {
     var url=window.location.search;
-    var str=url.substr(1);
-    var strs=str.split("=");
-    url = "http://localhost:8080/cmp/addlinkMan?cusId"+strs[1];
+//    var str=url.substr(1);
+//    var strs=str.split("=");
+    url = "http://localhost:8080//page/cmp/addlinkMan.html"+url;
     window.location.href=url;
 })
 function editLinkMan(url,linId) {
-    window.location.href="http://localhost:8080/cmp/"+url+"/?linId="+linId;
+    window.location.href="http://localhost:8080/page/cmp/"+url+"?linId="+linId;
 }
 function deleteLinkMan(linId) {
     $.ajax({

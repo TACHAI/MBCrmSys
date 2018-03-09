@@ -1,12 +1,14 @@
 package com.mbcrmsys.controller;
 
 import com.mbcrmsys.common.Const;
+import com.mbcrmsys.common.ResponseCode;
 import com.mbcrmsys.common.ServerResponse;
 import com.mbcrmsys.pojo.Consumer;
 import com.mbcrmsys.pojo.SalChance;
 import com.mbcrmsys.service.ISalChanceService;
 import com.mbcrmsys.util.CheckLogin;
 import com.mbcrmsys.util.DecoderSelectByCondition;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -74,9 +76,14 @@ public class SalChanceController {
     @PostMapping("savesaleopp.do")
     @ResponseBody
     public ServerResponse<String> saveSaleOpp(SalChance salChance,HttpSession session){
-        CheckLogin.check(session);
-        System.out.println(salChance.getChcCreateName()+"controllerNAme");
-        return iSalChanceService.saveSalChance(salChance);
+        Consumer user=(Consumer) session.getAttribute(Const.CURRENT_USER);
+        if(user==null){
+            return ServerResponse.createByErrorMessage(ResponseCode.NEED_LOGIN.getDesc());
+        }else {
+            salChance.setChcCreateId(user.getConId());
+            return iSalChanceService.saveSalChance(salChance);
+        }
+
     }
 
     /**
@@ -98,19 +105,20 @@ public class SalChanceController {
     /**
      * 指派人员
      * @param session
-     * @param chcDueId
+     * @param chcDueDate
      * @param chcId
      * @return
      */
-    @PostMapping("distributionSal.do")
+    @PostMapping("distributionsal.do")
     @ResponseBody
-    public ServerResponse<String> assignSaleOpp(HttpSession session,String chcDueId,String chcId,String chcDueName){
+    public ServerResponse<String> assignSaleOpp(HttpSession session,String chcId,String chcDueName,String chcDueDate){
         CheckLogin.check(session);
-        if (chcDueId==null){
+        if (!StringUtils.isBlank(chcId)){
+            Long id=Long.valueOf(chcId);
+            return  iSalChanceService.assignSaleOpp(id,chcDueName,chcDueDate);
+        }else {
             return ServerResponse.createByErrorMessage("选择失败");
         }
-        Integer dueId= Integer.parseInt(chcDueId);
-        Long id=Long.valueOf(chcId);
-        return  iSalChanceService.assignSaleOpp(dueId,id,chcDueName);
+
     }
 }

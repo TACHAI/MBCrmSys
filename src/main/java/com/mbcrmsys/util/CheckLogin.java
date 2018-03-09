@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
  */
 public class CheckLogin {
     public static ServerResponse<String> check(HttpSession session){
-        Consumer user=(Consumer) session.getAttribute(Const.CURRENT_USER);
+        Consumer user=(Consumer) session.getAttribute(Const.CURRENT_USER)                   ;
         if(user==null){
             return ServerResponse.createByErrorMessage("用户未登录");
         }else {

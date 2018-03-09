@@ -1,7 +1,3 @@
-<%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@page import=" com.rlg.crm.domain.Lost"%>
-<%@page import="java.util.List,
-				java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,14 +11,14 @@
     <![endif]-->
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link href="<%=request.getContextPath() %>/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/animate.css" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="/assets/css/animate.css" rel="stylesheet">
+    <link href="/assets/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="/assets/css/style.css?v=4.1.0" rel="stylesheet">
 </head>
 <body class="gray-bg top-navigation">
- <% Lost lost=(Lost)request.getAttribute("lost"); %>
+
     <div id="wrapper">
         <div id="page-wrapper" class="gray-bg">
             <div class="row border-bottom white-bg">
@@ -43,8 +39,8 @@
                         </ul>
                         <ul class="nav navbar-top-links navbar-right">
                             <li>
-                                <a href="lostlist?flag=sure&lostId=<%=lost.getLosId()%>">
-                                    <i class="fa fa-lock"></i>确认流失
+                                <a id="surelost">
+                                    <i class="fa fa-sign-out"></i>确定流失
                                 </a>
                             </li>
                         </ul>
@@ -57,7 +53,7 @@
                         </ul>
                         <ul class="nav navbar-top-links navbar-right">
                             <li>
-                                <a href="login.html">
+                                <a >
                                     <i class="fa fa-question"></i> 帮助
                                 </a>
                             </li>
@@ -73,29 +69,26 @@
                                 <div class="ibox-title">
                                     <h5>暂缓流失</h5>
                                 </div>
-	                            
+
                                 <div class="ibox-content">
-                                    <form role="form" class="form-horizontal" action="lostlist?flag=save" name="form1" method="post">
+                                    <form role="form" class="form-horizontal" id="lostform">
                                         <div class="ibox-content">
-										
                                             <div class="form-group col-sm-6">
                                                 <label for="lst_cust_no" class="col-sm-4 control-label">编号：</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" name="losId" value="<%=lost.getLosId()%>" id="lst_cust_no" readonly="readonly"/>
+                                                    <input type="text" class="form-control" name="losId" value="" id="lst_cust_no" readonly="readonly"/>
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-6">
                                                 <label  class="col-sm-4 control-label" FOR="atv_place">客户：</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" value="<%=lost.getLosCustomer() %>" id="atv_place" name="losCustomer" readonly="readonly"/>
-
+                                                    <input type="text" class="form-control" value="" id="atv_place" name="losCustomer" readonly="readonly"/>
                                                 </div>
                                             </div>
-
                                             <div class="form-group col-sm-6">
                                                 <label for="atv_title" class="col-sm-4 control-label">客户经理：</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" value="<%=lost.getLosManager() %>" id="atv_title" name="losManager" readonly="readonly"/>
+                                                    <input type="text" class="form-control" value="" id="atv_title" name="losManager" readonly="readonly"/>
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-6">
@@ -106,21 +99,20 @@
                                             </div>
 
                                             <div class="form-group ">
-                                                <label for="lst_delay" class="col-sm-2 control-label">暂缓措施：</label>
+                                                <label for="losRespite" class="col-sm-2 control-label">暂缓措施：</label>
                                                 <div class="col-sm-6">
-                                                    <textarea rows="5" class="form-control" id="lst_delay" name="LostRespite()" readonly="readonly"><%=lost.getLosRespite() %></textarea>
+                                                    <textarea rows="5" class="form-control"  id="losRespite" name="losRespite" ></textarea>
                                                 </div>
                                             </div>
 
                                             <div class="form-group ">
-                                                <label for="atv_desc" class="col-sm-2 control-label">追加暂缓措施：</label>
+                                                <label for="losReason" class="col-sm-2 control-label">流失原因：</label>
                                                 <div class="col-sm-6">
-                                                    <textarea rows="5" class="form-control"  id="atv_desc" name="losRespite" ></textarea>
+                                                    <textarea rows="5" class="form-control" id="losReason" name="losReason" ></textarea>
                                                 </div>
                                             </div>
-
                                             <div class="form-group">
-												<input type="submit" style="display: none;" id="btn1">
+                                               <input type="submit" style="display: none;" id="btn1">
                                             </div>
                                         </div>
                                     </form>
@@ -128,50 +120,78 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-                </div>
-
-            </div>
-            <div class="footer">
-                <div class="pull-right">
-                    By：<a href="http://www.zi-han.net" target="_blank">zihan's blog</a>
-                </div>
-                <div>
-                    <strong>Copyright</strong> H+ &copy; 2014
                 </div>
             </div>
-
         </div>
     </div>
 
-     <!-- 全局js -->
-    <script src="<%=request.getContextPath() %>/js/jquery.min.js?v=2.1.4"></script>
-    <script src="<%=request.getContextPath() %>/js/bootstrap.min.js?v=3.3.6"></script>
+    <!-- 全局js -->
+    <script src="/assets/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
 
     <!-- 自定义js -->
-    <script src="<%=request.getContextPath() %>/js/content.js?v=1.0.0"></script>
-
+    <script src="/assets/js/content.js?v=1.0.0"></script>
+    <script src="/assets/js/jquery.serializejson.js"></script>
 
     <!-- Bootstrap table -->
-    <script src="<%=request.getContextPath() %>/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
-    <script src="<%=request.getContextPath() %>/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
-    <script src="<%=request.getContextPath() %>/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="/assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="/assets/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="/assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
 
     <!-- Peity -->
-    <script src="<%=request.getContextPath() %>/js/demo/bootstrap-table-demo.js"></script>
-
-    <script type="<%=request.getContextPath() %>/text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
-    <!--统计代码，可删除-->
-
-</body>
+<script src="/assets/js/demo/bootstrap-table-demo.js"></script>
 <script type="text/javascript">
-	$("#save").click(function(){
-		$("#btn1").click();
-	})
-	$("#back").click(function(){
-	 	window.history.go(-1);
-	})
+$(document).ready(function () {
+    var url=window.location.search;
+    var str = url.substr(1);
+    var strs=str.split("=");
+    $.ajax({
+        type:'post',
+        url:'http://localhost:8080/lost/selectbyid.do',
+        data:{'losId':strs[1]},
+        dataType:'json',
+        success:function (data) {
+            if(data.status==0){
+                for(var p in data.data){
+                    $("#lostform").find(":input[name='"+p+"']").val(data.data[p]);
+                }
+                $("#losRespite").val(data.data['losRespite']);
+                $("#losReason").val(data.data['losReason']);
+            }
+        }
+    })
+})
+$("#back").click(function(){
+    window.history.go(-1);
+})
+
+$("#save").click(function(){
+    $("#btn1").click();
+})
+$("#lostform").on('submit',function () {
+    var params=$("#lostform").serializeJSON();
+    $.ajax({
+        type:'post',
+        url:'http://localhost:8080/lost/updatelost.do',
+        data:params,
+        dataType:'json',
+        success:function (data) {
+            if(data.status==0){
+                alert("保存成功");
+                window.history.go(-1);
+            }
+        }
+    })
+})
+$("#surelost").click(function () {
+    var url=window.location.search;
+    var str = url.substr(1);
+    var strs=str.split("=");
+    window.location.href="http://localhost:8080/cmp/sureLost.html?losId="+strs[1];
+})
 </script>
+</body>
+
+
 </html>

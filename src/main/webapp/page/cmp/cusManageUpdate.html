@@ -320,15 +320,15 @@ $("form").on('submit',function (e) {
 })
 $("#linkmanlist").click(function () {
     var url=window.location.search;
-    var str=url.indexOf(1);
+    var str=url.substr(1);
     var cusId=str.split("=");
-    window.location.href="http://localhost:8080/cmp/linkMan.html?"+cusId[0]+"="+cusId[1];
+    window.location.href="http://localhost:8080/page/cmp/linkMan.html?"+cusId[0]+"="+cusId[1];
 })
 $("#assortlist").click(function () {
     var url=window.location.search;
     var str=url.substr(1);
     var cusId=str.split("=");
-    window.location.href="http://localhost:8080/cmp/assort.html?"+cusId[0]+"="+cusId[1];
+    window.location.href="http://localhost:8080/page/cmp/assort.html?"+cusId[0]+"="+cusId[1];
 })
 $("#orderlist").click(function () {
     var url=window.location.search;

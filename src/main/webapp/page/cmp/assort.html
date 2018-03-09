@@ -109,7 +109,7 @@
 </body>
 <script type="text/javascript">
 $("#back").click(function() {
-	window.history(-1);
+	window.history.go(-1);
 })
 $("document").ready(function () {
 	initTable();
@@ -117,10 +117,10 @@ $("document").ready(function () {
 
 //传参数到后台
 function initTable() {
-   	var url=window.location.search;
-   	var str=url.substr(1);
-   	var strs=str.split("=");
-	url = "http://localhost:8080/cmp/getall.do?cusId"+strs[1];
+   	var url=window.location.search;//获得后面包括？的值
+//   	var str=url.substr(1);
+//   	var strs=str.split("=");
+	url = "http://localhost:8080/assort/selectlist.do"+url
     url=encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
     console.info(url+"编码后的url")
     //先销毁表格
@@ -138,15 +138,15 @@ function edit (value, row, index) {
     var b = '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="return deleteAssort(\'' + row.assId + '\')">删除</a> ';
     return a + b;
 }
-$("#addAssort").onclick(function () {
+$("#addAssort").click(function () {
     var url=window.location.search;
-    var str=url.substr(1);
-    var strs=str.split("=");
-    url = "http://localhost:8080/cmp/addAssort.html?cusId"+strs[1];
+//    var str=url.substr(1);
+//    var strs=str.split("=");
+    url = "http://localhost:8080/page/cmp/addAssort.html?"+url;
     window.location.href=url;
 })
 function editAssort(url,assId) {
-    window.location.href="http://localhost:8080/cmp/"+url+"/?assId="+assId;
+    window.location.href="http://localhost:8080/page/cmp/"+url+"?assId="+assId;
 }
 function deleteAssort(assId) {
 	$.ajax({

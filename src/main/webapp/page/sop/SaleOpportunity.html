@@ -133,7 +133,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                         &times;
                     </button>
-                    <input type="hidden"  id="chcid" value="">
+                    <input type="text" style="display: none"  id="chcid" value="">
                     <h4 class="modal-title" id="myModalLabel">
                         分配机会
                     </h4>
@@ -241,7 +241,7 @@ $("#button").click(function(){
  function edit (value, row, index) {
     var a = '<button type="button" class="RoleOfD btn btn-primary  btn-sm" style="margin-right:15px;" onclick="editSaleOpp(\'' + "EditSaleOpportunity.html" + '\',\'' + row.chcId + '\')">编辑</button>';
     var b = '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="return deleteSaleOpp(\'' + row.chcId + '\')">删除</a> ';
-    var c=  '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm" data-toggle="modal" data-target="#myModal" style="margin-right:15px;" onclick="distribution(\'' + row.chcId + '\')">分配</a> ';
+    var c=  '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="distribution(\'' + row.chcId + '\')">分配</a> ';
     return a + b + c;
 }
 //渲染表格时将日期类型转好格式
@@ -259,9 +259,12 @@ function distribution(id) {
         dataType:'json',
         success:function (data) {
             if(data.status==0){
-                $("#chcDueName").val(data.data['chcDueName']);
+                $("#chcDueName").val(data.data["chcDueName"]);
                 var date=TimestampToDate(data.data['chcDueDate']);
+                console.info(date+"后台传过来的值"+$("#chcDueName").val())
+                console.info(data.data["chcDueName"]+"后台传过来的值")
                 $("#chcDueDate").val(date);
+                $("#myModal").modal('show');
             }
         },
         error:function (data) {
@@ -276,17 +279,18 @@ function distributionSal() {
      var chcDueDate=$("#chcDueDate").val();
     $.ajax({
         type:'post',
-        url:'http://localhost:8080/saleopp/distributionSal.do',
+        url:'http://localhost:8080/saleopp/distributionsal.do',
         data:{'chcId':chcId,'chcDueName':chcDueName,'chcDueDate':chcDueDate},
         dataType:'json',
         success:function(data){
             if(data.status==0){
-                $('#myModal').modal('hide')
+                $("#myModal").modal('hide')
                 alert("保存成功")
             }
         },
         error:function(data){
             console.info("发生了错误",data)
+            $('#myModal').modal('hide')
         }
     })
 }

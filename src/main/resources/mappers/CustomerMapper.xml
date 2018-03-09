@@ -368,7 +368,7 @@
     FROM customer
     <where>
       <if test="cusName !=null and cusName !='' ">
-        cus_name LIKE "%"#{cusName,jdbc=VARCHAR}"%"
+        cus_name LIKE "%"#{cusName,jdbcType=VARCHAR}"%"
       </if>
       <if test="cusManager !=null and cusName != '' ">
         AND cus_manager LIKE  "%"#{cusManager,jdbcType=VARCHAR}"%"

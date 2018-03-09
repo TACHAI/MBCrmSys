@@ -6,9 +6,11 @@ import com.mbcrmsys.dao.ConsumerMapper;
 import com.mbcrmsys.dao.SalChanceMapper;
 import com.mbcrmsys.pojo.SalChance;
 import com.mbcrmsys.service.ISalChanceService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -76,10 +78,12 @@ public class SalChanceServiceImpl implements ISalChanceService {
     }
 
     @Override
-    public ServerResponse<String> assignSaleOpp(Integer chcDueId,Long chcId,String chcDueName) {
+    public ServerResponse<String> assignSaleOpp(Long chcId,String chcDueName,String chcDueDate) {
         SalChance salChance=salChanceMapper.selectByPrimaryKey(chcId);
-        salChance.setChcDueId(chcDueId);
-//        salChance.setChcDueName(consumerMapper.selectByPrimaryKey(chcDueId).getConName());
+        if(!StringUtils.isBlank(chcDueDate)){
+            Date date=new Date(chcDueDate);
+            salChance.setChcDueDate(date);
+        }
         salChance.setChcDueName(chcDueName);
         int resultcount = salChanceMapper.updateByPrimaryKeySelective(salChance);
         if (resultcount>0){

@@ -72,7 +72,7 @@
 												<div class="col-sm-8">
 													<input type="text" class="form-control"
 														value="" id="assPalce"
-														name="assPalce" />
+														name="assPalce"required />
 
 												</div>
 											</div>
@@ -119,26 +119,30 @@
 	 <!-- 全局js -->
     <script src="/assets/js/jquery.min.js?v=2.1.4"></script>
     <script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
+	<script src="/assets/js/jquery.serializejson.js"></script>
 
+	<script src="/assets/js/myjs.js"></script>
     <!-- 自定义js -->
     <script src="/assets/js/content.js?v=1.0.0"></script>
 </body>
 <script type="text/javascript">
-$("document").ready(function (e) {
-	e.preventDefault()
+$("document").ready(function () {
 	var url=window.location.search;
 	var str=url.substr(1);
 	var strs=str.split("=");
 	$.ajax({
 		type:'post',
 		url:'http://localhost:8080/assort/selectbyid.do',
-		data:{'cusId':strs[1]},
+		data:{'assId':strs[1]},
 		dataType:'json',
 		success:function (data) {
 			if(data.status==0){
 			    for(var p in data.data){
 			        $("#updateAssort").find(":input[name='"+p+"']").val(data.data[p]);
+			        $("#updateAssort").find("textarea[name='"+p+"']").val(data.data[p]);
 				}
+				var date= TimestampToDate1(data.data['assDate']);
+				$("#assDate").val(date)
 			}
         }
 	})

@@ -13,4 +13,8 @@ import java.util.List;
  */
 public interface ILinkmanService {
     ServerResponse<List<Linkman>> selectList(Integer cusId);
+    ServerResponse<Linkman> selectById(Integer linId);
+    ServerResponse<String> insertLinkMan(Linkman linkman);
+    ServerResponse<String> updateLinkMan(Linkman linkman);
+    ServerResponse<String> deleteById(Integer linId);
 }

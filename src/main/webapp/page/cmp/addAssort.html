@@ -10,7 +10,7 @@
     <meta http-equiv="refresh" content="0;ie.html" />
     <![endif]-->
 
-   <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico">
     <link href="/assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="/assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <link href="/assets/css/animate.css" rel="stylesheet">
@@ -66,24 +66,24 @@
                                 <div class="ibox-content">
                                     <form role="form" class="form-horizontal" id="assortform">
                                         <div class="ibox-content">
-                                            <input type="text" id="cusId" name="cusId" style="display: none"/>
+                                            <input type="text" id="assCusId" name="assCusId" style="display: none"/>
                                             <div class="form-group col-sm-6">
                                                 <label for="assDate" class="col-sm-4 control-label">时间：</label>
                                                 <div class="col-sm-8">
-                                                    <input type="date" class="form-control" id="assDate" name="assDate"/>
+                                                    <input type="date" class="form-control" id="assDate" name="assDate" required/>
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-6">
                                                 <label  class="col-sm-4 control-label" for="assPalce">地点：</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="assPalce" name="assPalce"/>
+                                                    <input type="text" class="form-control" id="assPalce" name="assPalce" required/>
                                                 </div>
                                             </div>
 
                                             <div class="form-group col-sm-6">
                                                 <label for="assResume" class="col-sm-4 control-label">概要：</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="assResume" name="assResume"/>
+                                                    <input type="text" class="form-control" id="assResume" name="assResume" required/>
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-6">
@@ -139,7 +139,7 @@ $("document").ready(function () {
     var url=window.location.search;
     var str=url.substr(1);
     var strs=str.split("=");
-    $("#cusId").val(strs[1]);
+    $("#assCusId").val(strs[1]);
 })
 $("#save").click(function() {
 	$("#btn1").click();

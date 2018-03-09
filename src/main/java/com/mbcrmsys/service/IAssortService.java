@@ -13,4 +13,8 @@ import java.util.List;
  */
 public interface IAssortService {
     ServerResponse<List<Assort>> selectList(Integer cusId);
+    ServerResponse<Assort> selectById(Integer assId);
+    ServerResponse<String> updateAssort(Assort assort);
+    ServerResponse<String> insertAssort(Assort assort);
+    ServerResponse<String> deleteById(Integer assId);
 }

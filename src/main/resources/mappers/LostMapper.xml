@@ -126,4 +126,19 @@
       LOS_STATE = #{losState,jdbcType=DECIMAL}
     where LOS_ID = #{losId,jdbcType=INTEGER}
   </update>
+  <select id="selectList" parameterType="map" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List"/>
+    FROM lost
+    <where>
+      <if test="losCustomer !=null and losCustomer != '' ">
+        lost_customer LIKE "%"#{losCustomer}"%"
+      </if>
+      <if test="losManager !=null and losManager !='' ">
+        and los_Manager LIKE "%"#{losManager}"%"
+      </if>
+      <if test="losState !=null and losState != '' ">
+        and los_state LIKE  "%"#{losState}"%"
+      </if>
+    </where>
+  </select>
 </mapper>
