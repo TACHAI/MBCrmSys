@@ -6,6 +6,7 @@ import com.mbcrmsys.dao.ConsumerMapper;
 import com.mbcrmsys.dao.SalChanceMapper;
 import com.mbcrmsys.pojo.SalChance;
 import com.mbcrmsys.service.ISalChanceService;
+import com.mbcrmsys.vo.SimSaleOpportunity;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -78,13 +79,10 @@ public class SalChanceServiceImpl implements ISalChanceService {
     }
 
     @Override
-    public ServerResponse<String> assignSaleOpp(Long chcId,String chcDueName,String chcDueDate) {
-        SalChance salChance=salChanceMapper.selectByPrimaryKey(chcId);
-        if(!StringUtils.isBlank(chcDueDate)){
-            Date date=new Date(chcDueDate);
-            salChance.setChcDueDate(date);
-        }
-        salChance.setChcDueName(chcDueName);
+    public ServerResponse<String> assignSaleOpp(SimSaleOpportunity simSaleOpportunity) {
+        SalChance salChance=salChanceMapper.selectByPrimaryKey(simSaleOpportunity.getChcId());
+        salChance.setChcDueDate(simSaleOpportunity.getChcDueDate());
+        salChance.setChcDueName(simSaleOpportunity.getChcDueName());
         int resultcount = salChanceMapper.updateByPrimaryKeySelective(salChance);
         if (resultcount>0){
             return ServerResponse.createBySuccessMessage("指派成功");

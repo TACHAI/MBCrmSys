@@ -2,6 +2,7 @@ package com.mbcrmsys.service;
 
 import com.mbcrmsys.common.ServerResponse;
 import com.mbcrmsys.pojo.SalChance;
+import com.mbcrmsys.vo.SimSaleOpportunity;
 
 import java.util.List;
 
@@ -17,5 +18,5 @@ public interface ISalChanceService {
     ServerResponse<SalChance> selectById(Long id);
     ServerResponse<String> saveSalChance(SalChance salChance);
     ServerResponse<String> updateSalChance(SalChance salChance);
-    ServerResponse<String> assignSaleOpp(Long chcId ,String chcDueName,String chcDueDate);
+    ServerResponse<String> assignSaleOpp(SimSaleOpportunity simSaleOpportunity);
 }

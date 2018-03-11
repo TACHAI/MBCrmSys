@@ -146,19 +146,15 @@
                                 <!--<div class="form-group">-->
                                 <label for="chcDueName" class="col-sm-3 control-label">指派给</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="chcDueName" placeholder="请输入名字">
+                                    <input type="text" class="form-control" id="chcDueName" required placeholder="请输入名字">
                                 </div>
-                                <label for="chcDueName" class="col-sm-1 control-label">*</label>
-                                <!--</div>-->
                             </td>
                             <td>
                                 <!--<div class="form-group">-->
                                 <label for="chcDueDate" class="col-sm-3 control-label">指派时间</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="chcDueDate" placeholder="指派时间">
+                                    <input type="text" class="form-control"  required id="chcDueDate" placeholder="指派时间">
                                 </div>
-                                <label for="chcDueDate" class="col-sm-1 control-label">*</label>
-                                <!--</div>-->
                             </td>
                         </tr>
                         </thead>
@@ -168,7 +164,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭
                     </button>
-                    <button type="button" class="btn btn-primary" onclick="distributionSal()">
+                    <button type="button" class="btn btn-primary" id="distributionSal">
                         提交更改
                     </button>
                 </div>
@@ -273,7 +269,7 @@ function distribution(id) {
     })
 }
 //将分配数据保存到后台
-function distributionSal() {
+$("#distributionSal").click(function () {
      var chcId=$("#chcid").val();
      var chcDueName=$("#chcDueName").val();
      var chcDueDate=$("#chcDueDate").val();
@@ -293,7 +289,7 @@ function distributionSal() {
             $('#myModal').modal('hide')
         }
     })
-}
+})
 function editSaleOpp(url,chcId){
     window.location.href = "http://localhost:8080/page/sop/"+url+'?'+"chcId="+chcId;
 }

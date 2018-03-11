@@ -39,6 +39,16 @@ public class LostController {
         return  lostService.selectList(map.get("param1"),map.get("param2"),state);
     }
 
+    @PostMapping("selectbyid.do")
+    @ResponseBody
+    public ServerResponse<Lost> selectById(HttpSession session,String losId){
+        if(!StringUtils.isBlank(losId)){
+            Integer id=Integer.valueOf(losId);
+            return lostService.selectById(id);
+        }else {
+            return ServerResponse.createByErrorMessage("没有相关记录");
+        }
+    }
     @PostMapping("updatelost.do")
     @ResponseBody
     public ServerResponse<String> updateLost(HttpSession session,Lost lost){

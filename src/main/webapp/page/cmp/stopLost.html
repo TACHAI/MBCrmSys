@@ -94,7 +94,7 @@
                                             <div class="form-group col-sm-6">
                                                 <label for="lst_last_order_date" class="col-sm-4 control-label">上次下单时间：</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" value="<%=lost.getLosLastOrder() %>" id="lst_last_order_date" name="losLastOrder" readonly="readonly"/>
+                                                    <input type="text" class="form-control" value="" id="lst_last_order_date" name="losLastOrder" readonly="readonly"/>
                                                 </div>
                                             </div>
 
@@ -188,7 +188,7 @@ $("#surelost").click(function () {
     var url=window.location.search;
     var str = url.substr(1);
     var strs=str.split("=");
-    window.location.href="http://localhost:8080/cmp/sureLost.html?losId="+strs[1];
+    window.location.href="http://localhost:8080/page/cmp/sureLost.html?losId="+strs[1];
 })
 </script>
 </body>

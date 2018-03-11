@@ -1,7 +1,5 @@
 package com.mbcrmsys.pojo;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;

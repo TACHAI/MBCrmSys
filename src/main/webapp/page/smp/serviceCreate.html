@@ -1,8 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page
-	import="java.sql.Timestamp,java.util.List,com.rlg.crm.domain.ServeType,
-			com.rlg.crm.domain.Customer"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,18 +8,11 @@
     <meta http-equiv="refresh" content="0;ie.html" />
     <![endif]-->
 
-<link rel="shortcut icon"
-	href="<%=request.getContextPath()%>/favicon.ico">
-<link
-	href="<%=request.getContextPath()%>/css/bootstrap.min.css?v=3.3.6"
-	rel="stylesheet">
-<link
-	href="<%=request.getContextPath()%>/css/font-awesome.min.css?v=4.4.0"
-	rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/animate.css"
-	rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/style.css?v=4.1.0"
-	rel="stylesheet">
+<link rel="shortcut icon" href="/assets/favicon.ico">
+<link href="/assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+<link href="/assets/css/animate.css" rel="stylesheet">
+<link href="/assets/css/style.css?v=4.1.0" rel="stylesheet">
 <style type="text/css">
 .myLabel1, .myLabel2, .myLabel3, .myLabel4, .myLabel5, .myLabel6 {
 	visibility: hidden;
@@ -50,7 +38,7 @@
 						</a></li>
 					</ul>
 					<ul class="nav navbar-top-links navbar-right">
-						<li><a href="login.html"> <i class="fa fa-question"></i>
+						<li><a > <i class="fa fa-question"></i>
 								帮助
 						</a></li>
 					</ul>
@@ -59,98 +47,80 @@
 		</div>
 		<div class="ibox float-e-margins">
 		
-			<div class="ibox-content">
-				<form role="form" class="form-horizontal" id="myForm"
-					action="<%=request.getContextPath()%>/addServe.doServe"
-					method="post">
+			<div class="ibox-content" >
+				<form role="form" class="form-horizontal" id="serverForm">
 
 					<div class="form-group col-sm-6">
-						<label for="ser_id" class="col-sm-4 control-label">编号：</label>
+						<label for="serId" class="col-sm-4 control-label">编号：</label>
 						<div class="col-sm-7">
-							<input type="text" readonly name="ser_id" class="form-control"
-								id="ser_id" />
+							<input type="text" readonly name="serId" class="form-control"
+								id="serId" />
 						</div>
 					</div>
 					<div class="form-group col-sm-6">
-						<label for="ser_type" class="col-sm-3 control-label">服务类型：</label>
+						<label for="serType" class="col-sm-3 control-label">服务类型：</label>
 						<div class="col-sm-8">
-							<select id="ser_type" name="ser_type" class="form-control">
-								<%
-									List<ServeType> serTypes = (List<ServeType>) request.getAttribute("serTypes");
-									if (serTypes != null) {
-										for (ServeType serType : serTypes) {
-								%>
-								<option value="<%=serType.getSeId()%>"><%=serType.getSeName()%></option>
-								<%
-									}
-									}
-								%>
-
+							<select id="serType" name="serType" class="form-control">
+								<option value=""><%=serType.getSeName()%></option>
+								<option value=""><%=serType.getSeName()%></option>
+								<option value=""><%=serType.getSeName()%></option>
+								<option value=""><%=serType.getSeName()%></option>
 							</select>
 						</div>
 						<label class="myLabel1 control-label text-danger">*</label>
 					</div>
 					<div class="form-group"></div>
 					<div class="form-group">
-						<label for="ser_resume" class="col-sm-2 control-label">概要：</label>
+						<label for="serResume" class="col-sm-2 control-label">概要：</label>
 						<div class="col-sm-9">
-							<textarea style="resize: none" name="ser_resume" value=""
-								class="form-control" rows="3" id="ser_resume" placeholder="概要"></textarea>
+							<textarea style="resize: none" name="serResume" value=""
+								class="form-control" rows="3" id="serResume" placeholder="概要"></textarea>
 						</div>
 						<label class="myLabel2 control-label text-danger">*</label>
 					</div>
 
 					<div class="form-group col-sm-6">
-						<label for="ser_cus" class="col-sm-4 control-label">客户：</label>
+						<label for="serCus" class="col-sm-4 control-label">客户：</label>
 						<div class="col-sm-7">
-							<select id="ser_cus" name="ser_cus" class="form-control">
-								<%
-									List<Customer> customers = (List<Customer>) request.getAttribute("customers");
-									if (customers != null) {
-										for (Customer customer : customers) {
-								%>
+							<select id="serCus" name="serCus" class="form-control">
 								<option value="<%=customer.getCusId()%>"><%=customer.getCusName()%></option>
-								<%
-									}
-									}
-								%>
+								<option value="<%=customer.getCusId()%>"><%=customer.getCusName()%></option>
+								<option value="<%=customer.getCusId()%>"><%=customer.getCusName()%></option>
+								<option value="<%=customer.getCusId()%>"><%=customer.getCusName()%></option>
 
 							</select>
 						</div>
 						<label class="myLabel3 control-label text-danger">*</label>
 					</div>
 					<div class="form-group col-sm-6">
-						<label for="ser_state" class="col-sm-3 control-label">状态：</label>
+						<label for="serState" class="col-sm-3 control-label">状态：</label>
 						<div class="col-sm-8">
-							<input type="text" value="新创建" name="ser_state"
-								class="form-control" id="ser_state" readonly />
+							<input type="text" value="新创建" name="serState"
+								class="form-control" id="serState" readonly />
 						</div>
 					</div>
 					<div class="form-group"></div>
 					<div class="form-group">
-						<label for="ser_request" class="col-sm-2 control-label">服务请求：</label>
+						<label for="serRequest" class="col-sm-2 control-label">服务请求：</label>
 						<div class="col-sm-9">
-							<textarea style="resize: none" name="ser_request" value=""
-								class="form-control" rows="3" id="ser_request"
+							<textarea style="resize: none" name="serRequest" value=""
+								class="form-control" rows="3" id="serRequest"
 								placeholder="服务请求"></textarea>
 						</div>
 						<label class="myLabel4 control-label text-danger">*</label>
 					</div>
 					<div class="form-group">
-						<label for="ser_creater_name" class="col-sm-2 control-label">创建人：</label>
+						<label for="serCreaterName" class="col-sm-2 control-label">创建人：</label>
 						<div class="col-sm-5">
-							<input type="text" value="断剑回炉" name="ser_creater_name"
-								class="form-control" id="ser_creater_name" />
+							<input type="text" value="" name="serCreaterName"
+								class="form-control" id="serCreaterName" />
 						</div>
 						<label class="myLabel5  control-label text-danger">*</label>
 					</div>
 					<div class="form-group">
-						<label for="ser_creater_date" class="col-sm-2 control-label">创建时间：</label>
+						<label for="serCreaterDate" class="col-sm-2 control-label">创建时间：</label>
 						<div class="col-sm-5">
-							<input type="text"
-								value="<%=new Timestamp(System.currentTimeMillis())%>"
-								name="ser_creater_date" class="form-control"
-								id="ser_creater_date" />
+							<input type="text" value="" name="serCreaterDate" class="form-control" id="serCreaterDate" />
 						</div>
 						<label class="myLabel6  control-label text-danger">*</label>
 					</div>
@@ -161,20 +131,16 @@
 		</div>
 	</div>
 	<!-- 全局js -->
-	<script src="<%=request.getContextPath()%>/js/jquery.min.js?v=2.1.4"></script>
-	<script
-		src="<%=request.getContextPath()%>/js/bootstrap.min.js?v=3.3.6"></script>
+	<script src="/assets/js/jquery.min.js?v=2.1.4"></script>
+	<script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
+	<script src="/assets/js/jquery.serializejson.js"></script>
+	<script src="/assets/js/myjs.js"></script>
+
+
 </body>
 </html>
 <script type="text/javascript">
 	$("#save").click(function() {
-
-		//var ser_type = document.getElementById("ser_type").value;  
-		//var ser_resume = document.getElementById("ser_resume").value;  
-		//var ser_cus_id = document.getElementById("ser_cus_id").value;  
-		//var ser_request = document.getElementById("ser_request").value;  
-		//var ser_allot_name = document.getElementById("ser_allot_name").value;  
-		//var ser_allot_date = document.getElementById("ser_allot_date").value; 
 
 		if ($("#ser_type").val() == "") {
 
@@ -206,4 +172,21 @@
 		$("#submit").click();
 		alert("保存成功！");
 	});
+$("#serverForm").on('submit',function () {
+	var params=$("#serverForm").serializeJSON();
+	$.ajax({
+		type:'post',
+		url:'http://localhost:8080/server/servicecreate.do',
+		data:params,
+		dataType:'json',
+		success:function (data) {
+			if(data.status==0){
+			    window.location.href="";
+			}
+        },
+		error:function (data) {
+			console.info("发生了错误",data)
+        }
+	})
+})
 </script>

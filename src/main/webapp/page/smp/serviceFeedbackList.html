@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.util.List,com.rlg.crm.domain.Serve,java.sql.Timestamp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +8,13 @@
     <meta http-equiv="refresh" content="0;ie.html" />
     <![endif]-->
 
-    <link rel="shortcut icon" href="<%=request.getContextPath() %>/favicon.ico"> <link href="<%=request.getContextPath() %>/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/animate.css" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/style.css?v=4.1.0" rel="stylesheet">
+    <link rel="shortcut icon" href="<%=request.getContextPath() %>/favicon.ico">
+    <link href="/assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="/assets/css/animate.css" rel="stylesheet">
+    <link href="/assets/css/style.css?v=4.1.0" rel="stylesheet">
 </head>
 <body class="gray-bg top-navigation">
-
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row border-bottom white-bg">
         <nav class="navbar navbar-static-top" role="navigation">
@@ -25,7 +22,7 @@
                 <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
                     <i class="fa fa-reorder"></i>
                 </button>
-                <a href="" class="navbar-brand">服务分配</a>
+                <a href="" class="navbar-brand">服务反馈</a>
             </div>
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-top-links navbar-right">
@@ -46,11 +43,11 @@
         </nav>
     </div>
     <div class="ibox float-e-margins">
-		<div class="ibox-title">
+    	<div class="ibox-title">
             <h5>服务表</h5>
         </div>
         <div class="ibox-content">
-            <form role="form" class="form-horizontal" name="form1" action="<%=request.getContextPath() %>/queryAllocation.doServe" method="post">
+            <form role="form" class="form-horizontal" name="form1" action="<%=request.getContextPath() %>/queryFeedback.doServe" method="post">
                 <div class="row">
                     <div class="form-group col-sm-4">
                         <label for="ser_cus_id" class="col-sm-4 control-label">客户：</label>
@@ -89,7 +86,7 @@
                            <select id="ser_state" name="ser_state" class="form-control">
                                <option value="1">新创建</option>
                                <option value="2">已分配</option>
-                               <option value="3">已处理</option>
+                               <option value="3" selected>已处理</option>
                                <option value="4">已归档</option>
                            </select>
                        </div>
@@ -107,56 +104,31 @@
                     <th>服务类型</th>
                     <th>创建人</th>
                     <th>创建日期</th>
-                    <th>分配给</th>
                     <th>操作</th>
                 </tr>
                 </thead>
-                <tbody>
-		<%
+               <tbody>
+			<%
 
-			List<Serve> serves = (List<Serve>)request.getAttribute("serves");
+				List<Serve> serves = (List<Serve>)request.getAttribute("serves");
 		
-			if(serves != null){
-				for(Serve serve : serves){
-		%>
-                
-                <tr >
-                    <td><%=serve.getSerId() %></td>
-                    <td><%=serve.getCustomer().getCusName() %></td>
-                    <td><%=serve.getSerResume() %></td>
-                    <td><%=serve.getServeType().getSeName() %></td>
-                    <td><%=serve.getSerCreaterName() %></td>
-                    <td><%=serve.getSerCreaterDate() %></td>
-                    <td>
-                        <form class="form-inline" action="<%=request.getContextPath() %>/editAllot.doServe?id=<%=serve.getSerId() %>" method="post">
-                        <%--
-                        <input type="hidden" name="CusId" value="serve.getCustomer().getCusId()"/>
-                        <input type="hidden" name="serResume" value="serve.getSerResume()"/>
-                        <input type="hidden" name="seId" value="serve.getServeType().getSeId()"/>
-                        <input type="hidden" name="serCreaterName" value="serve.getSerCreaterName()"/>
-                        <input type="hidden" name="serCreaterDate" value="serve.getSerCreaterDate()"/>
-  						--%>
-                        	<div class="form-group">
-                                <select class="form-control"  name="serAllotName">
-                                    <option value="秘火使">秘火使</option>
-                                    <option value="爱不解释1121">爱不解释1121</option>
-                                    <option value="给我扎哥一个面子">给我扎哥一个面子</option>
-                                    <option value="我爱小逗逼">我爱小逗逼</option>
-                                </select>
-                                
-                                <input class="btn btn-primary" onmousemove="javascript:<%=serve.getSerState() %> > 1 ? this.disabled=true : this.disabled=false" type="submit"  name="btn" value="分配给">
-                                <input type="hidden" value="<%=new Timestamp(System.currentTimeMillis()) %>" name="ser_allot_date"/>
-                            </div>
-                        </form>
-                    </td>
-                    <td><a href="moveServe.doServe?id=<%=serve.getSerId() %>" class="delete">删除</a></td>
-                </tr>
-                
-		<% 
+				if(serves != null){
+					for(Serve serve : serves){
+			%>
+						<tr>
+							<td><%=serve.getSerId() %></td>
+		                    <td><%=serve.getCustomer().getCusName() %></td>
+		                    <td><%=serve.getSerResume() %></td>
+		                    <td><%=serve.getServeType().getSeName() %></td>
+		                    <td><%=serve.getSerCreaterName() %></td>
+		                    <td><%=serve.getSerCreaterDate() %></td>
+							<td><a href="editFeedbackList.doServe?id=<%=serve.getSerId() %>">反馈</a></td>
+						</tr>
+			<% 
+					}
 				}
-			}
-		%>
-			</tbody>
+			%>
+					</tbody>
             </table>
             <%
 				int showPage = ((Integer) (request.getAttribute("showPage")))
@@ -186,12 +158,10 @@
 </body>
 </html>
 <script type="text/javascript">
-
 $("#query").click(function(){
 	$("#submit").click();
 });
 
-	
 function page(pageNum,pageCount){
 	if(pageNum<=0){
 		pageNum==1;
@@ -199,54 +169,7 @@ function page(pageNum,pageCount){
 	if(pageNum>pageCount){
 		pageNum=pageCount;
 	}
-	document.form1.action="queryAllocation.doServe?page="+pageNum;
+	document.form1.action="queryFeedback.doServe?page="+pageNum;
 	$("#submit").click();
 }
-
-$(function(){
-	$(".delete").click(function(){
-		var content = $(this).parent().parent().find("td:eq(1)").text();
-		var flag = confirm("确认要删除"+ content +"的信息吗？");
-		return flag;
-	});
-});
-/* function ajax(){
-	
-	 //生成一个XMLHttpRequest对象
-	 var xmlhttp;
-	 if (window.XMLHttpRequest)
-	   {// code for IE7+, Firefox, Chrome, Opera, Safari
-	   xmlhttp=new XMLHttpRequest();
-	   }
-	 else
-	   {// code for IE6, IE5
-	   xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	   }
-	 //取得username的数据
-	 var serAllotName = document.getElementById("serAllotName").value;
-	 
-	 //发送数据
-	 xmlhttp.open("post","editAllot.doServe?id=",true);
-	 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	 xmlhttp.send("serAllotName="+serAllotName);
-	 //响应
-	  xmlhttp.onreadystatechange=function()
-	  {
-	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-	    {
-		 // xmlhttp.responseText;
-		 // xmlhttp:responseXml;
-		 
-		  var jsonStr = xmlhttp.responseText;
-		  //把json字符串转成js对象
-		  var newJson = eval("("+jsonStr+")");
-		  document.getElementById("realname").value=newJson.realname;
-		  document.getElementById("password").value=newJson.passsword;
-		  document.getElementById("post").value = newJson.post;
-
-	
-	    }
-	  } 
-}
- */
- </script>
+</script>

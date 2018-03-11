@@ -8,6 +8,7 @@ import com.mbcrmsys.pojo.SalChance;
 import com.mbcrmsys.service.ISalChanceService;
 import com.mbcrmsys.util.CheckLogin;
 import com.mbcrmsys.util.DecoderSelectByCondition;
+import com.mbcrmsys.vo.SimSaleOpportunity;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -105,17 +106,15 @@ public class SalChanceController {
     /**
      * 指派人员
      * @param session
-     * @param chcDueDate
-     * @param chcId
+     * @param simSaleOpportunity  这个是vo中用来对应前端传过来的
      * @return
      */
     @PostMapping("distributionsal.do")
     @ResponseBody
-    public ServerResponse<String> assignSaleOpp(HttpSession session,String chcId,String chcDueName,String chcDueDate){
+    public ServerResponse<String> assignSaleOpp(HttpSession session, SimSaleOpportunity simSaleOpportunity){
         CheckLogin.check(session);
-        if (!StringUtils.isBlank(chcId)){
-            Long id=Long.valueOf(chcId);
-            return  iSalChanceService.assignSaleOpp(id,chcDueName,chcDueDate);
+        if (simSaleOpportunity != null){
+            return  iSalChanceService.assignSaleOpp(simSaleOpportunity);
         }else {
             return ServerResponse.createByErrorMessage("选择失败");
         }

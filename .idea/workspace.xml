@@ -2,38 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ff3ff0d-7f98-4e1c-844d-ecc4baa2ab66" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/LostController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/ILostService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/LostServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/ServiceController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/IServcieService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/ServiceServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/vo/SimSaleOpportunity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/AssortController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/AssortController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/LinkmanController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/LinkmanController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/LostController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/LostController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/SalChanceController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/SalChanceController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/dao/LostMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/dao/LostMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/Assort.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/Assort.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/IAssortService.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/IAssortService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/ILinkmanService.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/ILinkmanService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/SalChance.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/SalChance.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/ISalChanceService.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/ISalChanceService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/AssortServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/AssortServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/LinkmanServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/LinkmanServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/SalChanceServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/SalChanceServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/util/CheckLogin.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/util/CheckLogin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mappers/CustomerMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mappers/CustomerMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mappers/LostMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mappers/LostMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/myjs.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/myjs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/page/cmp/addAssort.html" afterPath="$PROJECT_DIR$/src/main/webapp/page/cmp/addAssort.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/page/cmp/addlinkMan.html" afterPath="$PROJECT_DIR$/src/main/webapp/page/cmp/addlinkMan.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/page/cmp/assort.html" afterPath="$PROJECT_DIR$/src/main/webapp/page/cmp/assort.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/page/cmp/cusManageUpdate.html" afterPath="$PROJECT_DIR$/src/main/webapp/page/cmp/cusManageUpdate.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/page/cmp/linkMan.html" afterPath="$PROJECT_DIR$/src/main/webapp/page/cmp/linkMan.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/page/cmp/updateAssort.html" afterPath="$PROJECT_DIR$/src/main/webapp/page/cmp/updateAssort.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/page/cmp/stopLost.html" afterPath="$PROJECT_DIR$/src/main/webapp/page/cmp/stopLost.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/page/cmp/sureLost.html" afterPath="$PROJECT_DIR$/src/main/webapp/page/cmp/sureLost.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/page/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/page/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/page/sop/EditSaleOpportunity.html" afterPath="$PROJECT_DIR$/src/main/webapp/page/sop/EditSaleOpportunity.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/page/sop/SaleOpportunity.html" afterPath="$PROJECT_DIR$/src/main/webapp/page/sop/SaleOpportunity.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/cmp/lost.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/cmp/lost.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/cmp/stopLost.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/cmp/sureLost.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/cmp/sureLost.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/cmp/stopLost.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/cmp/updatelinkMan.html" afterPath="$PROJECT_DIR$/src/main/webapp/page/cmp/updateLinkMan.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/smp/service_allocation.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/smp/serviceAllocation.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/smp/service_archive_edit.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/smp/serviceArchiveEdit.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/smp/service_archive_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/smp/serviceArchiveList.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/smp/service_create.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/smp/serviceCreate.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/smp/service_feedback_edit.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/smp/serviceFeedbackEdit.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/smp/service_feedback_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/smp/serviceFeedbackList.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/smp/service_processing_edit.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/smp/serviceProcessingEdit.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/smp/service_processing_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/smp/serviceProcessingList.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -59,26 +49,96 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="stopLost.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/cmp/stopLost.html">
+      <file leaf-file-name="lost.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/cmp/lost.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="175" column="50" lean-forward="false" selection-start-line="175" selection-start-column="40" selection-end-line="175" selection-end-column="50" />
+            <state relative-caret-position="780">
+              <caret line="159" column="0" lean-forward="false" selection-start-line="140" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#input#0;n#div#6;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1520573315265" expanded="true" signature="5950:5968" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LostController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/LostController.java">
+      <file leaf-file-name="serviceProcessingList.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/smp/serviceProcessingList.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="41" column="31" lean-forward="false" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+            <state relative-caret-position="482">
+              <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="150" selection-end-column="1" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#form#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#5220#6053#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="orders.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/cmp/orders.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServiceController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/ServiceController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="28" column="40" lean-forward="true" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#724#725#0" expanded="true" />
+                <element signature="e#751#752#0" expanded="true" />
+                <element signature="e#902#903#0" expanded="true" />
+                <element signature="e#929#930#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serviceCreate.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/smp/serviceCreate.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1740">
+              <caret line="187" column="37" lean-forward="false" selection-start-line="187" selection-start-column="37" selection-end-line="187" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serviceArchiveList.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/smp/serviceArchiveList.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-333">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serviceAllocation.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/smp/serviceAllocation.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="165" column="59" lean-forward="false" selection-start-line="165" selection-start-column="42" selection-end-line="165" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serviceFeedbackList.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/smp/serviceFeedbackList.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="74">
+              <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+              <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+              <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+              <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -93,23 +153,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lost.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/cmp/lost.html">
+      <file leaf-file-name="SimSaleOpportunity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/vo/SimSaleOpportunity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="173" column="78" lean-forward="false" selection-start-line="173" selection-start-column="73" selection-end-line="173" selection-end-column="78" />
-              <folding>
-                <marker date="1520573315265" expanded="true" signature="5950:5968" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sureLost.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/cmp/sureLost.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="170" column="38" lean-forward="false" selection-start-line="170" selection-start-column="38" selection-end-line="170" selection-end-column="38" />
+            <state relative-caret-position="71">
+              <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -129,7 +177,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Ecma</find>
       <find>Ecmas</find>
       <find>Ecmasc</find>
       <find>Ecmascr</find>
@@ -159,6 +206,7 @@
       <find>ORD_CUST_ID</find>
       <find>ORD_CUS_ID</find>
       <find>success</find>
+      <find>distributionsal</find>
     </findStrings>
     <replaceStrings>
       <replace>ServerResponse</replace>
@@ -176,15 +224,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/dao/OrdersMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/OrdersServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/OrderController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/LinkmanMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/OrdersMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/page/cmp/linkMan.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/page/cmp/cusManage.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/page/cmp/newCusManageUpdate.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/page/cmp/ordersDetil.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/cmp/orders.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/cmp/orders.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/cmp/addAssort.jsp" />
@@ -203,7 +242,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/LinkmanController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/AssortController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/cmp/assort.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/SalChance.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/Assort.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/cmp/linkMan.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/cmp/updateLinkMan.html" />
@@ -214,19 +252,29 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/ILostService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/LostServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/dao/LostMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/page/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/mappers/LostMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mappers/CustomerMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/cmp/lost.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/sop/EditSaleOpportunity.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/util/CheckLogin.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/page/sop/SaleOpportunity.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/ISalChanceService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/SalChanceServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/SalChanceController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/LostController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/cmp/stopLost.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/page/sop/SaleOpportunity.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/cmp/sureLost.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/SalChance.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/SalChanceController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/ISalChanceService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/SalChanceServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/page/index.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/page/smp/service_processing_list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/ServiceServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/vo/SimSaleOpportunity.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/page/smp/serviceCreate.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/page/smp/serviceArchiveList.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/page/smp/serviceFeedbackList.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/page/smp/serviceProcessingList.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/page/smp/serviceAllocation.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/ServiceController.java" />
       </list>
     </option>
   </component>
@@ -346,6 +394,21 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="MBCrmSys">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -368,20 +431,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="target" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MBCrmSys" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MBCrmSys" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -460,7 +509,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sop" />
+              <option name="myItemId" value="smp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -545,6 +594,10 @@
               <option name="myItemId" value="mbcrmsys" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -573,10 +626,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="mbcrmsys" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -716,95 +765,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MBCrmSys" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MBCrmSys" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mbcrmsys" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MBCrmSys" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MBCrmSys" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mbcrmsys" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="MBCrmSys">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -1425,12 +1391,13 @@
       <workItem from="1520385355104" duration="22054000" />
       <workItem from="1520472088794" duration="22485000" />
       <workItem from="1520509474557" duration="6762000" />
-      <workItem from="1520558711588" duration="19815000" />
+      <workItem from="1520558711588" duration="25810000" />
+      <workItem from="1520761334165" duration="9986000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280572000" />
+    <option name="totallyTimeSpent" value="296553000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1443,7 +1410,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1459,25 +1425,25 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36240092" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26160815" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28878823" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27633068" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23782559" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21405579" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23782559" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23658799" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26160815" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1535,272 +1501,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/Consumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/SalChance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="28" column="52" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/cmp/cusManageUpdate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1072">
-          <caret line="324" column="53" lean-forward="false" selection-start-line="324" selection-start-column="53" selection-end-line="324" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/Linkman.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="26" />
-          <folding>
-            <element signature="e#320#321#0" expanded="false" />
-            <element signature="e#348#349#0" expanded="false" />
-            <element signature="e#391#392#0" expanded="false" />
-            <element signature="e#425#426#0" expanded="false" />
-            <element signature="e#461#462#0" expanded="false" />
-            <element signature="e#492#493#0" expanded="false" />
-            <element signature="e#541#542#0" expanded="false" />
-            <element signature="e#581#582#0" expanded="false" />
-            <element signature="e#615#616#0" expanded="false" />
-            <element signature="e#645#646#0" expanded="false" />
-            <element signature="e#691#692#0" expanded="false" />
-            <element signature="e#761#762#0" expanded="false" />
-            <element signature="e#794#795#0" expanded="false" />
-            <element signature="e#823#824#0" expanded="false" />
-            <element signature="e#867#868#0" expanded="false" />
-            <element signature="e#934#935#0" expanded="false" />
-            <element signature="e#973#974#0" expanded="false" />
-            <element signature="e#1008#1009#0" expanded="false" />
-            <element signature="e#1183#1184#0" expanded="false" />
-            <element signature="e#1213#1214#0" expanded="false" />
-            <element signature="e#1259#1260#0" expanded="false" />
-            <element signature="e#1329#1330#0" expanded="false" />
-            <element signature="e#1365#1366#0" expanded="false" />
-            <element signature="e#1397#1398#0" expanded="false" />
-            <element signature="e#1447#1448#0" expanded="false" />
-            <element signature="e#1523#1524#0" expanded="false" />
-            <element signature="e#1557#1558#0" expanded="false" />
-            <element signature="e#1587#1588#0" expanded="false" />
-            <element signature="e#1633#1634#0" expanded="false" />
-            <element signature="e#1703#1704#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/cmp/updateAssort.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2738">
-          <caret line="74" column="79" lean-forward="false" selection-start-line="74" selection-start-column="79" selection-end-line="74" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/myjs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/cmp/updateLinkMan.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="88" column="74" lean-forward="false" selection-start-line="88" selection-start-column="62" selection-end-line="88" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/cmp/addlinkMan.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="98" column="132" lean-forward="false" selection-start-line="98" selection-start-column="132" selection-end-line="98" selection-end-column="132" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/cmp/assort.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="136" column="4" lean-forward="false" selection-start-line="136" selection-start-column="4" selection-end-line="136" selection-end-column="191" />
-          <folding>
-            <marker date="1520495622395" expanded="true" signature="4418:4436" ph="..." />
-            <marker date="1520495622395" expanded="true" signature="4614:4632" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/cmp/linkMan.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="891">
-          <caret line="158" column="64" lean-forward="false" selection-start-line="158" selection-start-column="64" selection-end-line="158" selection-end-column="64" />
-          <folding>
-            <marker date="1520496317095" expanded="true" signature="4634:4652" ph="..." />
-            <marker date="1520496317095" expanded="true" signature="4832:4850" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/ServeType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/Serve.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/Plan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#248#249#0" expanded="false" />
-            <element signature="e#276#277#0" expanded="false" />
-            <element signature="e#319#320#0" expanded="false" />
-            <element signature="e#353#354#0" expanded="false" />
-            <element signature="e#389#390#0" expanded="false" />
-            <element signature="e#420#421#0" expanded="false" />
-            <element signature="e#469#470#0" expanded="false" />
-            <element signature="e#509#510#0" expanded="false" />
-            <element signature="e#543#544#0" expanded="false" />
-            <element signature="e#573#574#0" expanded="false" />
-            <element signature="e#619#620#0" expanded="false" />
-            <element signature="e#689#690#0" expanded="false" />
-            <element signature="e#721#722#0" expanded="false" />
-            <element signature="e#751#752#0" expanded="false" />
-            <element signature="e#795#796#0" expanded="false" />
-            <element signature="e#833#834#0" expanded="false" />
-            <element signature="e#869#870#0" expanded="false" />
-            <element signature="e#901#902#0" expanded="false" />
-            <element signature="e#951#952#0" expanded="false" />
-            <element signature="e#1027#1028#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/Assort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#417#418#0" expanded="false" />
-            <element signature="e#445#446#0" expanded="false" />
-            <element signature="e#488#489#0" expanded="false" />
-            <element signature="e#522#523#0" expanded="false" />
-            <element signature="e#558#559#0" expanded="false" />
-            <element signature="e#589#590#0" expanded="false" />
-            <element signature="e#638#639#0" expanded="false" />
-            <element signature="e#678#679#0" expanded="false" />
-            <element signature="e#710#711#0" expanded="false" />
-            <element signature="e#740#741#0" expanded="false" />
-            <element signature="e#784#785#0" expanded="false" />
-            <element signature="e#822#823#0" expanded="false" />
-            <element signature="e#857#858#0" expanded="false" />
-            <element signature="e#888#889#0" expanded="false" />
-            <element signature="e#936#937#0" expanded="false" />
-            <element signature="e#1009#1010#0" expanded="false" />
-            <element signature="e#1045#1046#0" expanded="false" />
-            <element signature="e#1077#1078#0" expanded="false" />
-            <element signature="e#1127#1128#0" expanded="false" />
-            <element signature="e#1203#1204#0" expanded="false" />
-            <element signature="e#1239#1240#0" expanded="false" />
-            <element signature="e#1271#1272#0" expanded="false" />
-            <element signature="e#1321#1322#0" expanded="false" />
-            <element signature="e#1397#1398#0" expanded="false" />
-            <element signature="e#1431#1432#0" expanded="false" />
-            <element signature="e#1461#1462#0" expanded="false" />
-            <element signature="e#1507#1508#0" expanded="false" />
-            <element signature="e#1577#1578#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/AssortCopy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#315#316#0" expanded="false" />
-            <element signature="e#343#344#0" expanded="false" />
-            <element signature="e#386#387#0" expanded="false" />
-            <element signature="e#420#421#0" expanded="false" />
-            <element signature="e#456#457#0" expanded="false" />
-            <element signature="e#487#488#0" expanded="false" />
-            <element signature="e#536#537#0" expanded="false" />
-            <element signature="e#576#577#0" expanded="false" />
-            <element signature="e#608#609#0" expanded="false" />
-            <element signature="e#638#639#0" expanded="false" />
-            <element signature="e#682#683#0" expanded="false" />
-            <element signature="e#720#721#0" expanded="false" />
-            <element signature="e#755#756#0" expanded="false" />
-            <element signature="e#786#787#0" expanded="false" />
-            <element signature="e#834#835#0" expanded="false" />
-            <element signature="e#907#908#0" expanded="false" />
-            <element signature="e#943#944#0" expanded="false" />
-            <element signature="e#975#976#0" expanded="false" />
-            <element signature="e#1025#1026#0" expanded="false" />
-            <element signature="e#1101#1102#0" expanded="false" />
-            <element signature="e#1137#1138#0" expanded="false" />
-            <element signature="e#1169#1170#0" expanded="false" />
-            <element signature="e#1219#1220#0" expanded="false" />
-            <element signature="e#1295#1296#0" expanded="false" />
-            <element signature="e#1329#1330#0" expanded="false" />
-            <element signature="e#1359#1360#0" expanded="false" />
-            <element signature="e#1405#1406#0" expanded="false" />
-            <element signature="e#1475#1476#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/AssortController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-37">
-          <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/ConsumerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="26" column="27" lean-forward="false" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/LinkmanController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="896">
-          <caret line="43" column="44" lean-forward="false" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/OrdersServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/LinkmanServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="740">
@@ -1814,7 +1514,7 @@
         <state relative-caret-position="245">
           <caret line="18" column="54" lean-forward="true" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1823,7 +1523,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
           <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1839,17 +1538,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
           <caret line="19" column="36" lean-forward="false" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/dao/SalChanceMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-185">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1857,31 +1545,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="467">
           <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/SalChanceMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="212" column="2" lean-forward="false" selection-start-line="212" selection-start-column="2" selection-end-line="212" selection-end-column="2" />
-          <folding>
-            <marker date="1520228504841" expanded="true" signature="1762:1874" ph="select from sal_chance" />
-            <marker date="1520228504841" expanded="true" signature="1958:2024" ph="delete from " />
-            <marker date="1520228504841" expanded="true" signature="2109:2873" ph="insert into sal_chance... " />
-            <marker date="1520228504841" expanded="true" signature="5607:7133" ph="update sal_c... " />
-            <marker date="1520228504841" expanded="true" signature="7230:8015" ph="update sal_c... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1889,7 +1552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-888">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1942,7 +1604,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
           <caret line="21" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1950,9 +1611,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
           <caret line="14" column="78" lean-forward="false" selection-start-line="14" selection-start-column="68" selection-end-line="14" selection-end-column="78" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1960,10 +1618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3532">
           <caret line="187" column="37" lean-forward="false" selection-start-line="187" selection-start-column="33" selection-end-line="187" selection-end-column="37" />
-          <folding>
-            <marker date="1520406060680" expanded="true" signature="8098:8116" ph="..." />
-            <marker date="1520406060680" expanded="true" signature="8300:8318" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1971,7 +1625,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8436">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1979,7 +1632,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="16" column="92" lean-forward="false" selection-start-line="16" selection-start-column="92" selection-end-line="16" selection-end-column="92" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2002,63 +1654,286 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/sop/SaleOpportunity.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/sop/EditSaleOpportunity.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="282" column="75" lean-forward="false" selection-start-line="282" selection-start-column="22" selection-end-line="282" selection-end-column="75" />
+        <state relative-caret-position="370">
+          <caret line="186" column="65" lean-forward="false" selection-start-line="186" selection-start-column="52" selection-end-line="186" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/LostController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="56" column="1" lean-forward="true" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
           <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1520577127206" expanded="true" signature="11673:11691" ph="..." />
-            <marker date="1520577127206" expanded="true" signature="11877:11895" ph="..." />
-            <marker date="1520577127206" expanded="true" signature="12047:12065" ph="..." />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/Lost.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1130">
+          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/cmp/stopLost.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="190" column="53" lean-forward="false" selection-start-line="190" selection-start-column="53" selection-end-line="190" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/SalChanceMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="146" column="2" lean-forward="false" selection-start-line="146" selection-start-column="2" selection-end-line="146" selection-end-column="2" />
+          <folding>
+            <marker date="1520228504841" expanded="true" signature="1762:1874" ph="select from sal_chance" />
+            <marker date="1520228504841" expanded="true" signature="1958:2024" ph="delete from " />
+            <marker date="1520228504841" expanded="true" signature="2109:2873" ph="insert into sal_chance... " />
+            <marker date="1520228504841" expanded="true" signature="5607:7133" ph="update sal_c... " />
+            <marker date="1520228504841" expanded="true" signature="7230:8015" ph="update sal_c... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/dao/SalChanceMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/SalChance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1147">
+          <caret line="33" column="52" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#783#784#0" expanded="false" />
+            <element signature="e#811#812#0" expanded="false" />
+            <element signature="e#851#852#0" expanded="false" />
+            <element signature="e#885#886#0" expanded="false" />
+            <element signature="e#921#922#0" expanded="false" />
+            <element signature="e#953#954#0" expanded="false" />
+            <element signature="e#1003#1004#0" expanded="false" />
+            <element signature="e#1079#1080#0" expanded="false" />
+            <element signature="e#1117#1118#0" expanded="false" />
+            <element signature="e#1151#1152#0" expanded="false" />
+            <element signature="e#1322#1323#0" expanded="false" />
+            <element signature="e#1353#1354#0" expanded="false" />
+            <element signature="e#1401#1402#0" expanded="false" />
+            <element signature="e#1474#1475#0" expanded="false" />
+            <element signature="e#1509#1510#0" expanded="false" />
+            <element signature="e#1539#1540#0" expanded="false" />
+            <element signature="e#1586#1587#0" expanded="false" />
+            <element signature="e#1624#1625#0" expanded="false" />
+            <element signature="e#1661#1662#0" expanded="false" />
+            <element signature="e#1694#1695#0" expanded="false" />
+            <element signature="e#1746#1747#0" expanded="false" />
+            <element signature="e#1825#1826#0" expanded="false" />
+            <element signature="e#1858#1859#0" expanded="false" />
+            <element signature="e#1887#1888#0" expanded="false" />
+            <element signature="e#1931#1932#0" expanded="false" />
+            <element signature="e#1998#1999#0" expanded="false" />
+            <element signature="e#2032#2033#0" expanded="false" />
+            <element signature="e#2062#2063#0" expanded="false" />
+            <element signature="e#2108#2109#0" expanded="false" />
+            <element signature="e#2178#2179#0" expanded="false" />
+            <element signature="e#2217#2218#0" expanded="false" />
+            <element signature="e#2251#2252#0" expanded="false" />
+            <element signature="e#2306#2307#0" expanded="false" />
+            <element signature="e#2352#2353#0" expanded="false" />
+            <element signature="e#2392#2393#0" expanded="false" />
+            <element signature="e#2428#2429#0" expanded="false" />
+            <element signature="e#2612#2613#0" expanded="false" />
+            <element signature="e#2648#2649#0" expanded="false" />
+            <element signature="e#2704#2705#0" expanded="false" />
+            <element signature="e#2754#2755#0" expanded="false" />
+            <element signature="e#2790#2791#0" expanded="false" />
+            <element signature="e#2821#2822#0" expanded="false" />
+            <element signature="e#2870#2871#0" expanded="false" />
+            <element signature="e#2910#2911#0" expanded="false" />
+            <element signature="e#2947#2948#0" expanded="false" />
+            <element signature="e#2980#2981#0" expanded="false" />
+            <element signature="e#3032#3033#0" expanded="false" />
+            <element signature="e#3111#3112#0" expanded="false" />
+            <element signature="e#3146#3147#0" expanded="false" />
+            <element signature="e#3179#3180#0" expanded="false" />
+            <element signature="e#3229#3230#0" expanded="false" />
+            <element signature="e#3273#3274#0" expanded="false" />
+            <element signature="e#3309#3310#0" expanded="false" />
+            <element signature="e#3341#3342#0" expanded="false" />
+            <element signature="e#3391#3392#0" expanded="false" />
+            <element signature="e#3467#3468#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/SalChanceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3589">
+          <caret line="116" column="45" lean-forward="false" selection-start-line="116" selection-start-column="45" selection-end-line="116" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/SalChanceServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="84" column="42" lean-forward="true" selection-start-line="84" selection-start-column="42" selection-end-line="84" selection-end-column="42" />
+        <state relative-caret-position="375">
+          <caret line="89" column="63" lean-forward="true" selection-start-line="89" selection-start-column="63" selection-end-line="89" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/ISalChanceService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="19" column="88" lean-forward="false" selection-start-line="19" selection-start-column="78" selection-end-line="19" selection-end-column="88" />
-          <folding />
+        <state relative-caret-position="592">
+          <caret line="20" column="78" lean-forward="false" selection-start-line="20" selection-start-column="78" selection-end-line="20" selection-end-column="78" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/SalChanceController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/cmp/sureLost.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="108" column="19" lean-forward="true" selection-start-line="108" selection-start-column="19" selection-end-line="108" selection-end-column="19" />
+        <state relative-caret-position="5513">
+          <caret line="149" column="40" lean-forward="false" selection-start-line="149" selection-start-column="40" selection-end-line="149" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/sop/EditSaleOpportunity.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/sop/SaleOpportunity.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="186" column="65" lean-forward="false" selection-start-line="186" selection-start-column="52" selection-end-line="186" selection-end-column="65" />
-          <folding />
+        <state relative-caret-position="10323">
+          <caret line="279" column="24" lean-forward="false" selection-start-line="279" selection-start-column="24" selection-end-line="279" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <marker date="1520585307446" expanded="true" signature="11399:11417" ph="..." />
+            <marker date="1520585307446" expanded="true" signature="11603:11621" ph="..." />
+            <marker date="1520585307446" expanded="true" signature="11773:11791" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/Lost.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
-          <caret line="17" column="28" lean-forward="false" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="28" />
+          <caret line="63" column="25" lean-forward="false" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/datamanage/updateentry.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10030">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/datamanage/product.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5257">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/datamanage/inventory.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3330">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/datamanage/datalist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3996">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/datamanage/addentry.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6105">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/lgp/LeadGeneration.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-666">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/Serve.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3462">
+          <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/IServcieService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="8" column="32" lean-forward="false" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/ServiceServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/vo/CustomerVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/vo/SimSaleOpportunity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/cmp/orders.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/page/cmp/lost.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="173" column="78" lean-forward="false" selection-start-line="173" selection-start-column="73" selection-end-line="173" selection-end-column="78" />
+        <state relative-caret-position="780">
+          <caret line="159" column="0" lean-forward="false" selection-start-line="140" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
           <folding>
             <marker date="1520573315265" expanded="true" signature="5950:5968" ph="..." />
           </folding>
@@ -2073,31 +1948,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/LostController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/smp/serviceCreate.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="41" column="31" lean-forward="false" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+        <state relative-caret-position="1740">
+          <caret line="187" column="37" lean-forward="false" selection-start-line="187" selection-start-column="37" selection-end-line="187" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/smp/serviceFeedbackList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+          <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/smp/serviceArchiveList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-333">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/smp/serviceProcessingList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="150" selection-end-column="1" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#form#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#5220#6053#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/smp/serviceAllocation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="165" column="59" lean-forward="false" selection-start-line="165" selection-start-column="42" selection-end-line="165" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/ServiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="28" column="40" lean-forward="true" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#724#725#0" expanded="true" />
+            <element signature="e#751#752#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#929#930#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/cmp/stopLost.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="175" column="50" lean-forward="false" selection-start-line="175" selection-start-column="40" selection-end-line="175" selection-end-column="50" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#6;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/cmp/sureLost.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="170" column="38" lean-forward="false" selection-start-line="170" selection-start-column="38" selection-end-line="170" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>

@@ -99,9 +99,9 @@
                                             </div>
 
                                             <div class="form-group ">
-                                                <label for="lostRespite" class="col-sm-2 control-label">暂缓措施：</label>
+                                                <label for="lostRespite1" class="col-sm-2 control-label">暂缓措施：</label>
                                                 <div class="col-sm-6">
-                                                    <textarea rows="5" class="form-control" id="lostRespite" name="lostRespite" readonly="readonly"></textarea>
+                                                    <textarea rows="5" class="form-control" id="lostRespite1" name="losRespite" readonly="readonly"></textarea>
                                                 </div>
                                             </div>
 
@@ -129,6 +129,7 @@
     <script src="/assets/js/jquery.min.js?v=2.1.4"></script>
     <script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
     <script src="/assets/js/jquery.serializejson.js"></script>
+    <script src="/assets/js/myjs.js"></script>
 
     <!-- 自定义js -->
     <script src="/assets/js/content.js?v=1.0.0"></script>
@@ -149,8 +150,8 @@ $(document).ready(function () {
                 for(var p in data.data){
                     $("#lostform").find(":input[name='"+p+"']").val(data.data[p]);
                 }
-                $("#lostRespite").val(data.data['lostRespite']);
-
+                var date=TimestampToDate1(data.data['losLastOrder']);
+                $("input[name='losLastOrder']").val(date);
             }
         }
     })
