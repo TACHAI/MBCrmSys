@@ -108,24 +108,6 @@
                 </tr>
                 </thead>
                 <tbody>
-			<%
-
-				List<Serve> serves = (List<Serve>)request.getAttribute("serves");
-		
-				if(serves != null){
-					String state = "";
-					for(Serve serve : serves){
-						switch(serve.getSerState().intValue()) {
-						case 1: state="已创建"; 
-								break;  
-						case 2: state="已分配";
-								break;
-						case 3: state="已处理"; 
-								break;  
-						case 4: state="已归档";
-								break;
-						}
-			%>
 						<tr>
 							<td><%=serve.getSerId() %></td>
 		                    <td><%=serve.getCustomer().getCusName() %></td>
@@ -136,32 +118,8 @@
 		                    <td><%=state %></td>
 							<td><a href="editArchiveList.doServe?id=<%=serve.getSerId() %>">查看明细</a></td>
 						</tr>
-			<% 
-					}
-				}
-			%>
 					</tbody>
             </table>
-            <%
-				int showPage = ((Integer) (request.getAttribute("showPage")))
-						.intValue();
-						
-				int pageCount = ((Integer) (request.getAttribute("pageCount")))
-						.intValue();
-				int page1 = showPage - 1;
-				int page2 = showPage + 1;
-				int lastPage = pageCount;
-			%>
-
-			<div style="text-align: right;">
-				<ul class="pager">
-					<li><a href="javascript:page(1,<%=pageCount%>)">&laquo;</a></li>
-					<li><a href="javascript:page(<%=page1%>,<%=pageCount%>)">上一页</a></li>
-					<li><a href="javascript:page(<%=page2%>,<%=pageCount%>)">下一页</a></li>
-					<li><a href="javascript:page(<%=lastPage%>,<%=pageCount%>)">&raquo;</a></li>
-				</ul>
-			</div>
-            
         </div>
     </div>
 </div>

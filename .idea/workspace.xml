@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ff3ff0d-7f98-4e1c-844d-ecc4baa2ab66" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/ServiceController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/IServcieService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/ServiceServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/vo/SimSaleOpportunity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/LostController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/LostController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/SalChanceController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/SalChanceController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/SalChance.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/pojo/SalChance.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/ISalChanceService.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/ISalChanceService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/SalChanceServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/SalChanceServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/page/cmp/stopLost.html" afterPath="$PROJECT_DIR$/src/main/webapp/page/cmp/stopLost.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/page/cmp/sureLost.html" afterPath="$PROJECT_DIR$/src/main/webapp/page/cmp/sureLost.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/page/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/page/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/page/sop/SaleOpportunity.html" afterPath="$PROJECT_DIR$/src/main/webapp/page/sop/SaleOpportunity.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/smp/service_allocation.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/smp/serviceAllocation.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/smp/service_archive_edit.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/smp/serviceArchiveEdit.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/smp/service_archive_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/smp/serviceArchiveList.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/smp/service_create.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/smp/serviceCreate.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/smp/service_feedback_edit.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/smp/serviceFeedbackEdit.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/smp/service_feedback_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/smp/serviceFeedbackList.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/smp/service_processing_edit.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/smp/serviceProcessingEdit.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/page/smp/service_processing_list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/page/smp/serviceProcessingList.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/page/smp/serviceArchiveList.html" afterPath="$PROJECT_DIR$/src/main/webapp/page/smp/serviceArchiveList.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -84,10 +63,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServiceController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ServiceController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/ServiceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
+            <state relative-caret-position="700">
               <caret line="28" column="40" lean-forward="true" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -110,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serviceArchiveList.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="serviceArchiveList.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/page/smp/serviceArchiveList.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-333">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="121" column="20" lean-forward="false" selection-start-line="121" selection-start-column="20" selection-end-line="121" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -270,11 +249,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/service/impl/ServiceServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/vo/SimSaleOpportunity.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/smp/serviceCreate.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/page/smp/serviceArchiveList.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/smp/serviceFeedbackList.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/smp/serviceProcessingList.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/smp/serviceAllocation.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/ServiceController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/page/smp/serviceArchiveList.html" />
       </list>
     </option>
   </component>
@@ -1392,12 +1371,12 @@
       <workItem from="1520472088794" duration="22485000" />
       <workItem from="1520509474557" duration="6762000" />
       <workItem from="1520558711588" duration="25810000" />
-      <workItem from="1520761334165" duration="9986000" />
+      <workItem from="1520761334165" duration="10184000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="296553000" />
+    <option name="totallyTimeSpent" value="296751000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1410,6 +1389,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1432,7 +1412,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27633068" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23782559" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23782559" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23658799" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1967,11 +1947,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/smp/serviceArchiveList.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/smp/serviceAllocation.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-333">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="630">
+          <caret line="165" column="59" lean-forward="false" selection-start-line="165" selection-start-column="42" selection-end-line="165" selection-end-column="59" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/ServiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="28" column="40" lean-forward="true" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#724#725#0" expanded="true" />
+            <element signature="e#751#752#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#929#930#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1986,25 +1980,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/smp/serviceAllocation.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/smp/serviceArchiveList.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="165" column="59" lean-forward="false" selection-start-line="165" selection-start-column="42" selection-end-line="165" selection-end-column="59" />
+        <state relative-caret-position="0">
+          <caret line="121" column="20" lean-forward="false" selection-start-line="121" selection-start-column="20" selection-end-line="121" selection-end-column="20" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mbcrmsys/controller/ServiceController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="28" column="40" lean-forward="true" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#724#725#0" expanded="true" />
-            <element signature="e#751#752#0" expanded="true" />
-            <element signature="e#902#903#0" expanded="true" />
-            <element signature="e#929#930#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
