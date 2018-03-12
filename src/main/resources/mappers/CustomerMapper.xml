@@ -378,4 +378,8 @@
       </if>
     </where>
   </select>
+  <select id="selectCus" parameterType="map" resultMap="BaseResultMap">
+    SELECT CUS_ID,CUS_NAME
+    FROM customer
+  </select>
 </mapper>

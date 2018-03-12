@@ -6,6 +6,8 @@ import com.mbcrmsys.service.IAreaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by @Author tachai
  * date 2018/3/6 21:24
@@ -21,4 +23,11 @@ public class AreaServiceImpl implements IAreaService {
         Area area= areaMapper.selectByPrimaryKey(id);
         return area;
     }
+
+    @Override
+    public List<Area> selectArea() {
+        List<Area> list= areaMapper.selectArea();
+        return list;
+    }
+
 }

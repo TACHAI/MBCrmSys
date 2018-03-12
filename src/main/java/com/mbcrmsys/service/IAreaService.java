@@ -12,4 +12,5 @@ import java.util.List;
  */
 public interface IAreaService {
     Area selectById(Integer id);
+    List<Area> selectArea();
 }

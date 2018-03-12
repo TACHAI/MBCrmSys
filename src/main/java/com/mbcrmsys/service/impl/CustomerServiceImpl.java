@@ -85,4 +85,10 @@ public class CustomerServiceImpl implements ICustomerService {
             return ServerResponse.createByErrorMessage("保存失败");
         }
     }
+
+    @Override
+    public List<Customer> selectCus() {
+        List<Customer> list=customerMapper.selectCus();
+        return list;
+    }
 }

@@ -23,4 +23,10 @@ public class CustomerRankServiceImpl implements ICustomerRankSerivce {
         CustomerRank customerRank = customerRankMapper.selectByPrimaryKey(id);
         return customerRank;
     }
+
+    @Override
+    public List<CustomerRank> selectRank() {
+        List<CustomerRank> list=customerRankMapper.selectRank();
+        return list;
+    }
 }

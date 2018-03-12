@@ -2,6 +2,8 @@ package com.mbcrmsys.controller;
 
 import com.mbcrmsys.common.ServerResponse;
 import com.mbcrmsys.pojo.Serve;
+import com.mbcrmsys.service.IServcieService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +21,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/service/")
 public class ServiceController {
+    @Autowired
+    private IServcieService servcieService;
 
     @PostMapping("serviceprocesslist.do")
     @ResponseBody
@@ -30,5 +34,11 @@ public class ServiceController {
     @ResponseBody
     public ServerResponse<List<Serve>> serviceAllocation(HttpSession session,Serve serve){
         return null;
+    }
+
+    @PostMapping("servicecreate.do")
+    @ResponseBody
+    public ServerResponse<String> serviceCreate(HttpSession session,Serve serve){
+        return servcieService.serviceCreate(serve);
     }
 }

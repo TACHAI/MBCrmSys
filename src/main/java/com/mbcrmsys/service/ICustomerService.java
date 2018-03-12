@@ -17,5 +17,5 @@ public interface ICustomerService {
     ServerResponse<CustomerVo> selectById(Integer cusId);
     ServerResponse<String> updateCustomer(Customer customer);
     ServerResponse<String> saveCustomer(Customer customer);
-
+    List<Customer> selectCus();
 }

@@ -16,5 +16,5 @@ public interface CustomerRankMapper {
     int updateByPrimaryKeySelective(CustomerRank record);
 
     int updateByPrimaryKey(CustomerRank record);
-//    List<CustomerRank> selectByCusId(Integer cusId);
+    List<CustomerRank> selectRank();
 }

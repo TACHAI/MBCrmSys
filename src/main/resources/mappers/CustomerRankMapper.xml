@@ -55,5 +55,8 @@
     set CK_NAME = #{ckName,jdbcType=VARCHAR}
     where CK_ID = #{ckId,jdbcType=INTEGER}
   </update>
-
+  <select id="selectRank" resultMap="BaseResultMap" parameterType="map">
+    SELECT <include refid="Base_Column_List"/>
+    FROM customer_rank
+  </select>
 </mapper>

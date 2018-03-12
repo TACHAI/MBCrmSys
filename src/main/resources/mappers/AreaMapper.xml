@@ -55,4 +55,8 @@
     set ARE_NAME = #{areName,jdbcType=VARCHAR}
     where ARE_ID = #{areId,jdbcType=INTEGER}
   </update>
+  <select id="selectArea" resultMap="BaseResultMap" parameterType="map">
+    SELECT <include refid="Base_Column_List"/>
+    FROM area
+  </select>
 </mapper>

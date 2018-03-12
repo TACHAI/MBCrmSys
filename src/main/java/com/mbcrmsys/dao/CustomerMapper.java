@@ -18,4 +18,5 @@ public interface CustomerMapper {
 
     int updateByPrimaryKey(Customer record);
     List<Customer> selectByCondition(@Param("cusName") String cusName, @Param("cusManager") String cusManager, @Param("cusState") Long cusState);
+    List<Customer> selectCus();
 }

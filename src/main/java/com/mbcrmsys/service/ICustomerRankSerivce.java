@@ -12,4 +12,5 @@ import java.util.List;
  */
 public interface ICustomerRankSerivce {
     CustomerRank selectById(Integer id);
+    List<CustomerRank> selectRank();
 }

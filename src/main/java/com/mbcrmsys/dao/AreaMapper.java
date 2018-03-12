@@ -2,6 +2,8 @@ package com.mbcrmsys.dao;
 
 import com.mbcrmsys.pojo.Area;
 
+import java.util.List;
+
 public interface AreaMapper {
     int deleteByPrimaryKey(Integer areId);
 
@@ -14,4 +16,5 @@ public interface AreaMapper {
     int updateByPrimaryKeySelective(Area record);
 
     int updateByPrimaryKey(Area record);
+    List<Area> selectArea();
 }

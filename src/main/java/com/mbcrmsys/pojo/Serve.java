@@ -1,5 +1,7 @@
 package com.mbcrmsys.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Serve {
@@ -11,12 +13,14 @@ public class Serve {
 
     private String serCreaterName;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date serCreaterDate;
 
     private String serRequest;
 
     private String serAllotName;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date serAllotDate;
 
     private String serHandle;
@@ -37,6 +41,7 @@ public class Serve {
 
     private Long serHandleId;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date serHandleDate;
 
     public Long getSerId() {

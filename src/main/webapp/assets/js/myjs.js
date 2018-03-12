@@ -39,3 +39,27 @@ function getParam() {
     }
     return theRequest;
 }
+//从后台获得option的list并渲染到当前的select
+function getBackOptions(url,obj) {
+    $.ajax({
+        type:'get',
+        url:url,
+        dataType:'json',
+        success:function (data) {
+            if(data.status==0){
+                $.each(data.data, function (i, item) {
+                    if (item == null) {
+                        return;
+                    }
+                    $("<option></option>")
+                        .val(item["value"])
+                        .text(item["text"])
+                        .appendTo(obj);
+                });
+            }
+        },
+        error:function (data) {
+            console.info("发生了错误",data);
+        }
+    })
+}

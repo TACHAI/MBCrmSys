@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="renderer" content="webkit">
 <!--[if lt IE 9]>
-    <meta http-equiv="refresh" content="0;ie.html" />
+	<meta http-equiv="refresh" content="0;ie.html" />
     <![endif]-->
 
 <link rel="shortcut icon" href="/assets/favicon.ico">
@@ -46,10 +46,8 @@
 			</nav>
 		</div>
 		<div class="ibox float-e-margins">
-		
 			<div class="ibox-content" >
 				<form role="form" class="form-horizontal" id="serverForm">
-
 					<div class="form-group col-sm-6">
 						<label for="serId" class="col-sm-4 control-label">编号：</label>
 						<div class="col-sm-7">
@@ -61,10 +59,10 @@
 						<label for="serType" class="col-sm-3 control-label">服务类型：</label>
 						<div class="col-sm-8">
 							<select id="serType" name="serType" class="form-control">
-								<option value=""><%=serType.getSeName()%></option>
-								<option value=""><%=serType.getSeName()%></option>
-								<option value=""><%=serType.getSeName()%></option>
-								<option value=""><%=serType.getSeName()%></option>
+								<option value="1">全部</option>
+								<option value="2">建议</option>
+								<option value="3">外包</option>
+								<option value="4">咨询</option>
 							</select>
 						</div>
 						<label class="myLabel1 control-label text-danger">*</label>
@@ -82,12 +80,7 @@
 					<div class="form-group col-sm-6">
 						<label for="serCus" class="col-sm-4 control-label">客户：</label>
 						<div class="col-sm-7">
-							<select id="serCus" name="serCus" class="form-control">
-								<option value="<%=customer.getCusId()%>"><%=customer.getCusName()%></option>
-								<option value="<%=customer.getCusId()%>"><%=customer.getCusName()%></option>
-								<option value="<%=customer.getCusId()%>"><%=customer.getCusName()%></option>
-								<option value="<%=customer.getCusId()%>"><%=customer.getCusName()%></option>
-
+							<select id="serCus" name="serCus" class="form-control" onchange="getBackOptions(url,this)">
 							</select>
 						</div>
 						<label class="myLabel3 control-label text-danger">*</label>
@@ -141,37 +134,9 @@
 </html>
 <script type="text/javascript">
 	$("#save").click(function() {
-
-		if ($("#ser_type").val() == "") {
-
-			//$(".myLabel1").text("用户名不能为空！");
-			//$(".myLabel1").css("visibility","visible");
-			alert("服务类型不能为空!");
-			return false;
-		} else if ($("#ser_resume").val() == "") {
-			//$(".myLabel2").css("visibility","visible");
-			alert("概要不能为空!");
-			return false;
-		} else if ($("#ser_cus_id").val() == "") {
-			//$(".myLabel3").css("visibility","visible");
-			alert("客户不能为空!");
-			return false;
-		} else if ($("#ser_request").val() == "") {
-			//$(".myLabel4").css("visibility","visible");
-			alert("服务请求不能为空!");
-			return false;
-		} else if ($("#ser_allot_name").val() == "") {
-			//$(".myLabel5").css("visibility","visible");
-			alert("创建人不能为空!");
-			return false;
-		} else if ($("#ser_allot_date").val() == "") {
-			//$(".myLabel6").css("visibility","visible");
-			alert("创建时间不能为空!");
-			return false;
-		}
-		$("#submit").click();
-		alert("保存成功！");
+		$("#submit").click()
 	});
+
 $("#serverForm").on('submit',function () {
 	var params=$("#serverForm").serializeJSON();
 	$.ajax({
@@ -181,7 +146,7 @@ $("#serverForm").on('submit',function () {
 		dataType:'json',
 		success:function (data) {
 			if(data.status==0){
-			    window.location.href="";
+			    window.location.href="http://localhost:8080/page/smp/serviceAllocation.html";
 			}
         },
 		error:function (data) {
