@@ -12,7 +12,7 @@
     <!-- 自定义js -->
     <script src="/assets/js/content.js?v=1.0.0"></script>
 	<script type="text/javascript" src="/assets/js/jquery.serializejson.js"></script>
-
+	<script src="/assets/js/myjs.js"></script>
 
     <!-- Bootstrap table -->
     <script src="/assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
@@ -102,18 +102,17 @@
 												</div>
 
 												<div class="form-group col-sm-6">
-													<label for="cust_region" class="col-sm-4 control-label">地区：</label>
+													<label for="areId" class="col-sm-4 control-label">地区：</label>
 													<div class="col-sm-8">
-														<select id="cust_region" name="custArea" class="form-control m-b">
-															<option value=""></option>
+														<select id="areId" name="cusAreId" class="form-control m-b"  onclick ="getBackOptions('http://localhost:8080/Assembly/getarea.do',this)">
+
 														</select>
 													</div>
 												</div>
 												<div class="form-group col-sm-6">
-													<label for="custLevel" class="col-sm-4 control-label">客户等级：</label>
+													<label for="ckId" class="col-sm-4 control-label">客户等级：</label>
 													<div class="col-sm-8">
-														<select id="custLevel" name="custLevel" class="form-control m-b">
-															<option value=""></option>
+														<select id="ckId" name="cusCkId" class="form-control m-b" onclick="getBackOptions1('http://localhost:8080/Assembly/getrank.do',this)">
 														</select>
 													</div>
 												</div>
@@ -268,6 +267,8 @@ $(document).ready(function () {
     var url=window.location.search;//得到?后面的值包括问号
     var str= url.substr(1);
     var cusId=str.split("=");
+    $("#areId").click();
+    $("#ckId").click();
     $.ajax({
         type:'post',
         url:'http://localhost:8080/cmp/selectbyid.do',
@@ -282,6 +283,8 @@ $(document).ready(function () {
                 console.info(data+"data")
                 $("#cust_credit").find("option[value='"+data.data['cusCreditworthiness']+"']").attr("selected",true);
                 $("#cust_satisfy").find("option[value='"+data.data['cusStatisfcing']+"']").attr("selected",true);
+                $("#areId").find("option[value='"+data.data.area['areId']+"']").attr("selected",true);
+                $("#ckId").find("option[value='"+data.data.customerRank['ckId']+"']").attr("selected",true);
             } else {
                 alert(data.msg)
             }

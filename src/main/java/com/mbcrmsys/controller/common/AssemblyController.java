@@ -59,7 +59,7 @@ public class AssemblyController {
                 }).collect(Collectors.toList());
         return ServerResponse.createBySuccess(opptionsVoList,"获得客户等级列表");
     }
-    @RequestMapping("getarea")
+    @RequestMapping("getarea.do")
     public ServerResponse<List<OpptionsVo>> getArea(HttpSession session){
         List<Area> list=areaService.selectArea();
         List<OpptionsVo> opptionsVoList=list.stream()

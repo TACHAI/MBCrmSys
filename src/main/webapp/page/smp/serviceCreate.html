@@ -80,7 +80,7 @@
 					<div class="form-group col-sm-6">
 						<label for="serCus" class="col-sm-4 control-label">客户：</label>
 						<div class="col-sm-7">
-							<select id="serCus" name="serCus" class="form-control" onchange="getBackOptions(url,this)">
+							<select id="serCus" name="serCus" class="form-control" onclick="getBackOptions('http://localhost:8080/Assembly/getcus.do',this)">
 							</select>
 						</div>
 						<label class="myLabel3 control-label text-danger">*</label>
@@ -102,21 +102,21 @@
 						</div>
 						<label class="myLabel4 control-label text-danger">*</label>
 					</div>
-					<div class="form-group">
-						<label for="serCreaterName" class="col-sm-2 control-label">创建人：</label>
-						<div class="col-sm-5">
-							<input type="text" value="" name="serCreaterName"
-								class="form-control" id="serCreaterName" />
-						</div>
-						<label class="myLabel5  control-label text-danger">*</label>
-					</div>
-					<div class="form-group">
-						<label for="serCreaterDate" class="col-sm-2 control-label">创建时间：</label>
-						<div class="col-sm-5">
-							<input type="text" value="" name="serCreaterDate" class="form-control" id="serCreaterDate" />
-						</div>
-						<label class="myLabel6  control-label text-danger">*</label>
-					</div>
+					<!--<div class="form-group">-->
+						<!--<label for="serCreaterName" class="col-sm-2 control-label">创建人：</label>-->
+						<!--<div class="col-sm-5">-->
+							<!--<input type="text" value="" name="serCreaterName"-->
+								<!--class="form-control" id="serCreaterName" />-->
+						<!--</div>-->
+						<!--<label class="myLabel5  control-label text-danger">*</label>-->
+					<!--</div>-->
+					<!--<div class="form-group">-->
+						<!--<label for="serCreaterDate" class="col-sm-2 control-label">创建时间：</label>-->
+						<!--<div class="col-sm-5">-->
+							<!--<input type="text" value="" name="serCreaterDate" class="form-control" id="serCreaterDate" />-->
+						<!--</div>-->
+						<!--<label class="myLabel6  control-label text-danger">*</label>-->
+					<!--</div>-->
 					<input type="submit" style="display: none;" id="submit" />
 				</form>
 			</div>
@@ -141,7 +141,7 @@ $("#serverForm").on('submit',function () {
 	var params=$("#serverForm").serializeJSON();
 	$.ajax({
 		type:'post',
-		url:'http://localhost:8080/server/servicecreate.do',
+		url:'http://localhost:8080/server/createserve.do',
 		data:params,
 		dataType:'json',
 		success:function (data) {

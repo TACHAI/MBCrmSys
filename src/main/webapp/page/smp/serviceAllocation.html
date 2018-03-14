@@ -75,12 +75,12 @@
                     </div>
                 </div>
                 <div class="row">
-                   <div class="form-group col-sm-8">
-                       <label for="serCreaterDate" class="col-sm-2 control-label">创建日期：</label>
-                       <div class="col-sm-8">
-                           <input type="text" name="serCreaterDate" class="form-control" id="serCreaterDate"/>
-                       </div>
-                   </div>
+                   <!--<div class="form-group col-sm-8">-->
+                       <!--<label for="serCreaterDate" class="col-sm-2 control-label">创建日期：</label>-->
+                       <!--<div class="col-sm-8">-->
+                           <!--<input type="text" name="serCreaterDate" class="form-control" id="serCreaterDate"/>-->
+                       <!--</div>-->
+                   <!--</div>-->
                    <div class="form-group col-sm-4">
                        <label class="col-sm-5 control-label">状态：</label>
                        <div class="col-sm-6">
@@ -109,44 +109,102 @@
                    data-page-list="[1, 5, 10, 15, 20, 25]">
                 <thead>
                 <tr>
-                    <th data-field="serId">编号</th>
+                    <th data-field="serId" data-visible="false">编号</th>
                     <th data-field="cusName">客户</th>
                     <th data-field="serResume">概要</th>
                     <th data-field="serveType">服务类型</th>
                     <th data-field="serCreaterName">创建人</th>
                     <th data-field="serCreaterName">创建日期</th>
-                    <th data-field="">分配给</th>
+                    <th data-field="serAllotName">分配给</th>
                     <th data-field="operate" data-formatter="edit">操作</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr >
-                        	<div class="form-group">
-                                <select class="form-control"  name="serAllotName">
-                                    <option value="秘火使">秘火使</option>
-                                    <option value="爱不解释1121">爱不解释1121</option>
-                                    <option value="给我扎哥一个面子">给我扎哥一个面子</option>
-                                    <option value="我爱小逗逼">我爱小逗逼</option>
-                                </select>
-                                <input class="btn btn-primary" onmousemove="javascript:<%=serve.getSerState() %> > 1 ? this.disabled=true : this.disabled=false" type="submit"  name="btn" value="分配给">
-                                <input type="hidden" value="<%=new Timestamp(System.currentTimeMillis()) %>" name="ser_allot_date"/>
-                            </div>
-                        </form>
-                    </td>
-                    <td><a href="moveServe.doServe?id=<%=serve.getSerId() %>" class="delete">删除</a></td>
-                </tr>
-			</tbody>
+			    </tbody>
             </table>
         </div>
     </div>
 </div>
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <input type="text" style="display: none"  id="serId" value="">
+                <h4 class="modal-title" id="myModalLabel">
+                    分配服务
+                </h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <td>
+                            <!--<div class="form-group">-->
+                            <label for="serAllotName" class="col-sm-3 control-label">指派给</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="serAllotName" required placeholder="请输入名字">
+                            </div>
+                        </td>
+                        <td>
+                            <!--<div class="form-group">-->
+                            <label for="serAllotDate" class="col-sm-3 control-label">指派时间</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control"  required id="serAllotDate" placeholder="指派时间">
+                            </div>
+                        </td>
+                    </tr>
+                    </thead>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary" id="distributionSal">
+                    提交更改
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
 <!-- 全局js -->
 <script src="/assets/js/jquery.min.js?v=2.1.4"></script>
 <script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+<!-- Bootstrap table -->
+<script src="/assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="/assets/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+<script src="/assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
 </body>
 </html>
 <script type="text/javascript">
-
+    //date输入框样式
+    $("#serAllotDate").datetimepicker({
+        format:'yyyy-mm-dd hh:ii:ss',  //格式  如果只有yyyy-mm-dd那就是0000-00-00
+        autoclose:true,//选择后是否自动关闭
+        minView:0,//最精准的时间选择为日期  0-分 1-时 2-日 3-月
+        language:  'zh-CN', //中文
+        weekStart: 1, //一周从星期几开始
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        // daysOfWeekDisabled:"1,2,3", //一周的周几不能选 格式为"1,2,3"  数组格式也行
+        todayBtn : true,  //在底部是否显示今天
+        todayHighlight :false, //今天是否高亮显示
+        keyboardNavigation:true, //方向图标改变日期  必须要有img文件夹 里面存放图标
+        showMeridian:false,  //是否出现 上下午
+        initialDate:new Date()
+        //startDate: "2017-01-01" //日期开始时间 也可以是new Date()只能选择以后的时间
+    })
 $("#query").click(function(){
     initTable();
 });
@@ -169,7 +227,87 @@ function initTable() {
     });
 }
 
+    //table初始化的时候把按钮插入
+    function edit (value, row, index) {
+//        var a = '<button type="button" class="RoleOfD btn btn-primary  btn-sm" style="margin-right:15px;" onclick="editSaleOpp(\'' + "EditSaleOpportunity.html" + '\',\'' + row.serId + '\')">编辑</button>';
+        var b = '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="return deleteSaleOpp(\'' + row.serId + '\')">删除</a> ';
+        var c=  '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="distribution(\'' + row.serId + '\')">分配</a> ';
+        return  b + c;
+    }
+    //渲染表格时将日期类型转好格式
+    function dateformatter(value,row,index) {
+        var date=TimestampToDate(row.chcCreateDate);
+        return date
+    }
+    //点击分配按钮从后台返回数据渲染到model中
+    function distribution(id) {
+        $("#serId").val(id);
+        $.ajax({
+            type:'post',
+            url:'http://localhost:8080/serve/selectbyid.do',
+            data:{'chcId':id},
+            dataType:'json',
+            success:function (data) {
+                if(data.status==0){
+                    $("#serAllotName").val(data.data["serAllotName"]);
+                    var date=TimestampToDate(data.data['serAllotDate']);
+                    console.info(date+"后台传过来的值"+$("#serAllotName").val())
+                    console.info(data.data["serAllotName"]+"后台传过来的值")
+                    $("#serAllotDate").val(date);
+                    $("#myModal").modal('show');
+                }
+            },
+            error:function (data) {
+                console.info("发生了错误",data);
+            }
+        })
+    }
+    //将分配数据保存到后台
+    $("#distributionSal").click(function () {
+        var serId=$("#serId").val();
+        var serAllotName=$("#serAllotName").val();
+        var serAllotDate=$("#serAllotDate").val();
+        $.ajax({
+            type:'post',
+            url:'http://localhost:8080/saleopp/distributionsal.do',
+            data:{'serId':serId,'serAllotName':serAllotName,'serAllotDate':serAllotDate},
+            dataType:'json',
+            success:function(data){
+                if(data.status==0){
+                    $("#myModal").modal('hide')
+                    alert("保存成功")
+                }
+            },
+            error:function(data){
+                console.info("发生了错误",data)
+                $('#myModal').modal('hide')
+            }
+        })
+    })
 
+    function deleteSaleOpp(serId){
+        if(confirm('确定要执行此操作吗?'))
+        {
+            console.info('id:'+serId)
+            $.ajax({
+                type:"post",
+                url:"http://localhost:8080/serve/deletebyid.do",
+                data:{serId:serId}, //要发送的是ajaxFrm表单中的数据
+                dataType:'json',
+                success:function (data) {
+                    if(data.status==0){
+                        initTable()
+                    }
+                },
+                error:function (data) {
+                    console.info("代码出现了错误请联系开发者：",data);
+                    alter("代码出现了错误请联系开发者")
+                }
+            });
+            return true;
+        }
+        return false;
+    }
 $(function(){
 	$(".delete").click(function(){
 		var content = $(this).parent().parent().find("td:eq(1)").text();

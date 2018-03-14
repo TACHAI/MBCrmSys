@@ -1,6 +1,8 @@
 /**
  * Created by asus30 on 2018/3/5.
  */
+var flag=true;
+var temp=true;
 function TimestampToDate(Timestamp) {
     var date = new Date(Timestamp);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
     Y = date.getFullYear() + '-';
@@ -46,7 +48,11 @@ function getBackOptions(url,obj) {
         url:url,
         dataType:'json',
         success:function (data) {
+            console.info("成功从后台获得opption:"+data.data)
+            // obj.innerHTML = "";  清空 opption
             if(data.status==0){
+                //通过flag来控制该方法只执行一次
+                if(flag==true){
                 $.each(data.data, function (i, item) {
                     if (item == null) {
                         return;
@@ -56,6 +62,37 @@ function getBackOptions(url,obj) {
                         .text(item["text"])
                         .appendTo(obj);
                 });
+                    flag=false;
+                }
+            }
+        },
+        error:function (data) {
+            console.info("发生了错误",data);
+        }
+    })
+}
+function getBackOptions1(url,obj) {
+    $.ajax({
+        type:'get',
+        url:url,
+        dataType:'json',
+        success:function (data) {
+            console.info("成功从后台获得opption:"+data.data)
+            // obj.innerHTML = "";  清空 opption
+            if(data.status==0){
+                //通过flag来控制该方法只执行一次
+                if(temp==true){
+                    $.each(data.data, function (i, item) {
+                        if (item == null) {
+                            return;
+                        }
+                        $("<option></option>")
+                            .val(item["value"])
+                            .text(item["text"])
+                            .appendTo(obj);
+                    });
+                    temp=false;
+                }
             }
         },
         error:function (data) {

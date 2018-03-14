@@ -1,8 +1,11 @@
 package com.mbcrmsys.controller;
 
+import com.mbcrmsys.common.Const;
 import com.mbcrmsys.common.ServerResponse;
+import com.mbcrmsys.pojo.Consumer;
 import com.mbcrmsys.pojo.Serve;
-import com.mbcrmsys.service.IServcieService;
+import com.mbcrmsys.service.IServeService;
+import com.mbcrmsys.vo.SimServe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,26 +23,72 @@ import java.util.List;
  * @Email 1206966083@qq.com
  */
 @Controller
-@RequestMapping("/service/")
+@RequestMapping("/serve/")
 public class ServiceController {
     @Autowired
-    private IServcieService servcieService;
+    private IServeService servcieService;
 
-    @PostMapping("serviceprocesslist.do")
+    /**
+     * 根据条件查询list
+     * @param session
+     * @param serve
+     * @return
+     */
+    @PostMapping("selectlist.do")
     @ResponseBody
     public ServerResponse<List<Serve>> serviceProcessList(HttpSession session,Serve serve){
-        return null;
+
+        return servcieService.selectlist(serve);
     }
 
-    @PostMapping("serviceallocation.do")
-    @ResponseBody
-    public ServerResponse<List<Serve>> serviceAllocation(HttpSession session,Serve serve){
-        return null;
-    }
-
-    @PostMapping("servicecreate.do")
+    @PostMapping("createserve.do")
     @ResponseBody
     public ServerResponse<String> serviceCreate(HttpSession session,Serve serve){
+        Consumer user= (Consumer) session.getAttribute(Const.CURRENT_USER);
+        serve.setSerCreaterName(user.getConName());
+        Date day=new Date();
+        serve.setSerCreaterDate(day);
         return servcieService.serviceCreate(serve);
     }
+
+
+    /**
+     * 根据id删除销售机会
+     * @param session
+     * @param serId
+     * @return
+     */
+    @PostMapping("deletebyid.do")
+    @ResponseBody
+    public ServerResponse<String> deleteById(HttpSession session,String serId){
+
+        Long id=Long.parseLong(serId);
+        return servcieService.deleteById(id);
+    }
+    @PostMapping("selectbyid.do")
+    @ResponseBody
+    public ServerResponse<Serve> selectById(HttpSession session,String serId){
+
+        Long id=Long.parseLong(serId);
+        return servcieService.selectById(id);
+    }
+
+    /**
+     * 指派人员
+     * @param session
+     * @param SimServe  这个是vo中用来对应前端传过来的
+     * @return
+     */
+    @PostMapping("distributionsal.do")
+    @ResponseBody
+    public ServerResponse<String> assignSaleOpp(HttpSession session, SimServe simServe){
+
+        if (simServe != null){
+            return  servcieService.assignSaleOpp(simServe);
+        }else {
+            return ServerResponse.createByErrorMessage("选择失败");
+        }
+
+    }
+
 }

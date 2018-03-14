@@ -245,4 +245,61 @@
       SER_HANDLE_DATE = #{serHandleDate,jdbcType=TIMESTAMP}
     where SER_ID = #{serId,jdbcType=BIGINT}
   </update>
+  <select id="selectlist" parameterType="com.mbcrmsys.pojo.Serve" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List"/>
+    FROM serve
+    <where>
+      <if test="serSeId != null" >
+        SER_SE_ID = #{serSeId,jdbcType=INTEGER},
+      </if>
+      <if test="serCusId != null" >
+        and SER_CUS_ID = #{serCusId,jdbcType=INTEGER},
+      </if>
+      <if test="serCreaterName != null" >
+        SER_CREATER_NAME = #{serCreaterName,jdbcType=VARCHAR},
+      </if>
+      <if test="serCreaterDate != null" >
+        SER_CREATER_DATE = #{serCreaterDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serRequest != null" >
+        SER_REQUEST = #{serRequest,jdbcType=VARCHAR},
+      </if>
+      <if test="serAllotName != null" >
+        SER_ALLOT_NAME = #{serAllotName,jdbcType=VARCHAR},
+      </if>
+      <if test="serAllotDate != null" >
+        SER_ALLOT_DATE = #{serAllotDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serHandle != null" >
+        SER_HANDLE = #{serHandle,jdbcType=VARCHAR},
+      </if>
+      <if test="serHandleName != null" >
+        SER_HANDLE_NAME = #{serHandleName,jdbcType=VARCHAR},
+      </if>
+      <if test="serResult != null" >
+        SER_RESULT = #{serResult,jdbcType=VARCHAR},
+      </if>
+      <if test="serSatisfcing != null" >
+        SER_SATISFCING = #{serSatisfcing,jdbcType=INTEGER},
+      </if>
+      <if test="serResume != null" >
+        SER_RESUME = #{serResume,jdbcType=VARCHAR},
+      </if>
+      <if test="serState != null" >
+        SER_STATE = #{serState,jdbcType=INTEGER},
+      </if>
+      <if test="serCreaterId != null" >
+        SER_CREATER_ID = #{serCreaterId,jdbcType=BIGINT},
+      </if>
+      <if test="serAllotId != null" >
+        SER_ALLOT_ID = #{serAllotId,jdbcType=BIGINT},
+      </if>
+      <if test="serHandleId != null" >
+        SER_HANDLE_ID = #{serHandleId,jdbcType=BIGINT},
+      </if>
+      <if test="serHandleDate != null" >
+        SER_HANDLE_DATE = #{serHandleDate,jdbcType=TIMESTAMP},
+      </if>
+    </where>
+  </select>
 </mapper>

@@ -2,6 +2,8 @@ package com.mbcrmsys.dao;
 
 import com.mbcrmsys.pojo.Serve;
 
+import java.util.List;
+
 public interface ServeMapper {
     int deleteByPrimaryKey(Long serId);
 
@@ -14,4 +16,5 @@ public interface ServeMapper {
     int updateByPrimaryKeySelective(Serve record);
 
     int updateByPrimaryKey(Serve record);
+    List<Serve> selectlist(Serve serve);
 }
