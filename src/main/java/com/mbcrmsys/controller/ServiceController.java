@@ -76,10 +76,10 @@ public class ServiceController {
     /**
      * 指派人员
      * @param session
-     * @param SimServe  这个是vo中用来对应前端传过来的
+     * @param simServe  这个是vo中用来对应前端传过来的
      * @return
      */
-    @PostMapping("distributionsal.do")
+    @PostMapping("distributionser.do")
     @ResponseBody
     public ServerResponse<String> assignSaleOpp(HttpSession session, SimServe simServe){
 
@@ -91,4 +91,13 @@ public class ServiceController {
 
     }
 
+    @PostMapping("processedit.do")
+    @ResponseBody
+    public ServerResponse<String> processedit(HttpSession session,Serve serve){
+        if (serve != null){
+            return  servcieService.processedit(serve);
+        }else {
+            return ServerResponse.createByErrorMessage("选择失败");
+        }
+    }
 }

@@ -18,4 +18,5 @@ public interface IServeService {
     ServerResponse<Serve> selectById(Long serId);
     ServerResponse<String> deleteById(Long serId);
     ServerResponse<String> assignSaleOpp(SimServe simServe);
+    ServerResponse<String> processedit(Serve serve);
 }

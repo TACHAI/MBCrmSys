@@ -1,0 +1,53 @@
+<where> 
+    <if test="serSeId != null" >
+        SER_SE_ID  LIKE "%"#{serSeId,jdbcTypeINTEGER}"%"
+    </if>
+    <if test="serCusId != null" >
+        and SER_CUS_ID  LIKE "%"#{serCusId,jdbcTypeINTEGER}"%"
+    </if>
+    <if test="serCreaterName != null" >
+        SER_CREATER_NAME  LIKE "%"#{serCreaterName,jdbcTypeVARCHAR}"%"
+    </if>
+    <if test="serCreaterDate != null" >
+        SER_CREATER_DATE  LIKE "%"#{serCreaterDate,jdbcTypeTIMESTAMP}"%"
+    </if>
+    <if test="serRequest != null" >
+        SER_REQUEST  LIKE "%"#{serRequest,jdbcTypeVARCHAR}"%"
+    </if>
+    <if test="serAllotName != null" >
+        SER_ALLOT_NAME  LIKE "%"#{serAllotName,jdbcTypeVARCHAR}"%"
+    </if>
+    <if test="serAllotDate != null" >
+        SER_ALLOT_DATE  LIKE "%"#{serAllotDate,jdbcTypeTIMESTAMP}"%"
+    </if>
+    <if test="serHandle != null" >
+        SER_HANDLE  LIKE "%"#{serHandle,jdbcTypeVARCHAR}"%"
+    </if>
+    <if test="serHandleName != null" >
+        SER_HANDLE_NAME  LIKE "%"#{serHandleName,jdbcTypeVARCHAR}"%"
+    </if>
+    <if test="serResult != null" >
+        SER_RESULT  LIKE "%"#{serResult,jdbcTypeVARCHAR}"%"
+    </if>
+    <if test="serSatisfcing != null" >
+        SER_SATISFCING  LIKE "%"#{serSatisfcing,jdbcTypeINTEGER}"%"
+    </if>
+    <if test="serResume != null" >
+        SER_RESUME  LIKE "%"#{serResume,jdbcTypeVARCHAR}"%"
+    </if>
+    <if test="serState != null" >
+        SER_STATE  LIKE "%"#{serState,jdbcTypeINTEGER}"%"
+    </if>
+    <if test="serCreaterId != null" >
+        SER_CREATER_ID  LIKE "%"#{serCreaterId,jdbcTypeBIGINT}"%"
+    </if>
+    <if test="serAllotId != null" >
+        SER_ALLOT_ID  LIKE "%"#{serAllotId,jdbcTypeBIGINT}"%"
+    </if>
+    <if test="serHandleId != null" >
+        SER_HANDLE_ID  LIKE "%"#{serHandleId,jdbcTypeBIGINT}"%"
+    </if>
+    <if test="serHandleDate != null" >
+        SER_HANDLE_DATE  LIKE "%"#{serHandleDate,jdbcTypeTIMESTAMP}"%"
+    </if>
+</where>

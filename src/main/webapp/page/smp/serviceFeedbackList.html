@@ -34,7 +34,7 @@
                 </ul>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
-                        <a href="login.html">
+                        <a >
                             <i class="fa fa-question"></i> 帮助
                         </a>
                     </li>
@@ -47,129 +47,232 @@
             <h5>服务表</h5>
         </div>
         <div class="ibox-content">
-            <form role="form" class="form-horizontal" name="form1" action="<%=request.getContextPath() %>/queryFeedback.doServe" method="post">
+            <form role="form" class="form-horizontal" name="form1" >
                 <div class="row">
                     <div class="form-group col-sm-4">
-                        <label for="ser_cus_id" class="col-sm-4 control-label">客户：</label>
+                        <label for="serCusId" class="col-sm-4 control-label">客户：</label>
                         <div class="col-sm-8">
-                            <input type="text" name="ser_cus_id" class="form-control" id="ser_cus_id"/>
+                            <select id="serCusId" name="serCusId" class="form-control" required onclick="getBackOptions('http://localhost:8080/Assembly/getcus.do',this)"/>
                         </div>
                     </div>
                     <div class="form-group col-sm-4">
-                        <label for="ser_resume" class="col-sm-4 control-label">概要：</label>
+                        <label class="col-sm-4 control-label">状态：</label>
                         <div class="col-sm-8">
-                            <input type="text" name="ser_resume" class="form-control" id="ser_resume"/>
-                        </div>
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <label for="ser_type" class="col-sm-6 control-label">服务类型：</label>
-                        <div class="col-sm-6">
-                            <select id="ser_type" name="ser_type" class="form-control">
-                            	<option value="全部">全部</option>
-                                <option value="建议">建议</option>
-                                <option value="外包">外包</option>
-                                <option value="咨询">咨询</option>
+                            <select id="serState" name="serState" class="form-control">
+                                <!--<option value="1">新创建</option>-->
+                                <!--<option value="2">已分配</option>-->
+                                <option value="3" selected>已处理</option>
+                                <option value="4">已归档</option>
                             </select>
                         </div>
                     </div>
+
+                    <!--<div class="form-group col-sm-4">-->
+                        <!--<label for="ser_resume" class="col-sm-4 control-label">概要：</label>-->
+                        <!--<div class="col-sm-8">-->
+                            <!--<input type="text" name="ser_resume" class="form-control" id="ser_resume"/>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group col-sm-4">-->
+                        <!--<label for="ser_type" class="col-sm-6 control-label">服务类型：</label>-->
+                        <!--<div class="col-sm-6">-->
+                            <!--<select id="ser_type" name="ser_type" class="form-control">-->
+                            	<!--<option value="">全部</option>-->
+                                <!--<option value="建议">建议</option>-->
+                                <!--<option value="外包">外包</option>-->
+                                <!--<option value="咨询">咨询</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                    <!--</div>-->
                 </div>
-                <div class="row">
-                   <div class="form-group col-sm-8">
-                       <label for="ser_creater_date" class="col-sm-2 control-label">创建日期：</label>
-                       <div class="col-sm-8">
-                           <input type="text" name="ser_creater_date" class="form-control" id="ser_creater_date"/>
-                       </div>
-                   </div>
-                   <div class="form-group col-sm-4">
-                       <label class="col-sm-5 control-label">状态：</label>
-                       <div class="col-sm-6">
-                           <select id="ser_state" name="ser_state" class="form-control">
-                               <option value="1">新创建</option>
-                               <option value="2">已分配</option>
-                               <option value="3" selected>已处理</option>
-                               <option value="4">已归档</option>
-                           </select>
-                       </div>
-                   </div>
-                </div>
+                <!--<div class="row">-->
+                   <!--<div class="form-group col-sm-8">-->
+                       <!--<label for="ser_creater_date" class="col-sm-2 control-label">创建日期：</label>-->
+                       <!--<div class="col-sm-8">-->
+                           <!--<input type="text" name="ser_creater_date" class="form-control" id="ser_creater_date"/>-->
+                       <!--</div>-->
+                   <!--</div>-->
+                <!--</div>-->
                 <input type="submit" style="display:none;" id="submit"/>
             </form>
             <br>
-            <table class="table table-striped table-bordered table-hover">
+            <table id="serviceAllocation"
+                   data-toggle="table"
+                   data-query-params="queryParams"
+                   data-mobile-responsive="true"
+                   data-pagination="true"
+                   data-icon-size="outline"
+                   data-search="false"
+                   data-striped="true"
+                   data-page-size="5"
+                   data-page-number="1"
+                   data-page-list="[1, 5, 10, 15, 20, 25]">
                 <thead>
                 <tr>
-                    <th>编号</th>
-                    <th>客户</th>
-                    <th>概要</th>
-                    <th>服务类型</th>
-                    <th>创建人</th>
-                    <th>创建日期</th>
-                    <th>操作</th>
+                    <th data-field="serId" data-visible="false">编号</th>
+                    <th data-field="cusName">客户</th>
+                    <th data-field="serResume">概要</th>
+                    <th data-field="serveType">服务类型</th>
+                    <th data-field="serCreaterName">创建人</th>
+                    <th data-field="serCreaterName">创建日期</th>
+                    <th data-field="operate" data-formatter="edit">操作</th>
                 </tr>
                 </thead>
-               <tbody>
-			<%
-
-				List<Serve> serves = (List<Serve>)request.getAttribute("serves");
-		
-				if(serves != null){
-					for(Serve serve : serves){
-			%>
-						<tr>
-							<td><%=serve.getSerId() %></td>
-		                    <td><%=serve.getCustomer().getCusName() %></td>
-		                    <td><%=serve.getSerResume() %></td>
-		                    <td><%=serve.getServeType().getSeName() %></td>
-		                    <td><%=serve.getSerCreaterName() %></td>
-		                    <td><%=serve.getSerCreaterDate() %></td>
-							<td><a href="editFeedbackList.doServe?id=<%=serve.getSerId() %>">反馈</a></td>
-						</tr>
-			<% 
-					}
-				}
-			%>
-					</tbody>
+                <tbody>
+                </tbody>
             </table>
-            <%
-				int showPage = ((Integer) (request.getAttribute("showPage")))
-						.intValue();
-						
-				int pageCount = ((Integer) (request.getAttribute("pageCount")))
-						.intValue();
-				int page1 = showPage - 1;
-				int page2 = showPage + 1;
-				int lastPage = pageCount;
-			%>
-
-			<div style="text-align: right;">
-				<ul class="pager">
-					<li><a href="javascript:page(1,<%=pageCount%>)">&laquo;</a></li>
-					<li><a href="javascript:page(<%=page1%>,<%=pageCount%>)">上一页</a></li>
-					<li><a href="javascript:page(<%=page2%>,<%=pageCount%>)">下一页</a></li>
-					<li><a href="javascript:page(<%=lastPage%>,<%=pageCount%>)">&raquo;</a></li>
-				</ul>
-			</div>
         </div>
     </div>
 </div>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <input type="text" style="display: none"  id="serId" value="">
+                <h4 class="modal-title" id="myModalLabel">
+                    服务反馈
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group col-sm-6">
+                    <label for="serResult" class="col-sm-4 control-label">处理结果：</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" name="serResult" id="serResult"/>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="serSatisfcing" class="col-sm-4 control-label">满意度：</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" name="serSatisfcing" id="serSatisfcing">
+                            <option value="5">☆☆☆☆☆</option>
+                            <option value="4">☆☆☆☆</option>
+                            <option value="3">☆☆☆</option>
+                            <option value="2">☆☆</option>
+                            <option value="1">☆</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary" id="distributionSal">
+                    提交更改
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
 <!-- 全局js -->
-<script src="<%=request.getContextPath() %>/js/jquery.min.js?v=2.1.4"></script>
-<script src="<%=request.getContextPath() %>/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/assets/js/jquery.min.js?v=2.1.4"></script>
+<script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+<!-- Bootstrap table -->
+<script src="/assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="/assets/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+<script src="/assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
 </body>
 </html>
 <script type="text/javascript">
+    //date输入框样式
+    $("#serAllotDate").datetimepicker({
+        format:'yyyy-mm-dd hh:ii:ss',  //格式  如果只有yyyy-mm-dd那就是0000-00-00
+        autoclose:true,//选择后是否自动关闭
+        minView:0,//最精准的时间选择为日期  0-分 1-时 2-日 3-月
+        language:  'zh-CN', //中文
+        weekStart: 1, //一周从星期几开始
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        // daysOfWeekDisabled:"1,2,3", //一周的周几不能选 格式为"1,2,3"  数组格式也行
+        todayBtn : true,  //在底部是否显示今天
+        todayHighlight :false, //今天是否高亮显示
+        keyboardNavigation:true, //方向图标改变日期  必须要有img文件夹 里面存放图标
+        showMeridian:false,  //是否出现 上下午
+        initialDate:new Date()
+        //startDate: "2017-01-01" //日期开始时间 也可以是new Date()只能选择以后的时间
+    })
 $("#query").click(function(){
-	$("#submit").click();
+    initTable()
 });
-
-function page(pageNum,pageCount){
-	if(pageNum<=0){
-		pageNum==1;
-	}
-	if(pageNum>pageCount){
-		pageNum=pageCount;
-	}
-	document.form1.action="queryFeedback.doServe?page="+pageNum;
-	$("#submit").click();
+//传参数到后台
+function initTable() {
+    var serCusId = document.getElementById("serCusId").value;
+    var serState = document.getElementById("serState").value;
+//    url=encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
+//    console.info(url+"编码后的url")
+    //先销毁表格
+    $('#serviceRrocess').bootstrapTable('destroy');
+    //初始化表格,动态从服务器加载数据
+    $("#serviceRrocess").bootstrapTable({
+        method: "post",  //使用get请求到服务器获取数据
+        url: 'http://localhost:8080/service/serviceprocesslist.do',
+        queryParams: {
+            'serCusId': serCusId,
+            'serState': serState
+        }, //参数
+        dataType: 'json',
+    })
 }
+//table初始化的时候把按钮插入
+function edit (value, row, index) {
+    var c=  '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="distribution(\'' + row.serId + '\')">反馈</a> ';
+    return  c;
+}
+    //渲染表格时将日期类型转好格式
+    function dateformatter(value,row,index) {
+        var date=TimestampToDate(row.chcCreateDate);
+        return date
+    }
+    //点击分配按钮从后台返回数据渲染到model中
+    function distribution(id) {
+        $("#serId").val(id);
+        $.ajax({
+            type:'post',
+            url:'http://localhost:8080/serve/selectbyid.do',
+            data:{'chcId':id},
+            dataType:'json',
+            success:function (data) {
+                if(data.status==0){
+                    $("#serResult").val(data.data["serResult"]);
+                    $("#serSatisfcing").find("option[value='"+data.data['serSatisfcing']+"']").attr("selected",true);
+
+                    $("#myModal").modal('show');
+                }
+            },
+            error:function (data) {
+                console.info("发生了错误",data);
+            }
+        })
+    }
+    //将分配数据保存到后台
+    $("#distributionSal").click(function () {
+        var serId=$("#serId").val();
+        var serAllotName=$("#serAllotName").val();
+        var serAllotDate=$("#serAllotDate").val();
+        $.ajax({
+            type:'post',
+            url:'http://localhost:8080/serve/distributionser.do',
+            data:{'serId':serId,'serAllotName':serAllotName,'serAllotDate':serAllotDate},
+            dataType:'json',
+            success:function(data){
+                if(data.status==0){
+                    $("#myModal").modal('hide')
+                    alert("保存成功")
+                }
+            },
+            error:function(data){
+                console.info("发生了错误",data)
+                $('#myModal').modal('hide')
+            }
+        })
+    })
+
 </script>

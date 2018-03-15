@@ -72,6 +72,20 @@ public class ServeServiceImpl implements IServeService {
         }else {
             return ServerResponse.createByErrorMessage("指派失败");
         }
+    }
 
+    @Override
+    public ServerResponse<String> processedit(Serve serve) {
+        Serve  serverDTO=serveMapper.selectByPrimaryKey(serve.getSerId());
+        serverDTO.setSerHandleName(serve.getSerHandleName());
+        serverDTO.setSerHandleDate(serve.getSerHandleDate());
+        serverDTO.setSerHandle(serve.getSerHandle());
+        serverDTO.setSerState(3);
+        int result=serveMapper.updateByPrimaryKeySelective(serverDTO);
+        if (result>0){
+            return ServerResponse.createBySuccessMessage("处理成功");
+        }else {
+            return ServerResponse.createByErrorMessage("处理失败");
+        }
     }
 }

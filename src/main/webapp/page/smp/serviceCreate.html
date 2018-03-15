@@ -58,7 +58,7 @@
 					<div class="form-group col-sm-6">
 						<label for="serType" class="col-sm-3 control-label">服务类型：</label>
 						<div class="col-sm-8">
-							<select id="serType" name="serType" class="form-control">
+							<select id="serType" name="serType" class="form-control" required>
 								<option value="1">全部</option>
 								<option value="2">建议</option>
 								<option value="3">外包</option>
@@ -72,7 +72,7 @@
 						<label for="serResume" class="col-sm-2 control-label">概要：</label>
 						<div class="col-sm-9">
 							<textarea style="resize: none" name="serResume" value=""
-								class="form-control" rows="3" id="serResume" placeholder="概要"></textarea>
+								class="form-control" rows="3" id="serResume" placeholder="概要" required></textarea>
 						</div>
 						<label class="myLabel2 control-label text-danger">*</label>
 					</div>
@@ -80,7 +80,7 @@
 					<div class="form-group col-sm-6">
 						<label for="serCus" class="col-sm-4 control-label">客户：</label>
 						<div class="col-sm-7">
-							<select id="serCus" name="serCus" class="form-control" onclick="getBackOptions('http://localhost:8080/Assembly/getcus.do',this)">
+							<select id="serCus" name="serCus" class="form-control" required onclick="getBackOptions('http://localhost:8080/Assembly/getcus.do',this)">
 							</select>
 						</div>
 						<label class="myLabel3 control-label text-danger">*</label>
@@ -88,7 +88,7 @@
 					<div class="form-group col-sm-6">
 						<label for="serState" class="col-sm-3 control-label">状态：</label>
 						<div class="col-sm-8">
-							<input type="text" value="新创建" name="serState"
+							<input type="text" value="1" name="serState"
 								class="form-control" id="serState" readonly />
 						</div>
 					</div>
@@ -98,7 +98,7 @@
 						<div class="col-sm-9">
 							<textarea style="resize: none" name="serRequest" value=""
 								class="form-control" rows="3" id="serRequest"
-								placeholder="服务请求"></textarea>
+								placeholder="服务请求" required></textarea>
 						</div>
 						<label class="myLabel4 control-label text-danger">*</label>
 					</div>

@@ -53,7 +53,7 @@
                     <div class="form-group col-sm-4">
                         <label for="serCusId" class="col-sm-4 control-label">客户：</label>
                         <div class="col-sm-8">
-                            <input type="text" name="serCusId" class="form-control" id="serCusId"/>
+                            <select id="serCusId" name="serCusId" class="form-control"  onclick="getBackOptions('http://localhost:8080/Assembly/getcus.do',this)">
                         </div>
                     </div>
                     <div class="form-group col-sm-4">
@@ -66,7 +66,7 @@
                         <label for="serType" class="col-sm-6 control-label">服务类型：</label>
                         <div class="col-sm-6">
                             <select id="serType" name="serType" class="form-control">
-                            	<option value="全部">全部</option>
+                            	<option value="">全部</option>
                                 <option value="建议">建议</option>
                                 <option value="外包">外包</option>
                                 <option value="咨询">咨询</option>
@@ -85,10 +85,10 @@
                        <label class="col-sm-5 control-label">状态：</label>
                        <div class="col-sm-6">
                            <select id="serState" name="serState" class="form-control">
-                               <option value="1">新创建</option>
+                               <option value="1" selected>新创建</option>
                                <option value="2">已分配</option>
-                               <option value="3">已处理</option>
-                               <option value="4">已归档</option>
+                               <!--<option value="3">已处理</option>-->
+                               <!--<option value="4">已归档</option>-->
                            </select>
                        </div>
                    </div>
@@ -203,7 +203,7 @@
         keyboardNavigation:true, //方向图标改变日期  必须要有img文件夹 里面存放图标
         showMeridian:false,  //是否出现 上下午
         initialDate:new Date()
-        //startDate: "2017-01-01" //日期开始时间 也可以是new Date()只能选择以后的时间
+        //startDate: "2018-01-01" //日期开始时间 也可以是new Date()只能选择以后的时间
     })
 $("#query").click(function(){
     initTable();
@@ -269,7 +269,7 @@ function initTable() {
         var serAllotDate=$("#serAllotDate").val();
         $.ajax({
             type:'post',
-            url:'http://localhost:8080/saleopp/distributionsal.do',
+            url:'http://localhost:8080/serve/distributionser.do',
             data:{'serId':serId,'serAllotName':serAllotName,'serAllotDate':serAllotDate},
             dataType:'json',
             success:function(data){
@@ -308,11 +308,4 @@ function initTable() {
         }
         return false;
     }
-$(function(){
-	$(".delete").click(function(){
-		var content = $(this).parent().parent().find("td:eq(1)").text();
-		var flag = confirm("确认要删除"+ content +"的信息吗？");
-		return flag;
-	});
-});
  </script>

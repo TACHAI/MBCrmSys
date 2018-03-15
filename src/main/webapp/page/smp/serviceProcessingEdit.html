@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="com.rlg.crm.domain.Serve,java.sql.Timestamp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,19 +8,20 @@
     <meta http-equiv="refresh" content="0;ie.html" />
     <![endif]-->
 
-    <link rel="shortcut icon" href="<%=request.getContextPath() %>/favicon.ico"> <link href="<%=request.getContextPath() %>/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/animate.css" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/style.css?v=4.1.0" rel="stylesheet">
-    <style>
-        .td-left,td-right{
-            text-align: right;
-            width: 15%;
-        }
-        .td-right{
-            width: 10%;
-        }
-    </style>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="/assets/css/animate.css" rel="stylesheet">
+    <link href="/assets/css/style.css?v=4.1.0" rel="stylesheet">
+    <!--<style>-->
+        <!--.td-left,td-right{-->
+            <!--text-align: right;-->
+            <!--width: 15%;-->
+        <!--}-->
+        <!--.td-right{-->
+            <!--width: 10%;-->
+        <!--}-->
+    <!--</style>-->
 </head>
 <body class="gray-bg top-navigation">
 <div class="wrapper wrapper-content animated fadeInRight">
@@ -45,14 +43,14 @@
                 </ul>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
-                        <a href="<%=request.getContextPath() %>/queryProcessing.doServe">
+                        <a id="back">
                             <i class="fa fa-reply"></i> 返回
                         </a>
                     </li>
                 </ul>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
-                        <a href="login.html">
+                        <a >
                             <i class="fa fa-question"></i> 帮助
                         </a>
                     </li>
@@ -63,108 +61,122 @@
     <div class="ibox float-e-margins">
 	
         <div class="ibox-content">
-            <table class="table table-striped table-hover">
+            <table id="processEdit"
+                   data-toggle="table"
+                   data-query-params="queryParams"
+                   data-mobile-responsive="true"
+                   data-pagination="true"
+                   data-icon-size="outline"
+                   data-search="false"
+                   data-striped="true"
+                   data-page-size="5"
+                   data-page-number="1"
+                   data-page-list="[1, 5, 10, 15, 20, 25]">
+                <thead>
+                <tr>
+                    <th data-field="serId" data-visible="false">编号</th>
+                    <th data-field="serCus">客户</th>
+                    <th data-field="serResume">概要</th>
+                    <th data-field="serverType">服务类型</th>
+                    <th data-field="serCreaterName">创建人</th>
+                    <th data-field="serCreaterDate" data-formatter="dateformatter">创建日期</th>
+                    <th data-field="serAllotName">分配给</th>
+                    <th data-field="serAllotDate" data-formatter="dateformatter">分配时间</th>
+                </tr>
+                </thead>
                 <tbody>
-                <%
-                	Serve serve = (Serve)request.getAttribute("serve");
-                	if(serve != null){
-                		
-                %>
-                    <tr >
-                        <td class="td-left">编号：</td>
-                        <td><%=serve.getSerId()%></td>
-                        <td class="td-right">服务类型：</td>
-                        <td><%=serve.getServeType().getSeName() %></td>
-                    </tr>
-                    <tr >
-                        <td class="td-left">概要：</td>
-                        <td colspan="3"><%=serve.getSerResume() %></td>
-                    </tr>
-                    <tr >
-                        <td class="td-left">客户：</td>
-                        <td><%=serve.getCustomer().getCusName() %></td>
-                        <td class="td-right">状态：</td>
-                        <td id="ser_state"></td>
-                    </tr>
-                    <tr >
-                        <td class="td-left">服务请求：</td>
-                        <td colspan="3"><%=serve.getSerRequest() %></td>
-                    </tr>
-                    <tr >
-                        <td class="td-left">创建人：</td>
-                        <td><%=serve.getSerCreaterName() %></td>
-                        <td class="td-right">创建时间：</td>
-                        <td><%=serve.getSerCreaterDate() %></td>
-                    </tr>
-                    <tr >
-                        <td class="td-left">分配给：</td>
-                        <td><%=serve.getSerAllotName() %></td>
-                        <td class="td-right">分配时间：</td>
-                        <td><%=serve.getSerAllotDate() %></td>
-                    </tr>
-               <%
-                	}
-               %>
                 </tbody>
             </table>
             <br>
-            <form class="form-horizontal" action="<%=request.getContextPath() %>/editServe.doServe" method="post">
+            <form class="form-horizontal" id="processeditform">
                 <div class="form-group">
-                    <label for="ser_handle" class="col-sm-2 control-label">服务处理：</label>
+                    <label for="serHandle" class="col-sm-2 control-label">服务处理：</label>
                     <div class="col-sm-9">
-                    	<textarea style="resize: none" name="ser_handle" value="" class="form-control" rows="3" id="ser_request" placeholder="服务处理"></textarea>
+                    	<textarea style="resize: none" name="serHandle" value="" class="form-control" rows="3" id="serHandle" placeholder="服务处理"></textarea>
                     </div>  
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="ser_handle_name" class="col-sm-4 control-label">处理人：</label>
+                    <label for="serHandleName" class="col-sm-4 control-label">处理人：</label>
                     <div class="col-sm-7">
-                        <input type="text" value="火鸣佐樱" name="ser_handle_name" class="form-control" id="ser_handle_name"/>
+                        <input type="text" value="火鸣佐樱" name="serHandleName" class="form-control" id="serHandleName"/>
                     </div>
 		       </div>
 
                 <div class="form-group col-sm-6">
-                    <label for="ser_handle_date" class="col-sm-4 control-label">处理时间：</label>
+                    <label for="serHandleDate" class="col-sm-4 control-label">处理时间：</label>
                     <div class="col-sm-7">
-                        <input type="text" value="<%=new Timestamp(System.currentTimeMillis()) %>" name="ser_handle_date" class="form-control" id="ser_handle_date"/>
+                        <input type="text" value="" name="serHandleDate" class="form-control" id="serHandleDate"/>
                     </div>
                 </div>
+                <input type="hidden" name="id" value=""/>
                 <input type="submit" style="display:none;" id="submit"/>
-                <input type="hidden" name="id" value="<%=serve.getSerId() %>"/>
                 <br><br><br>
             </form>
         </div>
     </div>
 </div>
 <!-- 全局js -->
-<script src="<%=request.getContextPath() %>/js/jquery.min.js?v=2.1.4"></script>
-<script src="<%=request.getContextPath() %>/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/assets/js/jquery.min.js?v=2.1.4"></script>
+<script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/assets/js/myjs.js"></script>
+<script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.serializejson.js"></script>
+
+<!-- Bootstrap table -->
+<script src="/assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="/assets/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+<script src="/assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    var url=window.location.search;
+    var str=url.substr(1);
+    var strs=str.split("=");
+    //给隐藏的id赋值
+    $("#id").val(strs[1]);
+    //先销毁表格
+    $('#processEdit').bootstrapTable('destroy');
+    //初始化表格,动态从服务器加载数据
+    $("#processEdit").bootstrapTable({
+        method: "post",  //使用get请求到服务器获取数据
+        url: 'http://localhost:8080/service/serviceprocesslist.do',
+        queryParams:{serId:strs[1]}, //参数
+        dataType:'json',
+        success:function (data) {
+            if(data.status==0){
+
+            }
+        },
+        error:function (data) {
+            console.info("发生了错误",data);
+        }
+    });
+})
+//渲染表格时将日期类型转好格式
+function dateformatter(value,row,index) {
+    var date=TimestampToDate(row.chcCreateDate);
+    return date
+}
+$("#save").click(function () {
+    $("#submit").click();
+})
+$('form').on('submit',function () {
+    var param=$("#processeditform").serializeJSON();
+    $.ajax({
+        type:'post',
+        url:'http://localhost:8080/serve/processedit.do',
+        data:param,
+        dataType:'json',
+        success:function (data) {
+            if(data.status==0){
+                window.history.go(-1);
+            }
+        },
+        error:function (data) {
+            console.info("发生了错误",data)
+        }
+    })
+})
+</script>
 </body>
 </html>
-<script type="text/javascript">
-$(function(){
-	$("#save").click(function() {
-    
-        if($("#ser_request").val() == "" ){
-        	
-            //$(".myLabel1").text("用户名不能为空！");
-            alert("服务处理不能为空!");
-        	return false;
-        }
-        else if($("#ser_handle_name").val() == ""){
-           alert("处理人不能为空！");
-            return false;
-        }
-        else if($("#ser_handle_date").val() == ""){
-        	alert("处理时间不能为空！");
-            return false;
-        }
-        $("#submit").click();   
-        alert("保存成功！");
-	});
-
-});
-
-var obj = {1:"新创建",2:"已分配",3:"已处理",4:"已归档"};
-var  state= obj['<%=serve.getSerState() %>'];
-$("#ser_state").text(state);
-</script>
