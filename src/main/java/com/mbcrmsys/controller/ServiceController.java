@@ -8,6 +8,7 @@ import com.mbcrmsys.service.IServeService;
 import com.mbcrmsys.vo.SimServe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -34,7 +35,7 @@ public class ServiceController {
      * @param serve
      * @return
      */
-    @PostMapping("selectlist.do")
+    @GetMapping("selectlist.do")
     @ResponseBody
     public ServerResponse<List<Serve>> serviceProcessList(HttpSession session,Serve serve){
 

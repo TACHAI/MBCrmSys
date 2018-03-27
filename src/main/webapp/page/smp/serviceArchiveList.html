@@ -7,140 +7,159 @@
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html" />
     <![endif]-->
+    <link href="/assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/assets/css/animate.css" rel="stylesheet">
+    <link href="/assets/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
 
-    <link rel="shortcut icon" href="<%=request.getContextPath() %>/favicon.ico"> <link href="<%=request.getContextPath() %>/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/animate.css" rel="stylesheet">
-    <link href="<%=request.getContextPath() %>/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/assets/css/style.css?v=4.1.0" rel="stylesheet">
 </head>
 <body class="gray-bg top-navigation">
-<div class="wrapper wrapper-content animated fadeInRight">
+<div class="wrapper ">
     <div class="row border-bottom white-bg">
         <nav class="navbar navbar-static-top" role="navigation">
             <div class="navbar-header">
                 <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
                     <i class="fa fa-reorder"></i>
                 </button>
-                <a href="" class="navbar-brand">服务归档</a>
+                <a  class="navbar-brand">服务归档</a>
             </div>
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-top-links navbar-right">
-                    <li>
-                        <a id="query">
-                            <i class="fa fa-search"></i> 查询
-                        </a>
-                    </li>
+                    <li><a id="query"> <i class="fa fa-search"></i> 查询
+                    </a></li>
                 </ul>
                 <ul class="nav navbar-top-links navbar-right">
-                    <li>
-                        <a href="login.html">
-                            <i class="fa fa-question"></i> 帮助
-                        </a>
-                    </li>
+                    <li><a > <i class="fa fa-question"></i>
+                        帮助
+                    </a></li>
                 </ul>
             </div>
         </nav>
     </div>
-    <div class="ibox float-e-margins">
-		<div class="ibox-title">
-            <h5>服务表</h5>
-        </div>
-        <div class="ibox-content">
-           <form role="form" class="form-horizontal" name="form1" action="<%=request.getContextPath() %>/queryArchive.doServe" method="post">
-                <div class="row">
-                    <div class="form-group col-sm-4">
-                        <label for="ser_cus_id" class="col-sm-4 control-label">客户：</label>
-                        <div class="col-sm-8">
-                            <input type="text" name="ser_cus_id" class="form-control" id="ser_cus_id"/>
+    <div class="wrapper wrapper-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+		                <div class="ibox-title">
+                            <h5>服务表</h5>
+                        </div>
+                        <div class="ibox-content">
+                           <form role="form" class="form-horizontal" name="form1">
+                                <div class="row">
+                                    <div class="form-group col-sm-4">
+                                        <label for="serCusId" class="col-sm-4 control-label">客户：</label>
+                                        <div class="col-sm-8">
+                                            <select id="serCusId" name="serCusId" class="form-control" required onclick="getBackOptions('http://localhost:8080/Assembly/getcus.do',this)">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label for="serType" class="col-sm-6 control-label">服务类型：</label>
+                                        <div class="col-sm-6">
+                                            <select id="serType" name="serType" class="form-control">
+                                            	<option value="">全部</option>
+                                                <option value="建议">建议</option>
+                                                <option value="外包">外包</option>
+                                                <option value="咨询">咨询</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label class="col-sm-5 control-label" for="serState">状态：</label>
+                                        <div class="col-sm-6">
+                                            <select id="serState" name="serState" class="form-control">
+                                                <!--<option value="0">全部</option>-->
+                                                <!--<option value="1">新创建</option>-->
+                                                <!--<option value="2">已分配</option>-->
+                                                <option value="3">已处理</option>
+                                                <option value="4">已归档</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                   <!--<div class="form-group col-sm-8">-->
+                                       <!--<label for="serCreaterDate" class="col-sm-2 control-label">创建日期：</label>-->
+                                       <!--<div class="col-sm-8">-->
+                                           <!--<input type="text" name="serCreaterDate" class="form-control" id="serCreaterDate"/>-->
+                                       <!--</div>-->
+                                   <!--</div>-->
+                                </div>
+                                <input type="submit" style="display:none;" id="submit"/>
+                            </form>
+                            <div class="table-responsive">
+                                <table id="serviceArchiveList"
+                                   data-toggle="table"
+                                   data-query-params="queryParams"
+                                   data-mobile-responsive="true"
+                                   data-pagination="true"
+                                   data-icon-size="outline"
+                                   data-search="false"
+                                   data-striped="true"
+                                   data-page-size="5"
+                                   data-page-number="1"
+                                   data-page-list="[1, 5, 10, 15, 20, 25]">
+                                <thead>
+                                <tr>
+                                    <th data-field="serId" data-visible="false">编号</th>
+                                    <th data-field="serCus">客户</th>
+                                    <th data-field="serResume">概要</th>
+                                    <th data-field="serverType">服务类型</th>
+                                    <th data-field="serCreaterName">创建人</th>
+                                    <th data-field="serCreaterDate" data-formatter="dateformatter">创建日期</th>
+                                </tr>
+                                </thead>
+                            </table>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group col-sm-4">
-                        <label for="ser_resume" class="col-sm-4 control-label">概要：</label>
-                        <div class="col-sm-8">
-                            <input type="text" name="ser_resume" class="form-control" id="ser_resume"/>
-                        </div>
-                    </div>
-                    <div class="form-group col-sm-4">
-                        <label for="ser_type" class="col-sm-6 control-label">服务类型：</label>
-                        <div class="col-sm-6">
-                            <select id="ser_type" name="ser_type" class="form-control">
-                            	<option value="全部">全部</option>
-                                <option value="建议">建议</option>
-                                <option value="外包">外包</option>
-                                <option value="咨询">咨询</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                   <div class="form-group col-sm-8">
-                       <label for="ser_creater_date" class="col-sm-2 control-label">创建日期：</label>
-                       <div class="col-sm-8">
-                           <input type="text" name="ser_creater_date" class="form-control" id="ser_creater_date"/>
-                       </div>
-                   </div>
-                   <div class="form-group col-sm-4">
-                       <label class="col-sm-5 control-label">状态：</label>
-                       <div class="col-sm-6">
-                           <select id="ser_state" name="ser_state" class="form-control">
-                           	   <option value="0">全部</option>
-                               <option value="1">新创建</option>
-                               <option value="2">已分配</option>
-                               <option value="3">已处理</option>
-                               <option value="4">已归档</option>
-                           </select>
-                       </div>
-                   </div>
-                </div>
-                <input type="submit" style="display:none;" id="submit"/>
-            </form>
-            <br>
-            <table class="table table-striped table-bordered table-hover">
-                <thead>
-                <tr>
-                    <th>编号</th>
-                    <th>客户</th>
-                    <th>概要</th>
-                    <th>服务类型</th>
-                    <th>创建人</th>
-                    <th>创建日期</th>
-                    <th>状态</th>
-                    <th>操作</th>
-                </tr>
-                </thead>
-                <tbody>
-						<tr>
-							<td><%=serve.getSerId() %></td>
-		                    <td><%=serve.getCustomer().getCusName() %></td>
-		                    <td><%=serve.getSerResume() %></td>
-		                    <td><%=serve.getServeType().getSeName() %></td>
-		                    <td><%=serve.getSerCreaterName() %></td>
-		                    <td><%=serve.getSerCreaterDate() %></td>
-		                    <td><%=state %></td>
-							<td><a href="editArchiveList.doServe?id=<%=serve.getSerId() %>">查看明细</a></td>
-						</tr>
-					</tbody>
-            </table>
-        </div>
+                 </div>
+             </div>
+         </div>
     </div>
 </div>
 <!-- 全局js -->
-<script src="<%=request.getContextPath() %>/js/jquery.min.js?v=2.1.4"></script>
-<script src="<%=request.getContextPath() %>/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/assets/js/jquery.min.js?v=2.1.4"></script>
+<script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/assets/js/content.js?v=1.0.0"></script>
+
+<script src="/assets/js/myjs.js"></script>
+<!-- Bootstrap table -->
+<script src="/assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="/assets/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+<script src="/assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript">
+    //渲染表格时将日期类型转好格式
+    function dateformatter(value,row,index) {
+        var date=TimestampToDate(row.chcCreateDate);
+        return date
+    }
+    $("#query").click(function(){
+        initTable()
+    });
+    //传参数到后台
+    function initTable() {
+        var serCusId = document.getElementById("serCusId").value;
+        var serType = document.getElementById("serType").value;
+        var serState = document.getElementById("serState").value;
+//    url=encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
+//    console.info(url+"编码后的url")
+        var url='http://localhost:8080/serve/selectlist.do?'+'serCusId='+serCusId+'&serState='+serState
+        url=encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
+        console.info(url+"编码后的url")
+        //先销毁表格
+        $('#serviceArchiveList').bootstrapTable('destroy');
+        //初始化表格,动态从服务器加载数据
+        $("#serviceArchiveList").bootstrapTable({
+            method: "get",  //使用get请求到服务器获取数据
+            url: url,
+//            queryParams:{'serCusId':serCusId,'serType':serType,'serState':serState}, //参数
+//            dataType:'json',
+        });
+    }
+
+</script>
 </body>
 </html>
-<script type="text/javascript">
-$("#query").click(function(){
-	$("#submit").click();
-});
-
-function page(pageNum,pageCount){
-	if(pageNum<=0){
-		pageNum==1;
-	}
-	if(pageNum>pageCount){
-		pageNum=pageCount;
-	}
-	document.form1.action="queryArchive.doServe?page="+pageNum;
-	$("#submit").click();
-}
-</script>
