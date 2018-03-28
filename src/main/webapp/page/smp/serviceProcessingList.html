@@ -58,17 +58,17 @@
 												</select>
 											</div>
 										</div>
-										<div class="form-group col-sm-4">
-											<label for="serType" class="col-sm-6 control-label">服务类型：</label>
-											<div class="col-sm-6">
-												<select id="serType" name="serType" class="form-control">
-													<option value="">全部</option>
-													<option value="建议">建议</option>
-													<option value="外包">外包</option>
-													<option value="咨询">咨询</option>
-												</select>
-											</div>
-										</div>
+										<!--<div class="form-group col-sm-4">-->
+											<!--<label for="serType" class="col-sm-6 control-label">服务类型：</label>-->
+											<!--<div class="col-sm-6">-->
+												<!--<select id="serType" name="serType" class="form-control">-->
+													<!--<option value="">全部</option>-->
+													<!--<option value="建议">建议</option>-->
+													<!--<option value="外包">外包</option>-->
+													<!--<option value="咨询">咨询</option>-->
+												<!--</select>-->
+											<!--</div>-->
+										<!--</div>-->
 										<div class="form-group col-sm-4">
 											<label class="col-sm-5 control-label">状态：</label>
 											<div class="col-sm-6">
@@ -109,7 +109,7 @@
 										<th data-field="serId" data-visible="false">编号</th>
 										<th data-field="serCus">客户</th>
 										<th data-field="serResume">概要</th>
-										<th data-field="serverType">服务类型</th>
+										<!--<th data-field="serverType">服务类型</th>-->
 										<th data-field="serCreaterName">创建人</th>
 										<th data-field="serCreaterDate" data-formatter="dateformatter">创建日期</th>
 										<th data-field="operate" data-formatter="edit">操作</th>
@@ -147,9 +147,9 @@
         //传参数到后台
         function initTable() {
             var serCusId = document.getElementById("serCusId").value;
-            var serType = document.getElementById("serType").value;
+//            var serType = document.getElementById("serType").value;
             var serState = document.getElementById("serState").value;
-			var url='http://localhost:8080/serve/selectlist.do?'+'serCusId='+serCusId+'&serState='+serState
+            var url="http://localhost:8080/serve/selectlist.do?serCusId"+serCusId+'serState'+serState;
 			url=encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
     		console.info(url+"编码后的url")
             //先销毁表格

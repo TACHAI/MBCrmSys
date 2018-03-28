@@ -55,17 +55,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-sm-4">
-                                        <label for="serType" class="col-sm-6 control-label">服务类型：</label>
-                                        <div class="col-sm-6">
-                                            <select id="serType" name="serType" class="form-control">
-                                            	<option value="">全部</option>
-                                                <option value="建议">建议</option>
-                                                <option value="外包">外包</option>
-                                                <option value="咨询">咨询</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-sm-4">
                                         <label class="col-sm-5 control-label" for="serState">状态：</label>
                                         <div class="col-sm-6">
                                             <select id="serState" name="serState" class="form-control">
@@ -142,7 +131,7 @@
     //传参数到后台
     function initTable() {
         var serCusId = document.getElementById("serCusId").value;
-        var serType = document.getElementById("serType").value;
+//        var serType = document.getElementById("serType").value;
         var serState = document.getElementById("serState").value;
 //    url=encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
 //    console.info(url+"编码后的url")
