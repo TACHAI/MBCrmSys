@@ -217,7 +217,7 @@
         var serCusId = document.getElementById("serCusId").value;
 //        var serType = document.getElementById("serType").value;
         var serState = document.getElementById("serState").value;
-        var url = "http://localhost:8080/serve/serviceallocation.do?serCusId="+serCusId+"&serState="+serState;
+        var url="http://localhost:8080/serve/selectlist.do?serCusId"+serCusId+'serState'+serState;
         url=encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
         console.info(url+"编码后的url")
         //先销毁表格

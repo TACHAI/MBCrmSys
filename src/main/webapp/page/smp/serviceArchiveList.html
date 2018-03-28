@@ -135,7 +135,7 @@
         var serState = document.getElementById("serState").value;
 //    url=encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
 //    console.info(url+"编码后的url")
-        var url='http://localhost:8080/serve/selectlist.do?'+'serCusId='+serCusId+'&serState='+serState
+        var url="http://localhost:8080/serve/selectlist.do?serCusId"+serCusId+'serState'+serState;
         url=encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
         console.info(url+"编码后的url")
         //先销毁表格
@@ -144,8 +144,6 @@
         $("#serviceArchiveList").bootstrapTable({
             method: "get",  //使用get请求到服务器获取数据
             url: url,
-//            queryParams:{'serCusId':serCusId,'serType':serType,'serState':serState}, //参数
-//            dataType:'json',
         });
     }
 
