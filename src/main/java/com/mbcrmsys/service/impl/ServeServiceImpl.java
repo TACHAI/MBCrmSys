@@ -33,6 +33,7 @@ public class ServeServiceImpl implements IServeService {
 
     @Override
     public ServerResponse<List<Serve>> selectlist(Serve serve) {
+        System.out.println("serve是否有值"+serve.getSerState());
         List<Serve> list= serveMapper.selectlist(serve);
         if(list!=null){
             return ServerResponse.createBySuccess(list,"查询列表成功");

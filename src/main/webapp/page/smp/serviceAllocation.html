@@ -115,7 +115,7 @@
                                     <th data-field="serResume">概要</th>
                                     <!--<th data-field="serveType">服务类型</th>-->
                                     <th data-field="serCreaterName">创建人</th>
-                                    <th data-field="serCreaterName">创建日期</th>
+                                    <th data-field="serCreaterDate" data-formatter="dateformatter">创建日期</th>
                                     <th data-field="serAllotName">分配给</th>
                                     <th data-field="operate" data-formatter="edit">操作</th>
                                 </tr>
@@ -183,6 +183,7 @@
 <script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
 <script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
 <script src="/assets/js/content.js?v=1.0.0"></script>
+<script src="/assets/js/myjs.js"></script>
 
 <!-- Bootstrap table -->
 <script src="/assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
@@ -217,7 +218,8 @@
         var serCusId = document.getElementById("serCusId").value;
 //        var serType = document.getElementById("serType").value;
         var serState = document.getElementById("serState").value;
-        var url="http://localhost:8080/serve/selectlist.do?serCusId"+serCusId+'serState'+serState;
+        console.info("serStateserStateserStateserState"+serState);
+        var url="http://localhost:8080/serve/selectlist.do?serCusId="+serCusId+"&serState="+serState;
         url=encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
         console.info(url+"编码后的url")
         //先销毁表格
@@ -233,12 +235,12 @@
     function edit (value, row, index) {
 //        var a = '<button type="button" class="RoleOfD btn btn-primary  btn-sm" style="margin-right:15px;" onclick="editSaleOpp(\'' + "EditSaleOpportunity.html" + '\',\'' + row.serId + '\')">编辑</button>';
         var b = '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="return deleteSaleOpp(\'' + row.serId + '\')">删除</a> ';
-        var c=  '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="distribution(\'' + row.serId + '\')">分配</a> ';
+        var c=  '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="return distribution(\'' + row.serId + '\')">分配</a> ';
         return  b + c;
     }
     //渲染表格时将日期类型转好格式
     function dateformatter(value,row,index) {
-        var date=TimestampToDate(row.chcCreateDate);
+        var date=TimestampToDate(row.serCreaterDate);
         return date
     }
     //点击分配按钮从后台返回数据渲染到model中
@@ -247,7 +249,7 @@
         $.ajax({
             type:'post',
             url:'http://localhost:8080/serve/selectbyid.do',
-            data:{'chcId':id},
+            data:{'serId':id},
             dataType:'json',
             success:function (data) {
                 if(data.status==0){
@@ -272,7 +274,7 @@
         $.ajax({
             type:'post',
             url:'http://localhost:8080/serve/distributionser.do',
-            data:{'serId':serId,'serAllotName':serAllotName,'serAllotDate':serAllotDate},
+            data:{'serId':serId,'serAllotName':serAllotName,'serAllotDate':serAllotDate,'serState':2},
             dataType:'json',
             success:function(data){
                 if(data.status==0){
@@ -303,7 +305,7 @@
                 },
                 error:function (data) {
                     console.info("代码出现了错误请联系开发者：",data);
-                    alter("代码出现了错误请联系开发者")
+                    alert("代码出现了错误请联系开发者")
                 }
             });
             return true;

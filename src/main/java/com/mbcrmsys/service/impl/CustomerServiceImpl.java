@@ -78,12 +78,19 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Override
     public ServerResponse<String> saveCustomer(Customer customer) {
-        int result=customerMapper.insert(customer);
-        if(result>0){
-            return ServerResponse.createBySuccessMessage("保存成功");
+        List<Customer> result=customerMapper.selectByCondition(customer.getCusName(),null,null);
+//
+        if(result==null){
+            int result1=customerMapper.insert(customer);
+            if(result1>0){
+                return ServerResponse.createBySuccessMessage("保存成功");
+            }else {
+                return ServerResponse.createByErrorMessage("保存失败");
+            }
         }else {
-            return ServerResponse.createByErrorMessage("保存失败");
+            return ServerResponse.createByErrorMessage("该用户已存在");
         }
+
     }
 
     @Override

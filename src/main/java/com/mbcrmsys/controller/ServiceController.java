@@ -38,7 +38,8 @@ public class ServiceController {
     @GetMapping("selectlist.do")
     @ResponseBody
     public ServerResponse<List<Serve>> serviceProcessList(HttpSession session,Serve serve){
-
+        System.out.println("serve的值"+serve.getSerState());
+        System.out.println("serve的值"+serve);
         return servcieService.selectlist(serve);
     }
 

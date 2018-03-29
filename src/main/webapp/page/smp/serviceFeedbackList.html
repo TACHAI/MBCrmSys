@@ -66,7 +66,7 @@
                                         <div class="col-sm-8">
                                             <select id="serState" name="serState" class="form-control">
                                                 <option value="3" selected>已处理</option>
-                                                <option value="4">已归档</option>
+                                                <option value="4">已反馈</option>
                                             </select>
                                         </div>
                                     </div>
@@ -118,7 +118,7 @@
                                     <th data-field="serResume">概要</th>
                                     <!--<th data-field="serveType">服务类型</th>-->
                                     <th data-field="serCreaterName">创建人</th>
-                                    <th data-field="serCreaterName">创建日期</th>
+                                    <th data-field="serCreaterDate" data-formatter="dateformatter">创建日期</th>
                                     <th data-field="operate" data-formatter="edit">操作</th>
                                 </tr>
                                 </thead>
@@ -215,7 +215,7 @@
     function initTable() {
         var serCusId = document.getElementById("serCusId").value;
         var serState = document.getElementById("serState").value;
-        var url="http://localhost:8080/serve/selectlist.do?serCusId"+serCusId+'serState'+serState;
+        var url="http://localhost:8080/serve/selectlist.do?serCusId="+serCusId+"&serState="+serState;
     url=encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
     console.info(url+"编码后的url")
         //先销毁表格
@@ -233,7 +233,7 @@
     }
     //渲染表格时将日期类型转好格式
     function dateformatter(value,row,index) {
-        var date=TimestampToDate(row.chcCreateDate);
+        var date=TimestampToDate(row.serCreaterDate);
         return date
     }
     //点击分配按钮从后台返回数据渲染到model中
@@ -242,7 +242,7 @@
         $.ajax({
             type:'post',
             url:'http://localhost:8080/serve/selectbyid.do',
-            data:{'chcId':id},
+            data:{'serId':id},
             dataType:'json',
             success:function (data) {
                 if(data.status==0){
@@ -260,12 +260,12 @@
     //将分配数据保存到后台
     $("#distributionSal").click(function () {
         var serId=$("#serId").val();
-        var serAllotName=$("#serAllotName").val();
-        var serAllotDate=$("#serAllotDate").val();
+        var serResult=$("#serResult").val();
+        var serSatisfcing=$("#serSatisfcing").val();
         $.ajax({
             type:'post',
-            url:'http://localhost:8080/serve/distributionser.do',
-            data:{'serId':serId,'serAllotName':serAllotName,'serAllotDate':serAllotDate},
+            url:'http://localhost:8080/serve/feedback.do',
+            data:{'serId':serId,'serResult':serResult,'serSatisfcing':serSatisfcing,'serState':4},
             dataType:'json',
             success:function(data){
                 if(data.status==0){

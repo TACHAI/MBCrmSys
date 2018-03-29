@@ -61,8 +61,8 @@
                                                 <!--<option value="0">全部</option>-->
                                                 <!--<option value="1">新创建</option>-->
                                                 <!--<option value="2">已分配</option>-->
-                                                <option value="3">已处理</option>
-                                                <option value="4">已归档</option>
+                                                <option value="4">已反馈</option>
+                                                <option value="5">已归档</option>
                                             </select>
                                         </div>
                                     </div>
@@ -94,7 +94,7 @@
                                     <th data-field="serId" data-visible="false">编号</th>
                                     <th data-field="serCus">客户</th>
                                     <th data-field="serResume">概要</th>
-                                    <th data-field="serverType">服务类型</th>
+                                    <!--<th data-field="serverType">服务类型</th>-->
                                     <th data-field="serCreaterName">创建人</th>
                                     <th data-field="serCreaterDate" data-formatter="dateformatter">创建日期</th>
                                 </tr>
@@ -122,7 +122,7 @@
 <script type="text/javascript">
     //渲染表格时将日期类型转好格式
     function dateformatter(value,row,index) {
-        var date=TimestampToDate(row.chcCreateDate);
+        var date=TimestampToDate(row.serCreaterDate);
         return date
     }
     $("#query").click(function(){
@@ -135,7 +135,7 @@
         var serState = document.getElementById("serState").value;
 //    url=encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
 //    console.info(url+"编码后的url")
-        var url="http://localhost:8080/serve/selectlist.do?serCusId"+serCusId+'serState'+serState;
+        var url="http://localhost:8080/serve/selectlist.do?serCusId="+serCusId+"&serState="+serState;
         url=encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
         console.info(url+"编码后的url")
         //先销毁表格

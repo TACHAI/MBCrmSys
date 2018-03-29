@@ -127,6 +127,52 @@
 		</div>
 	</div>
 	</div>
+	<!-- 模态框（Modal） -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<input type="text" style="display: none"  id="serId" value="">
+					<h4 class="modal-title" id="myModalLabel">
+						分配服务
+					</h4>
+				</div>
+				<div class="modal-body">
+					<table class="table table-bordered">
+						<thead>
+						<tr>
+							<td>
+								<!--<div class="form-group">-->
+								<label for="serAllotName" class="col-sm-3 control-label">指派给</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="serAllotName" required placeholder="请输入名字">
+								</div>
+							</td>
+							<td>
+								<!--<div class="form-group">-->
+								<label for="serAllotDate" class="col-sm-3 control-label">指派时间</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control"  required id="serAllotDate" placeholder="指派时间">
+								</div>
+							</td>
+						</tr>
+						</thead>
+					</table>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="button" class="btn btn-primary" id="distributionSal">
+						提交更改
+					</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
 	<!-- 全局js -->
 	<script src="/assets/js/jquery.min.js?v=2.1.4"></script>
 	<script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
@@ -149,7 +195,7 @@
             var serCusId = document.getElementById("serCusId").value;
 //            var serType = document.getElementById("serType").value;
             var serState = document.getElementById("serState").value;
-            var url="http://localhost:8080/serve/selectlist.do?serCusId"+serCusId+'serState'+serState;
+            var url="http://localhost:8080/serve/selectlist.do?serCusId="+serCusId+"&serState="+serState;
 			url=encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
     		console.info(url+"编码后的url")
             //先销毁表格
@@ -168,7 +214,7 @@
         }
         //渲染表格时将日期类型转好格式
         function dateformatter(value,row,index) {
-            var date=TimestampToDate(row.chcCreateDate);
+            var date=TimestampToDate(row.serCreaterDate);
             return date
         }
 
