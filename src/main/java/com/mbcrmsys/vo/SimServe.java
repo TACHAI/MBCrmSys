@@ -17,4 +17,5 @@ public class SimServe {
     private String serAllotName;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date serAllotDate;
+    private Integer serState;
 }

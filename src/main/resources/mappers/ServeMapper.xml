@@ -250,55 +250,55 @@
     FROM serve
     <where>
       <if test="serSeId != null and serSeId !=''" >
-        SER_SE_ID  LIKE "%"#{serSeId,jdbcTypeINTEGER}"%"
+        SER_SE_ID  LIKE "%"#{serSeId,jdbcType=INTEGER}"%"
       </if>
       <if test="serCusId != null and serCusId !=''" >
-        and SER_CUS_ID  LIKE "%"#{serCusId,jdbcTypeINTEGER}"%"
+        and SER_CUS_ID  LIKE "%"#{serCusId,jdbcType=INTEGER}"%"
       </if>
       <if test="serCreaterName != null and serCreaterName !=''" >
-        and SER_CREATER_NAME  LIKE "%"#{serCreaterName,jdbcTypeVARCHAR}"%"
+        and SER_CREATER_NAME  LIKE "%"#{serCreaterName,jdbcType=VARCHAR}"%"
       </if>
       <if test="serCreaterDate != null and serCreaterDate !=''" >
-        and SER_CREATER_DATE  LIKE "%"#{serCreaterDate,jdbcTypeTIMESTAMP}"%"
+        and SER_CREATER_DATE  LIKE "%"#{serCreaterDate,jdbcType=TIMESTAMP}"%"
       </if>
       <if test="serRequest != null and serRequest !=''" >
-        and SER_REQUEST  LIKE "%"#{serRequest,jdbcTypeVARCHAR}"%"
+        and SER_REQUEST  LIKE "%"#{serRequest,jdbcType=VARCHAR}"%"
       </if>
       <if test="serAllotName != null and serAllotName !=''" >
-        and SER_ALLOT_NAME  LIKE "%"#{serAllotName,jdbcTypeVARCHAR}"%"
+        and SER_ALLOT_NAME  LIKE "%"#{serAllotName,jdbcType=VARCHAR}"%"
       </if>
       <if test="serAllotDate != null and serAllotDate !=''" >
-        and SER_ALLOT_DATE  LIKE "%"#{serAllotDate,jdbcTypeTIMESTAMP}"%"
+        and SER_ALLOT_DATE  LIKE "%"#{serAllotDate,jdbcType=TIMESTAMP}"%"
       </if>
       <if test="serHandle != null and serHandle !=''" >
-        and SER_HANDLE  LIKE "%"#{serHandle,jdbcTypeVARCHAR}"%"
+        and SER_HANDLE  LIKE "%"#{serHandle,jdbcType=VARCHAR}"%"
       </if>
       <if test="serHandleName != null and serHandleName !=''" >
-        and SER_HANDLE_NAME  LIKE "%"#{serHandleName,jdbcTypeVARCHAR}"%"
+        and SER_HANDLE_NAME  LIKE "%"#{serHandleName,jdbcType=VARCHAR}"%"
       </if>
       <if test="serResult != null and serResult !=''" >
-        SER_RESULT  LIKE "%"#{serResult,jdbcTypeVARCHAR}"%"
+        and SER_RESULT  LIKE "%"#{serResult,jdbcType=VARCHAR}"%"
       </if>
       <if test="serSatisfcing != null and serSatisfcing !=''" >
-        and SER_SATISFCING  LIKE "%"#{serSatisfcing,jdbcTypeINTEGER}"%"
+        and SER_SATISFCING  LIKE "%"#{serSatisfcing,jdbcType=INTEGER}"%"
       </if>
       <if test="serResume != null and serResume !=''" >
-        and SER_RESUME  LIKE "%"#{serResume,jdbcTypeVARCHAR}"%"
+        and SER_RESUME  LIKE "%"#{serResume,jdbcType=VARCHAR}"%"
       </if>
       <if test="serState != null and serState !=''" >
-        and SER_STATE  LIKE "%"#{serState,jdbcTypeINTEGER}"%"
+        and SER_STATE  = #{serState,jdbcType=INTEGER}
       </if>
       <if test="serCreaterId != null and serCreaterId !=''" >
-        and SER_CREATER_ID  LIKE "%"#{serCreaterId,jdbcTypeBIGINT}"%"
+        and SER_CREATER_ID  LIKE "%"#{serCreaterId,jdbcType=BIGINT}"%"
       </if>
       <if test="serAllotId != null and serAllotId !=''" >
-        and SER_ALLOT_ID  LIKE "%"#{serAllotId,jdbcTypeBIGINT}"%"
+        and SER_ALLOT_ID  LIKE "%"#{serAllotId,jdbcType=BIGINT}"%"
       </if>
       <if test="serHandleId != null and serHandleId !=''" >
-        and SER_HANDLE_ID  LIKE "%"#{serHandleId,jdbcTypeBIGINT}"%"
+        and SER_HANDLE_ID  LIKE "%"#{serHandleId,jdbcType=BIGINT}"%"
       </if>
       <if test="serHandleDate != null and serHandleDate !=''" >
-        and SER_HANDLE_DATE  LIKE "%"#{serHandleDate,jdbcTypeTIMESTAMP}"%"
+        and SER_HANDLE_DATE  LIKE "%"#{serHandleDate,jdbcType=TIMESTAMP}"%"
       </if>
     </where>
   </select>

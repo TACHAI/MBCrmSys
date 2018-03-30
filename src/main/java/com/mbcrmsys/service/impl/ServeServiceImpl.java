@@ -67,6 +67,7 @@ public class ServeServiceImpl implements IServeService {
         Serve serve = serveMapper.selectByPrimaryKey(simServe.getSerId());
         serve.setSerAllotDate(simServe.getSerAllotDate());
         serve.setSerAllotName(simServe.getSerAllotName());
+        serve.setSerState(simServe.getSerState());
         int resultcount = serveMapper.updateByPrimaryKeySelective(serve);
         if (resultcount>0){
             return ServerResponse.createBySuccessMessage("指派成功");
