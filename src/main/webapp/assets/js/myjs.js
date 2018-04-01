@@ -3,6 +3,7 @@
  */
 var flag=true;
 var temp=true;
+var cusName;
 function TimestampToDate(Timestamp) {
     var date = new Date(Timestamp);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
     Y = date.getFullYear() + '-';
@@ -39,6 +40,7 @@ function getParam() {
         }
 
     }
+    sessionStorage.setItem("theRequest", theRequest);
     return theRequest;
 }
 //从后台获得option的list并渲染到当前的select
@@ -99,4 +101,30 @@ function getBackOptions1(url,obj) {
             console.info("发生了错误",data);
         }
     })
+}
+//渲染表格时将日期类型转好格式
+function dateformatter(value,row,index) {
+    var date=TimestampToDate(row.serCreaterDate);
+    return date
+}
+//渲染表格时将日期类型转好格式
+function getCusName(value,row,index) {
+   $.ajax({
+       type:'post',
+       url:'http://localhost:8080/cmp/getCusName.do',
+       data:{'cusId':row.serCusId},
+       dataType:'json',
+       async:false,
+       success:function (data) {
+           if(data.status==0){
+               // console.info("返回的客户名字"+data.data.cusName)
+               //ajax赋值必须赋值给全局变量同时应该调成同步 同时关闭异步加载
+               cusName=data.data.cusName;
+           }
+       },
+       error:function (data) {
+           console.info("发生了错误"+data)
+       }
+   })
+    return cusName;
 }

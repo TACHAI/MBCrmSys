@@ -90,4 +90,18 @@ public class ServeServiceImpl implements IServeService {
             return ServerResponse.createByErrorMessage("处理失败");
         }
     }
+
+    @Override
+    public ServerResponse<String> feedback(Serve serve) {
+        Serve  serverDTO=serveMapper.selectByPrimaryKey(serve.getSerId());
+        serverDTO.setSerSatisfcing(serve.getSerSatisfcing());
+        serverDTO.setSerResult(serve.getSerResult());
+        serverDTO.setSerState(serve.getSerState());
+        int result=serveMapper.updateByPrimaryKeySelective(serverDTO);
+        if (result>0){
+            return ServerResponse.createBySuccessMessage("反馈成功");
+        }else {
+            return ServerResponse.createByErrorMessage("反馈失败");
+        }
+    }
 }

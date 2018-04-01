@@ -374,7 +374,7 @@
         AND cus_manager LIKE  "%"#{cusManager,jdbcType=VARCHAR}"%"
       </if>
       <if test="cusState !=null and cusState != '' ">
-        AND cus_state LIKE "%"#{cusState,jdbcType=DECIMAL}"%"
+        AND cus_state = #{cusState,jdbcType=DECIMAL}
       </if>
     </where>
   </select>

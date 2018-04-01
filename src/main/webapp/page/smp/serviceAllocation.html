@@ -8,11 +8,11 @@
     <meta http-equiv="refresh" content="0;ie.html" />
     <![endif]-->
 
-    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
     <link href="/assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="/assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
-    <link href="/assets/css/animate.css" rel="stylesheet">
     <link href="/assets/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="/assets/css/animate.css" rel="stylesheet">
     <link href="/assets/css/style.css?v=4.1.0" rel="stylesheet">
 </head>
 <body class="gray-bg top-navigation">
@@ -73,25 +73,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <!--<div class="form-group col-sm-4">-->
-                                        <!--<label for="serType" class="col-sm-6 control-label">服务类型：</label>-->
-                                        <!--<div class="col-sm-6">-->
-                                            <!--<select id="serType" name="serType" class="form-control">-->
-                                            	<!--<option value="">全部</option>-->
-                                                <!--<option value="建议">建议</option>-->
-                                                <!--<option value="外包">外包</option>-->
-                                                <!--<option value="咨询">咨询</option>-->
-                                            <!--</select>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
                                 </div>
                                 <div class="row">
-                                   <!--<div class="form-group col-sm-8">-->
-                                       <!--<label for="serCreaterDate" class="col-sm-2 control-label">创建日期：</label>-->
-                                       <!--<div class="col-sm-8">-->
-                                           <!--<input type="text" name="serCreaterDate" class="form-control" id="serCreaterDate"/>-->
-                                       <!--</div>-->
-                                   <!--</div>-->
                                 </div>
                                 <input type="submit" style="display:none;" id="submit"/>
                             </form>
@@ -111,7 +94,7 @@
                                 <thead>
                                 <tr>
                                     <th data-field="serId" data-visible="false">编号</th>
-                                    <th data-field="cusName">客户</th>
+                                    <th data-field="serCusId" data-formatter="getCusName">客户</th>
                                     <th data-field="serResume">概要</th>
                                     <!--<th data-field="serveType">服务类型</th>-->
                                     <th data-field="serCreaterName">创建人</th>
@@ -174,8 +157,8 @@
                     提交更改
                 </button>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
+        </div>
+    </div>
 </div>
 
 <!-- 全局js -->
@@ -238,11 +221,11 @@
         var c=  '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="return distribution(\'' + row.serId + '\')">分配</a> ';
         return  b + c;
     }
-    //渲染表格时将日期类型转好格式
-    function dateformatter(value,row,index) {
-        var date=TimestampToDate(row.serCreaterDate);
-        return date
-    }
+//    //渲染表格时将日期类型转好格式
+//    function dateformatter(value,row,index) {
+//        var date=TimestampToDate(row.serCreaterDate);
+//        return date
+//    }
     //点击分配按钮从后台返回数据渲染到model中
     function distribution(id) {
         $("#serId").val(id);

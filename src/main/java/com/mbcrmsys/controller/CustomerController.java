@@ -1,6 +1,7 @@
 package com.mbcrmsys.controller;
 
 import com.mbcrmsys.common.ServerResponse;
+import com.mbcrmsys.dao.CustomerMapper;
 import com.mbcrmsys.pojo.Customer;
 import com.mbcrmsys.service.ICustomerService;
 import com.mbcrmsys.util.CheckLogin;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -30,6 +32,8 @@ import java.util.Map;
 public class CustomerController {
     @Autowired
     private ICustomerService iCustomerService;
+    @Autowired
+    private CustomerMapper customerMapper;
 
     /**
      * 查询所有
@@ -80,5 +84,18 @@ public class CustomerController {
     public ServerResponse<String> saveCustomer(Customer customer,HttpSession session){
         CheckLogin.check(session);
         return  iCustomerService.saveCustomer(customer);
+    }
+    @PostMapping("getCusName.do")
+    @ResponseBody
+    public ServerResponse<Map<String,String>> getCusName(HttpSession session,Integer cusId){
+        Map<String,String> map=new HashMap<>();
+        Customer customer=customerMapper.selectByPrimaryKey(cusId);
+        if(customer!=null){
+            map.put("cusName",customer.getCusName());
+            return ServerResponse.createBySuccess(map,"获得客户名字成功");
+        }else {
+            return ServerResponse.createByErrorMessage("获得客户名字失败");
+        }
+
     }
 }

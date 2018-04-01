@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
-                    <div class="ibox-content">
+                        <div class="ibox-content">
                         <table id="processEdit"
                                data-toggle="table"
                                data-query-params="queryParams"
@@ -78,7 +78,7 @@
                             <thead>
                             <tr>
                                 <th data-field="serId" data-visible="false">编号</th>
-                                <th data-field="serCus">客户</th>
+                                <th data-field="serCusId" data-formatter="getCusName">客户</th>
                                 <th data-field="serResume">概要</th>
                                 <!--<th data-field="serverType">服务类型</th>-->
                                 <th data-field="serCreaterName">创建人</th>
@@ -111,7 +111,7 @@
                                     <input type="text" value="" name="serHandleDate" class="form-control" id="serHandleDate"/>
                                 </div>
                             </div>
-                            <input type="hidden" name="id" value=""/>
+                            <input type="hidden" id="serId" name="serId" value=""/>
                             <input type="submit" style="display:none;" id="submit"/>
                             <br><br><br>
                         </form>
@@ -128,7 +128,7 @@
 <script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
 <script src="/assets/js/myjs.js"></script>
 <script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
-<script type="text/javascript" src="/assets/js/jquery.serializejson.js"></script>
+<script src="/assets/js/jquery.serializejson.js"></script>
 
 <!-- Bootstrap table -->
 <script src="/assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
@@ -136,35 +136,49 @@
 <script src="/assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
 
 <script type="text/javascript">
+    $("#serHandleDate").datetimepicker({
+        format:'yyyy-mm-dd hh:ii:ss',  //格式  如果只有yyyy-mm-dd那就是0000-00-00
+        autoclose:true,//选择后是否自动关闭
+        minView:0,//最精准的时间选择为日期  0-分 1-时 2-日 3-月
+        language:  'zh-CN', //中文
+        weekStart: 1, //一周从星期几开始
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        // daysOfWeekDisabled:"1,2,3", //一周的周几不能选 格式为"1,2,3"  数组格式也行
+        todayBtn : true,  //在底部是否显示今天
+        todayHighlight :false, //今天是否高亮显示
+        keyboardNavigation:true, //方向图标改变日期  必须要有img文件夹 里面存放图标
+        showMeridian:false,  //是否出现 上下午
+        initialDate:new Date()
+        //startDate: "2018-01-01" //日期开始时间 也可以是new Date()只能选择以后的时间
+    })
 $(document).ready(function () {
     var url=window.location.search;
     var str=url.substr(1);
     var strs=str.split("=");
     //给隐藏的id赋值
-    $("#id").val(strs[1]);
-    //先销毁表格
-    $('#processEdit').bootstrapTable('destroy');
-    //初始化表格,动态从服务器加载数据
-    $("#processEdit").bootstrapTable({
-        method: "post",  //使用get请求到服务器获取数据
-        url: 'http://localhost:8080/service/serviceprocesslist.do',
-        queryParams:{serId:strs[1]}, //参数
-        dataType:'json',
-        success:function (data) {
-            if(data.status==0){
-
-            }
-        },
-        error:function (data) {
-            console.info("发生了错误",data);
-        }
-    });
+    $("#serId").val(strs[1]);
+//    //先销毁表格
+//    $('#processEdit').bootstrapTable('destroy');
+//    //初始化表格,动态从服务器加载数据
+//    $("#processEdit").bootstrapTable({
+//        method: "post",  //使用get请求到服务器获取数据
+//        url: 'http://localhost:8080/serve/serviceprocesslist.do',
+//        queryParams:{serId:strs[1]}, //参数
+//        dataType:'json',
+//        success:function (data) {
+//            if(data.status==0){
+//
+//            }
+//        },
+//        error:function (data) {
+//            console.info("发生了错误",data);
+//        }
+//    });
 })
-//渲染表格时将日期类型转好格式
-function dateformatter(value,row,index) {
-    var date=TimestampToDate(row.chcCreateDate);
-    return date
-}
 $("#save").click(function () {
     $("#submit").click();
 })
@@ -177,6 +191,7 @@ $('form').on('submit',function () {
         dataType:'json',
         success:function (data) {
             if(data.status==0){
+                alert("保存成功")
                 window.history.go(-1);
             }
         },

@@ -245,15 +245,15 @@
       SER_HANDLE_DATE = #{serHandleDate,jdbcType=TIMESTAMP}
     where SER_ID = #{serId,jdbcType=BIGINT}
   </update>
-  <select id="selectlist" parameterType="com.mbcrmsys.pojo.Serve" resultMap="BaseResultMap">
+  <select id="selectlist" parameterType="map" resultMap="BaseResultMap">
     SELECT <include refid="Base_Column_List"/>
     FROM serve
     <where>
       <if test="serSeId != null and serSeId !=''" >
         SER_SE_ID  LIKE "%"#{serSeId,jdbcType=INTEGER}"%"
       </if>
-      <if test="serCusId != null and serCusId !=''" >
-        and SER_CUS_ID  LIKE "%"#{serCusId,jdbcType=INTEGER}"%"
+      <if test="serCusId != null and serCusId !='' " >
+        AND SER_CUS_ID  = #{serCusId,jdbcType=INTEGER}
       </if>
       <if test="serCreaterName != null and serCreaterName !=''" >
         and SER_CREATER_NAME  LIKE "%"#{serCreaterName,jdbcType=VARCHAR}"%"

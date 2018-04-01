@@ -97,7 +97,20 @@ public class ServiceController {
     @ResponseBody
     public ServerResponse<String> processedit(HttpSession session,Serve serve){
         if (serve != null){
+            Consumer user= (Consumer) session.getAttribute(Const.CURRENT_USER);
+            System.out.println("userName是否优质"+user.getConName());
+            serve.setSerHandleName(user.getConName());
             return  servcieService.processedit(serve);
+        }else {
+            return ServerResponse.createByErrorMessage("选择失败");
+        }
+    }
+
+    @PostMapping("feedback.do")
+    @ResponseBody
+    public ServerResponse<String> feedback(HttpSession session,Serve serve){
+        if (serve != null){
+            return  servcieService.feedback(serve);
         }else {
             return ServerResponse.createByErrorMessage("选择失败");
         }

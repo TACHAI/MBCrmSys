@@ -25,7 +25,7 @@
                 <ul class="nav" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                            <<span>当前用户</span>-->
+                            <span>当前用户</span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                 <span class="text-muted text-xs block" id="chcname"><b class="caret"></b></span>
@@ -182,7 +182,7 @@
     //页面渲染完的时候给id为chcname的给一个值
     $(document).ready(function () {
        var str = getParam();
-       console.info(str['id'])
+       console.info("用户id"+str['id'])
        $("#chcname").text(str['name'])
     })
     //跳转到个人资料页面
@@ -190,20 +190,20 @@
         var str=getParam();
         window.location.href="/page/user/profile.html?chcId="+str['id']
     }
-    //获取url里面的参数当参数大于二的时候有用
-    function getParam() {
-        var url=window.location.search;//获取当前url ?后面的值
-        var theRequest = new Object();
-        if(url.indexOf("?")!=-1){
-            var str=url.substr(1);
-            var strs=str.split("&");
-            for(var i=0;i<str.length;i++){
-                str=strs[i].split("=");
-                theRequest[str[0]]=decodeURI(str[1]);
-            }
-        }
-        return theRequest;
-    }
+//    //获取url里面的参数当参数大于二的时候有用
+//    function getParam() {
+//        var url=window.location.search;//获取当前url ?后面的值
+//        var theRequest = new Object();
+//        if(url.indexOf("?")!=-1){
+//            var str=url.substr(1);
+//            var strs=str.split("&");
+//            for(var i=0;i<str.length;i++){
+//                str=strs[i].split("=");
+//                theRequest[str[0]]=decodeURI(str[1]);
+//            }
+//        }
+//        return theRequest;
+//    }
 </script>
 
 </body>
