@@ -53,7 +53,7 @@
 						<div class="col-lg-12">
 							<div class="ibox float-e-margins">
 								<div class="ibox-title">
-									<h5>新建客户联系</h5>
+									<h5>修改客户联系人</h5>
 								</div>
 								<div class="ibox-content">
 									<form role="form" class="form-horizontal" id="updatelinkMan">
@@ -124,6 +124,7 @@
 	<!-- 全局js -->
 	<script src="/assets/js/jquery.min.js?v=2.1.4"></script>
 	<script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
+	<script src="/assets/js/jquery.serializejson.js"></script>
 
 	<!-- 自定义js -->
 	<script src="/assets/js/content.js?v=1.0.0"></script>
@@ -162,7 +163,7 @@ $("#save").click(function(){
 	$("#btn1").click();
 })
 $('form').on('submit',function () {
-	var params=$("#updatalinkMan").serializeJSON();
+	var params=$("#updatelinkMan").serializeJSON();
 	$.ajax({
 		type:'post',
 		url:'http://localhost:8080/linkman/updatelinkkman.do',

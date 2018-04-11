@@ -37,7 +37,7 @@ public class LinkmanController {
         }
     }
 
-    @PostMapping("selectbyid")
+    @PostMapping("selectbyid.do")
     @ResponseBody
     public ServerResponse<Linkman> selectById(HttpSession session,String linId){
         if(!StringUtils.isBlank(linId)){
@@ -48,19 +48,19 @@ public class LinkmanController {
         }
     }
 
-    @PostMapping("addlinkman")
+    @PostMapping("addlinkman.do")
     @ResponseBody
     public ServerResponse<String> insertLinkMan(HttpSession session,Linkman linkman){
         return  linkmanService.insertLinkMan(linkman);
     }
 
-    @PostMapping("updatelinkman")
+    @PostMapping("updatelinkman.do")
     @ResponseBody
     public ServerResponse<String> updateLinkMan(HttpSession session,Linkman linkman){
         return linkmanService.updateLinkMan(linkman);
     }
 
-    @PostMapping("deletebyid")
+    @PostMapping("deletebyid.do")
     @ResponseBody
     public ServerResponse<String> deleteById(HttpSession session,String linId){
         if(!StringUtils.isBlank(linId)){

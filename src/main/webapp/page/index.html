@@ -28,7 +28,7 @@
                             <span>当前用户</span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
-                                <span class="text-muted text-xs block" id="chcname"><b class="caret"></b></span>
+                                    <span class="text-muted text-xs block" id="chcname"><b class="caret"><script>document.write(getCusName())</script></b></span>
                                 </span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
@@ -41,8 +41,6 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- <div class="logo-element">H+
-                        </div> -->
                     </li>
                     <li>
                         <a href="#">
@@ -79,7 +77,7 @@
                         </ul>
                     </li>
                    <li>
-                    <a href="#"><i class="fa fa-table"></i> <span class="nav-label">服务报表</span><span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-table"></i> <span class="nav-label">服务管理</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li><a class="J_menuItem" href="/page/smp/serviceCreate.html">服务创建</a>
                         </li>
@@ -140,7 +138,7 @@
                 <div class="pull-right">&copy; 2018-2025 <a href="" target="_blank">zihan's blog</a>
                 </div>
                 <div>
-                    <strong>Copyright</strong> H+ &copy; 2018
+                    <strong>Copyright</strong>&copy; 2018
                 </div>
             </div>
 
@@ -175,7 +173,7 @@
     <script src="/assets/js/hplus.js?v=4.1.0"></script>
     <script type="text/javascript" src="/assets/js/contabs.js"></script>
     <script src="/assets/js/hplus.js?v=4.1.0"></script>
-
+    <script src="/assets/js/myjs.js"></script>
     <!-- 第三方插件 -->
     <script src="/assets/js/plugins/pace/pace.min.js"></script>
 <script >
@@ -190,20 +188,20 @@
         var str=getParam();
         window.location.href="/page/user/profile.html?chcId="+str['id']
     }
-//    //获取url里面的参数当参数大于二的时候有用
-//    function getParam() {
-//        var url=window.location.search;//获取当前url ?后面的值
-//        var theRequest = new Object();
-//        if(url.indexOf("?")!=-1){
-//            var str=url.substr(1);
-//            var strs=str.split("&");
-//            for(var i=0;i<str.length;i++){
-//                str=strs[i].split("=");
-//                theRequest[str[0]]=decodeURI(str[1]);
-//            }
-//        }
-//        return theRequest;
-//    }
+    //获取url里面的参数当参数大于二的时候有用
+    function getParam() {
+        var url=window.location.search;//获取当前url ?后面的值
+        var theRequest = new Object();
+        if(url.indexOf("?")!=-1){
+            var str=url.substr(1);
+            var strs=str.split("&");
+            for(var i=0;i<str.length;i++){
+                str=strs[i].split("=");
+                theRequest[str[0]]=decodeURI(str[1]);
+            }
+        }
+        return theRequest;
+    }
 </script>
 
 </body>

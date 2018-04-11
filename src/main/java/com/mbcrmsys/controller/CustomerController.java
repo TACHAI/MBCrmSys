@@ -1,7 +1,9 @@
 package com.mbcrmsys.controller;
 
+import com.mbcrmsys.common.Const;
 import com.mbcrmsys.common.ServerResponse;
 import com.mbcrmsys.dao.CustomerMapper;
+import com.mbcrmsys.pojo.Consumer;
 import com.mbcrmsys.pojo.Customer;
 import com.mbcrmsys.service.ICustomerService;
 import com.mbcrmsys.util.CheckLogin;
@@ -47,10 +49,17 @@ public class CustomerController {
     @ResponseBody
     public ServerResponse<List<Customer>> selectByCondition(String cusName, String cusManager, String cusState, HttpSession session){
         //检查是否登录
-        CheckLogin.check(session);
-        Map<String,String> map=DecoderSelectByCondition.decoder(cusName,cusManager,cusState);
-        ServerResponse<List<Customer>> serverResponse=iCustomerService.selectByCondition(map.get("param1"),map.get("param2"),map.get("param3"));
-        return serverResponse;
+//        CheckLogin.check(session);
+        Consumer user=(Consumer) session.getAttribute(Const.CURRENT_USER);
+        System.out.println(user.getConName()+"后台sesison");
+        if(user==null){
+            return ServerResponse.createByErrorMessage("用户未登录");
+        }else {
+            Map<String,String> map=DecoderSelectByCondition.decoder(cusName,cusManager,cusState);
+            ServerResponse<List<Customer>> serverResponse=iCustomerService.selectByCondition(map.get("param1"),map.get("param2"),map.get("param3"));
+            return serverResponse;
+        }
+
     }
 
     /**

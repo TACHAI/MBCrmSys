@@ -53,7 +53,7 @@ public class ServerResponse<T> implements Serializable {
     public boolean isSuccess() {
         return this.status == ResponseCode.SUCCESS.getCode();
     }
-    
+
     public static <T> ServerResponse<T> createBySuccess(){
         return new ServerResponse<T>(ResponseCode.SUCCESS.getCode());
     }
@@ -68,7 +68,6 @@ public class ServerResponse<T> implements Serializable {
     public static <T> ServerResponse<T> createBySuccess(T data, String msg) {
         return new ServerResponse<T>(ResponseCode.SUCCESS.getCode(), data, msg);
     }
-
 
     public static <T> ServerResponse<T> createByError() {
         return new ServerResponse<T>(ResponseCode.ERROR.getCode(), ResponseCode.ERROR.getDesc());
