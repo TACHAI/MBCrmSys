@@ -12,6 +12,7 @@
     <!-- 自定义js -->
     <script src="/assets/js/content.js?v=1.0.0"></script>
     <script type="text/javascript" src="/assets/js/jquery.serializejson.js"></script>
+    <script src="/assets/js/myjs.js"></script>
 
 
     <!-- Bootstrap table -->
@@ -66,11 +67,12 @@
                     <div class="col-lg-12">
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
-                                <h5>新建客户信息表</h5>
+                                <h5>编辑客户信息表</h5>
                             </div>
                             <div class="ibox-content">
                                 <div class="table-responsive">
                                     <form role="form" class="form-horizontal" id="customer" >
+                                        <input name="cusId"  style="display:none" type="text">
                                         <div class="ibox-content">
                                             <div class="form-group col-sm-6">
                                                 <label for="cusNumber" class="col-sm-4 control-label">客户编号：</label>
@@ -86,18 +88,17 @@
                                             </div>
 
                                             <div class="form-group col-sm-6">
-                                                <label for="cust_region" class="col-sm-4 control-label">地区：</label>
+                                                <label for="areId" class="col-sm-4 control-label">地区：</label>
                                                 <div class="col-sm-8">
-                                                    <select id="cust_region" name="custArea" class="form-control m-b">
-                                                        <option value=""></option>
+                                                    <select id="areId" name="cusAreId" class="form-control m-b"  onclick ="getBackOptions('http://localhost:8080/Assembly/getarea.do',this)">
+
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-6">
-                                                <label for="custLevel" class="col-sm-4 control-label">客户等级：</label>
+                                                <label for="ckId" class="col-sm-4 control-label">客户等级：</label>
                                                 <div class="col-sm-8">
-                                                    <select id="custLevel" name="custLevel" class="form-control m-b">
-                                                        <option value=""></option>
+                                                    <select id="ckId" name="cusCkId" class="form-control m-b" onclick="getBackOptions1('http://localhost:8080/Assembly/getrank.do',this)">
                                                     </select>
                                                 </div>
                                             </div>
@@ -186,18 +187,19 @@
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-6">
+                                                <label for="cusRegisterMoney" class="col-sm-4 control-label">注册资金（万元）：</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" value="" id="cusRegisterMoney" name="cusRegisterMoney" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-sm-6">
                                                 <label for="cusLegalPerson" class="col-sm-4 control-label">法人：</label>
                                                 <div class="col-sm-8">
                                                     <input type="text" class="form-control" value="" id="cusLegalPerson" name="cusLegalPerson" />
                                                 </div>
                                             </div>
 
-                                            <div class="form-group col-sm-6">
-                                                <label for="cusRegisterMoney" class="col-sm-4 control-label">注册资金（万元）：</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control" value="" id="cusRegisterMoney" name="cusRegisterMoney" />
-                                                </div>
-                                            </div>
+
                                             <div class="form-group col-sm-6">
                                                 <label for="cusRmb" class="col-sm-4 control-label">年营业额：</label>
                                                 <div class="col-sm-8">
@@ -243,12 +245,14 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
+
+
 <script type="text/javascript">
-    //将ajax返回的值在页面加载完成后赋值到控件中
-    $("#cust_level").find("option[value='<%=customer.getCustomerRank().getCkId()%>']").attr("selected",true);
-    $("#cust_region").find("option[value='<%=customer.getArea().getAreId()%>']").attr("selected",true);
+//    $("#cust_level").find("option[value='<%=customer.getCustomerRank().getCkId()%>']").attr("selected",true);
+//    $("#cust_region").find("option[value='<%=customer.getArea().getAreId()%>']").attr("selected",true);
     $("#back").click(function(){
         window.history.go(-1);
     })
@@ -265,6 +269,9 @@
             dataType:'json',
             success:function (data) {
                 if(data.status==0){
+                    alert(data.msg)
+                    window.history.go(-1);
+                }else{
                     alert(data.msg)
                     window.history.go(-1);
                 }
