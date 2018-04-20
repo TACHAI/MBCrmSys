@@ -46,61 +46,7 @@
     <div class="row">
         <div class="col-sm-6">
             <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>饼状图</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <!--<a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">-->
-                            <!--<i class="fa fa-wrench"></i>-->
-                        <!--</a>-->
-                        <!--<ul class="dropdown-menu dropdown-user">-->
-                            <!--<li><a href="graph_flot.html#">选项1</a>-->
-                            <!--</li>-->
-                            <!--<li><a href="graph_flot.html#">选项2</a>-->
-                            <!--</li>-->
-                        <!--</ul>-->
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="ibox-content">
-                    <div class="flot-chart">
-                        <div class="flot-chart-content" id="flot-pie-chart"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>柱状图 </h5>
-                    <!--<h5>柱状图 <small>自定义颜色</small></h5>-->
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <!--<a class="dropdown-toggle" data-toggle="dropdown" href="graph_flot.html#">-->
-                        <!--<i class="fa fa-wrench"></i>-->
-                        <!--</a>-->
-                        <!--<ul class="dropdown-menu dropdown-user">-->
-                        <!--<li><a href="graph_flot.html#">选项1</a>-->
-                        <!--</li>-->
-                        <!--<li><a href="graph_flot.html#">选项2</a>-->
-                        <!--</li>-->
-                        <!--</ul>-->
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="ibox-content">
-                    <div class="flot-chart">
-                        <div class="flot-chart-content" id="flot-bar-chart"></div>
-                    </div>
-                </div>
+                <div id="container0" style="width: 700px;height:400px;"></div>
             </div>
         </div>
 
@@ -108,25 +54,46 @@
 
 </div>
 <!-- 全局js -->
-<!-- 全局js -->
 <script src="/assets/js/jquery.min.js?v=2.1.4"></script>
 <script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
 <!-- 自定义js -->
 <script src="/assets/js/content.js?v=1.0.0"></script>
 
 
-<!-- Flot -->
-<script src="/assets/js/plugins/flot/jquery.flot.js"></script>
-<script src="/assets/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-<script src="/assets/js/plugins/flot/jquery.flot.resize.js"></script>
-<script src="/assets/js/plugins/flot/jquery.flot.pie.js"></script>
+<!-- 引入 highcharts.js -->
+<script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+
 
 <!-- 自定义js -->
 <script src="/assets/js/content.js?v=1.0.0"></script>
-<!-- Flot demo data -->
-<script src="/assets/js/demo/flot-demo.js"></script>
+
 </body>
 </html>
 <script type="text/javascript">
+    var options = {
+        chart: {
+            type: 'pie'                          //指定图表的类型，默认是折线图（line）
+        },
+        title: {
+            text: '客户贡献分析'                 // 标题
+        },
+        series: [{
+            type: 'pie',
+            name: '客户贡献分析',
+            data: [
+                ['华南', 45.0],
+                ['华北', 26.8], {
+                    name: '华山',
+                    y: 12.8,
+                    sliced: true,  // 突出显示某个扇区，表示强调
+                },
+                ['华中', 8.5],
+                ['华东', 6.2],
+                ['其他', 0.7]
+            ]
+        }]
+    };
+    // 图表初始化函数
+    var chart = Highcharts.chart('container0', options);
 
 </script>

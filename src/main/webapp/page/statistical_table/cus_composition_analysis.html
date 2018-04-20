@@ -24,13 +24,13 @@
                 <a href="" class="navbar-brand">客户构成分析</a>
             </div>
             <div class="navbar-collapse collapse" id="navbar">
-                <ul class="nav navbar-top-links navbar-right">
-                    <li>
-                        <a id="query">
-                            <i class="fa fa-search"></i> 查询
-                        </a>
-                    </li>
-                </ul>
+                <!--<ul class="nav navbar-top-links navbar-right">-->
+                    <!--<li>-->
+                        <!--<a id="query">-->
+                            <!--<i class="fa fa-search"></i> 查询-->
+                        <!--</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
                         <a href="login.html">
@@ -41,34 +41,84 @@
             </div>
         </nav>
     </div>
-    <div class="ibox float-e-margins">
-		<div class="ibox-title">
-            
+    <div class="row" style="height: 80px"></div>
+    <!-- 图表容器 DOM -->
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="ibox float-e-margins">
+                <div id="container0" style="width: 500px;height:400px;"></div>
+            </div>
         </div>
-        <div class="ibox-content">
-           <form role="form" class="form-horizontal" name="form1" action="" method="post">
-                <div class="row">   
-                   <div class="form-group col-sm-6">
-                       <label class="col-sm-5 control-label">报表方式：</label>
-                       <div class="col-sm-6">
-                           <select id="table_styles" name="table_styles" class="form-control">
-                               <option value="0">按等级</option>
-                               <option value="1">1</option>
-                               <option value="2">2</option>
-                               <option value="3">3</option>
-                               <option value="4">4</option>
-                           </select>
-                       </div>
-                   </div>
-                </div>
-                <input type="submit" style="display:none;" id="submit"/>
-           </form>
+        <div class="col-sm-6">
+            <div class="ibox float-e-margins">
+                <div id="container1" style="width: 500px;height:400px;"></div>
+            </div>
         </div>
     </div>
+    <!-- 引入 highcharts.js -->
+    <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+    <script>
+
+
+
+
+        // 图表配置
+        var options1 = {
+            title: {
+                text: '客户构成分析阶梯型直线图'
+            },
+            xAxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            },
+            series: [{
+                data: [1, 2, 3, 4, null, 6, 7, null, 9],
+                step: 'right', // 连接线转折对齐
+                name: '辉瑞集团'
+            }, {
+                data: [5, 6, 7, 8, null, 10, 11, null, 13],
+                step: 'center', // 连接线转折对齐
+                name: '人民医院'
+            }, {
+                data: [9, 10, 11, 12, null, 14, 15, null, 17],
+                step: 'left', // 连接线转折对齐
+                name: '医科大学'
+            }]
+        };
+
+        //柱状图
+        var options = {
+            chart: {
+                type: 'pie'                          //指定图表的类型，默认是折线图（line）
+            },
+            title: {
+                text: '客户构成分析'                 // 标题
+            },
+            series: [{
+                type: 'pie',
+                name: '客户构成分析',
+                data: [
+                    ['跨国药企', 45.0],
+                    ['医院', 26.8], {
+                        name: '医院',
+                        y: 12.8,
+                        sliced: true,  // 突出显示某个扇区，表示强调
+                    },
+                    ['高校院所', 8.5],
+                    ['本土药企', 6.2],
+                    ['其他', 0.7]
+                ]
+            }]
+        };
+
+
+        // 图表初始化函数
+        var chart = Highcharts.chart('container0', options);
+        var chart1 = Highcharts.chart('container1', options1);
+    </script>
 </div>
-<!-- 全局js -->
-<script src="/assets/js/jquery.min.js?v=2.1.4"></script>
-<script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
+
+<script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+
 </body>
 </html>
 <script type="text/javascript">
