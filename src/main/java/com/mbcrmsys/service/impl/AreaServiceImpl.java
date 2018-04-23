@@ -4,6 +4,7 @@ import com.mbcrmsys.dao.AreaMapper;
 import com.mbcrmsys.pojo.Area;
 import com.mbcrmsys.service.IAreaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,6 +25,7 @@ public class AreaServiceImpl implements IAreaService {
         return area;
     }
 
+    @Cacheable(cacheNames = "Area",key = "003")
     @Override
     public List<Area> selectArea() {
         List<Area> list= areaMapper.selectArea();

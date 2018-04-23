@@ -10,6 +10,7 @@ import com.mbcrmsys.util.CheckLogin;
 import com.mbcrmsys.util.DecoderSelectByCondition;
 import com.mbcrmsys.vo.CustomerVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -94,6 +95,8 @@ public class CustomerController {
         CheckLogin.check(session);
         return  iCustomerService.saveCustomer(customer);
     }
+
+    @Cacheable(cacheNames = "CusName",key = "001")
     @PostMapping("getCusName.do")
     @ResponseBody
     public ServerResponse<Map<String,String>> getCusName(HttpSession session,Integer cusId){

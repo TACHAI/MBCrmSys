@@ -31,6 +31,8 @@ public class ConsumerController {
         ServerResponse<Consumer> response=iConsumerService.login(user.getConName(),user.getConPassword());
         if(response.isSuccess()){
             session.setAttribute(Const.CURRENT_USER,response.getData());
+           //设置过期时间1小时
+            session.setMaxInactiveInterval(60*60);
         }
         return response;
     }

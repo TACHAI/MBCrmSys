@@ -9,6 +9,7 @@ import com.mbcrmsys.service.ICustomerRankSerivce;
 import com.mbcrmsys.service.ICustomerService;
 import com.mbcrmsys.vo.OpptionsVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,6 +36,8 @@ public class AssemblyController {
     private ICustomerService customerService;
     @Autowired
     private IAreaService areaService;
+
+    @Cacheable(cacheNames = "OpptionsVo",key = "002")
     @RequestMapping("getcus.do")
     public ServerResponse<List<OpptionsVo>> getCus(HttpSession session){
         List<Customer> list=customerService.selectCus();
@@ -47,6 +50,8 @@ public class AssemblyController {
         });
         return ServerResponse.createBySuccess(opptionsVoList,"获得客户列表");
     }
+
+    @Cacheable(cacheNames = "rank",key = "001")
     @RequestMapping("getrank.do")
     public ServerResponse<List<OpptionsVo>> getRank(HttpSession session){
         List<CustomerRank> list=customerRankSerivce.selectRank();
@@ -59,6 +64,8 @@ public class AssemblyController {
                 }).collect(Collectors.toList());
         return ServerResponse.createBySuccess(opptionsVoList,"获得客户等级列表");
     }
+
+    @Cacheable(cacheNames = "getarea",key = "004")
     @RequestMapping("getarea.do")
     public ServerResponse<List<OpptionsVo>> getArea(HttpSession session){
         List<Area> list=areaService.selectArea();

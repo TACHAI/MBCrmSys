@@ -11,6 +11,7 @@ import com.mbcrmsys.vo.CustomerVo;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -93,6 +94,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
     }
 
+    @Cacheable(cacheNames = "Customer",key = "004")
     @Override
     public List<Customer> selectCus() {
         List<Customer> list=customerMapper.selectCus();
