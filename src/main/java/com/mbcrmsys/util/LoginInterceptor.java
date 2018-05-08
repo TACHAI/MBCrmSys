@@ -1,6 +1,7 @@
 package com.mbcrmsys.util;
 
 import com.mbcrmsys.common.Const;
+import com.mbcrmsys.common.ServerResponse;
 import com.mbcrmsys.pojo.Consumer;
 import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -22,8 +23,8 @@ public class LoginInterceptor implements HandlerInterceptor {
         if(user!=null){
             return true;
         }else {
+            response.sendRedirect("login.html");
             return false;
-
         }
     }
 

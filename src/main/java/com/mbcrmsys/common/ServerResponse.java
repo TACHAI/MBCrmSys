@@ -19,22 +19,22 @@ public class ServerResponse<T> implements Serializable {
     private int status;
     private String msg;
     private T data;
-    
+
     private  ServerResponse(int status){
         this.status=status;
     }
-    
+
     private ServerResponse(int status,T data){
         this.status=status;
         this.data=data;
     }
-    
+
     private ServerResponse(int status,T data,String msg){
         this.status=status;
         this.data=data;
         this.msg=msg;
     }
-    
+
     private ServerResponse(int status, String msg){
         this.status=status;
         this.msg=msg;
@@ -45,7 +45,7 @@ public class ServerResponse<T> implements Serializable {
     }
 
     public String getMsg(){ return msg;}
-    
+
     public T getData(){ return data;}
 
     @JsonIgnore

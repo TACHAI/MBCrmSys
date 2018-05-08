@@ -81,10 +81,12 @@
 
     <!-- jedis 配置 -->
     <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxTotal" value="${redis.maxTotal}"/>
         <property name="maxIdle" value="${redis.maxIdle}" />
         <property name="minIdle" value="${redis.minIdle}" />
-        <property name="maxWaitMillis" value="${redis.maxWait}" />
-        <property name="testOnBorrow" value="${redis.testOnBorrow}" />
+        <!--<property name="maxWaitMillis" value="${redis.maxWait}" />-->
+        <property name="testOnBorrow" value="${redis.testOnBorrow}"/>
+        <property name="testOnReturn" value="${redis.testOnReturn}"/>
     </bean>
     <!-- redis服务器中心 -->
     <bean id="connectionFactory"
@@ -92,7 +94,7 @@
         <property name="poolConfig" ref="poolConfig" />
         <property name="port" value="${redis.port}" />
         <property name="hostName" value="${redis.host}" />
-        <property name="password" value="${redis.pass}" />
+        <!--<property name="password" value="${redis.pass}" />-->
         <property name="timeout" value="${redis.timeout}" />
     </bean>
     <!-- redis操作模板，面向对象的模板 -->

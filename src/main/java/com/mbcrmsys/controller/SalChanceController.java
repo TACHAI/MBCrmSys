@@ -50,14 +50,14 @@ public class SalChanceController {
     /**
      * 根据id删除销售机会
      * @param session
-     * @param id
+     * @param chcId
      * @return
      */
     @PostMapping("deletebyid.do")
     @ResponseBody
-    public ServerResponse<String> deleteById(HttpSession session,String id){
+    public ServerResponse<String> deleteById(HttpSession session,String chcId){
         CheckLogin.check(session);
-        Long salId=Long.parseLong(id);
+        Long salId=Long.parseLong(chcId);
         return iSalChanceService.deleteById(salId);
     }
     @PostMapping("selectbyid.do")

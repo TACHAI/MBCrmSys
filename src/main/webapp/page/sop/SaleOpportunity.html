@@ -301,7 +301,7 @@ function deleteSaleOpp(chcId){
         $.ajax({
             type:"post",
             url:"http://localhost:8080/saleopp/deletebyid.do",
-            data:{chcId:chcId}, //要发送的是ajaxFrm表单中的数据
+            data:{'chcId':chcId}, //要发送的是ajaxFrm表单中的数据
             dataType:'json',
             success:function (data) {
                 if(data.status==0){
