@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
 
-    <title>销售机会管理</title>
+    <title>知识库管理</title>
     <!--[if lt IE 9]>
-    <meta http-equiv="refresh" content="0;ie.html" />
+    <meta http-equiv="refresh" content="0;ie.html"/>
     <![endif]-->
 
     <link rel="shortcut icon" href="favicon.ico">
@@ -17,104 +17,275 @@
     <link href="/assets/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
     <link href="/assets/css/bootstrap-datetimepicker.css" rel="stylesheet">
     <link href="/assets/css/style.css?v=4.1.0" rel="stylesheet">
-    
+
 </head>
 <body class="gray-bg top-navigation">
 
-    <div id="wrapper">
-        <div id="page-wrapper" class="gray-bg">
-            <div class="row border-bottom white-bg">
-                <nav class="navbar navbar-static-top" role="navigation">
-                    <div class="navbar-header">
-                        <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
-                            <i class="fa fa-reorder"></i>
-                        </button>
-                        <a href="SaleOpportunity.html" class="navbar-brand">营销机会管理</a>
-                    </div>
-                    <div class="navbar-collapse collapse" id="navbar">
-                        <ul class="nav navbar-top-links navbar-right">
-                            <li>
-                                <a href="help.html">
-                                    <i class="fa fa-question"></i> 帮助
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/page/sop/NewSaleOpportunity.html">
-                                    <i class="fa fa-file-text"></i> 新建
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/login.html">
-                                    <i class="fa fa-sign-out"></i> 退出
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-            <div class="wrapper wrapper-content" >
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="ibox float-e-margins">
-                                <div class="ibox-title">
-                                    <h5>营销机会表</h5>
-                                </div>
-                                <div class="ibox-content">
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <div class="input-group">
-                                            	<span class="input-group-addon">客户名称</span>
-                                                <input type="text" placeholder="客户名称" class="input-sm form-control" name="chc_cust_name" id="chc_cust_name">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="input-group">
-                                            	<span class="input-group-addon">概要</span>
-                                                <input type="text" placeholder="概要" class="input-sm form-control" name="chc_title" id="chc_title">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <div class="input-group">
-                                            	<span class="input-group-addon">联系人</span>
-                                                <input type="text" placeholder="联系人" class="input-sm form-control" name="chc_linkman" id="chc_linkman">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3">
-                                        	<button id="button" class="btn btn-sm btn-primary">查询</button>
+<div id="wrapper">
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom white-bg">
+            <nav class="navbar navbar-static-top" role="navigation">
+                <div class="navbar-header">
+                    <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse"
+                            class="navbar-toggle collapsed" type="button">
+                        <i class="fa fa-reorder"></i>
+                    </button>
+                    <a href="SaleOpportunity.html" class="navbar-brand">热门问答管理</a>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar">
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <a href="help.html">
+                                <i class="fa fa-question"></i> 帮助
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/page/sop/NewSaleOpportunity.html">
+                                <i class="fa fa-file-text"></i> 新建
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/login.html">
+                                <i class="fa fa-sign-out"></i> 退出
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="wrapper wrapper-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>热门问答管理</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">问题</span>
+                                            <input type="text" placeholder="" class="input-sm form-control"
+                                                   name="chc_cust_name" id="chc_cust_name">
                                         </div>
                                     </div>
-                                    <div class="table-responsive">
+                                    <!--<div class="col-sm-3">-->
+                                        <!--<div class="input-group">-->
+                                            <!--<span class="input-group-addon">类别</span>-->
+                                            <!--<select  placeholder="" class="input-sm form-control"-->
+                                                   <!--name="chc_title" id="chc_title">-->
+                                                <!--<option value="未满意">不满意</option>-->
+                                                <!--<option value="未识别">未识别</option>-->
+                                            <!--</select>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-sm-3">-->
+                                        <!--<div class="input-group">-->
+                                            <!--<span class="input-group-addon">概要</span>-->
+                                            <!--<input type="text" placeholder="" class="input-sm form-control"-->
+                                                   <!--name="chc_linkman" id="chc_linkman">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="col-sm-3">
+                                        <button id="button" class="btn btn-sm btn-primary">查询</button>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
                                     <!-- 方法一中table里不能加data-url否则函数无法修改 -->
-                                        <table
-                                        id="chcCustNameTable"
-                                        data-toggle="table"
-                                        data-query-params="queryParams"
-                                        data-mobile-responsive="true"
-                                        data-pagination="true"
-                                        data-icon-size="outline"
-                                        data-search="false"
-                                        data-striped="true"
-                                        data-page-size="5"
-                                        data-page-number="1"
-                                        data-page-list="[1, 5, 10, 15, 20, 25]">
+                                    <table
+                                            id="chcCustNameTable"
+                                            data-toggle="table"
+                                            data-query-params="queryParams"
+                                            data-mobile-responsive="true"
+                                            data-pagination="true"
+                                            data-icon-size="outline"
+                                            data-search="false"
+                                            data-striped="true"
+                                            data-page-size="5"
+                                            data-page-number="1"
+                                            data-page-list="[1, 5, 10, 15, 20, 25]">
                                         <!--data-url="../ServletSO?chc_cust_name=&chc_title=&chc_linkman=">-->
-		                                	<thead>
-		                                        <tr>
-		                                            <!--<th data-field="state" data-checkbox="true"></th>-->
-		                                            <th data-field="chcId" data-visible="false">ID</th>
-		                                            <th data-field="chcCustName">客户名称</th>
-		                                            <th data-field="chcTitle">概要</th>
-		                                            <th data-field="chcLinkman">联系人</th>
-		                                            <th data-field="chcTel">电话</th>
-		                                            <th data-field="chcCreateDate" data-formatter="dateformatter">创建时间</th>
-		                                            <th data-field="operate" data-formatter="edit">操作</th>
-		                                        </tr>
-		                                    </thead>
-		                                </table>
-                                    </div>
+                                        <thead>
+                                        <tr>
+                                            <!--<th data-field="state" data-checkbox="true"></th>-->
+                                            <!--<th data-field="chcId" data-visible="false">ID</th>-->
+                                            <th data-field="chcCustName">问题</th>
+                                            <!--<th data-field="chcTitle">概要</th>-->
+                                            <th data-field="chcLinkman">答案</th>
+                                            <!--<th data-field="chcTel">类别</th>-->
+                                            <th data-field="chcCreateDate" data-formatter="dateformatter">修改时间</th>
+                                            <th data-field="operate" data-formatter="edit">操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr data-index="0">
+                                            <td style="">工程竣工验收报告定义</td>
+                                            <!--<td style="">验收报告</td>-->
+                                            <td style="">工程竣工验收报告主要内容...</td>
+                                            <!--<td style="">不满意</td>-->
+                                            <td style="">2018-07-6 12:23:10</td>
+                                            <td style="">
+                                                <button type="button"
+                                                        class="RoleOfD btn btn-primary  btn-sm"
+                                                        style="margin-right:15px;"
+                                                        onclick="distribution('EditSaleOpportunity.html','1')">
+                                                    修改
+                                                </button>
+                                                <button type="button"
+                                                class="RoleOfEdit btn btn-primary  btn-sm"
+                                                style="margin-right:15px;"
+                                                onclick="return deleteSaleOpp('1')">删除
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr data-index="1">
+                                            <td style="">消防设施检测合格证明文件审核方法</td>
+                                            <!--<td style="">消防设施检</td>-->
+                                            <td style="">是否符合法定形式...</td>
+                                            <!--<td style="">不满意</td>-->
+                                            <td style="">2018-07-7 12:23:10</td>
+                                            <td style="">
+                                                <button type="button"
+                                                        class="RoleOfD btn btn-primary  btn-sm"
+                                                        style="margin-right:15px;"
+                                                        onclick="distribution('EditSaleOpportunity.html','1')">
+                                                    修改
+                                                </button>
+                                                <button type="button"
+                                                class="RoleOfEdit btn btn-primary  btn-sm"
+                                                style="margin-right:15px;"
+                                                onclick="return deleteSaleOpp('1')">删除
+                                                </button>
+                                            </td>
+                                        </tr>
 
+                                        <tr data-index="2">
+                                            <td style="">单体建筑定义</td>
+                                            <!--<td style="">单体建筑</td>-->
+                                            <td style="">单体建筑定义...</td>
+                                            <!--<td style="">不满意</td>-->
+                                            <td style="">2018-07-7 13:23:10</td>
+                                            <td style="">
+                                                <button type="button"
+                                                        class="RoleOfD btn btn-primary  btn-sm"
+                                                        style="margin-right:15px;"
+                                                        onclick="distribution('EditSaleOpportunity.html','1')">
+                                                    修改
+                                                </button>
+                                                <button type="button"
+                                                        class="RoleOfEdit btn btn-primary  btn-sm"
+                                                        style="margin-right:15px;"
+                                                        onclick="return deleteSaleOpp('1')">删除
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr data-index="3">
+                                            <td style="">餐饮行业定义</td>
+                                            <!--<td style="">餐饮行业</td>-->
+                                            <td style="">餐饮行业定义...</td>
+                                            <!--<td style="">不满意</td>-->
+                                            <td style="">2018-07-8 12:43:10</td>
+                                            <td style="">
+                                                <button type="button"
+                                                        class="RoleOfD btn btn-primary  btn-sm"
+                                                        style="margin-right:15px;"
+                                                        onclick="distribution('EditSaleOpportunity.html','1')">
+                                                    修改
+                                                </button>
+                                                <button type="button"
+                                                        class="RoleOfEdit btn btn-primary  btn-sm"
+                                                        style="margin-right:15px;"
+                                                        onclick="return deleteSaleOpp('1')">删除
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr data-index="4">
+                                            <td style="">个体工商户定义</td>
+                                            <!--<td style="">个体工商户</td>-->
+                                            <td style="">个体工商户定义...</td>
+                                            <!--<td style="">不满意</td>-->
+                                            <td style="">2018-08-9 15:23:10</td>
+                                            <td style="">
+                                                <button type="button"
+                                                        class="RoleOfD btn btn-primary  btn-sm"
+                                                        style="margin-right:15px;"
+                                                        onclick="distribution('EditSaleOpportunity.html','1')">
+                                                    修改
+                                                </button>
+                                                <button type="button"
+                                                        class="RoleOfEdit btn btn-primary  btn-sm"
+                                                        style="margin-right:15px;"
+                                                        onclick="return deleteSaleOpp('1')">删除
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr data-index="5">
+                                            <td style="">有限公司定义</td>
+                                            <!--<td style="">有限公司</td>-->
+                                            <td style="">有限公司定义...</td>
+                                            <!--<td style="">不满意</td>-->
+                                            <td style="">2018-08-17 12:23:10</td>
+                                            <td style="">
+                                                <button type="button"
+                                                        class="RoleOfD btn btn-primary  btn-sm"
+                                                        style="margin-right:15px;"
+                                                        onclick="distribution('EditSaleOpportunity.html','1')">
+                                                    修改
+                                                </button>
+                                                <button type="button"
+                                                        class="RoleOfEdit btn btn-primary  btn-sm"
+                                                        style="margin-right:15px;"
+                                                        onclick="return deleteSaleOpp('1')">删除
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+
+
+                                        <div class="fixed-table-footer" style="display: none;">
+                                            <table>
+                                                <tbody>
+                                                <tr></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="fixed-table-pagination" style="display: block;">
+                                            <div class="pull-left pagination-detail"><span
+                                                    class="pagination-info">显示第 1 到第 5 条记录，总共 6 条记录</span><span
+                                                    class="page-list">每页显示 <span
+                                                    class="btn-group dropup"><button type="button"
+                                                                                     class="btn btn-default  btn-outline dropdown-toggle"
+                                                                                     data-toggle="dropdown"><span
+                                                    class="page-size">5</span> <span
+                                                    class="caret"></span></button><ul
+                                                    class="dropdown-menu" role="menu"><li><a
+                                                    href="javascript:void(0)">1</a></li><li
+                                                    class="active"><a
+                                                    href="javascript:void(0)">5</a></li><li><a
+                                                    href="javascript:void(0)">10</a></li></ul></span> 条记录</span>
+                                            </div>
+                                            <div class="pull-right pagination">
+                                                <ul class="pagination pagination-outline">
+                                                    <li class="page-first disabled"><a
+                                                            href="javascript:void(0)">«</a></li>
+                                                    <li class="page-pre disabled"><a
+                                                            href="javascript:void(0)">‹</a></li>
+                                                    <li class="page-number active"><a
+                                                            href="javascript:void(0)">1</a></li>
+                                                    <li class="page-number"><a
+                                                            href="javascript:void(0)">2</a></li>
+                                                    <li class="page-next"><a
+                                                            href="javascript:void(0)">›</a></li>
+                                                    <li class="page-last"><a
+                                                            href="javascript:void(0)">»</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </table>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -122,201 +293,243 @@
             </div>
         </div>
     </div>
+</div>
 
-    <!-- 按钮触发模态框 -->
+<!-- 按钮触发模态框 -->
 
-    <!-- 模态框（Modal） -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
-                    <input type="text" style="display: none"  id="chcid" value="">
-                    <h4 class="modal-title" id="myModalLabel">
-                        分配机会
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-bordered">
-                        <thead>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <input type="text" style="display: none" id="chcid" value="">
+                <h4 class="modal-title" id="myModalLabel">
+                    AI能力提升
+                </h4>
+            </div>
+            <div class="modal-body">
+                <!--<table class="table table-bordered">-->
+                    <!--<thead>-->
+                    <!--<tr>-->
+                        <!--<td>-->
+                            <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+                            <!--<label for="chcDueName" class="col-sm-3 control-label">指派给</label>-->
+                            <!--<div class="col-sm-8">-->
+                                <!--<input type="text" class="form-control" id="chcDueName" required placeholder="请输入名字">-->
+                            <!--</div>-->
+                        <!--</td>-->
+                        <!--<td>-->
+                            <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+                            <!--<label for="chcDueDate" class="col-sm-3 control-label">指派时间</label>-->
+                            <!--<div class="col-sm-8">-->
+                                <!--<input type="text" class="form-control" required id="chcDueDate" placeholder="指派时间">-->
+                            <!--</div>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--</thead>-->
+                <!--</table>-->
+                <table class="table table-bordered">
+                    <thead>
                         <tr>
-                            <td>
-                                <!--<div class="form-group">-->
-                                <label for="chcDueName" class="col-sm-3 control-label">指派给</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="chcDueName" required placeholder="请输入名字">
-                                </div>
-                            </td>
-                            <td>
-                                <!--<div class="form-group">-->
-                                <label for="chcDueDate" class="col-sm-3 control-label">指派时间</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control"  required id="chcDueDate" placeholder="指派时间">
-                                </div>
+                            <td colspan="4" align="center">
+                                工程竣工验收报告定义
                             </td>
                         </tr>
-                        </thead>
-                    </table>
+                        <tr>
+                            <td>
+                                <input type="button" class="btn btn-primary" value="设为无关问题">
+                            </td>
+                            <td>
+                                <input type="button" class="btn btn-primary" value="设为有效问题">
+                            </td>
+                            <td>
+                                <input type="button" class="btn btn-primary" value="设为新问题">
+                            </td>
+                            <td>
+                                <input type="button" class="btn btn-primary" value="跳过该问题">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>已存在问题列表：</td>
+                            <td colspan="3">
+                                <select style="width: 80%">
+                                    <option value="请选择">请选择</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>输入新问题答案：</td>
+                            <td colspan="3">
+                                <input type="text" style="width: 80%">
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-                    </button>
-                    <button type="button" class="btn btn-primary" id="distributionSal">
-                        提交更改
-                    </button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal -->
-    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <!--<button type="button" class="btn btn-primary" id="distributionSal">-->
+                    <!--提交更改-->
+                <!--</button>-->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
 
-    <!-- 全局js -->
-    <script src="/assets/js/jquery.min.js?v=2.1.4"></script>
-    <script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
+<!-- 全局js -->
+<script src="/assets/js/jquery.min.js?v=2.1.4"></script>
+<script src="/assets/js/bootstrap.min.js?v=3.3.6"></script>
 
-    <!-- 自定义js -->
-    <script src="/assets/js/content.js?v=1.0.0"></script>
+<!-- 自定义js -->
+<script src="/assets/js/content.js?v=1.0.0"></script>
 
 
-    <!-- Bootstrap table -->
-    <script src="/assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
-    <script src="/assets/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
-    <script src="/assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+<!-- Bootstrap table -->
+<script src="/assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="/assets/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+<script src="/assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
 
-    <!-- Peity -->
-    <script src="/assets/js/demo/bootstrap-table-demo.js"></script>
-    <script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="/assets/js/myjs.js"></script>
+<!-- Peity -->
+<script src="/assets/js/demo/bootstrap-table-demo.js"></script>
+<script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/assets/js/myjs.js"></script>
 
 
 <script type="text/javascript">
 
     //date输入框样式
     $("#chcDueDate").datetimepicker({
-        format:'yyyy-mm-dd hh:ii:ss',  //格式  如果只有yyyy-mm-dd那就是0000-00-00
-        autoclose:true,//选择后是否自动关闭
-        minView:0,//最精准的时间选择为日期  0-分 1-时 2-日 3-月
-        language:  'zh-CN', //中文
+        format: 'yyyy-mm-dd hh:ii:ss',  //格式  如果只有yyyy-mm-dd那就是0000-00-00
+        autoclose: true,//选择后是否自动关闭
+        minView: 0,//最精准的时间选择为日期  0-分 1-时 2-日 3-月
+        language: 'zh-CN', //中文
         weekStart: 1, //一周从星期几开始
-        todayBtn:  1,
+        todayBtn: 1,
         autoclose: 1,
         todayHighlight: 1,
         startView: 2,
         forceParse: 0,
         // daysOfWeekDisabled:"1,2,3", //一周的周几不能选 格式为"1,2,3"  数组格式也行
-        todayBtn : true,  //在底部是否显示今天
-        todayHighlight :false, //今天是否高亮显示
-        keyboardNavigation:true, //方向图标改变日期  必须要有img文件夹 里面存放图标
-        showMeridian:false,  //是否出现 上下午
-        initialDate:new Date()
+        todayBtn: true,  //在底部是否显示今天
+        todayHighlight: false, //今天是否高亮显示
+        keyboardNavigation: true, //方向图标改变日期  必须要有img文件夹 里面存放图标
+        showMeridian: false,  //是否出现 上下午
+        initialDate: new Date()
         //startDate: "2017-01-01" //日期开始时间 也可以是new Date()只能选择以后的时间
     })
-//传参数到后台
-function initTable() {
-var chc_cust_name = document.getElementById("chc_cust_name").value;
-var chc_title = document.getElementById("chc_title").value;
-var chc_linkman = document.getElementById("chc_linkman").value;
-var url = "http://localhost:8080/saleopp/getall.do?chc_cust_name="+chc_cust_name+"&chc_title="+chc_title+"&chc_linkman="+chc_linkman;
-url=encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
-	//先销毁表格  
-	$('#chcCustNameTable').bootstrapTable('destroy');
-	//初始化表格,动态从服务器加载数据  
-	$("#chcCustNameTable").bootstrapTable({
-		method: "get",  //使用get请求到服务器获取数据
-		url: url,
-	});  
-}
-//查询按钮点击事件
-$("#button").click(function(){
-    initTable();
-});
+    //传参数到后台
+    function initTable() {
+        var chc_cust_name = document.getElementById("chc_cust_name").value;
+        var chc_title = document.getElementById("chc_title").value;
+        var chc_linkman = document.getElementById("chc_linkman").value;
+        var url = "http://localhost:8080/saleopp/getall.do?chc_cust_name=" + chc_cust_name + "&chc_title=" + chc_title + "&chc_linkman=" + chc_linkman;
+        url = encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
+        //先销毁表格
+        $('#chcCustNameTable').bootstrapTable('destroy');
+        //初始化表格,动态从服务器加载数据
+        $("#chcCustNameTable").bootstrapTable({
+            method: "get",  //使用get请求到服务器获取数据
+            url: url,
+        });
+    }
+    //查询按钮点击事件
+    $("#button").click(function () {
+        initTable();
+    });
 
-//table初始化的时候把按钮插入
- function edit (value, row, index) {
-    var a = '<button type="button" class="RoleOfD btn btn-primary  btn-sm" style="margin-right:15px;" onclick="editSaleOpp(\'' + "EditSaleOpportunity.html" + '\',\'' + row.chcId + '\')">编辑</button>';
-    var b = '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="return deleteSaleOpp(\'' + row.chcId + '\')">删除</a> ';
-    var c=  '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="distribution(\'' + row.chcId + '\')">分配</a> ';
-    return a + b + c;
-}
-//渲染表格时将日期类型转好格式
-function dateformatter(value,row,index) {
-     var date=TimestampToDate(row.chcCreateDate);
-     return date
-}
-//点击分配按钮从后台返回数据渲染到model中
-function distribution(id) {
-    $("#chcid").val(id);
-    $.ajax({
-        type:'post',
-        url:'http://localhost:8080/saleopp/selectbyid.do',
-        data:{'chcId':id},
-        dataType:'json',
-        success:function (data) {
-            if(data.status==0){
-                $("#chcDueName").val(data.data["chcDueName"]);
-                var date=TimestampToDate(data.data['chcDueDate']);
-                console.info(date+"后台传过来的值"+$("#chcDueName").val())
-                console.info(data.data["chcDueName"]+"后台传过来的值")
-                $("#chcDueDate").val(date);
-                $("#myModal").modal('show');
-            }
-        },
-        error:function (data) {
-            console.info("发生了错误",data);
-        }
-    })
-}
-//将分配数据保存到后台
-$("#distributionSal").click(function () {
-     var chcId=$("#chcid").val();
-     var chcDueName=$("#chcDueName").val();
-     var chcDueDate=$("#chcDueDate").val();
-    $.ajax({
-        type:'post',
-        url:'http://localhost:8080/saleopp/distributionsal.do',
-        data:{'chcId':chcId,'chcDueName':chcDueName,'chcDueDate':chcDueDate},
-        dataType:'json',
-        success:function(data){
-            if(data.status==0){
-                $("#myModal").modal('hide')
-                alert("保存成功")
-            }
-        },
-        error:function(data){
-            console.info("发生了错误",data)
-            $('#myModal').modal('hide')
-        }
-    })
-})
-function editSaleOpp(url,chcId){
-    window.location.href = "http://localhost:8080/page/sop/"+url+'?'+"chcId="+chcId;
-}
+    //table初始化的时候把按钮插入
+    function edit(value, row, index) {
+//                var a = '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="distribution(\'' + row.chcId + '\')">处理</a> ';
+        var a = '<button type="button" class="RoleOfD btn btn-primary  btn-sm" style="margin-right:15px;" onclick="editSaleOpp(\'' + "EditSaleOpportunity.html" + '\',\'' + row.chcId + '\')">修改</button>';
+        var b = '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="return deleteSaleOpp(\'' + row.chcId + '\')">删除</a> ';
+//        var c = '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="distribution(\'' + row.chcId + '\')">分配</a> ';
+//        return a + b + c;
+        return a +b;
+    }
+    //渲染表格时将日期类型转好格式
+    function dateformatter(value, row, index) {
+        var date = TimestampToDate(row.chcCreateDate);
+        return date
+    }
+    //点击分配按钮从后台返回数据渲染到model中
+    function distribution(id) {
 
-function deleteSaleOpp(chcId){
-    if(confirm('确定要执行此操作吗?'))
-    {
-        console.info('id:'+chcId)
+        $("#myModal").modal('show');
+
+//        $("#chcid").val(id);
+//        $.ajax({
+//            type: 'post',
+//            url: 'http://localhost:8080/saleopp/selectbyid.do',
+//            data: {'chcId': id},
+//            dataType: 'json',
+//            success: function (data) {
+//                if (data.status == 0) {
+//                    $("#chcDueName").val(data.data["chcDueName"]);
+//                    var date = TimestampToDate(data.data['chcDueDate']);
+//                    console.info(date + "后台传过来的值" + $("#chcDueName").val())
+//                    console.info(data.data["chcDueName"] + "后台传过来的值")
+//                    $("#chcDueDate").val(date);
+//                    $("#myModal").modal('show');
+//                }
+//            },
+//            error: function (data) {
+//                console.info("发生了错误", data);
+//            }
+//        })
+    }
+    //将分配数据保存到后台
+    $("#distributionSal").click(function () {
+        var chcId = $("#chcid").val();
+        var chcDueName = $("#chcDueName").val();
+        var chcDueDate = $("#chcDueDate").val();
         $.ajax({
-            type:"post",
-            url:"http://localhost:8080/saleopp/deletebyid.do",
-            data:{'chcId':chcId}, //要发送的是ajaxFrm表单中的数据
-            dataType:'json',
-            success:function (data) {
-                if(data.status==0){
-                    initTable()
+            type: 'post',
+            url: 'http://localhost:8080/saleopp/distributionsal.do',
+            data: {'chcId': chcId, 'chcDueName': chcDueName, 'chcDueDate': chcDueDate},
+            dataType: 'json',
+            success: function (data) {
+                if (data.status == 0) {
+                    $("#myModal").modal('hide')
+                    alert("保存成功")
                 }
             },
-            error:function (data) {
-                console.info("代码出现了错误请联系开发者：",data);
-                alter("代码出现了错误请联系开发者")
+            error: function (data) {
+                console.info("发生了错误", data)
+                $('#myModal').modal('hide')
             }
-        });
-        return true;
+        })
+    })
+    function editSaleOpp(url, chcId) {
+        window.location.href = "http://localhost:8080/page/sop/" + url + '?' + "chcId=" + chcId;
     }
-    return false;
-}
+
+    function deleteSaleOpp(chcId) {
+        if (confirm('确定要执行此操作吗?')) {
+            console.info('id:' + chcId)
+            $.ajax({
+                type: "post",
+                url: "http://localhost:8080/saleopp/deletebyid.do",
+                data: {'chcId': chcId}, //要发送的是ajaxFrm表单中的数据
+                dataType: 'json',
+                success: function (data) {
+                    if (data.status == 0) {
+                        initTable()
+                    }
+                },
+                error: function (data) {
+                    console.info("代码出现了错误请联系开发者：", data);
+                    alter("代码出现了错误请联系开发者")
+                }
+            });
+            return true;
+        }
+        return false;
+    }
 </script>
 </body>
 </html>

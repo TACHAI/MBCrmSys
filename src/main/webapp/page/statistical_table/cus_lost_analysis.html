@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
     <!--[if lt IE 9]>
-    <meta http-equiv="refresh" content="0;ie.html" />
+    <meta http-equiv="refresh" content="0;ie.html"/>
     <![endif]-->
 
     <link rel="shortcut icon" href="/assets/favicon.ico">
     <link href="/assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="/assets/css/animate.css" rel="stylesheet">
+    <link href="/assets/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap-datetimepicker.css" rel="stylesheet">
     <link href="/assets/css/style.css?v=4.1.0" rel="stylesheet">
 </head>
 <body class="gray-bg top-navigation">
@@ -18,18 +20,19 @@
     <div class="row border-bottom white-bg">
         <nav class="navbar navbar-static-top" role="navigation">
             <div class="navbar-header">
-                <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse"
+                        class="navbar-toggle collapsed" type="button">
                     <i class="fa fa-reorder"></i>
                 </button>
-                <a href="" class="navbar-brand">客户流失分析</a>
+                <a href="" class="navbar-brand">统计报表管理</a>
             </div>
             <div class="navbar-collapse collapse" id="navbar">
                 <!--<ul class="nav navbar-top-links navbar-right">-->
-                    <!--<li>-->
-                        <!--<a id="query">-->
-                            <!--<i class="fa fa-search"></i> 查询-->
-                        <!--</a>-->
-                    <!--</li>-->
+                <!--<li>-->
+                <!--<a id="query">-->
+                <!--<i class="fa fa-search"></i> 查询-->
+                <!--</a>-->
+                <!--</li>-->
                 <!--</ul>-->
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
@@ -45,83 +48,228 @@
 
     <div class="row">
         <div class="col-sm-6">
-            <div class="ibox float-e-margins">
-                <div id="container0" style="width: 500px;height:400px;"></div>
-            </div>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th colspan="4" align="center">热门问题</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tbody>
+                <tr data-index="0">
+                    <td>1</td>
+                    <td style="">工程竣工验收报告定义</td>
+                    <!--<td style="">验收报告</td>-->
+                    <td style="">工程竣工验收报告主要内容...</td>
+                    <!--<td style="">不满意</td>-->
+                    <td style="">2018-07-6 12:23:10</td>
+                </tr>
+                <tr data-index="1">
+                    <td>2</td>
+                    <td style="">消防设施检测合格证明文件审核方法</td>
+                    <!--<td style="">消防设施检</td>-->
+                    <td style="">是否符合法定形式...</td>
+                    <!--<td style="">不满意</td>-->
+                    <td style="">2018-07-7 12:23:10</td>
+                </tr>
+
+                <tr data-index="2">
+                    <td>2</td>
+                    <td style="">单体建筑定义</td>
+                    <!--<td style="">单体建筑</td>-->
+                    <td style="">单体建筑定义...</td>
+                    <!--<td style="">不满意</td>-->
+                    <td style="">2018-07-7 13:23:10</td>
+                </tr>
+                <tr data-index="3">
+                    <td>3</td>
+                    <td style="">餐饮行业定义</td>
+                    <!--<td style="">餐饮行业</td>-->
+                    <td style="">餐饮行业定义...</td>
+                    <!--<td style="">不满意</td>-->
+                    <td style="">2018-07-8 12:43:10</td>
+                </tr>
+                <tr data-index="4">
+                    <td>3</td>
+                    <td style="">个体工商户定义</td>
+                    <!--<td style="">个体工商户</td>-->
+                    <td style="">个体工商户定义...</td>
+                    <!--<td style="">不满意</td>-->
+                    <td style="">2018-08-9 15:23:10</td>
+                </tr>
+                <tr data-index="5">
+                    <td>5</td>
+                    <td style="">有限公司定义</td>
+                    <!--<td style="">有限公司</td>-->
+                    <td style="">有限公司定义...</td>
+                    <!--<td style="">不满意</td>-->
+                    <td style="">2018-08-17 12:23:10</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
         <div class="col-sm-6">
             <div class="ibox float-e-margins">
-                <div id="container1" style="width: 500px;height:400px;"></div>
+                <div id="container0"></div>
             </div>
         </div>
+    </div>
 
+    <div class="row">
+
+        <div class="col-sm-3">
+            <div class="ibox float-e-margins">
+                <div id="container1"></div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="ibox float-e-margins">
+                <div id="container2"></div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="ibox float-e-margins">
+                <div id="container3"></div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="ibox float-e-margins">
+                <div id="container4"></div>
+            </div>
+            <div class="col-sm-3">
+                <div class="ibox float-e-margins">
+                    <div id="container5"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <!-- 全局js -->
 <script src="js/jquery.min.js?v=2.1.4"></script>
 <script src="js/bootstrap.min.js?v=3.3.6"></script>
 
+<!-- Bootstrap table -->
+<script src="/assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="/assets/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+<script src="/assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+
 <!-- 引入 highcharts.js -->
 <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
 <script>
 
 
-
-
-    // 图表配置
-    var options1 = {
-        title: {
-            text: '客户流失阶梯型直线图'
-        },
-        xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        },
-        series: [{
-            data: [9, 7, 6, 4, null, 3, 2, null, 2],
-            step: 'right', // 连接线转折对齐
-            name: '17年'
-        }, {
-            data: [5, 6, 7, 8, null, 10, 11, null, 10],
-            step: 'center', // 连接线转折对齐
-            name: '16年'
-        }, {
-            data: [9, 10, 11, 12, null, 10, 9, null, 7],
-            step: 'left', // 连接线转折对齐
-            name: '15年'
-        }]
-    };
-
-    //柱状图
+    //饼状图
     var options = {
         chart: {
-            type: 'pie'                          //指定图表的类型，默认是折线图（line）
+            type: 'pie'
         },
         title: {
-            text: '客户流失分析'                 // 标题
+            text: '用户对AI答复的满意度'
         },
         series: [{
             type: 'pie',
-            name: '客户流失分析',
+            name: '答复的满意度',
             data: [
-                ['华南', 45.0],
-                ['华北', 26.8], {
-                    name: '华山',
-                    y: 12.8,
+                ['满意', 72],
+                {
+                    name: '不满意',
+                    y: 28,
                     sliced: true,  // 突出显示某个扇区，表示强调
-                },
-                ['华中', 8.5],
-                ['华东', 6.2],
-                ['其他', 0.7]
+                }
             ]
         }]
     };
 
 
+    // 图表配置
+    var options1 = {
+        title: {
+            text: '每月用户提出问题数直线图'
+        },
+        yAxis: {
+            categories: ['200', '300', '400', '500', '600', '700']
+        },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        series: [{
+            data: [220, 250, 230, 300, 320, 280, 310, 330, 310, null, null, null],
+//            step: 'center', // 连接线转折对齐
+            name: '18年'
+        }]
+    }
+
+    var options2 = {
+        chart:{
+            type:'column'
+        },
+        title: {
+            text: 'AI引导事项办理数'
+        },
+        yAxis: {
+            categories: [ '300', '400', '500', '600', '700']
+        },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        series: [{
+            data: [320, 450, 430, 300, 320, 480, 430, 450, 480, null, null, null],
+            step: 'right', // 连接线转折对齐
+            name: '18年'
+        }]
+    }
+
+    var options3 = {
+        chart:{
+            type:'column'
+        },
+        title: {
+            text: '用户数'
+        },
+        yAxis: {
+            categories: ['2000', '3000', '4000', '5000', '6000', '7000']
+        },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        series: [{
+            data: [2200, 2500, 2300, 3000, 3200, 2800, 3100, 3300, 3100, null, null, null],
+            step: 'right', // 连接线转折对齐
+            name: '18年'
+        }]
+    }
+
+    var options4 = {
+        chart:{
+            type:'column'
+        },
+        title: {
+            text: 'AI回答的问题'
+        },
+        yAxis: {
+            categories: ['200', '300', '400', '500', '600', '700']
+        },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        series: [{
+            data: [220, 250, 230, 300, 320, 280, 310, 330, 310, null, null, null],
+            step: 'right', // 连接线转折对齐
+            name: '18年'
+        }]
+    }
+
+
+
+
     // 图表初始化函数
     var chart = Highcharts.chart('container0', options);
     var chart1 = Highcharts.chart('container1', options1);
+    var chart2 = Highcharts.chart('container2', options2);
+    var chart3 = Highcharts.chart('container3', options3);
+    var chart4 = Highcharts.chart('container4', options4);
 </script>
-
 
 
 <!-- 自定义js -->
@@ -133,8 +281,8 @@
 </body>
 </html>
 <script type="text/javascript">
-$("#query").click(function(){
-	$("#submit").click();
-});
+    $("#query").click(function () {
+        $("#submit").click();
+    });
 
 </script>
